@@ -10,11 +10,16 @@ parameters:
         - app/
         - routes/
         - database/
+        - tests/
 
     excludePaths:
         - storage
         - vendor
         - bootstrap/cache
 
-#    ignoreErrors:
+    ignoreErrors:
+        -   
+            message: '#Undefined variable: \$this#'
+            path: tests/Pest.php
+
 #        - '#PHPDoc tag @var#'
