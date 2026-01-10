@@ -5,15 +5,19 @@ use Illuminate\Auth\Events\Verified;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\URL;
 
-test('email verification screen can be rendered', function () {
+use function Pest\Laravel\actingAs;
+
+test('email verification screen can be rendered', function (): void {
+    /** @var User $user */
     $user = User::factory()->unverified()->create();
 
-    $response = $this->actingAs($user)->get(route('verification.notice'));
+    $response = actingAs($user)->get(route('verification.notice'));
 
     $response->assertStatus(200);
 });
 
-test('email can be verified', function () {
+test('email can be verified', function (): void {
+    /** @var User $user */
     $user = User::factory()->unverified()->create();
 
     Event::fake();
@@ -21,17 +25,18 @@ test('email can be verified', function () {
     $verificationUrl = URL::temporarySignedRoute(
         'verification.verify',
         now()->addMinutes(60),
-        ['id' => $user->id, 'hash' => sha1($user->email)]
+        ['id' => $user->id, 'hash' => sha1((string) $user->email)]
     );
 
-    $response = $this->actingAs($user)->get($verificationUrl);
+    $response = actingAs($user)->get($verificationUrl);
 
     Event::assertDispatched(Verified::class);
     expect($user->fresh()->hasVerifiedEmail())->toBeTrue();
     $response->assertRedirect(route('dashboard', absolute: false).'?verified=1');
 });
 
-test('email is not verified with invalid hash', function () {
+test('email is not verified with invalid hash', function (): void {
+    /** @var User $user */
     $user = User::factory()->unverified()->create();
 
     Event::fake();
@@ -42,13 +47,14 @@ test('email is not verified with invalid hash', function () {
         ['id' => $user->id, 'hash' => sha1('wrong-email')]
     );
 
-    $this->actingAs($user)->get($verificationUrl);
+    actingAs($user)->get($verificationUrl);
 
     Event::assertNotDispatched(Verified::class);
     expect($user->fresh()->hasVerifiedEmail())->toBeFalse();
 });
 
-test('email is not verified with invalid user id', function () {
+test('email is not verified with invalid user id', function (): void {
+    /** @var User $user */
     $user = User::factory()->unverified()->create();
 
     Event::fake();
@@ -56,27 +62,29 @@ test('email is not verified with invalid user id', function () {
     $verificationUrl = URL::temporarySignedRoute(
         'verification.verify',
         now()->addMinutes(60),
-        ['id' => 123, 'hash' => sha1($user->email)]
+        ['id' => 123, 'hash' => sha1((string) $user->email)]
     );
 
-    $this->actingAs($user)->get($verificationUrl);
+    actingAs($user)->get($verificationUrl);
 
     Event::assertNotDispatched(Verified::class);
     expect($user->fresh()->hasVerifiedEmail())->toBeFalse();
 });
 
-test('verified user is redirected to dashboard from verification prompt', function () {
+test('verified user is redirected to dashboard from verification prompt', function (): void {
+    /** @var User $user */
     $user = User::factory()->create();
 
     Event::fake();
 
-    $response = $this->actingAs($user)->get(route('verification.notice'));
+    $response = actingAs($user)->get(route('verification.notice'));
 
     Event::assertNotDispatched(Verified::class);
     $response->assertRedirect(route('dashboard', absolute: false));
 });
 
-test('already verified user visiting verification link is redirected without firing event again', function () {
+test('already verified user visiting verification link is redirected without firing event again', function (): void {
+    /** @var User $user */
     $user = User::factory()->create();
 
     Event::fake();
@@ -84,10 +92,10 @@ test('already verified user visiting verification link is redirected without fir
     $verificationUrl = URL::temporarySignedRoute(
         'verification.verify',
         now()->addMinutes(60),
-        ['id' => $user->id, 'hash' => sha1($user->email)]
+        ['id' => $user->id, 'hash' => sha1((string) $user->email)]
     );
 
-    $this->actingAs($user)->get($verificationUrl)
+    actingAs($user)->get($verificationUrl)
         ->assertRedirect(route('dashboard', absolute: false).'?verified=1');
 
     Event::assertNotDispatched(Verified::class);

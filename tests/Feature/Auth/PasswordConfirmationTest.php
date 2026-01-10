@@ -3,10 +3,14 @@
 use App\Models\User;
 use Inertia\Testing\AssertableInertia as Assert;
 
-test('confirm password screen can be rendered', function () {
+use function Pest\Laravel\actingAs;
+use function Pest\Laravel\get;
+
+test('confirm password screen can be rendered', function (): void {
+    /** @var User $user */
     $user = User::factory()->create();
 
-    $response = $this->actingAs($user)->get(route('password.confirm'));
+    $response = actingAs($user)->get(route('password.confirm'));
 
     $response->assertStatus(200);
 
@@ -15,8 +19,8 @@ test('confirm password screen can be rendered', function () {
     );
 });
 
-test('password confirmation requires authentication', function () {
-    $response = $this->get(route('password.confirm'));
+test('password confirmation requires authentication', function (): void {
+    $response = get(route('password.confirm'));
 
     $response->assertRedirect(route('login'));
 });

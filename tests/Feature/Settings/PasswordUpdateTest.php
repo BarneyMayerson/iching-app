@@ -3,21 +3,23 @@
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
-test('password update page is displayed', function () {
+use function Pest\Laravel\actingAs;
+
+test('password update page is displayed', function (): void {
+    /** @var User $user */
     $user = User::factory()->create();
 
-    $response = $this
-        ->actingAs($user)
+    $response = actingAs($user)
         ->get(route('user-password.edit'));
 
     $response->assertStatus(200);
 });
 
-test('password can be updated', function () {
+test('password can be updated', function (): void {
+    /** @var User $user */
     $user = User::factory()->create();
 
-    $response = $this
-        ->actingAs($user)
+    $response = actingAs($user)
         ->from(route('user-password.edit'))
         ->put(route('user-password.update'), [
             'current_password' => 'password',
@@ -32,11 +34,11 @@ test('password can be updated', function () {
     expect(Hash::check('new-password', $user->refresh()->password))->toBeTrue();
 });
 
-test('correct password must be provided to update password', function () {
+test('correct password must be provided to update password', function (): void {
+    /** @var User $user */
     $user = User::factory()->create();
 
-    $response = $this
-        ->actingAs($user)
+    $response = actingAs($user)
         ->from(route('user-password.edit'))
         ->put(route('user-password.update'), [
             'current_password' => 'wrong-password',
