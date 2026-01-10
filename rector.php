@@ -6,12 +6,19 @@ use Rector\Config\RectorConfig;
 use Rector\TypeDeclaration\Rector\StmtsAwareInterface\DeclareStrictTypesRector;
 use RectorLaravel\Rector\Class_\AddExtendsAnnotationToModelFactoriesRector;
 use RectorLaravel\Rector\ClassMethod\AddGenericReturnTypeToRelationsRector;
+use RectorLaravel\Set\LaravelSetList;
 
 return RectorConfig::configure()
     ->withPaths([
         __DIR__.'/app',
         __DIR__.'/database',
         __DIR__.'/routes',
+        __DIR__.'/tests',
+    ])
+    ->withSets([
+        LaravelSetList::LARAVEL_120,
+        LaravelSetList::LARAVEL_CODE_QUALITY,
+        LaravelSetList::LARAVEL_COLLECTION,
     ])
     ->withRules([
         DeclareStrictTypesRector::class,
@@ -19,6 +26,6 @@ return RectorConfig::configure()
         AddGenericReturnTypeToRelationsRector::class,
     ])
     ->withPhpSets(php84: true)
-    ->withTypeCoverageLevel(0)
-    ->withDeadCodeLevel(0)
-    ->withCodeQualityLevel(0);
+    ->withTypeCoverageLevel(5)
+    ->withDeadCodeLevel(5)
+    ->withCodeQualityLevel(5);
