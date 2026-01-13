@@ -23,11 +23,12 @@ return new class extends Migration
             $table->foreignId('lower_trigram_id')->constrained('trigrams');
             $table->string('binary', 6);
             $table->json('lines')->nullable(); // [1,1,1,1,1,1]
+            $table->text('judgment');
 
             // Эти поля нужно будет заполнить позже из других источников
-            $table->text('judgment')->nullable();
-            $table->text('image')->nullable();
             $table->text('description')->nullable();
+            $table->text('image')->nullable(); // ВОзможное второе толкование
+
         });
     }
 

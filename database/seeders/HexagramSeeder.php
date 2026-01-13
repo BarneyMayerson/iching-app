@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Database\Seeders;
 
 use App\Models\Hexagram;
+use App\Models\Line;
 use App\Models\Trigram;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -17,6 +18,7 @@ class HexagramSeeder extends Seeder
     public function run(): void
     {
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        DB::table('lines')->truncate();
         DB::table('hexagrams')->truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
@@ -36,6 +38,9 @@ class HexagramSeeder extends Seeder
         // Массив для быстрого поиска триграмм по номеру
         $trigramsByNumber = Trigram::all()->keyBy('number');
 
+        $hexagramCount = 0;
+        $lineCount = 0;
+
         foreach ($data['hexagrams'] as $hexagramData) {
             $hexagram = Hexagram::create([
                 'number' => $hexagramData['number'],
@@ -48,13 +53,26 @@ class HexagramSeeder extends Seeder
                 'lower_trigram_id' => $trigramsByNumber[$hexagramData['bottomTrigram']]->id,
                 'binary' => $hexagramData['binary'],
                 'lines' => json_encode($hexagramData['lines']),
-                'judgment' => null,
+                'judgment' => $hexagramData['description'] ?? null,
                 'image' => null,
                 'description' => null,
             ]);
+
+            $hexagramCount++;
+
+            $lineData = array_filter($data['lines'], fn ($line) => $line['hexagram_id'] === $hexagramData['number']);
+
+            foreach ($lineData as $lineItem) {
+                Line::create([
+                    'hexagram_id' => $hexagram->id,
+                    'position' => $lineItem['position'],
+                    'meaning' => $lineItem['meaning'],
+                    'changing_meaning' => null,
+                ]);
+                $lineCount++;
+            }
         }
 
-        $this->command->info(count($data['hexagrams']).' hexagrams have been loaded  from JSON.');
-        $this->command->info('Note: Interpretations (judgment, image) must be filled in separately from other sources.');
+        $this->command->info($hexagramCount.' hexagrams and '.$lineCount.' lines have been loaded from JSON.');
     }
 }
