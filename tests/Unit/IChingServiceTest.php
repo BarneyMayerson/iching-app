@@ -1,5 +1,7 @@
 <?php
 
+use App\Services\IChingService;
+
 it('has basic functionality', function (): void {
     $service = app(IChingService::class);
 
