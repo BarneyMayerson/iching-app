@@ -107,6 +107,22 @@ class IChingService
         return implode('', $chars);
     }
 
+    public function isLineChanging(int $value): bool
+    {
+        return in_array($value, [6, 9], true);
+    }
+
+    public function getLineType(int $value): string
+    {
+        return match ($value) {
+            6 => 'old_yin',
+            7 => 'young_yang',
+            8 => 'young_yin',
+            9 => 'old_yang',
+            default => throw new \InvalidArgumentException("Invalid line value: $value"),
+        };
+    }
+
     /**
      * @return int 2 (решка/Инь) или 3 (орёл/Ян)
      */

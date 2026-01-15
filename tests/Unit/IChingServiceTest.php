@@ -58,4 +58,21 @@ describe('iChingService coin casting', function (): void {
         expect($service->applyChangingLines('000000', [6]))->toBe('000001');
         expect($service->applyChangingLines('101010', [1, 3, 5]))->toBe('000000');
     });
+
+    it('can detect changing line', function () use (&$service): void {
+        /** @var IChingService $service */
+        expect($service->isLineChanging(6))->toBeTrue();
+        expect($service->isLineChanging(7))->toBeFalse();
+        expect($service->isLineChanging(8))->toBeFalse();
+        expect($service->isLineChanging(9))->toBeTrue();
+    });
+
+    it('can get line type', function () use (&$service): void {
+        /** @var IChingService $service */
+        expect($service->getLineType(6))->toBe('old_yin');
+        expect($service->getLineType(7))->toBe('young_yang');
+        expect($service->getLineType(8))->toBe('young_yin');
+        expect($service->getLineType(9))->toBe('old_yang');
+    });
+
 });
