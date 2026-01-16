@@ -71,6 +71,21 @@ class IChingService
     }
 
     /**
+     * @return array<string, mixed>
+     */
+    public function createReading(string $question): array
+    {
+        $coinResults = $this->castCoins();
+        $binary = $this->coinResultsToBinary($coinResults);
+
+        return [
+            'question' => $question,
+            'coin_results' => $coinResults,
+            'binary' => $binary,
+        ];
+    }
+
+    /**
      * @param  list<int>  $coinResults  Массив из 6 значений 6-9
      * @return list<int> Позиции меняющихся линий (1-6)
      */

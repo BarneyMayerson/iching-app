@@ -8,6 +8,7 @@ Route::middleware(['auth', 'verified'])->prefix('dashboard')->as('dashboard')->g
     Route::get('', fn () => Inertia::render('Dashboard'));
 
     Route::prefix('divinations')->as('.divinations')->group(function (): void {
+        Route::get('', [DivinationController::class, 'index'])->name('.index');
         Route::post('', [DivinationController::class, 'store'])->name('.store');
     });
 });
