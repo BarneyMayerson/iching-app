@@ -40,16 +40,16 @@ perms:
 
 # Запуск PHP тестов
 test:
-	docker compose exec app vendor/bin/pest --testdox --testdox-summary
+	docker compose exec app vendor/bin/pest $(ARGS)
 
 test-parallel:
 	docker compose exec app vendor/bin/pest --parallel
 
 test-unit:
-	docker compose exec app --filter=unit
+	docker compose exec app vendor/bin/pest --filter=unit
 
 test-feature:
-	docker compose exec app --filter=feature
+	docker compose exec app vendor/bin/pest --filter=feature
 
 
 # Зайти "внутрь" контейнера PHP

@@ -22,7 +22,6 @@ services:
             timeout: 3s
             retries: 3
         environment:
-            # - APP_ENV=local
             - APP_DEBUG=true
             - DB_CONNECTION=${DB_CONNECTION}
             - DB_HOST=${DB_HOST}
