@@ -40,10 +40,18 @@ perms:
 
 # Запуск PHP тестов
 test:
-	docker compose exec app vendor/bin/pest $(ARGS)
+	docker compose exec \
+		-e APP_ENV=testing \
+		-e DB_CONNECTION=sqlite \
+		-e DB_DATABASE=:memory: \
+		app vendor/bin/pest $(ARGS)
 
 test-parallel:
-	docker compose exec app vendor/bin/pest --parallel
+	docker compose exec \
+		-e APP_ENV=testing \
+		-e DB_CONNECTION=sqlite \
+		-e DB_DATABASE=:memory: \
+		app vendor/bin/pest --parallel
 
 test-unit:
 	docker compose exec app vendor/bin/pest --filter=unit
