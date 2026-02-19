@@ -33,6 +33,10 @@ test *args:
 # just test --group=unit --parallel
 # just test --coverage --filter=Feature
 
+# Запуск JS тестов
+test-js *args:
+    docker compose exec app npm run test:js {{args}}
+
 migrate:
     docker compose exec app php artisan migrate
 
