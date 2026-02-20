@@ -5,20 +5,20 @@ import { computed, readonly } from 'vue';
 
 const page = usePage();
 const currentUrlReactive = computed(
-    () => new URL(page.url, window?.location.origin).pathname,
+  () => new URL(page.url, window?.location.origin).pathname,
 );
 
 export function useActiveUrl() {
-    function urlIsActive(
-        urlToCheck: NonNullable<InertiaLinkProps['href']>,
-        currentUrl?: string,
-    ) {
-        const urlToCompare = currentUrl ?? currentUrlReactive.value;
-        return toUrl(urlToCheck) === urlToCompare;
-    }
+  function urlIsActive(
+    urlToCheck: NonNullable<InertiaLinkProps['href']>,
+    currentUrl?: string,
+  ) {
+    const urlToCompare = currentUrl ?? currentUrlReactive.value;
+    return toUrl(urlToCheck) === urlToCompare;
+  }
 
-    return {
-        currentUrl: readonly(currentUrlReactive),
-        urlIsActive,
-    };
+  return {
+    currentUrl: readonly(currentUrlReactive),
+    urlIsActive,
+  };
 }
