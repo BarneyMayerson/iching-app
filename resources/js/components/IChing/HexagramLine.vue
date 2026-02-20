@@ -8,11 +8,11 @@ interface Props {
 const props = defineProps<Props>();
 
 const isYang = computed(() => [7, 9].includes(props.value));
-const isChanging = computed(() => [6, 8].includes(props.value));
+const isChanging = computed(() => [6, 9].includes(props.value));
 </script>
 
 <template>
-    <div class="relative flex h-10 w-full items-center justify-center px-4">
+    <div class="relative flex h-8 w-full items-center justify-center px-4">
         <div
             v-if="isYang"
             data-test="solid-line"
