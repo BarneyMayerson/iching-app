@@ -44,8 +44,13 @@ const reversedCoinResults = computed(() => [...props.coinResults].reverse());
       <div class="flex flex-col">
         <HexagramLine
           v-for="(result, index) in reversedCoinResults"
-          :key="index"
+          :key="6 - index"
           :value="result"
+          class="animate-reveal"
+          :style="{
+            animationDelay: `${(5 - index) * 200}ms`,
+            animationFillMode: 'backwards',
+          }"
         />
       </div>
 
@@ -57,3 +62,22 @@ const reversedCoinResults = computed(() => [...props.coinResults].reverse());
     </div>
   </div>
 </template>
+
+<style scoped>
+@keyframes revealLine {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-reveal {
+  animation-name: revealLine;
+  animation-duration: 600ms;
+  animation-timing-function: ease-out;
+}
+</style>
