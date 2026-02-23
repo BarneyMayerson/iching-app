@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import HexagramView from '@/components/IChing/HexagramView.vue';
+import PlaceholderPattern from '@/components/PlaceholderPattern.vue';
 import AppLayout from '@/layouts/AppLayout.vue';
 import { dashboard } from '@/routes';
 import { type BreadcrumbItem } from '@/types';
 import { Head } from '@inertiajs/vue3';
-import PlaceholderPattern from '../components/PlaceholderPattern.vue';
 
 const breadcrumbs: BreadcrumbItem[] = [
   {
@@ -41,16 +40,6 @@ const breadcrumbs: BreadcrumbItem[] = [
       <div
         class="relative min-h-screen flex-1 rounded-xl border border-sidebar-border/70 md:min-h-min dark:border-sidebar-border"
       >
-        <HexagramView
-          :coinResults="[6, 7, 7, 7, 7, 9]"
-          :hexagram="{
-            number: 1,
-            name: 'The Creative',
-            chinese_name: '乾',
-            pinyin_name: 'Qián',
-            character: '乾',
-          }"
-        />
         <PlaceholderPattern />
       </div>
     </div>

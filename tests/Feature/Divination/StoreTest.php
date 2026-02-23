@@ -6,19 +6,20 @@ use function Pest\Laravel\actingAs;
 use function Pest\Laravel\assertDatabaseHas;
 use function Pest\Laravel\post;
 
-it('requires authentication', function (): void {
+it('requires authentication', function () {
     post(route('dashboard.divinations.store'))->assertRedirect(route('login'));
 });
 
-it('stores an authenticated user cast an i-ching reading', function (): void {
+it('stores an auth user cast an i-ching reading and redirects to the divination show page', function () {
     /** @var User $user */
     $user = User::factory()->create();
-    actingAs($user);
     $question = 'Should I start something new?';
 
-    post(route('dashboard.divinations.store'), [
-        'question' => $question,
-    ]);
+    actingAs($user)
+        ->post(route('dashboard.divinations.store'), [
+            'question' => $question,
+        ])
+        ->assertRedirect(route('dashboard.divinations.show', 1));
 
     assertDatabaseHas('readings', [
         'user_id' => $user->id,

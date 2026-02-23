@@ -9,6 +9,8 @@ Route::middleware(['auth', 'verified'])->prefix('dashboard')->as('dashboard')->g
 
     Route::prefix('divinations')->as('.divinations')->group(function (): void {
         Route::get('', [DivinationController::class, 'index'])->name('.index');
-        Route::post('', [DivinationController::class, 'store'])->name('.store');
+        Route::get('create', [DivinationController::class, 'create'])->name('.create');
+        Route::post('store', [DivinationController::class, 'store'])->name('.store');
+        Route::get('{reading}', [DivinationController::class, 'show'])->name('.show');
     });
 });

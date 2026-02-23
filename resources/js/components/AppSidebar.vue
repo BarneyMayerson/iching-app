@@ -12,6 +12,7 @@ import {
   SidebarMenuItem,
 } from '@/components/ui/sidebar';
 import { dashboard } from '@/routes';
+import { index as dashboardDivinationsIndex } from '@/routes/dashboard/divinations';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/vue3';
 import { BookOpen, Folder, LayoutGrid } from 'lucide-vue-next';
@@ -21,6 +22,11 @@ const mainNavItems: NavItem[] = [
   {
     title: 'Dashboard',
     href: dashboard(),
+    icon: LayoutGrid,
+  },
+  {
+    title: 'Divinations',
+    href: dashboardDivinationsIndex().url,
     icon: LayoutGrid,
   },
 ];

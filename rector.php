@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use Rector\Config\RectorConfig;
+use Rector\TypeDeclaration\Rector\Closure\AddClosureVoidReturnTypeWhereNoReturnRector;
 use Rector\TypeDeclaration\Rector\StmtsAwareInterface\DeclareStrictTypesRector;
 use RectorLaravel\Rector\Class_\AddExtendsAnnotationToModelFactoriesRector;
 use RectorLaravel\Rector\ClassMethod\AddGenericReturnTypeToRelationsRector;
@@ -24,6 +25,9 @@ return RectorConfig::configure()
         DeclareStrictTypesRector::class,
         AddExtendsAnnotationToModelFactoriesRector::class,
         AddGenericReturnTypeToRelationsRector::class,
+    ])
+    ->withSkip([
+        AddClosureVoidReturnTypeWhereNoReturnRector::class,
     ])
     ->withPhpSets(php84: true)
     ->withTypeCoverageLevel(5)
