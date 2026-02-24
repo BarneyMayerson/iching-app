@@ -9,6 +9,13 @@ const props = defineProps<Props>();
 
 const isYang = computed(() => [7, 9].includes(props.value));
 const isChanging = computed(() => [6, 9].includes(props.value));
+
+const lineBaseClass = computed(() => [
+  'h-3 rounded-sm shadow-sm transition-colors duration-500',
+  isChanging.value
+    ? 'bg-amber-500 dark:bg-amber-400'
+    : 'bg-slate-800 dark:bg-slate-200',
+]);
 </script>
 
 <template>
@@ -16,19 +23,13 @@ const isChanging = computed(() => [6, 9].includes(props.value));
     <div
       v-if="isYang"
       data-test="solid-line"
-      class="h-3 w-full rounded-sm shadow-sm transition-colors duration-500"
-      :class="isChanging ? 'bg-amber-400' : 'bg-slate-200'"
+      class="w-full"
+      :class="lineBaseClass"
     ></div>
 
     <div v-else data-test="broken-line" class="flex w-full justify-between">
-      <div
-        class="h-3 w-[45%] rounded-sm shadow-sm transition-colors duration-500"
-        :class="isChanging ? 'bg-amber-400' : 'bg-slate-200'"
-      ></div>
-      <div
-        class="h-3 w-[45%] rounded-sm shadow-sm transition-colors duration-500"
-        :class="isChanging ? 'bg-amber-400' : 'bg-slate-200'"
-      ></div>
+      <div class="w-[45%]" :class="lineBaseClass"></div>
+      <div class="w-[45%]" :class="lineBaseClass"></div>
     </div>
 
     <div
