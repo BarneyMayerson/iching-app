@@ -29,3 +29,38 @@ it('stores an auth user cast an i-ching reading and redirects to the divination 
         'question' => $question,
     ]);
 });
+
+it('fails validation if question is missing', function () {
+    /** @var User $user */
+    $user = User::factory()->create();
+
+    actingAs($user)
+        ->post(route('cabinet.divinations.store'), ['question' => ''])
+        ->assertSessionHasErrors('question');
+});
+
+it('fails validation if question exceeds 255 characters', function () {
+    /** @var User $user */
+    $user = User::factory()->create();
+    $longQuestion = str_repeat('a', 256);
+
+    actingAs($user)
+        ->post(route('cabinet.divinations.store'), [
+            'question' => $longQuestion,
+        ])
+        ->assertSessionHasErrors('question');
+});
+
+it('stores the actual question from the request', function () {
+    /** @var User $user */
+    $user = User::factory()->create();
+    $myQuestion = 'Will it rain tomorrow?';
+
+    actingAs($user)
+        ->post(route('cabinet.divinations.store'), ['question' => $myQuestion]);
+
+    assertDatabaseHas('readings', [
+        'question' => $myQuestion,
+        'user_id' => $user->id,
+    ]);
+});

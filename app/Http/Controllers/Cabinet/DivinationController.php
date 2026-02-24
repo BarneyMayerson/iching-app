@@ -35,8 +35,12 @@ class DivinationController extends Controller
 
     public function store(Request $request): RedirectResponse
     {
+        $validated = $request->validate([
+            'question' => ['required', 'string', 'max:255', 'min:3'],
+        ]);
+
         $readingData = $this->ichingService->createReading(
-            question: $request->input('question', 'Consultation with the Oracle')
+            question: $validated['question']
         );
 
         $primaryHexagram = Hexagram::where('binary', $readingData['binary'])->first();
