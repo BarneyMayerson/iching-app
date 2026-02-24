@@ -7,7 +7,7 @@ use function Pest\Laravel\actingAs;
 use function Pest\Laravel\get;
 
 test('guest cannon visit divinations index page', function () {
-    get(route('dashboard.divinations.index'))->assertRedirect('/login');
+    get(route('cabinet.divinations.index'))->assertRedirect('/login');
 });
 
 test('user can see their divinations list', function () {
@@ -16,7 +16,7 @@ test('user can see their divinations list', function () {
     Reading::factory()->count(3)->create(['user_id' => $user->id]);
 
     actingAs($user)
-        ->get(route('dashboard.divinations.index'))
+        ->get(route('cabinet.divinations.index'))
         ->assertOk()
         ->assertInertia(fn ($page) => $page
             ->component('Cabinet/Divinations/Index')
@@ -30,7 +30,7 @@ test('user cannot see other users divinations list', function () {
     Reading::factory()->count(2)->create();
 
     actingAs($user)
-        ->get(route('dashboard.divinations.index'))
+        ->get(route('cabinet.divinations.index'))
         ->assertOk()
         ->assertInertia(fn ($page) => $page
             ->component('Cabinet/Divinations/Index')

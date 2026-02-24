@@ -7,7 +7,7 @@ use function Pest\Laravel\actingAs;
 use function Pest\Laravel\get;
 
 test('guest cannon visit any divination show page', function () {
-    get(route('dashboard.divinations.show', 1))->assertRedirect('/login');
+    get(route('cabinet.divinations.show', 1))->assertRedirect('/login');
 });
 
 test('auth user can visit own divination show page', function () {
@@ -16,7 +16,7 @@ test('auth user can visit own divination show page', function () {
     $reading = Reading::factory()->create(['user_id' => $user->id]);
 
     actingAs($user)
-        ->get(route('dashboard.divinations.show', $reading->id))
+        ->get(route('cabinet.divinations.show', $reading->id))
         ->assertOk()
         ->assertInertia(fn ($page) => $page
             ->component('Cabinet/Divinations/Show')
@@ -31,6 +31,6 @@ test('auth user cannot visit other user divination show page', function () {
     $reading = Reading::factory()->create();
 
     actingAs($user)
-        ->get(route('dashboard.divinations.show', $reading->id))
+        ->get(route('cabinet.divinations.show', $reading->id))
         ->assertForbidden();
 });

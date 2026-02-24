@@ -11,7 +11,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from '@/components/ui/sidebar';
-import { cabinet } from '@/routes';
+import { dashboard as cabinetDashboard } from '@/routes/cabinet';
 import { index as cabinetDivinationsIndex } from '@/routes/cabinet/divinations';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/vue3';
@@ -21,7 +21,7 @@ import AppLogo from './AppLogo.vue';
 const mainNavItems: NavItem[] = [
   {
     title: 'Dashboard',
-    href: cabinet().url,
+    href: cabinetDashboard().url,
     icon: LayoutGrid,
   },
   {
@@ -51,7 +51,7 @@ const footerNavItems: NavItem[] = [
       <SidebarMenu>
         <SidebarMenuItem>
           <SidebarMenuButton size="lg" as-child>
-            <Link :href="cabinet().url">
+            <Link :href="cabinetDashboard().url">
               <AppLogo />
             </Link>
           </SidebarMenuButton>

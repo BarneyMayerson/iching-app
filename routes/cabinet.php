@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::middleware(['auth', 'verified'])->prefix('cabinet')->as('cabinet')->group(function (): void {
-    Route::get('', fn () => Inertia::render('Dashboard'));
+    Route::get('', fn () => Inertia::render('Cabinet/Dashboard'))->name('.dashboard');
 
     Route::prefix('divinations')->as('.divinations')->group(function (): void {
         Route::get('', [DivinationController::class, 'index'])->name('.index');

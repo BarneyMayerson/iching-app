@@ -19,5 +19,5 @@ test('new users can register', function (): void {
     ]);
 
     assertAuthenticated();
-    $response->assertRedirect(route('dashboard', absolute: false));
+    $response->assertRedirect(route('cabinet.dashboard', absolute: false));
 });

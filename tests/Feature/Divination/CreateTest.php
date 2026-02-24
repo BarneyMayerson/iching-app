@@ -6,7 +6,7 @@ use function Pest\Laravel\actingAs;
 use function Pest\Laravel\get;
 
 test('guest cannon visit divinations create page', function () {
-    get(route('dashboard.divinations.create'))->assertRedirect('/login');
+    get(route('cabinet.divinations.create'))->assertRedirect('/login');
 });
 
 test('auth user can visit divination create page', function () {
@@ -14,6 +14,6 @@ test('auth user can visit divination create page', function () {
     $user = User::factory()->create();
 
     actingAs($user)
-        ->get(route('dashboard.divinations.create'))
+        ->get(route('cabinet.divinations.create'))
         ->assertOk();
 });

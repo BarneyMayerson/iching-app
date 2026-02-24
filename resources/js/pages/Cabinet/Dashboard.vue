@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import PlaceholderPattern from '@/components/PlaceholderPattern.vue';
 import AppLayout from '@/layouts/AppLayout.vue';
-import { cabinet } from '@/routes';
+import { dashboard as cabinetDashboard } from '@/routes/cabinet';
 import { type BreadcrumbItem } from '@/types';
 import { Head } from '@inertiajs/vue3';
 
 const breadcrumbs: BreadcrumbItem[] = [
   {
     title: 'Dashboard',
-    href: cabinet().url,
+    href: cabinetDashboard().url,
   },
 ];
 </script>
