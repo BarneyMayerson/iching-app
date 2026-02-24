@@ -11,8 +11,8 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from '@/components/ui/sidebar';
-import { dashboard } from '@/routes';
-import { index as dashboardDivinationsIndex } from '@/routes/dashboard/divinations';
+import { cabinet } from '@/routes';
+import { index as cabinetDivinationsIndex } from '@/routes/cabinet/divinations';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/vue3';
 import { BookOpen, Folder, LayoutGrid } from 'lucide-vue-next';
@@ -21,12 +21,12 @@ import AppLogo from './AppLogo.vue';
 const mainNavItems: NavItem[] = [
   {
     title: 'Dashboard',
-    href: dashboard(),
+    href: cabinet().url,
     icon: LayoutGrid,
   },
   {
     title: 'Divinations',
-    href: dashboardDivinationsIndex().url,
+    href: cabinetDivinationsIndex().url,
     icon: LayoutGrid,
   },
 ];
@@ -51,7 +51,7 @@ const footerNavItems: NavItem[] = [
       <SidebarMenu>
         <SidebarMenuItem>
           <SidebarMenuButton size="lg" as-child>
-            <Link :href="dashboard()">
+            <Link :href="cabinet().url">
               <AppLogo />
             </Link>
           </SidebarMenuButton>

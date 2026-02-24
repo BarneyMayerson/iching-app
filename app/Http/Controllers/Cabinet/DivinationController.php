@@ -59,7 +59,7 @@ class DivinationController extends Controller
             'binary' => $readingData['binary'],
         ]);
 
-        return to_route('dashboard.divinations.show', $reading->id);
+        return to_route('cabinet.divinations.show', $reading->id);
     }
 
     public function show(Reading $reading): Response

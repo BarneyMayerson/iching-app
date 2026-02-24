@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import AppLayout from '@/layouts/AppLayout.vue';
 import {
-  create as dashboardDivinationsCreate,
-  index as dashboardDivinationsIndex,
-  show as dashboardDivinationsShow,
-} from '@/routes/dashboard/divinations';
+  create as cabinetDivinationsCreate,
+  index as cabinetDivinationsIndex,
+  show as cabinetDivinationsShow,
+} from '@/routes/cabinet/divinations';
 import { type BreadcrumbItem } from '@/types';
 import { Head, Link } from '@inertiajs/vue3';
 import { Plus } from 'lucide-vue-next';
@@ -12,7 +12,7 @@ import { Plus } from 'lucide-vue-next';
 const breadcrumbs: BreadcrumbItem[] = [
   {
     title: 'Divinations',
-    href: dashboardDivinationsIndex().url,
+    href: cabinetDivinationsIndex().url,
   },
 ];
 
@@ -30,7 +30,7 @@ defineProps<{
         <h1 class="text-2xl font-semibold">History of Divinations</h1>
 
         <Link
-          :href="dashboardDivinationsCreate().url"
+          :href="cabinetDivinationsCreate().url"
           class="flex items-center gap-2 rounded-md bg-amber-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-amber-500"
         >
           <Plus class="size-4" />
@@ -95,7 +95,7 @@ defineProps<{
                   class="py-4 pr-4 pl-3 text-right text-sm font-medium whitespace-nowrap sm:pr-0"
                 >
                   <Link
-                    :href="dashboardDivinationsShow(reading.id).url"
+                    :href="cabinetDivinationsShow(reading.id).url"
                     class="rounded-md bg-amber-600 px-4 py-2 text-center text-sm font-medium text-white transition-colors hover:bg-amber-500"
                   >
                     View

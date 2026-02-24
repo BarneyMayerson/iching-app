@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import HexagramView from '@/components/IChing/HexagramView.vue';
 import AppLayout from '@/layouts/AppLayout.vue';
-import { index, store } from '@/routes/dashboard/divinations';
+import { index, store } from '@/routes/cabinet/divinations';
 import { type BreadcrumbItem } from '@/types';
 import { Head, router } from '@inertiajs/vue3';
 import { Coins } from 'lucide-vue-next';
