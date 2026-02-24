@@ -15,7 +15,7 @@ import { dashboard as cabinetDashboard } from '@/routes/cabinet';
 import { index as cabinetDivinationsIndex } from '@/routes/cabinet/divinations';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/vue3';
-import { BookOpen, Folder, LayoutGrid } from 'lucide-vue-next';
+import { LayoutGrid, Scroll, Sparkles } from 'lucide-vue-next';
 import AppLogo from './AppLogo.vue';
 
 const mainNavItems: NavItem[] = [
@@ -27,20 +27,15 @@ const mainNavItems: NavItem[] = [
   {
     title: 'Divinations',
     href: cabinetDivinationsIndex().url,
-    icon: LayoutGrid,
+    icon: Sparkles,
   },
 ];
 
 const footerNavItems: NavItem[] = [
   {
-    title: 'Github Repo',
-    href: 'https://github.com/laravel/vue-starter-kit',
-    icon: Folder,
-  },
-  {
-    title: 'Documentation',
-    href: 'https://laravel.com/docs/starter-kits#vue',
-    icon: BookOpen,
+    title: 'Book of Changes',
+    href: 'https://en.wikipedia.org/wiki/I_Ching',
+    icon: Scroll,
   },
 ];
 </script>
