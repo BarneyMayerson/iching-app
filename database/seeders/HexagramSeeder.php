@@ -9,6 +9,7 @@ use App\Models\Line;
 use App\Models\Trigram;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 
 class HexagramSeeder extends Seeder
 {
@@ -17,10 +18,10 @@ class HexagramSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        Schema::disableForeignKeyConstraints();
         DB::table('lines')->truncate();
         DB::table('hexagrams')->truncate();
-        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+        Schema::enableForeignKeyConstraints();
 
         $jsonContent = file_get_contents(database_path('data/i-ching_data.json'));
 
@@ -45,14 +46,14 @@ class HexagramSeeder extends Seeder
             $hexagram = Hexagram::create([
                 'number' => $hexagramData['number'],
                 'name' => $hexagramData['names'][0], // Основное имя
-                'names' => json_encode($hexagramData['names']),
+                'names' => $hexagramData['names'],
                 'chinese_name' => $hexagramData['chineseName'],
                 'pinyin_name' => $hexagramData['pinyinName'],
                 'character' => $hexagramData['character'],
                 'upper_trigram_id' => $trigramsByNumber[$hexagramData['topTrigram']]->id,
                 'lower_trigram_id' => $trigramsByNumber[$hexagramData['bottomTrigram']]->id,
                 'binary' => $hexagramData['binary'],
-                'lines' => json_encode($hexagramData['lines']),
+                'lines' => $hexagramData['lines'],
                 'judgment' => $hexagramData['description'] ?? null,
                 'image' => null,
                 'description' => null,

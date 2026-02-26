@@ -9,6 +9,21 @@ import { type BreadcrumbItem } from '@/types';
 import { Head, Link } from '@inertiajs/vue3';
 import { Plus } from 'lucide-vue-next';
 
+interface Reading {
+  id: number;
+  question: string;
+  binary: string;
+  date: string;
+  time: string;
+  relative_date: string;
+  hexagram: {
+    character: string;
+    name: string;
+    number: number;
+  };
+  coin_results: number[];
+}
+
 const breadcrumbs: BreadcrumbItem[] = [
   {
     title: 'Divinations',
@@ -17,7 +32,7 @@ const breadcrumbs: BreadcrumbItem[] = [
 ];
 
 defineProps<{
-  divinations: any[];
+  divinations: Reading[];
 }>();
 </script>
 
@@ -61,7 +76,19 @@ defineProps<{
                   scope="col"
                   class="hidden px-3 py-3.5 text-left text-sm font-semibold sm:table-cell"
                 >
+                  Time
+                </th>
+                <th
+                  scope="col"
+                  class="hidden px-3 py-3.5 text-left text-sm font-semibold sm:table-cell"
+                >
                   Question
+                </th>
+                <th
+                  scope="col"
+                  class="hidden px-3 py-3.5 text-left text-sm font-semibold lg:table-cell"
+                >
+                  Hexagram
                 </th>
                 <th
                   scope="col"
@@ -79,12 +106,22 @@ defineProps<{
                 <td
                   class="py-4 pr-3 pl-4 text-sm font-medium whitespace-nowrap sm:pl-0"
                 >
-                  {{ reading.created_at }}
+                  {{ reading.date }}
+                </td>
+                <td
+                  class="hidden px-3 py-4 text-sm whitespace-nowrap sm:table-cell"
+                >
+                  {{ reading.time }}
                 </td>
                 <td
                   class="hidden px-3 py-4 text-sm whitespace-nowrap sm:table-cell"
                 >
                   {{ reading.question }}
+                </td>
+                <td
+                  class="hidden px-3 py-4 font-mono text-sm whitespace-nowrap lg:table-cell"
+                >
+                  {{ reading.hexagram.character }} {{ reading.hexagram.name }}
                 </td>
                 <td
                   class="hidden px-3 py-4 font-mono text-sm whitespace-nowrap lg:table-cell"

@@ -13,7 +13,9 @@ test('auth user can visit divination create page', function () {
     /** @var User $user */
     $user = User::factory()->create();
 
+    // @phpstan-ignore-next-line
     actingAs($user)
         ->get(route('cabinet.divinations.create'))
-        ->assertOk();
+        ->assertOk()
+        ->assertComponentIs('Cabinet/Divinations/Create');
 });

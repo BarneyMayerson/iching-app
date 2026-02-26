@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('character')->nullable(); // Символ Юникода
             $table->foreignId('upper_trigram_id')->constrained('trigrams');
             $table->foreignId('lower_trigram_id')->constrained('trigrams');
-            $table->string('binary', 6);
+            $table->string('binary', 6)->unique()->index(); // Например, "111111"
             $table->json('lines')->nullable(); // [1,1,1,1,1,1]
             $table->text('judgment');
 

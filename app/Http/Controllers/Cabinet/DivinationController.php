@@ -23,8 +23,13 @@ class DivinationController extends Controller
         /** @var \App\Models\User $user */
         $user = Auth::user();
 
+        $readings = $user->readings()
+            ->with('hexagram')
+            ->latest()
+            ->get();
+
         return Inertia::render('Cabinet/Divinations/Index', [
-            'divinations' => $user->readings()->latest()->get(),
+            'divinations' => $readings->toResourceCollection(),
         ]);
     }
 
@@ -72,8 +77,6 @@ class DivinationController extends Controller
             abort(403);
         }
 
-        $primaryHexagram = Hexagram::where('binary', $reading->binary)->first();
-
         /** @var list<int> $coinResults */
         $coinResults = $reading->coin_results;
         $changingLines = $this->ichingService->getChangingLines($coinResults);
@@ -85,9 +88,9 @@ class DivinationController extends Controller
         }
 
         return Inertia::render('Cabinet/Divinations/Show', [
-            'reading' => $reading,
-            'hexagram' => $primaryHexagram,
-            'secondary_hexagram' => $secondaryHexagram,
+            'reading' => $reading->toResource(),
+            'hexagram' => $reading->hexagram->toResource(),
+            'secondary_hexagram' => $secondaryHexagram ? $secondaryHexagram->toResource() : null,
             'changing_lines' => $changingLines,
         ]);
     }

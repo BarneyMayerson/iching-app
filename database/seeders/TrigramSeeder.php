@@ -7,6 +7,7 @@ namespace Database\Seeders;
 use App\Models\Trigram;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 
 class TrigramSeeder extends Seeder
 {
@@ -15,9 +16,9 @@ class TrigramSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        Schema::disableForeignKeyConstraints();
         DB::table('trigrams')->truncate();
-        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+        Schema::enableForeignKeyConstraints();
 
         $jsonContent = file_get_contents(database_path('data/i-ching_data.json'));
 

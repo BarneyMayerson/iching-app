@@ -3,11 +3,15 @@ import HexagramLine from '@/components/IChing/HexagramLine.vue';
 import { computed } from 'vue';
 
 interface Hexagram {
+  binary: string;
   number: number;
-  name: string;
-  chinese_name: string;
-  pinyin_name: string;
   character: string;
+  names: string[];
+  origins: {
+    chinese: string;
+    pinyin: string;
+  };
+  judgment: string;
 }
 
 interface Props {
@@ -31,12 +35,12 @@ const reversedCoinResults = computed(() => [...props.coinResults].reverse());
         Hexagram {{ hexagram.number }}
       </div>
       <h2 class="text-3xl font-bold text-slate-900 dark:text-slate-50">
-        {{ hexagram.name }}
+        {{ hexagram.names[0] }}
       </h2>
       <div class="mt-2 text-lg text-slate-400">
-        <span class="font-serif">{{ hexagram.chinese_name }}</span>
+        <span class="font-serif">{{ hexagram.origins.chinese }}</span>
         <span class="mx-2 text-slate-300 dark:text-slate-700">|</span>
-        <span class="italic">{{ hexagram.pinyin_name }}</span>
+        <span class="italic">{{ hexagram.origins.pinyin }}</span>
       </div>
     </div>
 
