@@ -5,11 +5,15 @@ import { describe, expect, it } from 'vitest';
 
 describe('HexagramView.vue', () => {
   const mockHexagram = {
+    binary: '111111',
     number: 1,
-    name: 'The Creative',
-    chinese_name: '乾',
-    pinyin_name: 'qián',
     character: '䷀',
+    names: ['The Creative'],
+    origins: {
+      chinese: '乾',
+      pinyin: 'qián',
+    },
+    judgment: 'May you find success through perseverance.',
   };
 
   it('renders 6 lines in the correct vertical order (bottom to top)', () => {

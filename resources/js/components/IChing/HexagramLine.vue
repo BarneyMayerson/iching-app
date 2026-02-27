@@ -2,6 +2,10 @@
 import { computed } from 'vue';
 
 interface Props {
+  // 6: Старая Инь (меняется в Ян)
+  // 7: Молодой Ян
+  // 8: Молодой Инь
+  // 9: Старый Ян (меняется в Инь)
   value: number;
 }
 
@@ -12,9 +16,7 @@ const isChanging = computed(() => [6, 9].includes(props.value));
 
 const lineBaseClass = computed(() => [
   'h-3 rounded-sm shadow-sm transition-colors duration-500',
-  isChanging.value
-    ? 'bg-amber-500 dark:bg-amber-400'
-    : 'bg-slate-800 dark:bg-slate-200',
+  'bg-slate-600 dark:bg-slate-400',
 ]);
 </script>
 
@@ -25,10 +27,27 @@ const lineBaseClass = computed(() => [
       data-test="solid-line"
       class="w-full"
       :class="lineBaseClass"
-    ></div>
+    >
+      <div
+        v-if="value === 9"
+        class="absolute inset-0 flex items-center justify-center"
+      >
+        <div
+          class="size-2.5 rounded-full bg-white shadow-sm dark:bg-slate-900"
+        ></div>
+      </div>
+    </div>
 
     <div v-else data-test="broken-line" class="flex w-full justify-between">
       <div class="w-[45%]" :class="lineBaseClass"></div>
+      <div class="absolute inset-0 flex items-center justify-center">
+        <div
+          v-if="value === 6"
+          class="text-sm leading-none font-black text-slate-600 drop-shadow-sm dark:text-slate-400"
+        >
+          ✕
+        </div>
+      </div>
       <div class="w-[45%]" :class="lineBaseClass"></div>
     </div>
 
