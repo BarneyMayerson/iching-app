@@ -29,6 +29,8 @@ class HexagramResource extends JsonResource
                 'pinyin' => $this->pinyin_name,
             ],
             'judgment' => $this->judgment,
+            'image' => $this->image,
+            'lines' => LineResource::collection($this->whenLoaded('hexagramLines')),
         ];
     }
 }

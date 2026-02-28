@@ -25,13 +25,9 @@ class ReadingResource extends JsonResource
             'date' => $this->created_at->format('d.m.Y'),
             'time' => $this->created_at->format('H:i'),
             'relative_date' => $this->created_at->diffForHumans(),
-            'hexagram' => [
-                'number' => $this->hexagram->number,
-                'character' => $this->hexagram->character,
-                'name' => $this->hexagram->names[0] ?? 'Unknown',
-            ],
-            'coin_results' => $this->coin_results,
             'binary' => $this->binary,
+            'hexagram' => $this->whenLoaded('hexagram', fn () => HexagramResource::make($this->hexagram)),
+            'coin_results' => $this->coin_results,
         ];
     }
 }

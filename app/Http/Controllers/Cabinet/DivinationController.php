@@ -89,7 +89,7 @@ class DivinationController extends Controller
 
         return Inertia::render('Cabinet/Divinations/Show', [
             'reading' => $reading->toResource(),
-            'hexagram' => $reading->hexagram->toResource(),
+            'hexagram' => $reading->hexagram->load('hexagramLines')->toResource(),
             'secondary_hexagram' => $secondaryHexagram ? $secondaryHexagram->toResource() : null,
             'changing_lines' => $changingLines,
         ]);

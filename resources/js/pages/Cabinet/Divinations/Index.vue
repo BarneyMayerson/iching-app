@@ -16,12 +16,7 @@ interface Reading {
   date: string;
   time: string;
   relative_date: string;
-  hexagram: {
-    character: string;
-    name: string;
-    number: number;
-  };
-  coin_results: number[];
+  hexagram: any;
 }
 
 const breadcrumbs: BreadcrumbItem[] = [
@@ -121,7 +116,9 @@ defineProps<{
                 <td
                   class="hidden px-3 py-4 font-mono text-sm whitespace-nowrap lg:table-cell"
                 >
-                  {{ reading.hexagram.character }} {{ reading.hexagram.name }}
+                  {{ reading.hexagram.number }} -
+                  {{ reading.hexagram.character }}
+                  {{ reading.hexagram.names[0] }}
                 </td>
                 <td
                   class="hidden px-3 py-4 font-mono text-sm whitespace-nowrap lg:table-cell"

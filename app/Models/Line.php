@@ -11,8 +11,6 @@ class Line extends Model
 {
     public $timestamps = false;
 
-    protected $guarded = [];
-
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<\App\Models\Hexagram, $this>
      */
