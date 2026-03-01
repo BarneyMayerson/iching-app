@@ -26,8 +26,8 @@ test('auth user can visit own divination show page', function () {
         ->get(route('cabinet.divinations.show', $reading->id))
         ->assertOk()
         ->assertComponentIs('Cabinet/Divinations/Show')
-        ->assertHasResource('reading', ReadingResource::make($reading))
-        ->assertHasResource('hexagram', HexagramResource::make($reading->hexagram));
+        ->assertHasResource('reading', ReadingResource::make($reading->load(['hexagram', 'hexagram.hexagramLines'])))
+        ->assertHasResource('hexagram', HexagramResource::make($reading->hexagram->load('hexagramLines')));
 });
 
 test('auth user cannot visit other user divination show page', function () {

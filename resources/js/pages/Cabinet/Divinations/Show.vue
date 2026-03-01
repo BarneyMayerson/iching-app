@@ -11,10 +11,35 @@ interface Line {
   meaning: string;
 }
 
+interface Hexagram {
+  binary: string;
+  number: number;
+  character: string;
+  names: string[];
+  origins: {
+    chinese: string;
+    pinyin: string;
+  };
+  judgment: string;
+  image?: string;
+  lines: Line[];
+}
+
+interface Reading {
+  id: number;
+  question: string;
+  date: string;
+  time: string;
+  binary: string;
+  hexagram: Hexagram;
+  relative_date: string;
+  coin_results: number[];
+}
+
 const props = defineProps<{
-  reading: any;
-  hexagram: any;
-  secondary_hexagram?: any;
+  reading: Reading;
+  hexagram: Hexagram;
+  secondary_hexagram?: Hexagram;
   changing_lines: number[];
 }>();
 

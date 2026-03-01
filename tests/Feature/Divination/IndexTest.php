@@ -25,7 +25,7 @@ test('user can see their divinations list', function () {
         ->get(route('cabinet.divinations.index'))
         ->assertOk()
         ->assertComponentIs('Cabinet/Divinations/Index')
-        ->assertHasResource('divinations', ReadingResource::collection($user->readings()->latest()->get()));
+        ->assertHasResource('divinations', ReadingResource::collection($user->readings()->with('hexagram')->latest()->get()));
 });
 
 test('user cannot see other users divinations list', function () {

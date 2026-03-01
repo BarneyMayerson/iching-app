@@ -2,6 +2,11 @@
 import HexagramLine from '@/components/IChing/HexagramLine.vue';
 import { computed } from 'vue';
 
+interface Line {
+  position: number;
+  meaning: string;
+}
+
 interface Hexagram {
   binary: string;
   number: number;
@@ -12,6 +17,8 @@ interface Hexagram {
     pinyin: string;
   };
   judgment: string;
+  image?: string;
+  lines: Line[];
 }
 
 interface Props {
