@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import HexagramView from '@/components/IChing/HexagramView.vue';
 import InterpretationBlock from '@/components/IChing/InterpretationBlock.vue';
+import ReadingHeader from '@/components/IChing/ReadingHeader.vue';
+import TransformationDivider from '@/components/IChing/TransformationDivider.vue';
 import AppLayout from '@/layouts/AppLayout.vue';
 import { index } from '@/routes/cabinet/divinations';
 import { Head, Link } from '@inertiajs/vue3';
-import { ArrowLeft, ChevronDown, Quote, Sparkles, Zap } from 'lucide-vue-next';
+import { ArrowLeft, Sparkles, Zap } from 'lucide-vue-next';
 
 interface Line {
   position: number;
@@ -66,34 +68,13 @@ const breadcrumbs = [
         </Link>
       </div>
 
-      <div class="mb-16 text-center">
-        <div class="relative inline-block px-12">
-          <Quote
-            class="absolute top-0 left-0 size-10 text-amber-500/10 dark:text-amber-500/20"
-          />
-          <h1
-            class="font-serif text-3xl font-bold tracking-tight text-slate-900 italic lg:text-5xl dark:text-slate-100"
-          >
-            {{ reading.question }}
-          </h1>
-          <Quote
-            class="absolute right-0 bottom-0 size-10 rotate-180 text-amber-500/10 dark:text-amber-500/20"
-          />
-        </div>
-
-        <div class="mt-6 flex flex-col items-center gap-2">
-          <p
-            class="text-xs font-bold tracking-[0.3em] text-slate-400 uppercase"
-          >
-            Cast on {{ reading.date }} at {{ reading.time }}
-          </p>
-          <span
-            class="text-[10px] text-amber-600/60 italic dark:text-amber-400/50"
-          >
-            ({{ reading.relative_date }})
-          </span>
-        </div>
-      </div>
+      <ReadingHeader
+        class="mb-16 text-center"
+        :question="reading.question"
+        :date="reading.date"
+        :time="reading.time"
+        :relative_date="reading.relative_date"
+      />
 
       <section class="space-y-10">
         <div
@@ -214,17 +195,7 @@ const breadcrumbs = [
       </section>
 
       <div v-if="secondary_hexagram" class="my-20 flex flex-col items-center">
-        <div
-          class="h-16 w-px bg-linear-to-b from-amber-500 to-transparent"
-        ></div>
-        <div
-          class="flex size-12 items-center justify-center rounded-full bg-amber-500 text-white shadow-lg shadow-amber-500/20"
-        >
-          <ChevronDown class="size-6 animate-bounce" />
-        </div>
-        <p class="mt-4 font-serif text-xl text-slate-400 italic">
-          Transforming into...
-        </p>
+        <TransformationDivider />
       </div>
 
       <section
