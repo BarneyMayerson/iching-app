@@ -1,32 +1,12 @@
 <script setup lang="ts">
 import HexagramLine from '@/components/IChing/HexagramLine.vue';
+import { Hexagram } from '@/types/iching';
 import { computed } from 'vue';
 
-interface Line {
-  position: number;
-  meaning: string;
-}
-
-interface Hexagram {
-  binary: string;
-  number: number;
-  character: string;
-  names: string[];
-  origins: {
-    chinese: string;
-    pinyin: string;
-  };
-  judgment: string;
-  image?: string;
-  lines: Line[];
-}
-
-interface Props {
+const props = defineProps<{
   coinResults: number[];
   hexagram: Hexagram;
-}
-
-const props = defineProps<Props>();
+}>();
 
 const reversedCoinResults = computed(() => [...props.coinResults].reverse());
 </script>

@@ -31,7 +31,6 @@ class TestingServiceProvider extends ServiceProvider
         AssertableInertia::macro('hasResource', function (string $key, JsonResource $resource) {
             /** @var AssertableInertia $this */
             $this->has($key);
-            // dd($this->prop($key), $resource->response()->getData(true)); // @phpstan-ignore-line
 
             // Используем phpstan-ignore-line, так как макросы Laravel
             // связываются с объектом и в рантайме имеют доступ к protected методам.
