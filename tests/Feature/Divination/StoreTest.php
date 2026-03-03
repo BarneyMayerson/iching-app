@@ -18,6 +18,7 @@ it('stores an auth user cast an i-ching reading and redirects to the divination 
     $response = actingAs($user)
         ->post(route('cabinet.divinations.store'), [
             'question' => $question,
+            'coin_results' => [6, 7, 7, 9, 6, 7],
         ]);
 
     $reading = \App\Models\Reading::first();
@@ -27,6 +28,7 @@ it('stores an auth user cast an i-ching reading and redirects to the divination 
     assertDatabaseHas('readings', [
         'user_id' => $user->id,
         'question' => $question,
+        'coin_results' => json_encode([6, 7, 7, 9, 6, 7]),
     ]);
 });
 
@@ -51,16 +53,43 @@ it('fails validation if question exceeds 255 characters', function () {
         ->assertSessionHasErrors('question');
 });
 
-it('stores the actual question from the request', function () {
+it('fails validation if coin_results is missing', function () {
     /** @var User $user */
     $user = User::factory()->create();
-    $myQuestion = 'Will it rain tomorrow?';
 
     actingAs($user)
-        ->post(route('cabinet.divinations.store'), ['question' => $myQuestion]);
+        ->post(route('cabinet.divinations.store'), [
+            'question' => 'Valid question',
+        ])
+        ->assertSessionHasErrors('coin_results');
+});
 
-    assertDatabaseHas('readings', [
-        'question' => $myQuestion,
-        'user_id' => $user->id,
-    ]);
+it('fails validation if coin_results is not an array of 6 integers between 6 and 9', function () {
+    /** @var User $user */
+    $user = User::factory()->create();
+
+    // Invalid because it's not an array
+    actingAs($user)
+        ->post(route('cabinet.divinations.store'), [
+            'question' => 'Valid question',
+            'coin_results' => 'not an array',
+        ])
+        ->assertSessionHasErrors('coin_results');
+
+    // Invalid because it doesn't have exactly 6 items
+    actingAs($user)
+        ->post(route('cabinet.divinations.store'), [
+            'question' => 'Valid question',
+            'coin_results' => [6, 7, 8],
+        ])
+        ->assertSessionHasErrors('coin_results');
+
+    // Invalid because it contains values outside the allowed range
+    actingAs($user)
+        ->post(route('cabinet.divinations.store'), [
+            'question' => 'Valid question',
+            'coin_results' => [5, 10, 6, 7, 8, 9],
+        ])
+        ->assertSessionHasErrors('coin_results.0')
+        ->assertSessionHasErrors('coin_results.1');
 });

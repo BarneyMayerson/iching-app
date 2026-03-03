@@ -43,24 +43,14 @@ class DivinationController extends Controller
     {
         $validated = $request->validate([
             'question' => ['required', 'string', 'max:255', 'min:3'],
+            'coin_results' => ['required', 'array', 'size:6'],
+            'coin_results.*' => ['integer', 'in:6,7,8,9'],
         ]);
 
-        $readingData = $this->ichingService->createReading(
-            question: $validated['question']
+        $readingData = $this->ichingService->makeReading(
+            question: $validated['question'],
+            coinResults: $validated['coin_results'],
         );
-
-        $primaryHexagram = Hexagram::where('binary', $readingData['binary'])->first();
-
-        $changingLines = $this->ichingService->getChangingLines($readingData['coin_results']);
-        $secondaryHexagram = null;
-
-        if (! empty($changingLines)) {
-            $secondaryBinary = $this->ichingService->applyChangingLines(
-                $readingData['binary'],
-                $changingLines
-            );
-            $secondaryHexagram = Hexagram::where('binary', $secondaryBinary)->first();
-        }
 
         $reading = Reading::create([
             'user_id' => Auth::id(),

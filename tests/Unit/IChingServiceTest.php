@@ -2,30 +2,9 @@
 
 use App\Services\IChingService;
 
-it('has basic functionality', function (): void {
-    $service = app(IChingService::class);
-
-    expect($service)->toBeInstanceOf(IChingService::class);
-
-    $results = $service->castCoins();
-
-    expect($results)->toBeArray();
-});
-
 describe('iChingService coin casting', function (): void {
     beforeEach(function () use (&$service): void {
         $service = app(IChingService::class);
-    });
-
-    it('generates array of 6 integers between 6 and 9', function () use (&$service): void {
-        /** @var IChingService $service */
-        $results = $service->castCoins();
-
-        expect($results)->toBeArray()->toHaveCount(6);
-
-        foreach ($results as $value) {
-            expect($value)->toBeInt()->toBeBetween(6, 9);
-        }
     });
 
     it('produces correct binary representation from coin results', function () use (&$service): void {

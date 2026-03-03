@@ -6,54 +6,6 @@ namespace App\Services;
 
 class IChingService
 {
-    private const HEADS = 3; // Аверс (Ян)
-
-    private const TAILS = 2; // Реверс (Инь)
-
-    /**
-     * @return int Возвращает 6, 7, 8 или 9
-     */
-    public function castSingleLine(): int
-    {
-        // === ПЕРВЫЙ ЭТАП: Определяем Инь или Ян ===
-        $firstCoin = $this->tossCoin();
-
-        if ($firstCoin === self::TAILS) { // Инь (2)
-            // === ВТОРОЙ ЭТАП для Инь ===
-            // Бросаем три монеты
-            $threeCoins = [$this->tossCoin(), $this->tossCoin(), $this->tossCoin()];
-            $sum = array_sum($threeCoins);
-
-            // Старый Инь (6) только при трех решках (2+2+2=6)
-            // Молодой Инь (8) при любой другой сумме
-            return ($sum === 6) ? 6 : 8;
-
-        } else { // Ян (3)
-            // === ВТОРОЙ ЭТАП для Ян ===
-            // Бросаем три монеты
-            $threeCoins = [$this->tossCoin(), $this->tossCoin(), $this->tossCoin()];
-            $sum = array_sum($threeCoins);
-
-            // Старый Ян (9) только при двух решках и одном орле (2+2+3=7)
-            // Молодой Ян (7) при любой другой сумме
-            return ($sum === 7) ? 9 : 7;
-        }
-    }
-
-    /**
-     * @return list<int> Массив из 6 значений: 6, 7, 8 или 9
-     */
-    public function castCoins(): array
-    {
-        $lines = [];
-
-        for ($i = 0; $i < 6; $i++) {
-            $lines[] = $this->castSingleLine();
-        }
-
-        return $lines;
-    }
-
     /**
      * @param  list<int>  $coinResults  Массив из 6 значений 6-9
      * @return string Бинарная строка из 6 символов '0' или '1'
@@ -71,11 +23,12 @@ class IChingService
     }
 
     /**
+     * @param  string  $question  Вопрос, который задает пользователь
+     * @param  list<int>  $coinResults  Результаты бросков монет
      * @return array<string, mixed>
      */
-    public function createReading(string $question): array
+    public function makeReading(string $question, array $coinResults): array
     {
-        $coinResults = $this->castCoins();
         $binary = $this->coinResultsToBinary($coinResults);
 
         return [
@@ -136,13 +89,5 @@ class IChingService
             9 => 'old_yang',
             default => throw new \InvalidArgumentException("Invalid line value: $value"),
         };
-    }
-
-    /**
-     * @return int 2 (решка/Инь) или 3 (орёл/Ян)
-     */
-    private function tossCoin(): int
-    {
-        return random_int(self::TAILS, self::HEADS);
     }
 }
