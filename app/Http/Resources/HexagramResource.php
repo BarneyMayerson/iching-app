@@ -4,14 +4,19 @@ declare(strict_types=1);
 
 namespace App\Http\Resources;
 
+use App\Models\Trigram;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Collection;
 
 /**
  * @mixin \App\Models\Hexagram
  */
 class HexagramResource extends JsonResource
 {
+    /** @var Collection<string, Trigram>|null */
+    protected static $trigramsCache = null;
+
     /**
      * Transform the resource into an array.
      *
@@ -19,6 +24,15 @@ class HexagramResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
+        if (is_null(self::$trigramsCache)) {
+            self::$trigramsCache = Trigram::all()->keyBy('binary');
+        }
+
+        // В И-Цзин линии считаются снизу вверх (1, 2, 3 — низ, 4, 5, 6 — верх)
+        // Если в строке binary '111000' индексы 0,1,2 — это верх, а 3,4,5 — это низ
+        $topTrigramBinary = substr($this->binary, 0, 3);
+        $bottomTrigramBinary = substr($this->binary, 3, 3);
+
         return [
             'binary' => $this->binary,
             'number' => $this->number,
@@ -31,6 +45,8 @@ class HexagramResource extends JsonResource
             'judgment' => $this->judgment,
             'image' => $this->image,
             'lines' => LineResource::collection($this->whenLoaded('hexagramLines')),
+            'top_trigram' => TrigramResource::make(self::$trigramsCache->get($topTrigramBinary)),
+            'bottom_trigram' => TrigramResource::make(self::$trigramsCache->get($bottomTrigramBinary)),
         ];
     }
 }

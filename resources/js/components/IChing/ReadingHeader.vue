@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { Quote } from 'lucide-vue-next';
+
 defineProps<{
   question: string;
   date: string;

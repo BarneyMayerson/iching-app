@@ -3,6 +3,26 @@ export interface Line {
   meaning: string;
 }
 
+export interface Trigram {
+  number: number;
+  names: string[];
+  symbol: string;
+  binary: string;
+  attribute: string;
+  elements: string[];
+  origins: {
+    name: {
+      chinese: string;
+      pinyin: string;
+    };
+    image: {
+      chinese: string;
+      pinyin: string;
+    };
+  };
+  family: string;
+}
+
 export interface Hexagram {
   binary: string;
   number: number;
@@ -15,6 +35,8 @@ export interface Hexagram {
   judgment: string;
   image?: string;
   lines: Line[];
+  top_trigram: Trigram;
+  bottom_trigram: Trigram;
 }
 
 export interface Reading {
