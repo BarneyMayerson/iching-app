@@ -11,6 +11,7 @@ use App\Services\IChingService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -80,11 +81,12 @@ class DivinationController extends Controller
         /** @var list<int> $coinResults */
         $coinResults = $reading->coin_results;
         $changingLines = $this->ichingService->getChangingLines($coinResults);
+
         $secondaryHexagram = null;
 
         if (! empty($changingLines)) {
-            $secondaryBinary = $this->ichingService->applyChangingLines($reading->binary, $changingLines);
-            $secondaryHexagram = Hexagram::where('binary', $secondaryBinary)->first();
+            $secondaryBinary = $this->ichingService->applyChangingLines(Str::reverse($reading->binary), $changingLines);
+            $secondaryHexagram = Hexagram::where('binary', Str::reverse($secondaryBinary))->first();
         }
 
         return Inertia::render('Cabinet/Divinations/Show', [
