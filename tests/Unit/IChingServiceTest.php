@@ -31,10 +31,10 @@ describe('iChingService coin casting', function (): void {
     it('produces correct binary representation from coin results', function () use (&$service): void {
         // 7 и 9 = Ян (1), 6 и 8 = Инь (0)
         /** @var IChingService $service */
-        expect($service->coinResultsToBinary([7, 8, 9, 6, 7, 8]))->toBe('101010');
+        expect($service->coinResultsToBinary([7, 8, 9, 6, 7, 8]))->toBe('010101');
         expect($service->coinResultsToBinary([9, 9, 9, 9, 9, 9]))->toBe('111111');
         expect($service->coinResultsToBinary([6, 6, 6, 6, 6, 6]))->toBe('000000');
-        expect($service->coinResultsToBinary([7, 7, 8, 8, 9, 6]))->toBe('110010');
+        expect($service->coinResultsToBinary([7, 7, 8, 8, 9, 6]))->toBe('010011');
     });
 
     it('identifies changing lines correctly', function () use (&$service): void {

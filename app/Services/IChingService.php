@@ -62,7 +62,7 @@ class IChingService
     {
         $binary = '';
 
-        foreach ($coinResults as $value) {
+        foreach (array_reverse($coinResults) as $value) {
             // 7 или 9 = Ян = 1, 6 или 8 = Инь = 0
             $binary .= in_array($value, [7, 9], true) ? '1' : '0';
         }
