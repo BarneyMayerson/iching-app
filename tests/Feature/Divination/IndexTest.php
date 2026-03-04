@@ -18,14 +18,23 @@ test('user can see their divinations list', function () {
 
     /** @var User $user */
     $user = User::factory()->create();
-    Reading::factory()->count(3)->create(['user_id' => $user->id]);
+    Reading::factory()->count(2)->create(['user_id' => $user->id]);
+
+    $expectedData = $user->readings()
+        ->with('hexagram')
+        ->latest()
+        ->paginate(12);
+
+    $expectedResource = ReadingResource::collection($expectedData);
 
     // @phpstan-ignore-next-line
     actingAs($user)
         ->get(route('cabinet.divinations.index'))
         ->assertOk()
         ->assertComponentIs('Cabinet/Divinations/Index')
-        ->assertHasResource('divinations', ReadingResource::collection($user->readings()->with('hexagram')->latest()->get()));
+        ->assertHasPaginatedResource('readings', $expectedResource);
+
+    expect($expectedResource->count())->toBe(2);
 });
 
 test('user cannot see other users divinations list', function () {
@@ -33,14 +42,14 @@ test('user cannot see other users divinations list', function () {
     $user = User::factory()->create();
     Reading::factory()->count(2)->create();
 
-    $divinations = ReadingResource::collection($user->readings()->latest()->get());
+    $expectedResource = ReadingResource::collection($user->readings()->latest()->paginate(12)->withQUeryString());
 
     // @phpstan-ignore-next-line
     actingAs($user)
         ->get(route('cabinet.divinations.index'))
         ->assertOk()
         ->assertComponentIs('Cabinet/Divinations/Index')
-        ->assertHasResource('divinations', $divinations);
+        ->assertHasPaginatedResource('readings', $expectedResource);
 
-    expect($divinations->count())->toBe(0);
+    expect($expectedResource->count())->toBe(0);
 });

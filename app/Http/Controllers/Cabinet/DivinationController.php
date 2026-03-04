@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Cabinet;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\ReadingResource;
 use App\Models\Hexagram;
 use App\Models\Reading;
 use App\Services\IChingService;
@@ -26,11 +27,10 @@ class DivinationController extends Controller
 
         $readings = $user->readings()
             ->with('hexagram')
-            ->latest()
-            ->get();
+            ->latest();
 
         return Inertia::render('Cabinet/Divinations/Index', [
-            'divinations' => $readings->toResourceCollection(),
+            'readings' => ReadingResource::collection($readings->paginate(12)->withQueryString()),
         ]);
     }
 
