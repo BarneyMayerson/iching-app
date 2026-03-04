@@ -4,10 +4,10 @@ import LineGuidance from '@/components/IChing/LineGuidance.vue';
 import ReadingHeader from '@/components/IChing/ReadingHeader.vue';
 import TransformationDivider from '@/components/IChing/TransformationDivider.vue';
 import AppLayout from '@/layouts/AppLayout.vue';
-import { index } from '@/routes/cabinet/divinations';
+import { deleteMethod, index } from '@/routes/cabinet/divinations';
 import { Hexagram, Reading } from '@/types/iching';
-import { Head, Link } from '@inertiajs/vue3';
-import { ArrowLeft, Sparkles } from 'lucide-vue-next';
+import { Head, Link, router } from '@inertiajs/vue3';
+import { ArrowLeft, Share2, Sparkles, Trash2 } from 'lucide-vue-next';
 
 const props = defineProps<{
   reading: Reading;
@@ -20,6 +20,16 @@ const breadcrumbs = [
   { title: 'Divinations', href: index().url },
   { title: `Reading #${props.reading.id}`, href: '#' },
 ];
+
+const handleDelete = () => {
+  if (
+    confirm(
+      'Вы уверены, что хотите удалить это гадание? Это действие необратимо.',
+    )
+  ) {
+    router.delete(deleteMethod(props.reading.id).url);
+  }
+};
 </script>
 
 <template>
@@ -27,7 +37,9 @@ const breadcrumbs = [
 
   <AppLayout :breadcrumbs>
     <div class="mx-auto max-w-4xl flex-1 p-6 lg:p-12">
-      <div class="mb-8">
+      <div
+        class="mb-8 flex items-center justify-between border-b border-slate-100 pb-4 dark:border-slate-800"
+      >
         <Link
           :href="index().url"
           class="group inline-flex items-center gap-2 text-sm font-medium text-slate-500 transition-colors hover:text-amber-600 dark:text-slate-400 dark:hover:text-amber-500"
@@ -37,6 +49,36 @@ const breadcrumbs = [
           />
           Back to History
         </Link>
+
+        <div class="flex items-center gap-2">
+          <div
+            class="flex items-center rounded-xl bg-slate-50 p-1 dark:bg-slate-900"
+          >
+            <button
+              class="flex cursor-not-allowed items-center gap-2 rounded-lg px-3 py-1.5 text-xs font-medium text-slate-400 opacity-50"
+              title="Share link"
+            >
+              <Share2 class="size-3.5" />
+              Share
+            </button>
+            <div class="mx-1 h-4 w-px bg-slate-200 dark:bg-slate-800"></div>
+            <button
+              class="flex cursor-not-allowed items-center gap-2 rounded-lg px-3 py-1.5 text-xs font-medium text-slate-400 opacity-50"
+              title="Make private"
+            >
+              <Lock class="size-3.5" />
+              Private
+            </button>
+          </div>
+
+          <button
+            @click="handleDelete"
+            class="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-red-500 transition-colors hover:bg-red-50 dark:hover:bg-red-950/30"
+          >
+            <Trash2 class="size-4" />
+            <span class="hidden sm:inline">Delete</span>
+          </button>
+        </div>
       </div>
 
       <ReadingHeader

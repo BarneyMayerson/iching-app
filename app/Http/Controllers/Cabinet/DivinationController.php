@@ -9,6 +9,7 @@ use App\Http\Resources\ReadingResource;
 use App\Models\Hexagram;
 use App\Models\Reading;
 use App\Services\IChingService;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,6 +19,8 @@ use Inertia\Response;
 
 class DivinationController extends Controller
 {
+    use AuthorizesRequests;
+
     public function __construct(protected readonly IChingService $ichingService) {}
 
     public function index(): Response
@@ -85,5 +88,15 @@ class DivinationController extends Controller
             'secondary_hexagram' => $secondaryHexagram ? $secondaryHexagram->toResource() : null,
             'changing_lines' => $changingLines,
         ]);
+    }
+
+    public function destroy(Reading $reading): RedirectResponse
+    {
+        $this->authorize('delete', $reading);
+
+        $reading->delete();
+
+        return to_route('cabinet.divinations.index')
+            ->with('message', 'Reading deleted successfully.');
     }
 }
