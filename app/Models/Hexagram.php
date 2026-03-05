@@ -7,6 +7,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Str;
 
 class Hexagram extends Model
 {
@@ -44,5 +46,23 @@ class Hexagram extends Model
     public function hexagramLines(): HasMany
     {
         return $this->hasMany(Line::class);
+    }
+
+    /**
+     * @return array<int, array{value: int, label: string}>
+     */
+    public static function getOptionsForSelect(): array
+    {
+        return Cache::rememberForever('hexagrams_select_options', fn () => self::orderBy('number')
+            ->get(['number', 'character', 'names'])
+            ->map(function (self $hex) {
+                $number = Str::padLeft((string) $hex->number, 2, '0');
+
+                return [
+                    'value' => $hex->number,
+                    'label' => "{$number}. {$hex->character} ({$hex->names[0]})",
+                ];
+            })
+            ->toArray());
     }
 }

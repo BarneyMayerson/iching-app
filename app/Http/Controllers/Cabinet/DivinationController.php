@@ -23,17 +23,29 @@ class DivinationController extends Controller
 
     public function __construct(protected readonly IChingService $ichingService) {}
 
-    public function index(): Response
+    public function index(Request $request): Response
     {
         /** @var \App\Models\User $user */
         $user = Auth::user();
 
         $readings = $user->readings()
             ->with('hexagram')
-            ->latest();
+            ->when($request->input('search'), function ($query, $search) {
+                $query->where('question', 'like', "%{$search}%");
+            })
+            ->when($request->input('hexagram'), function ($query, $hex) {
+                $query->whereHas('hexagram', function ($q) use ($hex) {
+                    $q->where('number', $hex);
+                });
+            })
+            ->latest()
+            ->paginate(12)
+            ->withQueryString();
 
         return Inertia::render('Cabinet/Divinations/Index', [
-            'readings' => ReadingResource::collection($readings->paginate(12)->withQueryString()),
+            'readings' => ReadingResource::collection($readings),
+            'filters' => $request->only(['search', 'hexagram']),
+            'hexagramList' => Hexagram::getOptionsForSelect(),
         ]);
     }
 
