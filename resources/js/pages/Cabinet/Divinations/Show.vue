@@ -18,7 +18,7 @@ const props = defineProps<{
 
 const breadcrumbs = [
   { title: 'Divinations', href: index().url },
-  { title: `Reading #${props.reading.id}`, href: '#' },
+  { title: `${props.reading.question}`, href: '#' },
 ];
 
 const handleDelete = () => {
@@ -27,7 +27,7 @@ const handleDelete = () => {
       'Вы уверены, что хотите удалить это гадание? Это действие необратимо.',
     )
   ) {
-    router.delete(deleteMethod(props.reading.id).url);
+    router.delete(deleteMethod(props.reading.uuid).url);
   }
 };
 </script>

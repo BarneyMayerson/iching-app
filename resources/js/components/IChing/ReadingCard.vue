@@ -20,7 +20,7 @@ const isChanging = (value: number) => value === 6 || value === 9;
 
 <template>
   <Link
-    :href="show(props.reading.id).url"
+    :href="show(props.reading.uuid).url"
     :title="reading.question"
     class="group relative flex flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:border-amber-300 hover:shadow-xl hover:shadow-amber-900/5 dark:border-slate-800 dark:bg-slate-900 dark:hover:border-amber-700"
   >

@@ -41,6 +41,7 @@ export interface Hexagram {
 
 export interface Reading {
   id: number;
+  uuid: string;
   question: string;
   date: string;
   time: string;

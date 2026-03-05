@@ -21,6 +21,7 @@ class ReadingResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'uuid' => $this->uuid,
             'question' => $this->question,
             'date' => $this->created_at->format('d.m.Y'),
             'time' => $this->created_at->format('H:i'),

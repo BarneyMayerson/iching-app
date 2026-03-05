@@ -23,7 +23,7 @@ test('auth user can visit own divination show page', function () {
 
     // @phpstan-ignore-next-line
     actingAs($user)
-        ->get(route('cabinet.divinations.show', $reading->id))
+        ->get(route('cabinet.divinations.show', $reading))
         ->assertOk()
         ->assertComponentIs('Cabinet/Divinations/Show')
         ->assertHasResource('reading', ReadingResource::make($reading->load(['hexagram', 'hexagram.hexagramLines'])))
@@ -36,6 +36,6 @@ test('auth user cannot visit other user divination show page', function () {
     $reading = Reading::factory()->create();
 
     actingAs($user)
-        ->get(route('cabinet.divinations.show', $reading->id))
+        ->get(route('cabinet.divinations.show', $reading))
         ->assertForbidden();
 });
