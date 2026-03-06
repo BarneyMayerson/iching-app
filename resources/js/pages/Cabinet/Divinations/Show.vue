@@ -4,10 +4,14 @@ import LineGuidance from '@/components/IChing/LineGuidance.vue';
 import ReadingHeader from '@/components/IChing/ReadingHeader.vue';
 import TransformationDivider from '@/components/IChing/TransformationDivider.vue';
 import AppLayout from '@/layouts/AppLayout.vue';
-import { deleteMethod, index } from '@/routes/cabinet/divinations';
+import {
+  deleteMethod,
+  exportMethod,
+  index,
+} from '@/routes/cabinet/divinations';
 import { Hexagram, Reading } from '@/types/iching';
 import { Head, Link, router } from '@inertiajs/vue3';
-import { ArrowLeft, Share2, Sparkles, Trash2 } from 'lucide-vue-next';
+import { ArrowLeft, FileDown, Share2, Sparkles, Trash2 } from 'lucide-vue-next';
 
 const props = defineProps<{
   reading: Reading;
@@ -30,6 +34,10 @@ const handleDelete = () => {
     router.delete(deleteMethod(props.reading.uuid).url);
   }
 };
+
+const downloadPdf = () => {
+  window.location.href = exportMethod(props.reading.uuid).url;
+};
 </script>
 
 <template>
@@ -51,6 +59,13 @@ const handleDelete = () => {
         </Link>
 
         <div class="flex items-center gap-2">
+          <button
+            @click="downloadPdf"
+            class="flex items-center gap-2 rounded-xl bg-slate-100 px-4 py-2 text-sm font-semibold text-slate-700 transition-all hover:bg-slate-200 active:scale-95 dark:bg-slate-800 dark:text-slate-200"
+          >
+            <FileDown class="size-4" />
+            Export PDF
+          </button>
           <div
             class="flex items-center rounded-xl bg-slate-50 p-1 dark:bg-slate-900"
           >

@@ -17,5 +17,6 @@ class Trigram extends Model
 
     protected $casts = [
         'images' => 'array',
+        'lines' => 'array',
     ];
 }

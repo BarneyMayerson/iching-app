@@ -37,12 +37,12 @@ class TrigramSeeder extends Seeder
                 'character' => $trigramData['character'],
                 'attribute' => $trigramData['attribute'],
                 'image' => $trigramData['images'][0],
-                'images' => json_encode($trigramData['images']),
+                'images' => $trigramData['images'],
                 'chinese_image' => $trigramData['chineseImage'] ?? null,
                 'pinyin_image' => $trigramData['pinyinImage'] ?? null,
                 'family_relationship' => $trigramData['familyRelationship'] ?? null,
                 'binary' => $trigramData['binary'],
-                'lines' => json_encode($trigramData['lines']),
+                'lines' => $trigramData['lines'],
             ]);
         }
 

@@ -23,7 +23,7 @@ it('stores an auth user cast an i-ching reading and redirects to the divination 
 
     $reading = \App\Models\Reading::first();
 
-    $response->assertRedirect(route('cabinet.divinations.show', $reading->id));
+    $response->assertRedirect(route('cabinet.divinations.show', $reading));
 
     assertDatabaseHas('readings', [
         'user_id' => $user->id,

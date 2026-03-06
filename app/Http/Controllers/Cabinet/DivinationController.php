@@ -9,9 +9,11 @@ use App\Http\Resources\ReadingResource;
 use App\Models\Hexagram;
 use App\Models\Reading;
 use App\Services\IChingService;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response as HttpResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Inertia\Inertia;
@@ -74,7 +76,7 @@ class DivinationController extends Controller
             'binary' => $readingData['binary'],
         ]);
 
-        return to_route('cabinet.divinations.show', $reading->id);
+        return to_route('cabinet.divinations.show', $reading);
     }
 
     public function show(Reading $reading): Response
@@ -110,5 +112,37 @@ class DivinationController extends Controller
 
         return to_route('cabinet.divinations.index')
             ->with('message', 'Reading deleted successfully.');
+    }
+
+    public function export(Reading $reading): HttpResponse
+    {
+        $this->authorize('export', $reading);
+
+        // Подгружаем отношения для PDF
+        $reading->load(['hexagram.hexagramLines', 'hexagram.upperTrigram', 'hexagram.lowerTrigram']);
+
+        // Рассчитываем вторичную гексаграмму, если есть меняющиеся линии
+        /** @var list<int> $coinResults */
+        $coinResults = $reading->coin_results;
+        $changingLines = $this->ichingService->getChangingLines($coinResults);
+
+        $secondaryHexagram = null;
+
+        if (! empty($changingLines)) {
+            $secondaryBinary = $this->ichingService->applyChangingLines(Str::reverse($reading->binary), $changingLines);
+            $secondaryHexagram = Hexagram::where('binary', Str::reverse($secondaryBinary))->first();
+        }
+
+        $pdf = Pdf::loadView('pdf.divination', [
+            'reading' => $reading,
+            'changing_lines' => $changingLines,
+            'hexagram' => $reading->hexagram,
+            'secondary_hexagram' => $secondaryHexagram,
+        ]);
+
+        // Название файла: Дата_Вопрос.pdf
+        $filename = $reading->created_at->format('Y-m-d').'_divination.pdf';
+
+        return $pdf->download($filename);
     }
 }
