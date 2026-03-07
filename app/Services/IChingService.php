@@ -14,7 +14,7 @@ class IChingService
     {
         $binary = '';
 
-        foreach (array_reverse($coinResults) as $value) {
+        foreach ($coinResults as $value) {
             // 7 или 9 = Ян = 1, 6 или 8 = Инь = 0
             $binary .= in_array($value, [7, 9], true) ? '1' : '0';
         }
@@ -31,6 +31,7 @@ class IChingService
     {
         $binary = $this->coinResultsToBinary($coinResults);
         $chagingLines = $this->getChangingLines($coinResults);
+
         $secondaryBinary = empty($chagingLines)
             ? null
             : $this->applyChangingLines($binary, $chagingLines);
@@ -45,15 +46,15 @@ class IChingService
 
     /**
      * @param  list<int>  $coinResults  Массив из 6 значений 6-9
-     * @return list<int> Позиции меняющихся линий (0-5, где 0 - нижняя линия, 5 - верхняя)
+     * @return list<int> Позиции меняющихся линий (1-6, где 1 - нижняя линия, 6 - верхняя)
      */
     public function getChangingLines(array $coinResults): array
     {
         $changing = [];
 
-        foreach (array_reverse($coinResults) as $index => $value) {
-            if (in_array($value, [6, 9], true)) {
-                $changing[] = $index; // Позиция от 0 до 5
+        foreach ($coinResults as $index => $value) {
+            if ($this->isLineChanging($value)) {
+                $changing[] = $index;
             }
         }
 
@@ -68,8 +69,6 @@ class IChingService
     public function applyChangingLines(string $binary, array $changingLines): string
     {
         $chars = str_split($binary);
-
-        // dd($chars, $changingLines);
 
         foreach ($changingLines as $position) {
             if (isset($chars[$position])) {

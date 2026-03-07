@@ -14,7 +14,7 @@ const props = defineProps<{
 
 const mode = ref<'path' | 'focus'>('path');
 
-const isChanging = (pos: number) => props.changing_lines.includes(pos);
+const isChanging = (pos: number) => props.changing_lines.includes(pos - 1);
 </script>
 
 <template>

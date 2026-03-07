@@ -20,7 +20,7 @@ class ReadingResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'id' => $this->id,
+            // 'id' => $this->id,
             'uuid' => $this->uuid,
             'question' => $this->question,
             'date' => $this->created_at->format('d.m.Y'),
@@ -28,6 +28,8 @@ class ReadingResource extends JsonResource
             'relative_date' => $this->created_at->diffForHumans(),
             'binary' => $this->binary,
             'hexagram' => $this->whenLoaded('hexagram', fn () => HexagramResource::make($this->hexagram)),
+            'secondary_binary' => $this->secondary_binary,
+            'secondary_hexagram' => $this->whenLoaded('secondaryHexagram', fn () => HexagramResource::make($this->secondaryHexagram)),
             'coin_results' => $this->coin_results,
         ];
     }

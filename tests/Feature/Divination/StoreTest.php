@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Reading;
 use App\Models\User;
 
 use function Pest\Laravel\actingAs;
@@ -21,7 +22,7 @@ it('stores an auth user cast an i-ching reading and redirects to the divination 
             'coin_results' => [6, 7, 7, 9, 6, 7],
         ]);
 
-    $reading = \App\Models\Reading::first();
+    $reading = Reading::first();
 
     $response->assertRedirect(route('cabinet.divinations.show', $reading));
 
@@ -29,8 +30,8 @@ it('stores an auth user cast an i-ching reading and redirects to the divination 
         'user_id' => $user->id,
         'question' => $question,
         'coin_results' => json_encode([6, 7, 7, 9, 6, 7]),
-        'binary' => '101110',
-        'secondary_binary' => '110111',
+        'binary' => '011101',
+        'secondary_binary' => '111011',
     ]);
 });
 

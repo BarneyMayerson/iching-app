@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Resources\HexagramResource;
 use App\Http\Resources\ReadingResource;
 use App\Models\Reading;
 use App\Models\User;
@@ -19,15 +18,25 @@ test('auth user can visit own divination show page', function () {
 
     /** @var User $user */
     $user = User::factory()->create();
+
+    /** @var Reading $reading */
     $reading = Reading::factory()->create(['user_id' => $user->id]);
+    $reading->load(
+        'hexagram',
+        'hexagram.hexagramLines',
+        'hexagram.upperTrigram',
+        'hexagram.lowerTrigram',
+        'secondaryHexagram',
+        'secondaryHexagram.upperTrigram',
+        'secondaryHexagram.lowerTrigram',
+    );
 
     // @phpstan-ignore-next-line
     actingAs($user)
         ->get(route('cabinet.divinations.show', $reading))
         ->assertOk()
         ->assertComponentIs('Cabinet/Divinations/Show')
-        ->assertHasResource('reading', ReadingResource::make($reading->load(['hexagram', 'hexagram.hexagramLines'])))
-        ->assertHasResource('hexagram', HexagramResource::make($reading->hexagram->load('hexagramLines')));
+        ->assertHasResource('reading', ReadingResource::make($reading));
 });
 
 test('auth user cannot visit other user divination show page', function () {

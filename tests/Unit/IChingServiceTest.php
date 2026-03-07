@@ -10,10 +10,10 @@ describe('iChingService coin casting', function (): void {
     it('produces correct binary representation from coin results', function () use (&$service) {
         // 7 и 9 = Ян (1), 6 и 8 = Инь (0)
         /** @var IChingService $service */
-        expect($service->coinResultsToBinary([7, 8, 9, 6, 7, 8]))->toBe('010101');
+        expect($service->coinResultsToBinary([7, 8, 9, 6, 7, 8]))->toBe('101010');
         expect($service->coinResultsToBinary([9, 9, 9, 9, 9, 9]))->toBe('111111');
         expect($service->coinResultsToBinary([6, 6, 6, 6, 6, 6]))->toBe('000000');
-        expect($service->coinResultsToBinary([7, 7, 8, 8, 9, 6]))->toBe('010011');
+        expect($service->coinResultsToBinary([7, 7, 8, 8, 9, 6]))->toBe('110010');
     });
 
     it('identifies changing lines correctly', function () use (&$service) {
@@ -21,8 +21,8 @@ describe('iChingService coin casting', function (): void {
         expect($service->getChangingLines([7, 8, 9, 6, 7, 8]))->toBe([2, 3]); // 9 и 6
         expect($service->getChangingLines([7, 7, 7, 7, 7, 7]))->toBe([]);     // нет меняющихся
         expect($service->getChangingLines([6, 6, 6, 6, 6, 6]))->toBe([0, 1, 2, 3, 4, 5]); // все 6
-        expect($service->getChangingLines([7, 9, 9, 9, 9, 9]))->toBe([0, 1, 2, 3, 4]); // все 9
-        expect($service->getChangingLines([7, 8, 9, 9, 6, 9]))->toBe([0, 1, 2, 3]); // 9 и 6
+        expect($service->getChangingLines([7, 9, 9, 9, 9, 9]))->toBe([1, 2, 3, 4, 5]); // все 9
+        expect($service->getChangingLines([7, 8, 9, 9, 6, 9]))->toBe([2, 3, 4, 5]); // 9 и 6
     });
 
     it('applies changing lines correctly', function () use (&$service) {
@@ -60,8 +60,8 @@ describe('iChingService coin casting', function (): void {
 
         expect($reading['question'])->toBe('The question');
         expect($reading['coin_results'])->toBe($coinResults);
-        expect($reading['binary'])->toBe('101010');
-        expect($reading['secondary_binary'])->toBe('100011');
+        expect($reading['binary'])->toBe('010101');
+        expect($reading['secondary_binary'])->toBe('110001');
     });
 
 });

@@ -9,14 +9,19 @@ import {
   exportMethod,
   index,
 } from '@/routes/cabinet/divinations';
-import { Hexagram, Reading } from '@/types/iching';
+import { Reading } from '@/types/iching';
 import { Head, Link, router } from '@inertiajs/vue3';
-import { ArrowLeft, FileDown, Share2, Sparkles, Trash2 } from 'lucide-vue-next';
+import {
+  ArrowLeft,
+  FileDown,
+  Lock,
+  Share2,
+  Sparkles,
+  Trash2,
+} from 'lucide-vue-next';
 
 const props = defineProps<{
   reading: Reading;
-  hexagram: Hexagram;
-  secondary_hexagram?: Hexagram;
   changing_lines: number[];
 }>();
 
@@ -41,7 +46,7 @@ const downloadPdf = () => {
 </script>
 
 <template>
-  <Head :title="'Hexagram ' + hexagram.number + ' - Interpretation'" />
+  <Head :title="'Hexagram ' + reading.hexagram.number + ' - Interpretation'" />
 
   <AppLayout :breadcrumbs>
     <div class="mx-auto max-w-4xl flex-1 p-6 lg:p-12">
@@ -108,28 +113,34 @@ const downloadPdf = () => {
         <div
           class="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm dark:border-slate-800 dark:bg-slate-900/50"
         >
-          <HexagramSection :hexagram :coin_results="reading.coin_results" />
+          <HexagramSection
+            :hexagram="reading.hexagram"
+            :coin_results="reading.coin_results"
+          />
         </div>
 
         <LineGuidance
-          :lines="hexagram.lines"
+          :lines="reading.hexagram.lines"
           :changing_lines="changing_lines"
         />
       </section>
 
-      <div v-if="secondary_hexagram" class="my-20 flex flex-col items-center">
+      <div
+        v-if="reading.secondary_hexagram"
+        class="my-20 flex flex-col items-center"
+      >
         <TransformationDivider />
       </div>
 
       <section
-        v-if="secondary_hexagram"
+        v-if="reading.secondary_hexagram"
         class="animate-in space-y-8 duration-1000 slide-in-from-bottom-10 fade-in"
       >
         <div
           class="rounded-3xl border border-dashed border-slate-300 bg-slate-50/50 p-8 dark:border-slate-700 dark:bg-slate-900/30"
         >
           <HexagramSection
-            :hexagram="secondary_hexagram"
+            :hexagram="reading.secondary_hexagram"
             :coin_results="
               reading.coin_results.map((v: number) =>
                 v === 6 ? 7 : v === 9 ? 8 : v,

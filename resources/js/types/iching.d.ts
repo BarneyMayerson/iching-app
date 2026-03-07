@@ -40,13 +40,14 @@ export interface Hexagram {
 }
 
 export interface Reading {
-  id: number;
   uuid: string;
   question: string;
   date: string;
   time: string;
   binary: string;
   hexagram: Hexagram;
+  secondary_binary?: string;
+  secondary_hexagram?: Hexagram;
   relative_date: string;
   coin_results: number[];
 }

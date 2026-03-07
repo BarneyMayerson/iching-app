@@ -79,25 +79,24 @@ class DivinationController extends Controller
 
     public function show(Reading $reading): Response
     {
-        if ($reading->user_id !== Auth::id()) {
-            abort(403);
-        }
+        $this->authorize('view', $reading);
+
+        $reading->load(
+            'hexagram',
+            'hexagram.hexagramLines',
+            'hexagram.upperTrigram',
+            'hexagram.lowerTrigram',
+            'secondaryHexagram',
+            'secondaryHexagram.upperTrigram',
+            'secondaryHexagram.lowerTrigram',
+        );
 
         /** @var list<int> $coinResults */
         $coinResults = $reading->coin_results;
         $changingLines = $this->ichingService->getChangingLines($coinResults);
 
-        $secondaryHexagram = null;
-
-        if (! empty($changingLines)) {
-            $secondaryBinary = $this->ichingService->applyChangingLines(Str::reverse($reading->binary), $changingLines);
-            $secondaryHexagram = Hexagram::where('binary', Str::reverse($secondaryBinary))->first();
-        }
-
         return Inertia::render('Cabinet/Divinations/Show', [
             'reading' => $reading->toResource(),
-            'hexagram' => $reading->hexagram->load('hexagramLines')->toResource(), // TODO: optimize
-            'secondary_hexagram' => $secondaryHexagram ? $secondaryHexagram->toResource() : null,
             'changing_lines' => $changingLines,
         ]);
     }
