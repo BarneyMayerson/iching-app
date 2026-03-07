@@ -30,25 +30,30 @@ class IChingService
     public function makeReading(string $question, array $coinResults): array
     {
         $binary = $this->coinResultsToBinary($coinResults);
+        $chagingLines = $this->getChangingLines($coinResults);
+        $secondaryBinary = empty($chagingLines)
+            ? null
+            : $this->applyChangingLines($binary, $chagingLines);
 
         return [
             'question' => $question,
             'coin_results' => $coinResults,
             'binary' => $binary,
+            'secondary_binary' => $secondaryBinary,
         ];
     }
 
     /**
      * @param  list<int>  $coinResults  Массив из 6 значений 6-9
-     * @return list<int> Позиции меняющихся линий (1-6)
+     * @return list<int> Позиции меняющихся линий (0-5, где 0 - нижняя линия, 5 - верхняя)
      */
     public function getChangingLines(array $coinResults): array
     {
         $changing = [];
 
-        foreach ($coinResults as $index => $value) {
+        foreach (array_reverse($coinResults) as $index => $value) {
             if (in_array($value, [6, 9], true)) {
-                $changing[] = $index + 1; // Позиции 1-6, а не 0-5
+                $changing[] = $index; // Позиция от 0 до 5
             }
         }
 
@@ -57,18 +62,19 @@ class IChingService
 
     /**
      * @param  string  $binary  Исходная бинарная строка
-     * @param  list<int>  $changingLines  Позиции меняющихся линий (1-6)
+     * @param  list<int>  $changingLines  Позиции меняющихся линий (0-5)
      * @return string Новая бинарная строка
      */
     public function applyChangingLines(string $binary, array $changingLines): string
     {
         $chars = str_split($binary);
 
+        // dd($chars, $changingLines);
+
         foreach ($changingLines as $position) {
-            $index = $position - 1; // Преобразуем 1-6 в 0-5
-            if (isset($chars[$index])) {
+            if (isset($chars[$position])) {
                 // Меняем 0 на 1 или наоборот
-                $chars[$index] = ($chars[$index] === '1') ? '0' : '1';
+                $chars[$position] = ($chars[$position] === '1') ? '0' : '1';
             }
         }
 
