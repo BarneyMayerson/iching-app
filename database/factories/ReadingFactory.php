@@ -24,12 +24,11 @@ class ReadingFactory extends Factory
         $values = [6, 7, 7, 7, 7, 7, 8, 8, 8, 8, 8, 8, 8, 8, 8, 9, 9, 9];
         $coinResults = Arr::random($values, 6);
 
-        return [
-            'question' => fake()->sentence,
-            'user_id' => User::factory(),
-            'coin_results' => $coinResults,
-            'binary' => app(IChingService::class)->coinResultsToBinary($coinResults),
+        $readingData = app(IChingService::class)->makeReading(fake()->sentence, $coinResults);
 
+        return [
+            'user_id' => User::factory(),
+            ...$readingData,
         ];
     }
 
@@ -42,6 +41,7 @@ class ReadingFactory extends Factory
             return [
                 'coin_results' => $coinResults,
                 'binary' => app(IChingService::class)->coinResultsToBinary($coinResults),
+                'secondary_binary' => null,
             ];
         });
     }

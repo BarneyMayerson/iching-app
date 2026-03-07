@@ -71,9 +71,7 @@ class DivinationController extends Controller
 
         $reading = Reading::create([
             'user_id' => Auth::id(),
-            'question' => $readingData['question'],
-            'coin_results' => $readingData['coin_results'],
-            'binary' => $readingData['binary'],
+            ...$readingData,
         ]);
 
         return to_route('cabinet.divinations.show', $reading);

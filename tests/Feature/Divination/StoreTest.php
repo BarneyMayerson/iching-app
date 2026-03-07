@@ -29,6 +29,8 @@ it('stores an auth user cast an i-ching reading and redirects to the divination 
         'user_id' => $user->id,
         'question' => $question,
         'coin_results' => json_encode([6, 7, 7, 9, 6, 7]),
+        'binary' => '101110',
+        'secondary_binary' => '110111',
     ]);
 });
 

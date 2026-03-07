@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('question');
             $table->json('coin_results');
             $table->string('binary', 6);
+            $table->string('secondary_binary', 6)->nullable();
             $table->timestamps();
         });
     }

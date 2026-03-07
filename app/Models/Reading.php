@@ -50,4 +50,12 @@ class Reading extends Model
     {
         return $this->belongsTo(Hexagram::class, 'binary', 'binary');
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<\App\Models\Hexagram, $this>
+     */
+    public function secondaryHexagram(): BelongsTo
+    {
+        return $this->belongsTo(Hexagram::class, 'secondary_binary', 'binary');
+    }
 }
