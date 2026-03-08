@@ -28,10 +28,9 @@ class HexagramResource extends JsonResource
             self::$trigramsCache = Trigram::all()->keyBy('binary');
         }
 
-        // В И-Цзин линии считаются снизу вверх (1, 2, 3 — низ, 4, 5, 6 — верх)
-        // Если в строке binary '111000' индексы 0,1,2 — это верх, а 3,4,5 — это низ
-        $topTrigramBinary = substr($this->binary, 0, 3);
-        $bottomTrigramBinary = substr($this->binary, 3, 3);
+        $reverseBinary = strrev($this->binary);
+        $bottomTrigramBinary = substr($reverseBinary, 3, 3);
+        $topTrigramBinary = substr($reverseBinary, 0, 3);
 
         return [
             'binary' => $this->binary,

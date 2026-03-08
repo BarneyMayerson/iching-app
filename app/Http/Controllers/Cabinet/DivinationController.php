@@ -15,7 +15,6 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response as HttpResponse;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Str;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -115,29 +114,26 @@ class DivinationController extends Controller
     {
         $this->authorize('export', $reading);
 
-        // Подгружаем отношения для PDF
-        $reading->load(['hexagram.hexagramLines', 'hexagram.upperTrigram', 'hexagram.lowerTrigram']);
+        $reading->load(
+            'hexagram',
+            'hexagram.hexagramLines',
+            'hexagram.upperTrigram',
+            'hexagram.lowerTrigram',
+            'secondaryHexagram',
+            'secondaryHexagram.upperTrigram',
+            'secondaryHexagram.lowerTrigram',
+        );
 
-        // Рассчитываем вторичную гексаграмму, если есть меняющиеся линии
         /** @var list<int> $coinResults */
         $coinResults = $reading->coin_results;
         $changingLines = $this->ichingService->getChangingLines($coinResults);
 
-        $secondaryHexagram = null;
-
-        if (! empty($changingLines)) {
-            $secondaryBinary = $this->ichingService->applyChangingLines(Str::reverse($reading->binary), $changingLines);
-            $secondaryHexagram = Hexagram::where('binary', Str::reverse($secondaryBinary))->first();
-        }
-
+        dd($reading->toArray());
         $pdf = Pdf::loadView('pdf.divination', [
             'reading' => $reading,
             'changing_lines' => $changingLines,
-            'hexagram' => $reading->hexagram,
-            'secondary_hexagram' => $secondaryHexagram,
         ]);
 
-        // Название файла: Дата_Вопрос.pdf
         $filename = $reading->created_at->format('Y-m-d').'_divination.pdf';
 
         return $pdf->download($filename);

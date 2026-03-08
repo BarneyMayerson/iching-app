@@ -116,7 +116,6 @@
       margin: 5px 0;
     }
 
-    /* Контейнер для триграмм */
     .trigrams-wrapper {
       margin: 20px auto;
       width: 90%;
@@ -135,7 +134,6 @@
       vertical-align: top;
     }
 
-    /* Карточка триграммы */
     .trigram-card {
       background-color: #f8fafc;
       border-radius: 12px;
@@ -314,11 +312,11 @@
   <div class="hexagram-container">
     <div class="hexagram-visual">
       @php
-        $lines = str_split($reading->binary);
+        $lines = str_split(strrev($reading->binary)); // Разворачиваем, чтобы линии шли снизу вверх
       @endphp
       @foreach ($lines as $index => $bit)
         @php
-          $pos = 6 - $index;
+          $pos = 5 - $index;
           $isChanging = in_array($pos, $changing_lines);
         @endphp
         <div class="line-row">
@@ -397,7 +395,7 @@
       <div class="path-line"></div>
 
       @foreach ($reading->hexagram->hexagramLines as $line)
-        @php $isChanging = in_array($line->position, $changing_lines); @endphp
+        @php $isChanging = in_array($line->position - 1, $changing_lines); @endphp
 
         <div class="line-item {{ $isChanging ? 'active' : '' }}" style="position: relative; margin-left: 15px;">
           <div class="line-position-tab">L{{ $line->position }}</div>
@@ -417,7 +415,7 @@
     </div>
   </div>
 
-  @if ($secondary_hexagram)
+  @if ($reading->secondaryHexagram)
     <div class="page-break"></div>
     <div class="header">
       <h1>The Transformation</h1>
@@ -427,7 +425,7 @@
     <div class="hexagram-container">
       <div class="hexagram-visual">
         @php
-          $secLines = str_split($secondary_hexagram->binary);
+          $secLines = str_split(strrev($reading->secondaryHexagram->binary)); // Разворачиваем, чтобы линии шли снизу вверх
         @endphp
         @foreach ($secLines as $bit)
           <div class="line-row">
@@ -441,10 +439,14 @@
         @endforeach
       </div>
       <div class="hex-info">
-        <div class="hex-number">Hexagram {{ $secondary_hexagram->number }}</div>
-        <div class="hex-name">{{ $secondary_hexagram->character }} {{ $secondary_hexagram->names[0] }}</div>
+        <div class="hex-number">
+          Hexagram {{ $reading->secondaryHexagram->number }}
+        </div>
+        <div class="hex-name">
+          {{ $reading->secondaryHexagram->character }} {{ $reading->secondaryHexagram->names[0] }}
+        </div>
         <div style="margin-top: 15px; font-size: 13px; color: #475569; padding: 0 40px;">
-          {{ $secondary_hexagram->judgment }}
+          {{ $reading->secondaryHexagram->judgment }}
         </div>
       </div>
     </div>
@@ -454,32 +456,32 @@
         <tr>
           <td class="trigram-cell">
             <div class="trigram-card">
-              <div class="trigram-symbol">{{ $secondary_hexagram->upperTrigram->character }}</div>
+              <div class="trigram-symbol">{{ $reading->secondaryHexagram->upperTrigram->character }}</div>
               <div class="trigram-content">
                 <div class="trigram-label">Above (Outer)</div>
                 <div class="trigram-element">
-                  {{ $secondary_hexagram->upperTrigram->images[0] }}
-                  @if (isset($secondary_hexagram->upperTrigram->images[1]))
-                    <span style="color: #94a3b8;">/ {{ $secondary_hexagram->upperTrigram->images[1] }}</span>
+                  {{ $reading->secondaryHexagram->upperTrigram->images[0] }}
+                  @if (isset($reading->secondaryHexagram->upperTrigram->images[1]))
+                    <span style="color: #94a3b8;">/ {{ $reading->secondaryHexagram->upperTrigram->images[1] }}</span>
                   @endif
                 </div>
-                <div class="trigram-attribute">{{ $secondary_hexagram->upperTrigram->attribute }}</div>
+                <div class="trigram-attribute">{{ $reading->secondaryHexagram->upperTrigram->attribute }}</div>
               </div>
               <div class="clear"></div>
             </div>
           </td>
           <td class="trigram-cell">
             <div class="trigram-card">
-              <div class="trigram-symbol">{{ $secondary_hexagram->lowerTrigram->character }}</div>
+              <div class="trigram-symbol">{{ $reading->secondaryHexagram->lowerTrigram->character }}</div>
               <div class="trigram-content">
                 <div class="trigram-label">Below (Inner)</div>
                 <div class="trigram-element">
-                  {{ $secondary_hexagram->lowerTrigram->images[0] }}
-                  @if (isset($secondary_hexagram->lowerTrigram->images[1]))
-                    <span style="color: #94a3b8;">/ {{ $secondary_hexagram->lowerTrigram->images[1] }}</span>
+                  {{ $reading->secondaryHexagram->lowerTrigram->images[0] }}
+                  @if (isset($reading->secondaryHexagram->lowerTrigram->images[1]))
+                    <span style="color: #94a3b8;">/ {{ $reading->secondaryHexagram->lowerTrigram->images[1] }}</span>
                   @endif
                 </div>
-                <div class="trigram-attribute">{{ $secondary_hexagram->lowerTrigram->attribute }}</div>
+                <div class="trigram-attribute">{{ $reading->secondaryHexagram->lowerTrigram->attribute }}</div>
               </div>
               <div class="clear"></div>
             </div>
@@ -506,7 +508,7 @@
         You are in a state of dynamic flow. The core of your inquiry lies within the
         {{ count($changing_lines) }} points of tension identified on your path.
         As <strong>{{ $reading->hexagram->names[0] }}</strong> dissolves into
-        <strong>{{ $secondary_hexagram->names[0] }}</strong>, remember that the only
+        <strong>{{ $reading->secondaryHexagram->names[0] }}</strong>, remember that the only
         constant is change itself. Move with the current, not against it.
       </div>
     @endif
