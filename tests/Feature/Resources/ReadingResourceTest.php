@@ -1,0 +1,39 @@
+<?php
+
+use App\Http\Resources\HexagramResource;
+use App\Http\Resources\ReadingResource;
+use App\Models\Hexagram;
+use App\Models\Reading;
+use App\Services\IChingService;
+use Database\Seeders\HexagramSeeder;
+
+use function Pest\Laravel\seed;
+
+it('returns correctly formatted data for a hexagram', function () {
+    seed(HexagramSeeder::class);
+
+    /** @var Hexagram $hexagram */
+    $reading = Reading::factory()->create();
+
+    $resource = ReadingResource::make($reading->load(['hexagram', 'secondaryHexagram']));
+
+    $data = $resource->toArray(request());
+
+    expect($data)->toHaveKeys([
+        'uuid',
+        'question',
+        'date',
+        'time',
+        'relative_date',
+        'binary',
+        'hexagram',
+        'secondary_binary',
+        'secondary_hexagram',
+        'coin_results',
+    ]);
+
+    expect($data['binary'])->toBe(app(IChingService::class)->coinResultsToBinary($reading->coin_results));
+
+    expect($data['hexagram'])->toBeInstanceOf(HexagramResource::class);
+    expect($data['secondary_hexagram'])->toBeInstanceOf(HexagramResource::class);
+});

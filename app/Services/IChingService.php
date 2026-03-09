@@ -30,6 +30,7 @@ class IChingService
     public function makeReading(string $question, array $coinResults): array
     {
         $binary = $this->coinResultsToBinary($coinResults);
+
         $chagingLines = $this->getChangingLines($coinResults);
 
         $secondaryBinary = empty($chagingLines)

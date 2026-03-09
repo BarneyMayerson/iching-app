@@ -20,7 +20,6 @@ class ReadingResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            // 'id' => $this->id,
             'uuid' => $this->uuid,
             'question' => $this->question,
             'date' => $this->created_at->format('d.m.Y'),
