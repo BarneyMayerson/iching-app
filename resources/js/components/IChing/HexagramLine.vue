@@ -2,11 +2,8 @@
 import { computed } from 'vue';
 
 interface Props {
-  // 6: Старая Инь (меняется в Ян)
-  // 7: Молодой Ян
-  // 8: Молодой Инь
-  // 9: Старый Ян (меняется в Инь)
-  value: number;
+  value: number; // 6: Старая Инь (меняется), 7: Молодой Ян, 8: Молодой Инь, 9: Старый Ян (меняется)
+  position: number; //Номер линии
 }
 
 const props = defineProps<Props>();
@@ -49,6 +46,10 @@ const lineBaseClass = computed(() => [
         </div>
       </div>
       <div class="w-[45%]" :class="lineBaseClass"></div>
+    </div>
+
+    <div class="absolute -left-2 text-xs text-gray-400 dark:text-gray-500">
+      #{{ position }}
     </div>
 
     <div

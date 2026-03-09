@@ -88,7 +88,7 @@ const isChanging = (pos: number) => props.changing_lines.includes(pos - 1);
                     : 'text-slate-400',
                 ]"
               >
-                Line {{ line.position }} —
+                Line #{{ line.position }} —
                 {{ isChanging(line.position) ? 'Changing' : 'Stable' }}
               </span>
             </div>

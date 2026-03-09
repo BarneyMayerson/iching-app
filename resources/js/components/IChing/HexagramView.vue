@@ -36,6 +36,7 @@ const reversedCoinResults = computed(() => [...props.coinResults].reverse());
         <HexagramLine
           v-for="(result, index) in reversedCoinResults"
           :key="6 - index"
+          :position="6 - index"
           :value="result"
           class="animate-reveal"
           :style="{
