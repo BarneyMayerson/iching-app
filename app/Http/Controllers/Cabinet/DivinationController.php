@@ -128,7 +128,6 @@ class DivinationController extends Controller
         $coinResults = $reading->coin_results;
         $changingLines = $this->ichingService->getChangingLines($coinResults);
 
-        dd($reading->toArray());
         $pdf = Pdf::loadView('pdf.divination', [
             'reading' => $reading,
             'changing_lines' => $changingLines,

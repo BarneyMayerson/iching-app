@@ -19,7 +19,7 @@ class IChingService
             $binary .= in_array($value, [7, 9], true) ? '1' : '0';
         }
 
-        return $binary;
+        return strrev($binary); // Реверсируем строку, чтобы нижняя линия была последней (справа) а верхняя - первая (слева)
     }
 
     /**
@@ -46,7 +46,7 @@ class IChingService
 
     /**
      * @param  list<int>  $coinResults  Массив из 6 значений 6-9
-     * @return list<int> Позиции меняющихся линий (1-6, где 1 - нижняя линия, 6 - верхняя)
+     * @return list<int> Позиции меняющихся линий (0-5, где 0 - нижняя линия, 5 - верхняя)
      */
     public function getChangingLines(array $coinResults): array
     {
@@ -68,7 +68,7 @@ class IChingService
      */
     public function applyChangingLines(string $binary, array $changingLines): string
     {
-        $chars = str_split($binary);
+        $chars = str_split(strrev($binary)); // Реверсируем строку, чтобы индекс 0 был нижней линией
 
         foreach ($changingLines as $position) {
             if (isset($chars[$position])) {
@@ -77,7 +77,7 @@ class IChingService
             }
         }
 
-        return implode('', $chars);
+        return strrev(implode('', $chars)); // Реверсируем обратно, чтобы верхняя линия была первой
     }
 
     public function isLineChanging(int $value): bool

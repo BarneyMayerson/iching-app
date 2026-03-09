@@ -34,7 +34,8 @@ withDefaults(
         <h2
           class="font-serif text-4xl font-bold text-slate-900 dark:text-slate-100"
         >
-          {{ hexagram.number }}. {{ hexagram.names[0] }}
+          {{ hexagram.number }}. {{ hexagram.character }}
+          {{ hexagram.names[0] }}
         </h2>
         <div class="mt-3 space-y-1">
           <p

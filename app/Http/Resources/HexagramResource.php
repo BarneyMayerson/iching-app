@@ -25,12 +25,8 @@ class HexagramResource extends JsonResource
     public function toArray(Request $request): array
     {
         if (is_null(self::$trigramsCache)) {
-            self::$trigramsCache = Trigram::all()->keyBy('binary');
+            self::$trigramsCache = Trigram::all()->keyBy('id');
         }
-
-        $reverseBinary = strrev($this->binary);
-        $bottomTrigramBinary = substr($reverseBinary, 3, 3);
-        $topTrigramBinary = substr($reverseBinary, 0, 3);
 
         return [
             'binary' => $this->binary,
@@ -44,8 +40,8 @@ class HexagramResource extends JsonResource
             'judgment' => $this->judgment,
             'image' => $this->image,
             'lines' => LineResource::collection($this->whenLoaded('hexagramLines')),
-            'top_trigram' => TrigramResource::make(self::$trigramsCache->get($topTrigramBinary)),
-            'bottom_trigram' => TrigramResource::make(self::$trigramsCache->get($bottomTrigramBinary)),
+            'top_trigram' => TrigramResource::make(self::$trigramsCache->get($this->upper_trigram_id)),
+            'bottom_trigram' => TrigramResource::make(self::$trigramsCache->get($this->lower_trigram_id)),
         ];
     }
 }

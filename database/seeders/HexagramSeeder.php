@@ -36,9 +36,6 @@ class HexagramSeeder extends Seeder
             $this->call(TrigramSeeder::class);
         }
 
-        // Массив для быстрого поиска триграмм по номеру
-        $trigramsByNumber = Trigram::all()->keyBy('number');
-
         $hexagramCount = 0;
         $lineCount = 0;
 
@@ -50,8 +47,8 @@ class HexagramSeeder extends Seeder
                 'chinese_name' => $hexagramData['chineseName'],
                 'pinyin_name' => $hexagramData['pinyinName'],
                 'character' => $hexagramData['character'],
-                'upper_trigram_id' => $trigramsByNumber[$hexagramData['topTrigram']]->id,
-                'lower_trigram_id' => $trigramsByNumber[$hexagramData['bottomTrigram']]->id,
+                'upper_trigram_id' => $hexagramData['topTrigram'],
+                'lower_trigram_id' => $hexagramData['bottomTrigram'],
                 'binary' => $hexagramData['binary'],
                 'lines' => $hexagramData['lines'],
                 'judgment' => $hexagramData['description'] ?? null,
