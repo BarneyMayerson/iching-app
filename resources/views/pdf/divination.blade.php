@@ -312,7 +312,7 @@
   <div class="hexagram-container">
     <div class="hexagram-visual">
       @php
-        $lines = str_split(strrev($reading->binary)); // Разворачиваем, чтобы линии шли снизу вверх
+        $lines = str_split($reading->binary);
       @endphp
       @foreach ($lines as $index => $bit)
         @php
@@ -425,7 +425,7 @@
     <div class="hexagram-container">
       <div class="hexagram-visual">
         @php
-          $secLines = str_split(strrev($reading->secondaryHexagram->binary)); // Разворачиваем, чтобы линии шли снизу вверх
+          $secLines = str_split($reading->secondaryHexagram->binary);
         @endphp
         @foreach ($secLines as $bit)
           <div class="line-row">
