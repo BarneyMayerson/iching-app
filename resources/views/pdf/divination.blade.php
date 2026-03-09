@@ -210,15 +210,6 @@
       padding-left: 30px;
     }
 
-    .path-line {
-      position: absolute;
-      left: -16px;
-      top: -16px;
-      bottom: 56px;
-      width: 2px;
-      background: #e2e8f0;
-    }
-
     .path-node {
       position: absolute;
       left: -25px;
@@ -332,7 +323,7 @@
 
     <div class="hex-info">
       <div class="hex-number">Hexagram {{ $reading->hexagram->number }}</div>
-      <div class="hex-name">{{ $reading->hexagram->character }} {{ $reading->hexagram->names[0] }}</div>
+      <div class="hex-name">{{ $reading->hexagram->number }}. {{ $reading->hexagram->names[0] }}</div>
 
       @if (count($reading->hexagram->names) > 1)
         <div style="font-size: 14px; color: #64748b; margin-bottom: 10px;">
@@ -392,8 +383,6 @@
     </h3>
 
     <div class="sage-path">
-      <div class="path-line"></div>
-
       @foreach ($reading->hexagram->hexagramLines as $line)
         @php $isChanging = in_array($line->position - 1, $changing_lines); @endphp
 
