@@ -147,7 +147,7 @@ const clearSearch = () => {
         <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           <ReadingCard
             v-for="reading in readings.data"
-            :key="reading.id"
+            :key="reading.uuid"
             :reading="reading"
           />
         </div>

@@ -5,9 +5,8 @@ use App\Models\User;
 use function Pest\Laravel\actingAs;
 use function Pest\Laravel\get;
 
-test('guests are redirected to the login page', function (): void {
-    $response = get(route('cabinet.dashboard'));
-    $response->assertRedirect(route('login'));
+test('guest cannon visit cabinet dashboard page', function () {
+    get(route('cabinet.dashboard'))->assertRedirect('/login');
 });
 
 test('authenticated users can visit the dashboard', function (): void {

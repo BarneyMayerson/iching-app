@@ -5,14 +5,14 @@ import { describe, expect, it } from 'vitest';
 describe('HexagramLine', () => {
   it('renders correctly', () => {
     const wrapper = mount(HexagramLine, {
-      props: { value: 9 }, // Старый Ян
+      props: { value: 9, position: 1 }, // Старый Ян
     });
     expect(wrapper.exists()).toBe(true);
   });
 
   it('renders a solid line for Yang (7 or 9)', () => {
     const wrapper = mount(HexagramLine, {
-      props: { value: 7 },
+      props: { value: 7, position: 1 },
     });
     // у сплошной линии будет один основной блок
     expect(wrapper.find('[data-test="solid-line"]').exists()).toBe(true);

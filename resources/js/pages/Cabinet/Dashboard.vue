@@ -1,9 +1,35 @@
 <script setup lang="ts">
-import PlaceholderPattern from '@/components/PlaceholderPattern.vue';
+import YinYangBalance from '@/components/UserDashboard/YinYangBalance.vue';
 import AppLayout from '@/layouts/AppLayout.vue';
 import { dashboard as cabinetDashboard } from '@/routes/cabinet';
 import { type BreadcrumbItem } from '@/types';
-import { Head } from '@inertiajs/vue3';
+import { Head, router } from '@inertiajs/vue3';
+import { Activity, BarChart3 } from 'lucide-vue-next';
+
+defineProps<{
+  stats: {
+    monthly: Array<{ month: number; count: number }>;
+    balance: { yang: number; yin: number; total: number };
+    top_hexagram: { count: number; hexagram: any } | null;
+    total_readings: number;
+  };
+  filters: {
+    year: number;
+    available_years: number[];
+  };
+}>();
+
+const changeYear = (year: number) => {
+  router.get(
+    cabinetDashboard().url,
+    { year },
+    {
+      preserveState: true,
+      preserveScroll: true,
+      only: ['stats', 'filters'],
+    },
+  );
+};
 
 const breadcrumbs: BreadcrumbItem[] = [
   {
@@ -17,30 +43,138 @@ const breadcrumbs: BreadcrumbItem[] = [
   <Head title="Dashboard" />
 
   <AppLayout :breadcrumbs="breadcrumbs">
-    <div
-      class="flex h-full flex-1 flex-col gap-4 overflow-x-auto rounded-xl p-4"
-    >
-      <div class="grid auto-rows-min gap-4 md:grid-cols-3">
+    <div class="flex flex-1 flex-col gap-6 p-6">
+      <div class="grid gap-6 md:grid-cols-3">
         <div
-          class="relative aspect-video overflow-hidden rounded-xl border border-sidebar-border/70 dark:border-sidebar-border"
+          class="rounded-3xl border border-slate-100 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900/50"
         >
-          <PlaceholderPattern />
+          <div class="flex items-center gap-4 p-6">
+            <div
+              class="flex size-12 items-center justify-center rounded-2xl bg-amber-50 text-amber-600 dark:bg-amber-900/20"
+            >
+              <Activity class="size-6" />
+            </div>
+            <div>
+              <p class="text-sm font-medium text-slate-500">
+                Total Consultations
+              </p>
+              <h4 class="text-3xl font-bold">{{ stats.total_readings }}</h4>
+            </div>
+          </div>
         </div>
+
         <div
-          class="relative aspect-video overflow-hidden rounded-xl border border-sidebar-border/70 dark:border-sidebar-border"
+          class="rounded-3xl border border-slate-100 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900/50"
         >
-          <PlaceholderPattern />
+          <YinYangBalance v-bind="stats.balance" />
         </div>
+
         <div
-          class="relative aspect-video overflow-hidden rounded-xl border border-sidebar-border/70 dark:border-sidebar-border"
+          class="rounded-3xl border border-slate-100 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900/50"
         >
-          <PlaceholderPattern />
+          <div v-if="stats.top_hexagram" class="flex items-center gap-4 p-6">
+            <div
+              class="flex size-14 items-center justify-center rounded-2xl bg-slate-900 text-3xl text-white shadow-lg dark:bg-slate-800"
+            >
+              {{ stats.top_hexagram.hexagram.character }}
+            </div>
+            <div class="flex-1 overflow-hidden">
+              <p
+                class="text-[10px] font-bold tracking-widest text-amber-600 uppercase"
+              >
+                Personal Totem
+              </p>
+              <h4 class="truncate font-serif text-lg leading-tight font-bold">
+                {{ stats.top_hexagram.hexagram.number }}.
+                {{ stats.top_hexagram.hexagram.name }}
+              </h4>
+              <p class="text-xs text-slate-400">
+                Appeared {{ stats.top_hexagram.count }} times
+              </p>
+            </div>
+          </div>
+          <div
+            v-else
+            class="flex h-full items-center justify-center p-6 text-center text-sm text-slate-400 italic"
+          >
+            Consult the Oracle to reveal your totem...
+          </div>
         </div>
       </div>
+
       <div
-        class="relative min-h-screen flex-1 rounded-xl border border-sidebar-border/70 md:min-h-min dark:border-sidebar-border"
+        class="rounded-3xl border border-slate-100 bg-white p-8 shadow-sm dark:border-slate-800 dark:bg-slate-900/50"
       >
-        <PlaceholderPattern />
+        <div class="mb-10 flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <BarChart3 class="size-5 text-slate-400" />
+            <h3
+              class="font-serif text-xl font-bold text-slate-800 italic dark:text-slate-100"
+            >
+              Inquiry Timeline
+            </h3>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <label
+              class="text-[10px] font-black tracking-widest text-slate-400 uppercase"
+              >Year:</label
+            >
+            <select
+              :value="filters.year"
+              @change="
+                changeYear(Number(($event.target as HTMLSelectElement).value))
+              "
+              class="cursor-pointer rounded-lg border-slate-200 bg-white py-1 pr-8 pl-3 text-sm font-bold shadow-sm focus:border-amber-500 focus:ring-amber-500 dark:border-slate-700 dark:bg-slate-800"
+            >
+              <option v-for="y in filters.available_years" :key="y" :value="y">
+                {{ y }}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <div
+          class="flex h-64 items-end justify-between gap-2 border-b border-slate-100 pb-2 dark:border-slate-800"
+        >
+          <div
+            v-for="data in stats.monthly"
+            :key="data.month"
+            class="group relative flex h-full flex-1 flex-col items-center justify-end"
+          >
+            <div
+              class="absolute -top-10 left-1/2 z-10 -translate-x-1/2 rounded bg-slate-900 px-2 py-1 text-[10px] text-white opacity-0 transition-opacity group-hover:opacity-100"
+            >
+              {{ data.count }} readings
+            </div>
+
+            <div
+              class="w-full rounded-t-lg bg-amber-400/20 transition-all duration-500 hover:bg-amber-400 dark:bg-amber-500/10 dark:hover:bg-amber-500"
+              :style="{
+                height:
+                  data.count > 0
+                    ? Math.max(
+                        (data.count /
+                          (Math.max(...stats.monthly.map((m) => m.count)) ||
+                            1)) *
+                          100,
+                        5,
+                      ) + '%'
+                    : '0%',
+              }"
+            ></div>
+
+            <span
+              class="absolute -bottom-8 text-[10px] font-bold text-slate-400 uppercase"
+            >
+              {{
+                new Date(0, data.month - 1).toLocaleString('default', {
+                  month: 'short',
+                })
+              }}
+            </span>
+          </div>
+        </div>
       </div>
     </div>
   </AppLayout>
