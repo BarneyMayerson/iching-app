@@ -2,8 +2,19 @@
 import { login, register } from '@/routes';
 import { dashboard } from '@/routes/cabinet';
 import { Head, Link } from '@inertiajs/vue3';
-import { BarChart2, BookOpen, FileText, Sparkles } from 'lucide-vue-next';
+import { useDark, useToggle } from '@vueuse/core';
+import {
+  BarChart2,
+  BookOpen,
+  FileText,
+  Moon,
+  Sparkles,
+  Sun,
+} from 'lucide-vue-next';
 import { onMounted, onUnmounted, ref } from 'vue';
+
+const isDark = useDark();
+const toggleDark = useToggle(isDark);
 
 withDefaults(
   defineProps<{
@@ -16,6 +27,21 @@ withDefaults(
   },
 );
 
+const brokenLines = ref<number[]>([]);
+const changingLines = ref<number[]>([]);
+
+const generateRandomHexagram = () => {
+  // Генерируем от 0 до 4 прерывистых линий (Инь)
+  brokenLines.value = Array.from({ length: 6 }, (_, i) => i + 1)
+    .sort(() => 0.5 - Math.random())
+    .slice(0, Math.floor(Math.random() * 5));
+
+  // Генерируем от 0 до 3 "активных" линий (Янтарных)
+  changingLines.value = Array.from({ length: 6 }, (_, i) => i + 1)
+    .sort(() => 0.5 - Math.random())
+    .slice(0, Math.floor(Math.random() * 4));
+};
+
 const isVisible = ref(false);
 const isFlipping = ref(false);
 
@@ -23,6 +49,8 @@ const ritualSection = ref<HTMLElement | null>(null);
 let observer: IntersectionObserver | null = null;
 
 onMounted(() => {
+  generateRandomHexagram(); // Первый запуск
+
   observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -36,9 +64,12 @@ onMounted(() => {
             isFlipping.value = false;
           }, 1600);
         } else {
-          // Сбрасываем состояние, чтобы при возврате к блоку всё повторилось
+          // Сбрасываем состояние
           isVisible.value = false;
           isFlipping.value = false;
+          // Генерируем новую комбинацию для следующего раза,
+          // когда пользователь вернется к блоку
+          generateRandomHexagram();
         }
       });
     },
@@ -49,12 +80,21 @@ onMounted(() => {
 });
 
 onUnmounted(() => observer?.disconnect());
+
+const scrollToSacredProcess = () => {
+  const element = document.getElementById('sacred');
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
+};
 </script>
 
 <template>
   <Head title="I-Ching Cabinet — Your Digital Oracle" />
 
-  <div class="min-h-screen bg-slate-50 text-slate-900 selection:bg-amber-200">
+  <div
+    class="min-h-screen bg-slate-50 text-slate-900 selection:bg-amber-200 dark:bg-slate-950 dark:text-slate-100"
+  >
     <nav class="flex items-center justify-between p-6 lg:px-12">
       <div class="flex items-center gap-2">
         <div
@@ -76,9 +116,16 @@ onUnmounted(() => observer?.disconnect());
           Go to Cabinet
         </Link>
         <template v-else>
+          <button
+            @click="toggleDark()"
+            class="rounded-full p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800"
+          >
+            <Sun v-if="isDark" class="size-5" />
+            <Moon v-else class="size-5" />
+          </button>
           <Link
             :href="login().url"
-            class="rounded-full px-5 py-2 text-sm font-bold text-slate-700 transition-colors hover:bg-slate-100"
+            class="rounded-full px-5 py-2 text-sm font-bold text-slate-700 transition-colors hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
           >
             Sign In
           </Link>
@@ -100,7 +147,7 @@ onUnmounted(() => observer?.disconnect());
           Ancient Wisdom • Modern Interface
         </span>
         <h1
-          class="mb-8 font-serif text-6xl leading-[1.1] font-bold tracking-tight text-slate-950 lg:text-7xl"
+          class="mb-8 font-serif text-6xl leading-[1.1] font-bold tracking-tight text-slate-950 lg:text-7xl dark:text-white"
         >
           Find clarity in the
           <span class="text-amber-600 italic">flow of change.</span>
@@ -115,77 +162,92 @@ onUnmounted(() => observer?.disconnect());
         >
           <Link
             :href="register().url"
-            class="w-full rounded-2xl bg-slate-900 px-8 py-4 text-lg font-bold text-white shadow-xl shadow-slate-200 transition-all hover:bg-slate-800 sm:w-auto"
+            class="w-full rounded-2xl bg-slate-900 px-8 py-4 text-lg font-bold text-white shadow-xl shadow-slate-200 transition-all hover:bg-slate-800 active:scale-95 sm:w-auto dark:bg-amber-600 dark:text-slate-950 dark:shadow-amber-900/20 dark:hover:bg-amber-500"
           >
             Begin Consultation
           </Link>
+
           <a
-            href="#features"
-            class="text-sm font-bold text-slate-500 hover:text-slate-900"
+            href="#sacred"
+            @click.prevent="scrollToSacredProcess"
+            class="text-sm font-bold text-slate-500 transition-colors hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100"
           >
-            Explore Features ↓
+            The Sacred Process ↓
           </a>
         </div>
       </div>
     </header>
 
-    <section id="features" class="bg-white px-6 py-24 lg:px-12">
+    <section
+      id="features"
+      class="bg-white px-6 py-24 transition-colors duration-500 lg:px-12 dark:bg-slate-900/30"
+    >
       <div class="mx-auto max-w-7xl">
         <div class="mb-16 text-center">
-          <h2 class="font-serif text-4xl font-bold text-slate-950">
+          <h2
+            class="font-serif text-4xl font-bold text-slate-950 dark:text-white"
+          >
             Everything you need for
             <span class="text-amber-600">deep reflection</span>
           </h2>
-          <p class="mt-4 text-slate-600">
+          <p class="mt-4 text-slate-600 dark:text-slate-400">
             Combining millenia-old tradition with modern data analysis.
           </p>
         </div>
 
         <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           <div
-            class="group rounded-3xl border border-slate-100 bg-slate-50/50 p-8 transition-all hover:border-amber-200 hover:bg-white hover:shadow-xl"
+            class="group rounded-3xl border border-slate-100 bg-slate-50/50 p-8 transition-all hover:border-amber-200 hover:bg-white hover:shadow-xl dark:border-slate-800 dark:bg-slate-900/50 dark:hover:border-amber-500/50 dark:hover:bg-slate-800"
           >
             <div
-              class="mb-6 flex size-12 items-center justify-center rounded-2xl bg-white shadow-sm transition-transform group-hover:scale-110"
+              class="mb-6 flex size-12 items-center justify-center rounded-2xl bg-white shadow-sm transition-transform group-hover:scale-110 dark:bg-slate-900"
             >
               <BookOpen class="size-6 text-amber-600" />
             </div>
-            <h3 class="mb-3 font-serif text-xl font-bold">Personal Archives</h3>
-            <p class="text-sm leading-relaxed text-slate-500">
+            <h3 class="mb-3 font-serif text-xl font-bold dark:text-slate-100">
+              Personal Archives
+            </h3>
+            <p
+              class="text-sm leading-relaxed text-slate-500 dark:text-slate-400"
+            >
               Keep a complete history of your inquiries. Every hexagram and line
               is saved with your personal context and dates.
             </p>
           </div>
 
           <div
-            class="group rounded-3xl border border-slate-100 bg-slate-50/50 p-8 transition-all hover:border-amber-200 hover:bg-white hover:shadow-xl"
+            class="group rounded-3xl border border-slate-100 bg-slate-50/50 p-8 transition-all hover:border-amber-200 hover:bg-white hover:shadow-xl dark:border-slate-800 dark:bg-slate-900/50 dark:hover:border-amber-500/50 dark:hover:bg-slate-800"
           >
             <div
-              class="mb-6 flex size-12 items-center justify-center rounded-2xl bg-white shadow-sm transition-transform group-hover:scale-110"
+              class="mb-6 flex size-12 items-center justify-center rounded-2xl bg-white shadow-sm transition-transform group-hover:scale-110 dark:bg-slate-900"
             >
               <FileText class="size-6 text-amber-600" />
             </div>
-            <h3 class="mb-3 font-serif text-xl font-bold">
+            <h3 class="mb-3 font-serif text-xl font-bold dark:text-slate-100">
               Beautiful PDF Reports
             </h3>
-            <p class="text-sm leading-relaxed text-slate-500">
+            <p
+              class="text-sm leading-relaxed text-slate-500 dark:text-slate-400"
+            >
               Generate professional, printable reports for your readings,
               including the visual hexagram and the Path of the Sage.
             </p>
           </div>
 
           <div
-            class="group rounded-3xl border border-slate-100 bg-slate-50/50 p-8 transition-all hover:border-amber-200 hover:bg-white hover:shadow-xl"
+            class="group rounded-3xl border border-slate-100 bg-slate-50/50 p-8 transition-all hover:border-amber-200 hover:bg-white hover:shadow-xl dark:border-slate-800 dark:bg-slate-900/50 dark:hover:border-amber-500/50 dark:hover:bg-slate-800"
           >
             <div
-              class="mb-6 flex size-12 items-center justify-center rounded-2xl bg-white shadow-sm transition-transform group-hover:scale-110"
+              class="mb-6 flex size-12 items-center justify-center rounded-2xl bg-white shadow-sm transition-transform group-hover:scale-110 dark:bg-slate-900"
             >
               <BarChart2 class="size-6 text-amber-600" />
             </div>
-            <h3 class="mb-3 font-serif text-xl font-bold">
+            <h3 class="mb-3 font-serif text-xl font-bold dark:text-slate-100">
               Insightful Statistics
             </h3>
-            <p class="text-sm leading-relaxed text-slate-500">
+            <p
+              class="text-sm leading-relaxed text-slate-500 dark:text-slate-400"
+            >
               Visualize your energy balance. Track which hexagrams appear most
               frequently in your life through the Inquiry Timeline.
             </p>
@@ -196,6 +258,7 @@ onUnmounted(() => observer?.disconnect());
 
     <section
       ref="ritualSection"
+      id="sacred"
       class="overflow-hidden bg-slate-950 py-24 text-white"
     >
       <div class="mx-auto max-w-7xl px-6 lg:px-12">
@@ -260,24 +323,36 @@ onUnmounted(() => observer?.disconnect());
                   class="h-3 w-64 overflow-hidden transition-all duration-700 ease-out"
                   :style="{
                     opacity: isVisible ? 0.3 + n * 0.12 : 0,
-                    transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
+                    transform: isVisible ? 'translateY(0)' : 'translateY(40px)',
                     transitionDelay: n * 150 + 'ms',
                   }"
                 >
                   <div
-                    v-if="![2, 3, 5].includes(n)"
-                    class="h-full w-full rounded-sm shadow-[0_0_15px_rgba(245,158,11,0.1)]"
-                    :class="n > 3 ? 'bg-amber-500' : 'bg-slate-700'"
+                    v-if="!brokenLines.includes(n)"
+                    class="h-full w-full rounded-sm shadow-[0_0_15px_rgba(245,158,11,0.1)] transition-colors duration-1000"
+                    :class="
+                      changingLines.includes(n)
+                        ? 'bg-amber-500 shadow-amber-500/20'
+                        : 'bg-slate-700'
+                    "
                   ></div>
 
                   <div v-else class="flex h-full w-full justify-between">
                     <div
-                      class="h-full w-[45%] rounded-sm"
-                      :class="n > 3 ? 'bg-amber-500' : 'bg-slate-700'"
+                      class="h-full w-[45%] rounded-sm transition-colors duration-1000"
+                      :class="
+                        changingLines.includes(n)
+                          ? 'bg-amber-500 shadow-amber-500/20'
+                          : 'bg-slate-700'
+                      "
                     ></div>
                     <div
-                      class="h-full w-[45%] rounded-sm"
-                      :class="n > 3 ? 'bg-amber-500' : 'bg-slate-700'"
+                      class="h-full w-[45%] rounded-sm transition-colors duration-1000"
+                      :class="
+                        changingLines.includes(n)
+                          ? 'bg-amber-500 shadow-amber-500/20'
+                          : 'bg-slate-700'
+                      "
                     ></div>
                   </div>
                 </div>
