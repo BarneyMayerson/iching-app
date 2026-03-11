@@ -6,6 +6,7 @@ use Laravel\Fortify\Features;
 
 Route::get('/', fn () => Inertia::render('Welcome', [
     'canRegister' => Features::enabled(Features::registration()),
+    'canLogin' => Route::has('login'),
 ]))->name('home');
 
 require __DIR__.'/cabinet.php';
