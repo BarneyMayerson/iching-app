@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import LanguageSwitcher from '@/components/LanguageSwitcher.vue';
 import { login, register } from '@/routes';
 import { dashboard } from '@/routes/cabinet';
 import { Head, Link } from '@inertiajs/vue3';
@@ -116,6 +117,7 @@ const scrollToSacredProcess = () => {
           Go to Cabinet
         </Link>
         <template v-else>
+          <LanguageSwitcher :currentLocale="$page.props.locale" />
           <button
             @click="toggleDark()"
             class="rounded-full p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800"
