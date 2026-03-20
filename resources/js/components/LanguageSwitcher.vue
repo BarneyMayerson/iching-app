@@ -7,7 +7,7 @@ const languages = {
   ru: 'RUS',
 };
 
-const props = defineProps<{
+defineProps<{
   currentLocale: string;
 }>();
 
@@ -17,9 +17,6 @@ const changeLanguage = (lang: string) => {
     { language: lang },
     {
       preserveScroll: true,
-      onSuccess: () => {
-        console.info(`Language changed to: ${lang}.`);
-      },
     },
   );
 };

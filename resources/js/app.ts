@@ -18,6 +18,14 @@ createInertiaApp({
   setup({ el, App, props, plugin }) {
     createApp({ render: () => h(App, props) })
       .use(plugin)
+      .mixin({
+        methods: {
+          __(key: string): string {
+            const translations = this.$page.props.translations || {};
+            return translations[key] || key;
+          },
+        },
+      })
       .mount(el);
   },
   progress: {

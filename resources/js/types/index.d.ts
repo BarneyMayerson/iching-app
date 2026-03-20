@@ -1,6 +1,18 @@
 import { InertiaLinkProps } from '@inertiajs/vue3';
 import type { LucideIcon } from 'lucide-vue-next';
 
+declare module '@vue/runtime-core' {
+  interface ComponentCustomProperties {
+    /**
+     * Localization helper.
+     * @param key Text in English
+     */
+    __(key: string): string;
+
+    $page: Page<AppPageProps>;
+  }
+}
+
 export interface Auth {
   user: User;
 }
@@ -25,6 +37,7 @@ export type AppPageProps<
   auth: Auth;
   sidebarOpen: boolean;
   locale: string;
+  translations: Record<string, string>;
 };
 
 export interface User {
