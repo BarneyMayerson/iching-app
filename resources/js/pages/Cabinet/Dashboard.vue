@@ -2,9 +2,16 @@
 import YinYangBalance from '@/components/UserDashboard/YinYangBalance.vue';
 import AppLayout from '@/layouts/AppLayout.vue';
 import { dashboard as cabinetDashboard } from '@/routes/cabinet';
-import { type BreadcrumbItem } from '@/types';
-import { Head, router } from '@inertiajs/vue3';
+import { AppPageProps, type BreadcrumbItem } from '@/types';
+import { Head, router, usePage } from '@inertiajs/vue3';
 import { Activity, BarChart3 } from 'lucide-vue-next';
+import { computed } from 'vue';
+
+const page = usePage<AppPageProps>();
+
+const __ = (key: string): string => {
+  return page.props.translations[key] || key;
+};
 
 defineProps<{
   stats: {
@@ -31,16 +38,16 @@ const changeYear = (year: number) => {
   );
 };
 
-const breadcrumbs: BreadcrumbItem[] = [
+const breadcrumbs = computed<BreadcrumbItem[]>(() => [
   {
-    title: 'Dashboard',
+    title: __('Dashboard'),
     href: cabinetDashboard().url,
   },
-];
+]);
 </script>
 
 <template>
-  <Head title="Dashboard" />
+  <Head :title="__('Dashboard')" />
 
   <AppLayout :breadcrumbs="breadcrumbs">
     <div class="flex flex-1 flex-col gap-6 p-6">
@@ -56,7 +63,7 @@ const breadcrumbs: BreadcrumbItem[] = [
             </div>
             <div>
               <p class="text-sm font-medium text-slate-500">
-                Total Consultations
+                {{ __('Total Consultations') }}
               </p>
               <h4 class="text-3xl font-bold">{{ stats.total_readings }}</h4>
             </div>
@@ -82,14 +89,19 @@ const breadcrumbs: BreadcrumbItem[] = [
               <p
                 class="text-[10px] font-bold tracking-widest text-amber-600 uppercase"
               >
-                Personal Totem
+                {{ __('Personal Totem') }}
               </p>
               <h4 class="truncate font-serif text-lg leading-tight font-bold">
                 {{ stats.top_hexagram.hexagram.number }}.
                 {{ stats.top_hexagram.hexagram.name }}
               </h4>
               <p class="text-xs text-slate-400">
-                Appeared {{ stats.top_hexagram.count }} times
+                {{
+                  __('Appeared :count times').replace(
+                    ':count',
+                    stats.top_hexagram.count.toString(),
+                  )
+                }}
               </p>
             </div>
           </div>
@@ -97,7 +109,7 @@ const breadcrumbs: BreadcrumbItem[] = [
             v-else
             class="flex h-full items-center justify-center p-6 text-center text-sm text-slate-400 italic"
           >
-            Consult the Oracle to reveal your totem...
+            {{ __('Consult the Oracle to reveal your totem...') }}
           </div>
         </div>
       </div>
@@ -111,15 +123,16 @@ const breadcrumbs: BreadcrumbItem[] = [
             <h3
               class="font-serif text-xl font-bold text-slate-800 italic dark:text-slate-100"
             >
-              Inquiry Timeline
+              {{ __('Inquiry Timeline') }}
             </h3>
           </div>
 
           <div class="flex items-center gap-2">
             <label
               class="text-[10px] font-black tracking-widest text-slate-400 uppercase"
-              >Year:</label
             >
+              {{ __('Year:') }}
+            </label>
             <select
               :value="filters.year"
               @change="
@@ -145,7 +158,7 @@ const breadcrumbs: BreadcrumbItem[] = [
             <div
               class="absolute -top-10 left-1/2 z-10 -translate-x-1/2 rounded bg-slate-900 px-2 py-1 text-[10px] text-white opacity-0 transition-opacity group-hover:opacity-100"
             >
-              {{ data.count }} readings
+              {{ data.count }} {{ __('readings') }}
             </div>
 
             <div
@@ -168,7 +181,7 @@ const breadcrumbs: BreadcrumbItem[] = [
               class="absolute -bottom-8 text-[10px] font-bold text-slate-400 uppercase"
             >
               {{
-                new Date(0, data.month - 1).toLocaleString('default', {
+                new Date(0, data.month - 1).toLocaleString($page.props.locale, {
                   month: 'short',
                 })
               }}

@@ -13,11 +13,11 @@ const yinPercent = 100 - yangPercent;
   <div class="space-y-4 p-6">
     <div class="flex items-center justify-between">
       <h3 class="text-sm font-bold tracking-wider text-slate-500 uppercase">
-        Energy Balance
+        {{ __('Energy Balance') }}
       </h3>
-      <span class="text-xs font-medium text-slate-400"
-        >{{ total }} lines total</span
-      >
+      <span class="text-xs font-medium text-slate-400">
+        {{ __(':total lines total').replace(':total', total.toString()) }}
+      </span>
     </div>
 
     <div
@@ -35,18 +35,22 @@ const yinPercent = 100 - yangPercent;
 
     <div class="flex justify-between font-serif text-sm">
       <div class="flex flex-col">
-        <span class="font-bold text-amber-600">Yang ({{ yangPercent }}%)</span>
-        <span class="text-[10px] tracking-tighter text-slate-400 uppercase"
-          >Active / Light</span
-        >
+        <span class="font-bold text-amber-600">
+          {{
+            __('Yang (:percent%)').replace(':percent', yangPercent.toString())
+          }}
+        </span>
+        <span class="text-[10px] tracking-tighter text-slate-400 uppercase">
+          {{ __('Active / Light') }}
+        </span>
       </div>
       <div class="flex flex-col text-right">
-        <span class="font-bold text-slate-800 dark:text-slate-200"
-          >Yin ({{ yinPercent }}%)</span
-        >
-        <span class="text-[10px] tracking-tighter text-slate-400 uppercase"
-          >Receptive / Dark</span
-        >
+        <span class="font-bold text-slate-800 dark:text-slate-200">
+          {{ __('Yin (:percent%)').replace(':percent', yinPercent.toString()) }}
+        </span>
+        <span class="text-[10px] tracking-tighter text-slate-400 uppercase">
+          {{ __('Receptive / Dark') }}
+        </span>
       </div>
     </div>
   </div>
