@@ -4,17 +4,17 @@ import InputError from '@/components/InputError.vue';
 import AppLayout from '@/layouts/AppLayout.vue';
 import SettingsLayout from '@/layouts/settings/Layout.vue';
 import { edit } from '@/routes/user-password';
-import { Form, Head, usePage } from '@inertiajs/vue3';
+import { Form, Head } from '@inertiajs/vue3';
 
 import HeadingSmall from '@/components/HeadingSmall.vue';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { AppPageProps, type BreadcrumbItem } from '@/types';
+import { useTranslate } from '@/composables/useTranslate';
+import { type BreadcrumbItem } from '@/types';
 import { computed } from 'vue';
 
-const page = usePage<AppPageProps>();
-const __ = (key: string): string => page.props.translations[key] || key;
+const { __ } = useTranslate();
 
 const breadcrumbItems = computed<BreadcrumbItem[]>(() => [
   {

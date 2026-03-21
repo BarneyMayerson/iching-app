@@ -1,17 +1,17 @@
 <script setup lang="ts">
-import { Head, usePage } from '@inertiajs/vue3';
+import { Head } from '@inertiajs/vue3';
 
 import AppearanceTabs from '@/components/AppearanceTabs.vue';
 import HeadingSmall from '@/components/HeadingSmall.vue';
-import { AppPageProps, type BreadcrumbItem } from '@/types';
+import { type BreadcrumbItem } from '@/types';
 
+import { useTranslate } from '@/composables/useTranslate';
 import AppLayout from '@/layouts/AppLayout.vue';
 import SettingsLayout from '@/layouts/settings/Layout.vue';
 import { edit } from '@/routes/appearance';
 import { computed } from 'vue';
 
-const page = usePage<AppPageProps>();
-const __ = (key: string): string => page.props.translations[key] || key;
+const { __ } = useTranslate();
 
 const breadcrumbItems = computed<BreadcrumbItem[]>(() => [
   {

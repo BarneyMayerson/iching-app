@@ -1,17 +1,14 @@
 <script setup lang="ts">
 import YinYangBalance from '@/components/UserDashboard/YinYangBalance.vue';
+import { useTranslate } from '@/composables/useTranslate';
 import AppLayout from '@/layouts/AppLayout.vue';
 import { dashboard as cabinetDashboard } from '@/routes/cabinet';
-import { AppPageProps, type BreadcrumbItem } from '@/types';
-import { Head, router, usePage } from '@inertiajs/vue3';
+import { type BreadcrumbItem } from '@/types';
+import { Head, router } from '@inertiajs/vue3';
 import { Activity, BarChart3 } from 'lucide-vue-next';
 import { computed } from 'vue';
 
-const page = usePage<AppPageProps>();
-
-const __ = (key: string): string => {
-  return page.props.translations[key] || key;
-};
+const { __ } = useTranslate();
 
 defineProps<{
   stats: {

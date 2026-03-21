@@ -10,6 +10,7 @@ import InputError from '@/components/InputError.vue';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { useTranslate } from '@/composables/useTranslate';
 import AppLayout from '@/layouts/AppLayout.vue';
 import SettingsLayout from '@/layouts/settings/Layout.vue';
 import { AppPageProps, type BreadcrumbItem } from '@/types';
@@ -23,7 +24,7 @@ interface Props {
 defineProps<Props>();
 
 const page = usePage<AppPageProps>();
-const __ = (key: string): string => page.props.translations[key] || key;
+const { __ } = useTranslate();
 
 const breadcrumbItems = computed<BreadcrumbItem[]>(() => [
   {

@@ -2,8 +2,7 @@
 import LanguageSwitcher from '@/components/LanguageSwitcher.vue';
 import { login, register } from '@/routes';
 import { dashboard } from '@/routes/cabinet';
-import { AppPageProps } from '@/types';
-import { Head, Link, usePage } from '@inertiajs/vue3';
+import { Head, Link } from '@inertiajs/vue3';
 import { useDark, useToggle } from '@vueuse/core';
 import {
   BarChart2,
@@ -14,10 +13,6 @@ import {
   Sun,
 } from 'lucide-vue-next';
 import { onMounted, onUnmounted, ref } from 'vue';
-
-const page = usePage<AppPageProps>();
-
-console.log(page.props.translations);
 
 const isDark = useDark();
 const toggleDark = useToggle(isDark);

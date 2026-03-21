@@ -4,12 +4,13 @@ import TwoFactorRecoveryCodes from '@/components/TwoFactorRecoveryCodes.vue';
 import TwoFactorSetupModal from '@/components/TwoFactorSetupModal.vue';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { useTranslate } from '@/composables/useTranslate';
 import { useTwoFactorAuth } from '@/composables/useTwoFactorAuth';
 import AppLayout from '@/layouts/AppLayout.vue';
 import SettingsLayout from '@/layouts/settings/Layout.vue';
 import { disable, enable, show } from '@/routes/two-factor';
-import { AppPageProps, BreadcrumbItem } from '@/types';
-import { Form, Head, usePage } from '@inertiajs/vue3';
+import { BreadcrumbItem } from '@/types';
+import { Form, Head } from '@inertiajs/vue3';
 import { ShieldBan, ShieldCheck } from 'lucide-vue-next';
 import { computed, onUnmounted, ref } from 'vue';
 
@@ -23,8 +24,7 @@ withDefaults(defineProps<Props>(), {
   twoFactorEnabled: false,
 });
 
-const page = usePage<AppPageProps>();
-const __ = (key: string): string => page.props.translations[key] || key;
+const { __ } = useTranslate();
 
 const breadcrumbItems = computed<BreadcrumbItem[]>(() => [
   {
