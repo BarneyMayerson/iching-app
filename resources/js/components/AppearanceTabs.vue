@@ -1,13 +1,18 @@
 <script setup lang="ts">
 import { useAppearance } from '@/composables/useAppearance';
+import { AppPageProps } from '@/types';
+import { usePage } from '@inertiajs/vue3';
 import { Monitor, Moon, Sun } from 'lucide-vue-next';
+
+const page = usePage<AppPageProps>();
+const __ = (key: string): string => page.props.translations[key] || key;
 
 const { appearance, updateAppearance } = useAppearance();
 
 const tabs = [
-  { value: 'light', Icon: Sun, label: 'Light' },
-  { value: 'dark', Icon: Moon, label: 'Dark' },
-  { value: 'system', Icon: Monitor, label: 'System' },
+  { value: 'light', Icon: Sun, label: __('Light') },
+  { value: 'dark', Icon: Moon, label: __('Dark') },
+  { value: 'system', Icon: Monitor, label: __('System') },
 ] as const;
 </script>
 
