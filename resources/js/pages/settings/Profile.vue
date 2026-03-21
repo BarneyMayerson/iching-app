@@ -13,6 +13,7 @@ import { Label } from '@/components/ui/label';
 import AppLayout from '@/layouts/AppLayout.vue';
 import SettingsLayout from '@/layouts/settings/Layout.vue';
 import { AppPageProps, type BreadcrumbItem } from '@/types';
+import { computed } from 'vue';
 
 interface Props {
   mustVerifyEmail: boolean;
@@ -22,15 +23,14 @@ interface Props {
 defineProps<Props>();
 
 const page = usePage<AppPageProps>();
-
 const __ = (key: string): string => page.props.translations[key] || key;
 
-const breadcrumbItems: BreadcrumbItem[] = [
+const breadcrumbItems = computed<BreadcrumbItem[]>(() => [
   {
     title: __('Profile settings'),
     href: edit().url,
   },
-];
+]);
 
 const user = page.props.auth.user;
 </script>

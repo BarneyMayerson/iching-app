@@ -10,12 +10,12 @@ import { show } from '@/routes/two-factor';
 import { edit as editPassword } from '@/routes/user-password';
 import { AppPageProps, type NavItem } from '@/types';
 import { Link, usePage } from '@inertiajs/vue3';
+import { computed } from 'vue';
 
 const page = usePage<AppPageProps>();
-
 const __ = (key: string): string => page.props.translations[key] || key;
 
-const sidebarNavItems: NavItem[] = [
+const sidebarNavItems = computed<NavItem[]>(() => [
   {
     title: __('Profile'),
     href: editProfile(),
@@ -32,7 +32,7 @@ const sidebarNavItems: NavItem[] = [
     title: __('Appearance'),
     href: editAppearance(),
   },
-];
+]);
 
 const { urlIsActive } = useActiveUrl();
 </script>

@@ -11,7 +11,7 @@ import { disable, enable, show } from '@/routes/two-factor';
 import { AppPageProps, BreadcrumbItem } from '@/types';
 import { Form, Head, usePage } from '@inertiajs/vue3';
 import { ShieldBan, ShieldCheck } from 'lucide-vue-next';
-import { onUnmounted, ref } from 'vue';
+import { computed, onUnmounted, ref } from 'vue';
 
 interface Props {
   requiresConfirmation?: boolean;
@@ -26,12 +26,12 @@ withDefaults(defineProps<Props>(), {
 const page = usePage<AppPageProps>();
 const __ = (key: string): string => page.props.translations[key] || key;
 
-const breadcrumbs: BreadcrumbItem[] = [
+const breadcrumbItems = computed<BreadcrumbItem[]>(() => [
   {
     title: __('Two-Factor Authentication'),
-    href: show.url(),
+    href: show().url,
   },
-];
+]);
 
 const { hasSetupData, clearTwoFactorAuthData } = useTwoFactorAuth();
 const showSetupModal = ref<boolean>(false);
@@ -42,7 +42,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <AppLayout :breadcrumbs="breadcrumbs">
+  <AppLayout :breadcrumbs="breadcrumbItems">
     <Head :title="__('Two-Factor Authentication')" />
 
     <h1 class="sr-only">Two-Factor Authentication Settings</h1>

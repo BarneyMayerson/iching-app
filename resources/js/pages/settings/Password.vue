@@ -11,16 +11,17 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { AppPageProps, type BreadcrumbItem } from '@/types';
+import { computed } from 'vue';
 
 const page = usePage<AppPageProps>();
 const __ = (key: string): string => page.props.translations[key] || key;
 
-const breadcrumbItems: BreadcrumbItem[] = [
+const breadcrumbItems = computed<BreadcrumbItem[]>(() => [
   {
     title: __('Password settings'),
     href: edit().url,
   },
-];
+]);
 </script>
 
 <template>

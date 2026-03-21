@@ -8,16 +8,17 @@ import { AppPageProps, type BreadcrumbItem } from '@/types';
 import AppLayout from '@/layouts/AppLayout.vue';
 import SettingsLayout from '@/layouts/settings/Layout.vue';
 import { edit } from '@/routes/appearance';
+import { computed } from 'vue';
 
 const page = usePage<AppPageProps>();
 const __ = (key: string): string => page.props.translations[key] || key;
 
-const breadcrumbItems: BreadcrumbItem[] = [
+const breadcrumbItems = computed<BreadcrumbItem[]>(() => [
   {
     title: __('Appearance settings'),
     href: edit().url,
   },
-];
+]);
 </script>
 
 <template>
