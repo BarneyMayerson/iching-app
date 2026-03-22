@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useTranslate } from '@/composables/useTranslate';
 import { Crosshair, ScrollText, Zap } from 'lucide-vue-next';
 import { ref } from 'vue';
 
@@ -11,6 +12,8 @@ const props = defineProps<{
   lines: Line[];
   changing_lines: number[];
 }>();
+
+const { __ } = useTranslate();
 
 const mode = ref<'path' | 'focus'>('path');
 
@@ -27,7 +30,7 @@ const isChanging = (pos: number) => props.changing_lines.includes(pos - 1);
         <h3
           class="font-serif text-2xl font-bold text-slate-900 dark:text-white"
         >
-          Line Guidance
+          {{ __('Line Guidance') }}
         </h3>
       </div>
 
@@ -42,7 +45,7 @@ const isChanging = (pos: number) => props.changing_lines.includes(pos - 1);
           ]"
         >
           <ScrollText class="size-3.5" />
-          The Path of the Sage
+          {{ __('The Path of the Sage') }}
         </button>
         <button
           @click="mode = 'focus'"
@@ -54,7 +57,7 @@ const isChanging = (pos: number) => props.changing_lines.includes(pos - 1);
           ]"
         >
           <Crosshair class="size-3.5" />
-          The Oracle's Focus
+          {{ __("The Oracle's Focus") }}
         </button>
       </div>
     </div>
@@ -88,8 +91,14 @@ const isChanging = (pos: number) => props.changing_lines.includes(pos - 1);
                     : 'text-slate-400',
                 ]"
               >
-                Line #{{ line.position }} —
-                {{ isChanging(line.position) ? 'Changing' : 'Stable' }}
+                {{
+                  __('Line #:position — :status')
+                    .replace(':position', line.position.toString())
+                    .replace(
+                      ':status',
+                      isChanging(line.position) ? __('Changing') : __('Stable'),
+                    )
+                }}
               </span>
             </div>
             <p
@@ -109,7 +118,11 @@ const isChanging = (pos: number) => props.changing_lines.includes(pos - 1);
               <ScrollText class="size-8 text-slate-300" />
             </div>
             <p class="font-serif text-lg text-slate-500 italic">
-              The lines remain stable. No transformation is sought at this time.
+              {{
+                __(
+                  'The lines remain stable. No transformation is sought at this time.',
+                )
+              }}
             </p>
           </div>
 
@@ -127,7 +140,12 @@ const isChanging = (pos: number) => props.changing_lines.includes(pos - 1);
               <h4
                 class="mb-2 text-xs font-black tracking-[0.3em] text-amber-600 uppercase"
               >
-                Active Transformation at Line {{ line.position }}
+                {{
+                  __('Active Transformation at Line :position').replace(
+                    ':position',
+                    line.position.toString(),
+                  )
+                }}
               </h4>
               <p
                 class="font-serif text-lg leading-relaxed text-slate-800 dark:text-slate-200"

@@ -10,6 +10,6 @@ import { ChevronDown } from 'lucide-vue-next';
     <ChevronDown class="size-6 animate-bounce" />
   </div>
   <p class="mt-4 font-serif text-xl text-slate-400 italic">
-    Transforming into...
+    {{ __('Transforming into...') }}
   </p>
 </template>

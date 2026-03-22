@@ -19,7 +19,9 @@ const reversedCoinResults = computed(() => [...props.coinResults].reverse());
       <div
         class="mb-1 text-xs font-bold tracking-[0.4em] text-amber-600 uppercase dark:text-amber-500"
       >
-        Hexagram {{ hexagram.number }}
+        {{
+          __('Hexagram :number').replace(':number', hexagram.number.toString())
+        }}
       </div>
       <h2 class="text-3xl font-bold text-slate-900 dark:text-slate-50">
         {{ hexagram.names[0] }}

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useTranslate } from '@/composables/useTranslate';
 import { Quote } from 'lucide-vue-next';
 
 defineProps<{
@@ -7,6 +8,8 @@ defineProps<{
   time: string;
   relative_date: string;
 }>();
+
+const { __ } = useTranslate();
 </script>
 
 <template>
@@ -27,7 +30,11 @@ defineProps<{
 
     <div class="mt-6 flex flex-col items-center gap-2">
       <p class="text-xs font-bold tracking-[0.3em] text-slate-400 uppercase">
-        Cast on {{ date }} at {{ time }}
+        {{
+          __('Cast on :date at :time')
+            .replace(':date', date)
+            .replace(':time', time)
+        }}
       </p>
       <span class="text-xs text-amber-600/60 italic dark:text-amber-400/50">
         {{ relative_date }}

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useTranslate } from '@/composables/useTranslate';
 import { show } from '@/routes/cabinet/divinations';
 import { Reading } from '@/types/iching';
 import { Link } from '@inertiajs/vue3';
@@ -7,6 +8,8 @@ import { computed } from 'vue';
 const props = defineProps<{
   reading: Reading;
 }>();
+
+const { __ } = useTranslate();
 
 const hasTransformation = computed(() => {
   return props.reading.coin_results.some(
@@ -29,7 +32,7 @@ const isChanging = (value: number) => value === 6 || value === 9;
         <span
           class="text-[10px] font-bold tracking-widest text-slate-400 uppercase"
         >
-          {{ reading.relative_date }}
+          {{ __(reading.relative_date) }}
         </span>
         <span class="text-xs text-slate-500">
           {{ reading.date }} · {{ reading.time }}
@@ -96,7 +99,7 @@ const isChanging = (value: number) => value === 6 || value === 9;
           <span
             class="mb-1 text-[8px] leading-none font-black text-slate-400 uppercase"
           >
-            Hexagram
+            {{ __('Hexagram') }}
           </span>
           <span
             class="font-serif text-sm font-bold text-slate-700 dark:text-slate-300"
@@ -109,7 +112,7 @@ const isChanging = (value: number) => value === 6 || value === 9;
           v-if="hasTransformation"
           class="mt-1 rounded-full bg-amber-50 px-2 py-0.5 text-[8px] font-bold text-amber-600 dark:bg-amber-900/20 dark:text-amber-400"
         >
-          Transformed
+          {{ __('Transformed') }}
         </div>
       </div>
     </div>

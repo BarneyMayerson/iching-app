@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import HexagramView from '@/components/IChing/HexagramView.vue';
 import InterpretationBlock from '@/components/IChing/InterpretationBlock.vue';
+import { useTranslate } from '@/composables/useTranslate';
 import { Hexagram } from '@/types/iching';
 
 withDefaults(
@@ -13,6 +14,8 @@ withDefaults(
     is_secondary: false,
   },
 );
+
+const { __ } = useTranslate();
 </script>
 
 <template>
@@ -29,7 +32,7 @@ withDefaults(
               : 'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400',
           ]"
         >
-          {{ is_secondary ? 'Future Outcome' : 'Current Situation' }}
+          {{ is_secondary ? __('Future Outcome') : __('Current Situation') }}
         </span>
         <h2
           class="font-serif text-4xl font-bold text-slate-900 dark:text-slate-100"
@@ -65,7 +68,7 @@ withDefaults(
                 <p
                   class="text-[9px] font-black tracking-widest text-slate-400 uppercase"
                 >
-                  Above
+                  {{ __('Above') }}
                 </p>
                 <div class="flex flex-wrap items-baseline gap-x-2">
                   <span
@@ -100,7 +103,7 @@ withDefaults(
                 <p
                   class="text-[9px] font-black tracking-widest text-slate-400 uppercase"
                 >
-                  Below
+                  {{ __('Below') }}
                 </p>
                 <div class="flex flex-wrap items-baseline gap-x-2">
                   <span
@@ -129,8 +132,10 @@ withDefaults(
     </div>
 
     <div class="mt-4 lg:mt-8">
-      <InterpretationBlock title="The Judgment" :text="hexagram.judgment" />
-      <!-- <InterpretationBlock title="The Image" :text="hexagram.image ?? ''" /> -->
+      <InterpretationBlock
+        :title="__('The Judgment')"
+        :text="hexagram.judgment"
+      />
     </div>
   </div>
 </template>

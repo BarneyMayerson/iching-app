@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import ReadingCard from '@/components/IChing/ReadingCard.vue';
 import Pagination from '@/components/Pagination.vue';
+import { useTranslate } from '@/composables/useTranslate';
 import AppLayout from '@/layouts/AppLayout.vue';
 import { create, index } from '@/routes/cabinet/divinations';
 import { PaginationMeta, Reading } from '@/types/iching';
@@ -24,6 +25,8 @@ const props = defineProps<{
     label: string;
   }>;
 }>();
+
+const { __ } = useTranslate();
 
 const search = ref(props.filters.search || '');
 const hexagram = ref(props.filters.hexagram || '');
@@ -50,7 +53,7 @@ const clearSearch = () => {
 </script>
 
 <template>
-  <Head title="My Divinations" />
+  <Head :title="__('My Divinations')" />
 
   <AppLayout>
     <div
@@ -66,7 +69,7 @@ const clearSearch = () => {
           id="question"
           v-model="search"
           type="text"
-          placeholder="Search by question..."
+          :placeholder="__('Search by question...')"
           class="w-full rounded-2xl border-slate-200 bg-white py-2 pr-10 pl-10 text-sm dark:border-slate-800 dark:bg-slate-900"
         />
         <button
@@ -84,7 +87,7 @@ const clearSearch = () => {
           v-model="hexagram"
           class="w-full appearance-none rounded-2xl border-slate-200 bg-white py-2 pr-10 pl-4 font-serif text-sm text-slate-400 dark:border-slate-800 dark:bg-slate-900"
         >
-          <option value="" class="py-2">All Hexagrams</option>
+          <option value="" class="py-2">{{ __('All Hexagrams') }}</option>
           <option
             v-for="item in hexagramList"
             :key="item.value"
@@ -104,10 +107,14 @@ const clearSearch = () => {
           <h1
             class="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100"
           >
-            History of Divinations
+            {{ __('History of Divinations') }}
           </h1>
           <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">
-            A record of your past consultations with the Book of Changes.
+            {{
+              __(
+                'A record of your past consultations with the Book of Changes.',
+              )
+            }}
           </p>
         </div>
 
@@ -116,7 +123,7 @@ const clearSearch = () => {
           class="inline-flex items-center justify-center gap-2 rounded-xl bg-amber-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-amber-500 hover:shadow-md active:scale-95"
         >
           <Plus class="size-4" />
-          New Divination
+          {{ __('New Divination') }}
         </Link>
       </div>
 
@@ -128,17 +135,17 @@ const clearSearch = () => {
           <Inbox class="size-8 text-slate-400" />
         </div>
         <h3 class="mt-4 text-lg font-medium text-slate-900 dark:text-white">
-          No divinations found
+          {{ __('No divinations found') }}
         </h3>
         <div v-if="!isSearching">
           <p class="mt-2 text-sm text-slate-500">
-            The Book of Changes is waiting for your questions.
+            {{ __('The Book of Changes is waiting for your questions.') }}
           </p>
           <Link
             :href="create().url"
             class="mt-6 block text-sm font-bold text-amber-600 hover:text-amber-500"
           >
-            Start your first session &rarr;
+            {{ __('Start your first session') }} &rarr;
           </Link>
         </div>
       </div>

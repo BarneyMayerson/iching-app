@@ -3,6 +3,7 @@ import HexagramSection from '@/components/IChing/HexagramSection.vue';
 import LineGuidance from '@/components/IChing/LineGuidance.vue';
 import ReadingHeader from '@/components/IChing/ReadingHeader.vue';
 import TransformationDivider from '@/components/IChing/TransformationDivider.vue';
+import { useTranslate } from '@/composables/useTranslate';
 import AppLayout from '@/layouts/AppLayout.vue';
 import {
   deleteMethod,
@@ -25,15 +26,19 @@ const props = defineProps<{
   changing_lines: number[];
 }>();
 
+const { __ } = useTranslate();
+
 const breadcrumbs = [
-  { title: 'Divinations', href: index().url },
+  { title: __('Divinations'), href: index().url },
   { title: `${props.reading.question}`, href: '#' },
 ];
 
 const handleDelete = () => {
   if (
     confirm(
-      'Вы уверены, что хотите удалить это гадание? Это действие необратимо.',
+      __(
+        'Вы уверены, что хотите удалить это гадание? Это действие необратимо.',
+      ),
     )
   ) {
     router.delete(deleteMethod(props.reading.uuid).url);
@@ -46,7 +51,14 @@ const downloadPdf = () => {
 </script>
 
 <template>
-  <Head :title="'Hexagram ' + reading.hexagram.number + ' - Interpretation'" />
+  <Head
+    :title="
+      __('Hexagram :number - Interpretation').replace(
+        ':number',
+        reading.hexagram.number.toString(),
+      )
+    "
+  />
 
   <AppLayout :breadcrumbs>
     <div class="mx-auto max-w-4xl flex-1 p-6 lg:p-12">
@@ -60,7 +72,7 @@ const downloadPdf = () => {
           <ArrowLeft
             class="size-4 transition-transform group-hover:-translate-x-1"
           />
-          Back to History
+          {{ __('Back to History') }}
         </Link>
 
         <div class="flex items-center gap-2">
@@ -69,7 +81,7 @@ const downloadPdf = () => {
             class="flex items-center gap-2 rounded-xl bg-slate-100 px-4 py-2 text-sm font-semibold text-slate-700 transition-all hover:bg-slate-200 active:scale-95 dark:bg-slate-800 dark:text-slate-200"
           >
             <FileDown class="size-4" />
-            Export PDF
+            {{ __('Export PDF') }}
           </button>
           <div
             class="flex items-center rounded-xl bg-slate-50 p-1 dark:bg-slate-900"
@@ -79,7 +91,7 @@ const downloadPdf = () => {
               title="Share link"
             >
               <Share2 class="size-3.5" />
-              Share
+              {{ __('Share') }}
             </button>
             <div class="mx-1 h-4 w-px bg-slate-200 dark:bg-slate-800"></div>
             <button
@@ -87,7 +99,7 @@ const downloadPdf = () => {
               title="Make private"
             >
               <Lock class="size-3.5" />
-              Private
+              {{ __('Private') }}
             </button>
           </div>
 
@@ -96,7 +108,7 @@ const downloadPdf = () => {
             class="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-red-500 transition-colors hover:bg-red-50 dark:hover:bg-red-950/30"
           >
             <Trash2 class="size-4" />
-            <span class="hidden sm:inline">Delete</span>
+            <span class="hidden sm:inline">{{ __('Delete') }}</span>
           </button>
         </div>
       </div>
@@ -155,8 +167,11 @@ const downloadPdf = () => {
         >
           <Sparkles class="mx-auto mb-4 size-8" />
           <p class="font-serif text-xl italic">
-            Focus on the changing lines as the key to your inquiry. They
-            represent the path from where you are to where you are going.
+            {{
+              __(
+                'Focus on the changing lines as the key to your inquiry. They represent the path from where you are to where you are going.',
+              )
+            }}
           </p>
         </div>
       </section>
@@ -166,9 +181,11 @@ const downloadPdf = () => {
         class="mt-20 rounded-3xl bg-slate-50 p-12 text-center dark:bg-slate-900/20"
       >
         <p class="font-serif text-xl text-slate-500">
-          The Oracle indicates a period of stability. The pattern is firm,
-          suggesting that the current essence of the hexagram is the full answer
-          to your question.
+          {{
+            __(
+              'The Oracle indicates a period of stability. The pattern is firm, suggesting that the current essence of the hexagram is the full answer to your question.',
+            )
+          }}
         </p>
       </div>
     </div>
