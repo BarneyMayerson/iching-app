@@ -291,12 +291,12 @@
 <body>
 
   <div class="header">
-    <h1>I-Ching Oracle</h1>
-    <p>Consultation Record: {{ $reading->created_at->format('M d, Y @ H:i') }}</p>
+    <h1>{{ __('I-Ching Oracle') }}</h1>
+    <p>{{ __('Consultation Record: :date', ['date' => $reading->created_at->format('d.m.Y @ H:i')]) }}</p>
   </div>
 
   <div class="question-section">
-    <div class="question-label">The Inquiry</div>
+    <div class="question-label">{{ __('The Inquiry') }}</div>
     <div class="question-text">"{{ $reading->question }}"</div>
   </div>
 
@@ -322,7 +322,7 @@
     </div>
 
     <div class="hex-info">
-      <div class="hex-number">Hexagram {{ $reading->hexagram->number }}</div>
+      <div class="hex-number">{{ __('Hexagram :number', ['number' => $reading->hexagram->number]) }}</div>
       <div class="hex-name">{{ $reading->hexagram->number }}. {{ $reading->hexagram->names[0] }}</div>
 
       @if (count($reading->hexagram->names) > 1)
@@ -342,7 +342,7 @@
               <div class="trigram-card">
                 <div class="trigram-symbol">{{ $reading->hexagram->upperTrigram->character }}</div>
                 <div class="trigram-content">
-                  <div class="trigram-label">Above (Outer)</div>
+                  <div class="trigram-label">{{ __('Above (Outer)') }}</div>
                   <div class="trigram-element">
                     {{ $reading->hexagram->upperTrigram->images[0] }}
                     @if (isset($reading->hexagram->upperTrigram->images[1]))
@@ -358,7 +358,7 @@
               <div class="trigram-card">
                 <div class="trigram-symbol">{{ $reading->hexagram->lowerTrigram->character }}</div>
                 <div class="trigram-content">
-                  <div class="trigram-label">Below (Inner)</div>
+                  <div class="trigram-label">{{ __('Below (Inner)') }}</div>
                   <div class="trigram-element">
                     {{ $reading->hexagram->lowerTrigram->images[0] }}
                     @if (isset($reading->hexagram->lowerTrigram->images[1]))
@@ -379,7 +379,7 @@
   <div class="page-break"></div>
   <div class="lines-list">
     <h3 style="font-size: 16px; border-bottom: 1px solid #e2e8f0; padding-bottom: 10px; margin-bottom: 20px;">
-      The Path of the Sage: Line Guidance
+      {{ __('The Path of the Sage: Line Guidance') }}
     </h3>
 
     <div class="sage-path">
@@ -391,10 +391,10 @@
           <div class="path-node"></div>
 
           <div class="line-pos">
-            Line {{ $line->position }} —
-            <span style="{{ $isChanging ? 'color: #b45309;' : '' }}">
-              {{ $isChanging ? 'Changing (Active Insight)' : 'Stable' }}
-            </span>
+            {{ __('Line :position — :status', [
+                'position' => $line->position,
+                'status' => $isChanging ? __('Changing (Active Insight)') : __('Stable'),
+            ]) }}
           </div>
           <div class="line-meaning" style="font-style: {{ $isChanging ? 'normal' : 'italic' }};">
             {{ $line->meaning }}
@@ -407,8 +407,8 @@
   @if ($reading->secondaryHexagram)
     <div class="page-break"></div>
     <div class="header">
-      <h1>The Transformation</h1>
-      <p>Future Tendency & Resulting State</p>
+      <h1>{{ __('The Transformation') }}</h1>
+      <p>{{ __('Future Tendency & Resulting State') }}</p>
     </div>
 
     <div class="hexagram-container">
@@ -429,7 +429,7 @@
       </div>
       <div class="hex-info">
         <div class="hex-number">
-          Hexagram {{ $reading->secondaryHexagram->number }}
+          {{ __('Hexagram :number', ['number' => $reading->secondaryHexagram->number]) }}
         </div>
         <div class="hex-name">
           {{ $reading->secondaryHexagram->character }} {{ $reading->secondaryHexagram->names[0] }}
@@ -481,30 +481,28 @@
   @endif
 
   <div class="oracle-conclusion">
-    <div class="conclusion-title">The Oracle's Final Reflection</div>
+    <div class="conclusion-title">{{ __('The Oracle\'s Final Reflection') }}</div>
 
     @if (empty($changing_lines))
       <div class="conclusion-text">
         <span class="conclusion-icon">◈</span>
-        The pattern is firm and the energy is concentrated.
-        This moment calls for presence rather than movement.
-        The essence of <strong>{{ $reading->hexagram->names[0] }}</strong> is your complete answer;
-        seek not to change the circumstances, but to align yourself with them.
+        {{ __('The pattern is firm and the energy is concentrated. This moment calls for presence rather than movement.') }}
+        {{ __('The essence of :name is your complete answer.', ['name' => $reading->hexagram->names[0]]) }}
       </div>
     @else
       <div class="conclusion-text">
         <span class="conclusion-icon">✦</span>
-        You are in a state of dynamic flow. The core of your inquiry lies within the
-        {{ count($changing_lines) }} points of tension identified on your path.
-        As <strong>{{ $reading->hexagram->names[0] }}</strong> dissolves into
-        <strong>{{ $reading->secondaryHexagram->names[0] }}</strong>, remember that the only
-        constant is change itself. Move with the current, not against it.
+        {{ __('You are in a state of dynamic flow.') }}
+        {{ __('As :current dissolves into :future, remember that the only constant is change itself.', [
+            'current' => $reading->hexagram->names[0],
+            'future' => $reading->secondaryHexagram->names[0],
+        ]) }}
       </div>
     @endif
   </div>
 
   <div class="footer">
-    Generated by Gemini I-Ching Cabinet • {{ $reading->uuid }}
+    {{ __('Generated by Gemini I-Ching Cabinet') }} • {{ $reading->uuid }}
   </div>
 
 </body>
