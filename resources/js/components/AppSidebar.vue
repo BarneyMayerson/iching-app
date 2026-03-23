@@ -12,35 +12,40 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from '@/components/ui/sidebar';
+import { useTranslate } from '@/composables/useTranslate';
 import { dashboard as cabinetDashboard } from '@/routes/cabinet';
 import { index as cabinetDivinationsIndex } from '@/routes/cabinet/divinations';
-import { AppPageProps, type NavItem } from '@/types';
-import { Link, usePage } from '@inertiajs/vue3';
+import { type NavItem } from '@/types';
+import { Link } from '@inertiajs/vue3';
 import { LayoutGrid, Scroll, Sparkles } from 'lucide-vue-next';
+import { computed } from 'vue';
 import AppLogo from './AppLogo.vue';
 
-const page = usePage<AppPageProps>();
+const { __, locale } = useTranslate();
 
-const mainNavItems: NavItem[] = [
+const mainNavItems = computed<NavItem[]>(() => [
   {
-    title: 'Dashboard',
+    title: __('Dashboard'),
     href: cabinetDashboard().url,
     icon: LayoutGrid,
   },
   {
-    title: 'Divinations',
+    title: __('Divinations'),
     href: cabinetDivinationsIndex().url,
     icon: Sparkles,
   },
-];
+]);
 
-const footerNavItems: NavItem[] = [
+const footerNavItems = computed<NavItem[]>(() => [
   {
-    title: 'Book of Changes',
-    href: 'https://en.wikipedia.org/wiki/I_Ching',
+    title: __('Book of Changes'),
+    href:
+      locale.value === 'ru'
+        ? 'https://ru.wikipedia.org/wiki/Книга_Перемен'
+        : 'https://en.wikipedia.org/wiki/I_Ching',
     icon: Scroll,
   },
-];
+]);
 </script>
 
 <template>
@@ -63,7 +68,7 @@ const footerNavItems: NavItem[] = [
 
     <SidebarFooter>
       <div class="px-2 py-2 group-data-[collapsible=icon]:hidden">
-        <LanguageSwitcher :current-locale="page.props.locale" />
+        <LanguageSwitcher :current-locale="locale" />
       </div>
       <NavFooter :items="footerNavItems" />
       <NavUser />
