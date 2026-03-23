@@ -19,6 +19,9 @@ import {
 } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { useTranslate } from '@/composables/useTranslate';
+
+const { __ } = useTranslate();
 
 const passwordInput = useTemplateRef('passwordInput');
 </script>

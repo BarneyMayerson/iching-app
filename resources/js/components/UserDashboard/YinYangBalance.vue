@@ -1,9 +1,13 @@
 <script setup lang="ts">
+import { useTranslate } from '@/composables/useTranslate';
+
 const props = defineProps<{
   yang: number;
   yin: number;
   total: number;
 }>();
+
+const { __ } = useTranslate();
 
 const yangPercent = Math.round((props.yang / props.total) * 100) || 0;
 const yinPercent = 100 - yangPercent;

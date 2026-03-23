@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import LanguageSwitcher from '@/components/LanguageSwitcher.vue';
+import { useTranslate } from '@/composables/useTranslate';
 import { login, register } from '@/routes';
 import { dashboard } from '@/routes/cabinet';
 import { Head, Link } from '@inertiajs/vue3';
@@ -13,6 +14,8 @@ import {
   Sun,
 } from 'lucide-vue-next';
 import { onMounted, onUnmounted, ref } from 'vue';
+
+const { __ } = useTranslate();
 
 const isDark = useDark();
 const toggleDark = useToggle(isDark);

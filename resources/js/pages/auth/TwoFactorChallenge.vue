@@ -7,6 +7,7 @@ import {
   InputOTPGroup,
   InputOTPSlot,
 } from '@/components/ui/input-otp';
+import { useTranslate } from '@/composables/useTranslate';
 import AuthLayout from '@/layouts/AuthLayout.vue';
 import { store } from '@/routes/two-factor/login';
 import { Form, Head } from '@inertiajs/vue3';
@@ -17,6 +18,8 @@ interface AuthConfigContent {
   description: string;
   toggleText: string;
 }
+
+const { __ } = useTranslate();
 
 const authConfigContent = computed<AuthConfigContent>(() => {
   if (showRecoveryInput.value) {

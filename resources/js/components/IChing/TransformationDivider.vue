@@ -1,5 +1,8 @@
 <script setup lang="ts">
+import { useTranslate } from '@/composables/useTranslate';
 import { ChevronDown } from 'lucide-vue-next';
+
+const { __ } = useTranslate();
 </script>
 
 <template>

@@ -16,10 +16,10 @@ import {
 } from '@/components/ui/input-otp';
 import { Spinner } from '@/components/ui/spinner';
 import { useAppearance } from '@/composables/useAppearance';
+import { useTranslate } from '@/composables/useTranslate';
 import { useTwoFactorAuth } from '@/composables/useTwoFactorAuth';
 import { confirm } from '@/routes/two-factor';
-import { AppPageProps } from '@/types';
-import { Form, usePage } from '@inertiajs/vue3';
+import { Form } from '@inertiajs/vue3';
 import { useClipboard } from '@vueuse/core';
 import { Check, Copy, ScanLine } from 'lucide-vue-next';
 import { computed, nextTick, ref, useTemplateRef, watch } from 'vue';
@@ -29,8 +29,7 @@ interface Props {
   twoFactorEnabled: boolean;
 }
 
-const page = usePage<AppPageProps>();
-const __ = (key: string): string => page.props.translations[key] || key;
+const { __ } = useTranslate();
 
 const { resolvedAppearance } = useAppearance();
 

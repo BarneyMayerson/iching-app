@@ -6,6 +6,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Spinner } from '@/components/ui/spinner';
+import { useTranslate } from '@/composables/useTranslate';
 import AuthBase from '@/layouts/AuthLayout.vue';
 import { register } from '@/routes';
 import { store } from '@/routes/login';
@@ -17,6 +18,8 @@ defineProps<{
   canResetPassword: boolean;
   canRegister: boolean;
 }>();
+
+const { __ } = useTranslate();
 </script>
 
 <template>

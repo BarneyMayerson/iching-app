@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Spinner } from '@/components/ui/spinner';
+import { useTranslate } from '@/composables/useTranslate';
 import AuthLayout from '@/layouts/AuthLayout.vue';
 import { update } from '@/routes/password';
 import { Form, Head } from '@inertiajs/vue3';
@@ -13,6 +14,8 @@ const props = defineProps<{
   token: string;
   email: string;
 }>();
+
+const { __ } = useTranslate();
 
 const inputEmail = ref(props.email);
 </script>

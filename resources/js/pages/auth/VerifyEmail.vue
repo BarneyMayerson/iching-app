@@ -2,6 +2,7 @@
 import TextLink from '@/components/TextLink.vue';
 import { Button } from '@/components/ui/button';
 import { Spinner } from '@/components/ui/spinner';
+import { useTranslate } from '@/composables/useTranslate';
 import AuthLayout from '@/layouts/AuthLayout.vue';
 import { logout } from '@/routes';
 import { send } from '@/routes/verification';
@@ -10,6 +11,8 @@ import { Form, Head } from '@inertiajs/vue3';
 defineProps<{
   status?: string;
 }>();
+
+const { __ } = useTranslate();
 </script>
 
 <template>
