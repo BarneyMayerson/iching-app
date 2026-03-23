@@ -1,0 +1,4443 @@
+{
+    "trigrams": [
+        {
+            "number": 1,
+            "names": {
+                "en": ["Force", "The Creative"],
+                "ru": ["Творчество", "Крепость"]
+            },
+            "chineseName": "乾",
+            "pinyinName": "qián",
+            "character": "☰",
+            "attribute": {
+                "en": "strong",
+                "ru": "Сила (Крепость / Напряженность)"
+            },
+            "images": {
+                "en": ["heaven"],
+                "ru": ["небо"]
+            },
+            "chineseImage": "天",
+            "pinyinImage": "tiān",
+            "familyRelationship": {
+                "en": "father",
+                "ru": "отец"
+            },
+            "binary": "111",
+            "lines": [1, 1, 1]
+        },
+        {
+            "number": 2,
+            "names": {
+                "en": ["Field", "The Receptive"],
+                "ru": ["Исполнение", "Самоотдача"]
+            },
+            "chineseName": "坤",
+            "pinyinName": "kūn",
+            "character": "☷",
+            "attribute": {
+                "en": "devoted, yielding",
+                "ru": "Податливость (Самоотдача)"
+            },
+            "images": {
+                "en": ["earth"],
+                "ru": ["земля"]
+            },
+            "chineseImage": "地",
+            "pinyinImage": "dì",
+            "familyRelationship": {
+                "en": "mother",
+                "ru": "мать"
+            },
+            "binary": "000",
+            "lines": [0, 0, 0]
+        },
+        {
+            "number": 3,
+            "names": {
+                "en": ["Shake", "The Arousing"],
+                "ru": ["Возбуждение", "Подвижность"]
+            },
+            "chineseName": "震",
+            "pinyinName": "zhèn",
+            "character": "☳",
+            "attribute": {
+                "en": "inciting movement",
+                "ru": "Подвижность (Возбуждение)"
+            },
+            "images": {
+                "en": ["thunder"],
+                "ru": ["гром"]
+            },
+            "chineseImage": "雷",
+            "pinyinImage": "léi",
+            "familyRelationship": {
+                "en": "first son",
+                "ru": "первый сын"
+            },
+            "binary": "001",
+            "lines": [1, 0, 0]
+        },
+        {
+            "number": 4,
+            "names": {
+                "en": ["Gorge", "The Abysmal"],
+                "ru": ["Погружение", "Опасность"]
+            },
+            "chineseName": "坎",
+            "pinyinName": "kǎn",
+            "character": "☵",
+            "attribute": {
+                "en": "dangerous",
+                "ru": "Опасность (Погружение)"
+            },
+            "images": {
+                "en": ["water"],
+                "ru": ["вода"]
+            },
+            "chineseImage": "水",
+            "pinyinImage": "shuǐ",
+            "familyRelationship": {
+                "en": "second son",
+                "ru": "второй сын"
+            },
+            "binary": "010",
+            "lines": [0, 1, 0]
+        },
+        {
+            "number": 5,
+            "names": {
+                "en": ["Bound", "Keeping Still"],
+                "ru": ["Пребывание", "Неподвижность"]
+            },
+            "chineseName": "艮",
+            "pinyinName": "gèn",
+            "character": "☶",
+            "attribute": {
+                "en": "resting",
+                "ru": "Неподвижность (Упокоение)"
+            },
+            "images": {
+                "en": ["mountain"],
+                "ru": ["гора"]
+            },
+            "chineseImage": "山",
+            "pinyinImage": "shān",
+            "familyRelationship": {
+                "en": "third son",
+                "ru": "третий сын"
+            },
+            "binary": "100",
+            "lines": [0, 0, 1]
+        },
+        {
+            "number": 6,
+            "names": {
+                "en": ["Ground", "The Gentle"],
+                "ru": ["Утончение", "Проникновение"]
+            },
+            "chineseName": "巽",
+            "pinyinName": "xùn",
+            "character": "☴",
+            "attribute": {
+                "en": "penetrating",
+                "ru": "Проникновение (Мягкость)"
+            },
+            "images": {
+                "en": ["wind", "wood"],
+                "ru": ["ветер", "дерево"]
+            },
+            "chineseImage": "風",
+            "pinyinImage": "fēng",
+            "familyRelationship": {
+                "en": "first daughter",
+                "ru": "первая дочь"
+            },
+            "binary": "110",
+            "lines": [0, 1, 1]
+        },
+        {
+            "number": 7,
+            "names": {
+                "en": ["Radiance", "The Clinging"],
+                "ru": ["Сцепление", "Ясность"]
+            },
+            "chineseName": "離",
+            "pinyinName": "lí",
+            "character": "☲",
+            "attribute": {
+                "en": "light-giving",
+                "ru": "Ясность (Приверженность)"
+            },
+            "images": {
+                "en": ["fire"],
+                "ru": ["огонь"]
+            },
+            "chineseImage": "火",
+            "pinyinImage": "huǒ",
+            "familyRelationship": {
+                "en": "second daughter",
+                "ru": "вторая дочь"
+            },
+            "binary": "101",
+            "lines": [1, 0, 1]
+        },
+        {
+            "number": 8,
+            "names": {
+                "en": ["Open", "The Joyous"],
+                "ru": ["Разрешение", "Радость"]
+            },
+            "chineseName": "兌",
+            "pinyinName": "duì",
+            "character": "☱",
+            "attribute": {
+                "en": "joyful",
+                "ru": "Радость (Проводимость)"
+            },
+            "images": {
+                "en": ["swamp", "lake"],
+                "ru": ["водоем", "озеро"]
+            },
+            "chineseImage": "澤",
+            "pinyinImage": "zé",
+            "familyRelationship": {
+                "en": "third daughter",
+                "ru": "третья дочь"
+            },
+            "binary": "011",
+            "lines": [1, 1, 0]
+        }
+    ],
+    "hexagrams": [
+        {
+            "number": 1,
+            "names": {
+                "en": ["Force", "The Creative"],
+                "ru": ["Творчество", "Изначальное свершение"]
+            },
+            "chineseName": "乾",
+            "pinyinName": "qián",
+            "character": "䷀",
+            "topTrigram": 1,
+            "bottomTrigram": 1,
+            "binary": "111111",
+            "lines": [1, 1, 1, 1, 1, 1],
+            "description": {
+                "en": "Heaven above and Heaven below: Heaven in constant motion. With the strength of the dragon, the Superior Person steels herself for ceaseless activity. Productive activity. Potent Influence. Sublime success if you keep to your course.",
+                "ru": "Творчество. Изначальное свершение. Благоприятна стойкость."
+            }
+        },
+        {
+            "number": 2,
+            "names": {
+                "en": ["Field", "The Receptive"],
+                "ru": ["Исполнение", "Самоотдача"]
+            },
+            "chineseName": "坤",
+            "pinyinName": "kūn",
+            "character": "䷁",
+            "topTrigram": 2,
+            "bottomTrigram": 2,
+            "binary": "000000",
+            "lines": [0, 0, 0, 0, 0, 0],
+            "description": {
+                "en": "Earth above and Earth below: The Earth contains and sustains. Responsive devotion. Receptive influence. Sublime success if you keep to your course.",
+                "ru": "Исполнение. Изначальное свершение. Благоприятна стойкость кобылицы. Благородному человеку есть куда выступить. Если он двинется первым — заблудится, если пойдет следом — обретет хозяина."
+            }
+        },
+        {
+            "number": 3,
+            "names": {
+                "en": ["Sprouting", "Difficulty at the Beginning"],
+                "ru": ["Начальная трудность"]
+            },
+            "chineseName": "屯",
+            "pinyinName": "zhūn",
+            "character": "䷂",
+            "topTrigram": 4,
+            "bottomTrigram": 3,
+            "binary": "010001",
+            "lines": [1, 0, 0, 0, 1, 0],
+            "description": {
+                "en": "Thunder from the Deep: Supreme success if you keep to your course. Carefully consider the first move. Seek help.",
+                "ru": "Начальная трудность. Изначальное свершение; благоприятна стойкость. Не следует куда-либо выступать. Благоприятно возведение вассалов."
+            }
+        },
+        {
+            "number": 4,
+            "names": {
+                "en": ["Enveloping", "Youthful Folly"],
+                "ru": ["Недоразвитость", "Юношеское безумие"]
+            },
+            "chineseName": "蒙",
+            "pinyinName": "méng",
+            "character": "䷃",
+            "topTrigram": 5,
+            "bottomTrigram": 4,
+            "binary": "100010",
+            "lines": [0, 1, 0, 0, 0, 1],
+            "description": {
+                "en": "A fresh Spring at the foot of the Mountain: The sage does not recruit students; the students seek her. Success if you are sincerely firm.",
+                "ru": "Недоразвитость. Свершение. Не я ищу юношей, а юноши ищут меня. При первом гадании — отвечу, при втором и третьем — это назойливость. Назойливость — не поучаю. Благоприятна стойкость."
+            }
+        },
+        {
+            "number": 5,
+            "names": {
+                "en": ["Attending", "Waiting"],
+                "ru": ["Необходимость ждать"]
+            },
+            "chineseName": "需",
+            "pinyinName": "xū",
+            "character": "䷄",
+            "topTrigram": 4,
+            "bottomTrigram": 1,
+            "binary": "010111",
+            "lines": [1, 1, 1, 0, 1, 0],
+            "description": {
+                "en": "Deep Waters in the Heavens: Great success if you sincerely keep to your course. You may cross to the far shore.",
+                "ru": "Необходимость ждать. Обладателю правды — изначальное свершение, стойкость — к счастью. Благоприятен брод через великую реку."
+            }
+        },
+        {
+            "number": 6,
+            "names": {
+                "en": ["Arguing", "Conflict"],
+                "ru": ["Тяжба"]
+            },
+            "chineseName": "訟",
+            "pinyinName": "sòng",
+            "character": "䷅",
+            "topTrigram": 1,
+            "bottomTrigram": 4,
+            "binary": "111010",
+            "lines": [0, 1, 0, 1, 1, 1],
+            "description": {
+                "en": "Even though she sincerely knows she is right, the Superior Person anticipates opposition. Seek advice.",
+                "ru": "Тяжба. Обладателю правды — препятствие. С трепетом — средина — к счастью, конец — к несчастью. Благоприятно свидание с великим человеком. Неблагоприятен брод через великую реку."
+            }
+        },
+        {
+            "number": 7,
+            "names": {
+                "en": ["Leading", "The Army"],
+                "ru": ["Войско"]
+            },
+            "chineseName": "師",
+            "pinyinName": "shī",
+            "character": "䷆",
+            "topTrigram": 2,
+            "bottomTrigram": 4,
+            "binary": "000010",
+            "lines": [0, 1, 0, 0, 0, 0],
+            "description": {
+                "en": "Deep Water beneath the Earth's surface: Good fortune. No mistakes if you follow a course led by experience.",
+                "ru": "Войско. Стойкость. Зрелому человеку — счастье. Хулы не будет."
+            }
+        },
+        {
+            "number": 8,
+            "names": {
+                "en": ["Grouping", "Holding Together [Union]"],
+                "ru": ["Приближение"]
+            },
+            "chineseName": "比",
+            "pinyinName": "bǐ",
+            "character": "䷇",
+            "topTrigram": 4,
+            "bottomTrigram": 2,
+            "binary": "010000",
+            "lines": [0, 0, 0, 0, 1, 0],
+            "description": {
+                "en": "Surface Waters flow together. Good fortune is possible. Cast the coins again to discover if you have the qualities needed to lead.",
+                "ru": "Приближение. Счастье. Расспроси еще раз об изначальной вечной стойкости. Хулы не будет. Неспокойные придут, а опоздавшему — несчастье."
+            }
+        },
+        {
+            "number": 9,
+            "names": {
+                "en": ["Small Accumulating", "The Taming Power of the Small"],
+                "ru": ["Воспитание малым"]
+            },
+            "chineseName": "小畜",
+            "pinyinName": "xiǎo chù",
+            "character": "䷈",
+            "topTrigram": 6,
+            "bottomTrigram": 1,
+            "binary": "110111",
+            "lines": [1, 1, 1, 0, 1, 1],
+            "description": {
+                "en": "Winds of change high in the Heavens: Dense clouds blow in from the west, but still no rain. Small successes.",
+                "ru": "Воспитание малым. Свершение. С западной окраины — плотные облака, но дождя нет."
+            }
+        },
+        {
+            "number": 10,
+            "names": {
+                "en": ["Treading", "Conduct"],
+                "ru": ["Наступление"]
+            },
+            "chineseName": "履",
+            "pinyinName": "lǚ",
+            "character": "䷉",
+            "topTrigram": 1,
+            "bottomTrigram": 8,
+            "binary": "111011",
+            "lines": [1, 1, 0, 1, 1, 1],
+            "description": {
+                "en": "You tread upon the tail of the tiger. Not perceiving you as a threat, the startled tiger does not bite. Success.",
+                "ru": "Наступление на хвост тигра. Он не кусает человека. Свершение."
+            }
+        },
+        {
+            "number": 11,
+            "names": {
+                "en": ["Pervading", "Peace"],
+                "ru": ["Расцвет", "Мир"]
+            },
+            "chineseName": "泰",
+            "pinyinName": "tài",
+            "character": "䷊",
+            "topTrigram": 2,
+            "bottomTrigram": 1,
+            "binary": "000111",
+            "lines": [1, 1, 1, 0, 0, 0],
+            "description": {
+                "en": "Heaven and Earth embrace, giving birth to Peace. The small depart; the great approach. Success. Good fortune.",
+                "ru": "Расцвет. Малое уходит, великое приходит. Счастье. Свершение."
+            }
+        },
+        {
+            "number": 12,
+            "names": {
+                "en": ["Obstruction", "Standstill (Stagnation)"],
+                "ru": ["Упадок", "Застой"]
+            },
+            "chineseName": "否",
+            "pinyinName": "pǐ",
+            "character": "䷋",
+            "topTrigram": 1,
+            "bottomTrigram": 2,
+            "binary": "111000",
+            "lines": [0, 0, 0, 1, 1, 1],
+            "description": {
+                "en": "Heaven and Earth move away from each other. The great depart; the small approach. Difficult trials.",
+                "ru": "Упадок. Негодные люди не благоприятствуют стойкости благородного человека. Великое уходит, малое приходит."
+            }
+        },
+        {
+            "number": 13,
+            "names": {
+                "en": ["Concording People", "Fellowship with Men"],
+                "ru": ["Единомышленники", "Родня"]
+            },
+            "chineseName": "同人",
+            "pinyinName": "tóng rén",
+            "character": "䷌",
+            "topTrigram": 1,
+            "bottomTrigram": 7,
+            "binary": "111101",
+            "lines": [1, 0, 1, 1, 1, 1],
+            "description": {
+                "en": "Fellowship with men in the open. Success. You may cross to the far shore.",
+                "ru": "Единомышленники в поле. Свершение. Благоприятен брод через великую реку. Благоприятна стойкость благородного человека."
+            }
+        },
+        {
+            "number": 14,
+            "names": {
+                "en": ["Great Possessing", "Possession in Great Measure"],
+                "ru": ["Обладание великим"]
+            },
+            "chineseName": "大有",
+            "pinyinName": "dà yǒu",
+            "character": "䷍",
+            "topTrigram": 7,
+            "bottomTrigram": 1,
+            "binary": "101111",
+            "lines": [1, 1, 1, 1, 0, 1],
+            "description": {
+                "en": "Fire in the Heavens: Great inner treasures. Supreme success.",
+                "ru": "Обладание великим. Изначальное свершение."
+            }
+        },
+        {
+            "number": 15,
+            "names": {
+                "en": ["Humbling", "Modesty"],
+                "ru": ["Смирение"]
+            },
+            "chineseName": "謙",
+            "pinyinName": "qiān",
+            "character": "䷎",
+            "topTrigram": 2,
+            "bottomTrigram": 5,
+            "binary": "000100",
+            "lines": [0, 0, 1, 0, 0, 0],
+            "description": {
+                "en": "Mountain beneath the Earth: Success if you carry things through.",
+                "ru": "Смирение. Свершение. Благородному человеку — довести дело до конца."
+            }
+        },
+        {
+            "number": 16,
+            "names": {
+                "en": ["Providing-For", "Enthusiasm"],
+                "ru": ["Вольность", "Восторженность"]
+            },
+            "chineseName": "豫",
+            "pinyinName": "yù",
+            "character": "䷏",
+            "topTrigram": 3,
+            "bottomTrigram": 2,
+            "binary": "001000",
+            "lines": [0, 0, 0, 1, 0, 0],
+            "description": {
+                "en": "Thunder comes resounding out of the Earth: Rally your forces, and move boldly forward.",
+                "ru": "Вольность. Благоприятно возведение вассалов и движение войск."
+            }
+        },
+        {
+            "number": 17,
+            "names": {
+                "en": ["Following"],
+                "ru": ["Последование"]
+            },
+            "chineseName": "隨",
+            "pinyinName": "suí",
+            "character": "䷐",
+            "topTrigram": 8,
+            "bottomTrigram": 3,
+            "binary": "011001",
+            "lines": [1, 0, 0, 1, 1, 0],
+            "description": {
+                "en": "Thunder beneath the Lake's surface. Supreme success. No mistakes if you keep to your course.",
+                "ru": "Последование. Изначальное свершение; благоприятна стойкость. Хулы не будет."
+            }
+        },
+        {
+            "number": 18,
+            "names": {
+                "en": ["Correcting", "Work on What Has Been Spoiled [Decay]"],
+                "ru": ["Исправление [порчи]"]
+            },
+            "chineseName": "蠱",
+            "pinyinName": "gu",
+            "character": "䷑",
+            "topTrigram": 5,
+            "bottomTrigram": 6,
+            "binary": "100110",
+            "lines": [0, 1, 1, 0, 0, 1],
+            "description": {
+                "en": "Winds sweep through the Mountain valley. Supreme success. Before crossing to the far shore, consider the move for three days.",
+                "ru": "Исправление [порчи]. Изначальное свершение. Благоприятен брод через великую реку. Будь бдителен за три дня до начала и три дня после начала."
+            }
+        },
+        {
+            "number": 19,
+            "names": {
+                "en": ["Nearing", "Approach"],
+                "ru": ["Посещение"]
+            },
+            "chineseName": "臨",
+            "pinyinName": "lín",
+            "character": "䷒",
+            "topTrigram": 2,
+            "bottomTrigram": 8,
+            "binary": "000011",
+            "lines": [1, 1, 0, 0, 0, 0],
+            "description": {
+                "en": "Supreme success if you keep to your course. But be aware that your power will wane, as Summer changes to Fall.",
+                "ru": "Посещение. Изначальное свершение; благоприятна стойкость. Когда наступит восьмая луна — будет несчастье."
+            }
+        },
+        {
+            "number": 20,
+            "names": {
+                "en": ["Viewing", "Contemplation (View)"],
+                "ru": ["Созерцание"]
+            },
+            "chineseName": "觀",
+            "pinyinName": "guān",
+            "character": "䷓",
+            "topTrigram": 6,
+            "bottomTrigram": 2,
+            "binary": "110000",
+            "lines": [0, 0, 0, 0, 1, 1],
+            "description": {
+                "en": "You have cleansed yourself; now stand ready to make your humble, devout offering.",
+                "ru": "Созерцание. Омыв руки, но еще не принеся жертвы, владей правдой, будучи строгим и полным достоинства."
+            }
+        },
+        {
+            "number": 21,
+            "names": {
+                "en": ["Gnawing Bite", "Biting Through"],
+                "ru": ["Стиснутые зубы"]
+            },
+            "chineseName": "噬嗑",
+            "pinyinName": "shì kè",
+            "character": "䷔",
+            "topTrigram": 7,
+            "bottomTrigram": 3,
+            "binary": "101001",
+            "lines": [1, 0, 0, 1, 0, 1],
+            "description": {
+                "en": "Though unpleasant, it is best to let justice have its due.",
+                "ru": "Стиснутые зубы. Свершение. Благоприятно применение тюрем."
+            }
+        },
+        {
+            "number": 22,
+            "names": {
+                "en": ["Adorning", "Grace"],
+                "ru": ["Убранство"]
+            },
+            "chineseName": "賁",
+            "pinyinName": "bì",
+            "character": "䷕",
+            "topTrigram": 5,
+            "bottomTrigram": 7,
+            "binary": "100101",
+            "lines": [1, 0, 1, 0, 0, 1],
+            "description": {
+                "en": "Success in small matters. This is a good time to begin something.",
+                "ru": "Убранство. Свершение. Малому благоприятно иметь куда выступить."
+            }
+        },
+        {
+            "number": 23,
+            "names": {
+                "en": ["Stripping", "Splitting Apart"],
+                "ru": ["Разрушение"]
+            },
+            "chineseName": "剝",
+            "pinyinName": "bō",
+            "character": "䷖",
+            "topTrigram": 5,
+            "bottomTrigram": 2,
+            "binary": "100000",
+            "lines": [0, 0, 0, 0, 0, 1],
+            "description": {
+                "en": "Any action would be ill-timed. Stand fast.",
+                "ru": "Разрушение. Неблагоприятно иметь куда выступить."
+            }
+        },
+        {
+            "number": 24,
+            "names": {
+                "en": ["Returning", "Return (The Turning Point)"],
+                "ru": ["Возврат"]
+            },
+            "chineseName": "復",
+            "pinyinName": "fù",
+            "character": "䷗",
+            "topTrigram": 2,
+            "bottomTrigram": 3,
+            "binary": "000001",
+            "lines": [1, 0, 0, 0, 0, 0],
+            "description": {
+                "en": "The return of old familiars is welcome. You can be sure of this cycle as you are that seven days bring a new week.",
+                "ru": "Возврат. Свершение. Выход и вход — без вреда. Друзья придут — хулы не будет. Обратно вернешься на свой путь. Через семь дней — возврат. Благоприятно иметь куда выступить."
+            }
+        },
+        {
+            "number": 25,
+            "names": {
+                "en": ["Without Embroiling", "Innocence (The Unexpected)"],
+                "ru": ["Беспорочность"]
+            },
+            "chineseName": "無妄",
+            "pinyinName": "wú wàng",
+            "character": "䷘",
+            "topTrigram": 1,
+            "bottomTrigram": 3,
+            "binary": "111001",
+            "lines": [1, 0, 0, 1, 1, 1],
+            "description": {
+                "en": "Exceptional progress if you are mindful to keep out of the way of the natural Flow. It would be a fatal error to try to alter its course.",
+                "ru": "Беспорочность. Изначальное свершение; благоприятна стойкость. У того, кто не прав, будет беда. Неблагоприятно иметь куда выступить."
+            }
+        },
+        {
+            "number": 26,
+            "names": {
+                "en": ["Great Accumulating", "The Taming Power of the Great"],
+                "ru": ["Воспитание великим"]
+            },
+            "chineseName": "大畜",
+            "pinyinName": "dà chù",
+            "character": "䷙",
+            "topTrigram": 5,
+            "bottomTrigram": 1,
+            "binary": "100111",
+            "lines": [1, 1, 1, 0, 0, 1],
+            "description": {
+                "en": "Persevere. Drawing sustenance from these sources creates good fortune. Then you may cross to the far shore.",
+                "ru": "Воспитание великим. Благоприятна стойкость. Не кормись дома — счастье. Благоприятен брод через великую реку."
+            }
+        },
+        {
+            "number": 27,
+            "names": {
+                "en": [
+                    "Swallowing",
+                    "The Corners of the Mouth (Providing Nourishment)"
+                ],
+                "ru": ["Питание"]
+            },
+            "chineseName": "頤",
+            "pinyinName": "yí",
+            "character": "䷚",
+            "topTrigram": 5,
+            "bottomTrigram": 3,
+            "binary": "100001",
+            "lines": [1, 0, 0, 0, 0, 1],
+            "description": {
+                "en": "Endure and good fortune will come. Nurture others in need. Take care what comes out of your mouth, as well as what goes in.",
+                "ru": "Питание. Стойкость — к счастью. Смотри на само питание и на то, как человек сам ищет себе пищу."
+            }
+        },
+        {
+            "number": 28,
+            "names": {
+                "en": ["Great Exceeding", "Preponderance of the Great"],
+                "ru": ["Переразвитие великого"]
+            },
+            "chineseName": "大過",
+            "pinyinName": "dà guò",
+            "character": "䷛",
+            "topTrigram": 8,
+            "bottomTrigram": 6,
+            "binary": "011110",
+            "lines": [0, 1, 1, 1, 1, 0],
+            "description": {
+                "en": "The Flood rises above the tallest Tree. Any direction is better than where you now stand.",
+                "ru": "Переразвитие великого. Стропила прогибаются. Благоприятно иметь куда выступить. Свершение."
+            }
+        },
+        {
+            "number": 29,
+            "names": {
+                "en": ["Gorge", "The Abysmal (Water)"],
+                "ru": ["Повторная опасность", "Бездна"]
+            },
+            "chineseName": "坎",
+            "pinyinName": "kǎn",
+            "character": "䷜",
+            "topTrigram": 4,
+            "bottomTrigram": 4,
+            "binary": "010010",
+            "lines": [0, 1, 0, 0, 1, 0],
+            "description": {
+                "en": "Water follows Water. The Superior Person learns flexibility from mistakes. Success if you are sincere.",
+                "ru": "Повторная опасность. Обладателю правды — только в сердце свершение. Действия принесут награду."
+            }
+        },
+        {
+            "number": 30,
+            "names": {
+                "en": ["Radiance", "The Clinging, Fire"],
+                "ru": ["Сияние"]
+            },
+            "chineseName": "離",
+            "pinyinName": "lí",
+            "character": "䷝",
+            "topTrigram": 7,
+            "bottomTrigram": 7,
+            "binary": "101101",
+            "lines": [1, 0, 1, 1, 0, 1],
+            "description": {
+                "en": "Fire sparks more Flames. Take care to be as peaceful as the cow in the meadow.",
+                "ru": "Сияние. Благоприятна стойкость. Свершение. Уход за коровой — к счастью."
+            }
+        },
+        {
+            "number": 31,
+            "names": {
+                "en": ["Conjoining", "Influence (Wooing)"],
+                "ru": ["Взаимодействие"]
+            },
+            "chineseName": "咸",
+            "pinyinName": "xián",
+            "character": "䷞",
+            "topTrigram": 8,
+            "bottomTrigram": 5,
+            "binary": "011100",
+            "lines": [0, 0, 1, 1, 1, 0],
+            "description": {
+                "en": "The joyous Lake is cradled by the tranquil Mountain. Supreme success. This course leads to marriage.",
+                "ru": "Взаимодействие. Свершение. Благоприятна стойкость. Взять жену — к счастью."
+            }
+        },
+        {
+            "number": 32,
+            "names": {
+                "en": ["Persevering", "Duration"],
+                "ru": ["Постоянство"]
+            },
+            "chineseName": "恆",
+            "pinyinName": "héng",
+            "character": "䷟",
+            "topTrigram": 3,
+            "bottomTrigram": 6,
+            "binary": "001110",
+            "lines": [0, 1, 1, 1, 0, 0],
+            "description": {
+                "en": "Arousing Thunder and penetrating Wind. Such constancy deserves success.",
+                "ru": "Постоянство. Свершение. Хулы не будет. Благоприятна стойкость. Благоприятно иметь куда выступить."
+            }
+        },
+        {
+            "number": 33,
+            "names": {
+                "en": ["Retiring", "Retreat"],
+                "ru": ["Бегство"]
+            },
+            "chineseName": "遯",
+            "pinyinName": "dùn",
+            "character": "䷠",
+            "topTrigram": 1,
+            "bottomTrigram": 5,
+            "binary": "111100",
+            "lines": [0, 0, 1, 1, 1, 1],
+            "description": {
+                "en": "The Superior Person keeps shallow men at a distance, not in anger but with dignity. Such a retreat leads to Success.",
+                "ru": "Бегство. Свершение. Малому благоприятна стойкость."
+            }
+        },
+        {
+            "number": 34,
+            "names": {
+                "en": ["Great Invigorating", "The Power of the Great"],
+                "ru": ["Великая мощь"]
+            },
+            "chineseName": "大壯",
+            "pinyinName": "dà zhuàng",
+            "character": "䷡",
+            "topTrigram": 3,
+            "bottomTrigram": 1,
+            "binary": "001111",
+            "lines": [1, 1, 1, 1, 0, 0],
+            "description": {
+                "en": "Because of her Great Power, the Superior Person takes pains not to overstep her position. Opportunity will arise.",
+                "ru": "Великая мощь. Благоприятна стойкость."
+            }
+        },
+        {
+            "number": 35,
+            "names": {
+                "en": ["Prospering", "Progress"],
+                "ru": ["Восход"]
+            },
+            "chineseName": "晉",
+            "pinyinName": "jìn",
+            "character": "䷢",
+            "topTrigram": 7,
+            "bottomTrigram": 2,
+            "binary": "101000",
+            "lines": [0, 0, 0, 1, 0, 1],
+            "description": {
+                "en": "The Sun shines down upon the Earth. Promotion. Granted audience three times in a single day.",
+                "ru": "Восход. Процветающему князю должно жаловать коней в большом количестве. В течение дня он трижды будет принят [царем]."
+            }
+        },
+        {
+            "number": 36,
+            "names": {
+                "en": ["Darkening of the Light"],
+                "ru": ["Поражение света"]
+            },
+            "chineseName": "明夷",
+            "pinyinName": "míng yí",
+            "character": "䷣",
+            "topTrigram": 2,
+            "bottomTrigram": 7,
+            "binary": "000101",
+            "lines": [1, 0, 1, 0, 0, 0],
+            "description": {
+                "en": "Warmth and Light are swallowed by deep Darkness. Stay true to your course, despite obstacles.",
+                "ru": "Поражение света. Благоприятна в трудностях стойкость."
+            }
+        },
+        {
+            "number": 37,
+            "names": {
+                "en": ["Dwelling People", "The Family [The Clan]"],
+                "ru": ["Домашние"]
+            },
+            "chineseName": "家人",
+            "pinyinName": "jiā rén",
+            "character": "䷤",
+            "topTrigram": 6,
+            "bottomTrigram": 7,
+            "binary": "110101",
+            "lines": [1, 0, 1, 0, 1, 1],
+            "description": {
+                "en": "The Superior Person weighs her words carefully. Be as faithful as a good wife.",
+                "ru": "Домашние. Благоприятна женщине стойкость."
+            }
+        },
+        {
+            "number": 38,
+            "names": {
+                "en": ["Polarizing", "Opposition"],
+                "ru": ["Разлад"]
+            },
+            "chineseName": "睽",
+            "pinyinName": "kuí",
+            "character": "䷥",
+            "topTrigram": 7,
+            "bottomTrigram": 8,
+            "binary": "101011",
+            "lines": [1, 1, 0, 1, 0, 1],
+            "description": {
+                "en": "No matter how diverse the group, the Superior Person remains uniquely herself. Small accomplishments possible.",
+                "ru": "Разлад. В малых делах — счастье."
+            }
+        },
+        {
+            "number": 39,
+            "names": {
+                "en": ["Limping", "Obstruction"],
+                "ru": ["Препятствие"]
+            },
+            "chineseName": "蹇",
+            "pinyinName": "jiǎn",
+            "character": "䷦",
+            "topTrigram": 4,
+            "bottomTrigram": 5,
+            "binary": "010100",
+            "lines": [0, 0, 1, 0, 1, 0],
+            "description": {
+                "en": "When meeting an impasse, view the obstacle from a new perspective. Let a sage guide you.",
+                "ru": "Препятствие. Благоприятен юго-запад, неблагоприятен северо-восток. Благоприятно свидание с великим человеком. Стойкость — к счастью."
+            }
+        },
+        {
+            "number": 40,
+            "names": {
+                "en": ["Taking-Apart", "Deliverance"],
+                "ru": ["Разрешение"]
+            },
+            "chineseName": "解",
+            "pinyinName": "xiè",
+            "character": "䷧",
+            "topTrigram": 3,
+            "bottomTrigram": 4,
+            "binary": "001010",
+            "lines": [0, 1, 0, 1, 0, 0],
+            "description": {
+                "en": "A Thunderous Cloudburst shatters the oppressive humidity. Release in forgiveness.",
+                "ru": "Разрешение. Благоприятен юго-запад. Если некуда выступить, то, когда придешь обратно, будет счастье. Если есть куда выступить, то еще заранее будет счастье."
+            }
+        },
+        {
+            "number": 41,
+            "names": {
+                "en": ["Diminishing", "Decrease"],
+                "ru": ["Убыль"]
+            },
+            "chineseName": "損",
+            "pinyinName": "sǔn",
+            "character": "䷨",
+            "topTrigram": 5,
+            "bottomTrigram": 8,
+            "binary": "100011",
+            "lines": [1, 1, 0, 0, 0, 1],
+            "description": {
+                "en": "The stoic Mountain drains its excess waters to the Lake below. To be frugal is to possess immeasurable wealth within.",
+                "ru": "Убыль. Обладателю правды — изначальное счастье. Хулы не будет. Стойкость возможна. Благоприятно иметь куда выступить. Что нужно для этого? Можно использовать и две чаши [для жертвоприношения]."
+            }
+        },
+        {
+            "number": 42,
+            "names": {
+                "en": ["Augmenting", "Increase"],
+                "ru": ["Приумножение"]
+            },
+            "chineseName": "益",
+            "pinyinName": "yì",
+            "character": "䷩",
+            "topTrigram": 6,
+            "bottomTrigram": 3,
+            "binary": "110001",
+            "lines": [1, 0, 0, 0, 1, 1],
+            "description": {
+                "en": "When the Superior Person encounters saintly behavior, she adopts it. Progress in every endeavor. You may cross to the far shore.",
+                "ru": "Приумножение. Благоприятно иметь куда выступить. Благоприятен брод через великую реку."
+            }
+        },
+        {
+            "number": 43,
+            "names": {
+                "en": ["Displacement", "Break-through (Resoluteness)"],
+                "ru": ["Выход"]
+            },
+            "chineseName": "夬",
+            "pinyinName": "guài",
+            "character": "䷪",
+            "topTrigram": 8,
+            "bottomTrigram": 1,
+            "binary": "011111",
+            "lines": [1, 1, 1, 1, 1, 0],
+            "description": {
+                "en": "The issue must be raised before an impartial authority. Be sincere and earnest, despite the danger. Set a clear goal.",
+                "ru": "Выход. Огласишь в царском дворе. Правдиво взывай. Будет опасность. Возвещай от своего города. Неблагоприятно браться за оружие. Благоприятно иметь куда выступить."
+            }
+        },
+        {
+            "number": 44,
+            "names": {
+                "en": ["Coupling", "Coming to Meet"],
+                "ru": ["Перемирие", "Искушение"]
+            },
+            "chineseName": "姤",
+            "pinyinName": "gòu",
+            "character": "䷫",
+            "topTrigram": 1,
+            "bottomTrigram": 6,
+            "binary": "111110",
+            "lines": [0, 1, 1, 1, 1, 1],
+            "description": {
+                "en": "A Prince who shouts orders but will not walk among her people. A strong, addictive temptation.",
+                "ru": "Перемирие. Женщина сильна. Не следует брать [такую] женщину."
+            }
+        },
+        {
+            "number": 45,
+            "names": {
+                "en": ["Clustering", "Gathering Together [Massing]"],
+                "ru": ["Воссоединение"]
+            },
+            "chineseName": "萃",
+            "pinyinName": "cuì",
+            "character": "䷬",
+            "topTrigram": 8,
+            "bottomTrigram": 2,
+            "binary": "011000",
+            "lines": [0, 0, 0, 1, 1, 0],
+            "description": {
+                "en": "The King approaches her temple. Success follows this course. Making an offering will seal your good fortune.",
+                "ru": "Воссоединение. Свершение. Царь приближается к обладателям храма. Благоприятно свидание с великим человеком. Свершение. Благоприятна стойкость. Великое жертвоприношение — к счастью. Благоприятно иметь куда выступить."
+            }
+        },
+        {
+            "number": 46,
+            "names": {
+                "en": ["Ascending", "Pushing Upward"],
+                "ru": ["Подъем"]
+            },
+            "chineseName": "升",
+            "pinyinName": "shēng",
+            "character": "䷭",
+            "topTrigram": 2,
+            "bottomTrigram": 6,
+            "binary": "000110",
+            "lines": [0, 1, 1, 0, 0, 0],
+            "description": {
+                "en": "Beneath the Soil, the Seedling pushes upward. Supreme success. Seek guidance from someone you respect.",
+                "ru": "Подъем. Изначальное свершение. Благоприятно свидание с великим человеком. Не бойся. Южное направление — к счастью."
+            }
+        },
+        {
+            "number": 47,
+            "names": {
+                "en": ["Confining", "Oppression (Exhaustion)"],
+                "ru": ["Истощение"]
+            },
+            "chineseName": "困",
+            "pinyinName": "kùn",
+            "character": "䷮",
+            "topTrigram": 8,
+            "bottomTrigram": 4,
+            "binary": "011010",
+            "lines": [0, 1, 0, 1, 1, 0],
+            "description": {
+                "en": "The Superior Person will stake her life on what she believes. Triumph belongs to those who endure. Action prevails where words fail.",
+                "ru": "Истощение. Свершение. Стойкость. Великому человеку — счастье. Хулы не будет. Если есть слова, то они не заслуживают веры."
+            }
+        },
+        {
+            "number": 48,
+            "names": {
+                "en": ["Welling", "The Well"],
+                "ru": ["Колодец"]
+            },
+            "chineseName": "井",
+            "pinyinName": "jǐng",
+            "character": "䷯",
+            "topTrigram": 4,
+            "bottomTrigram": 6,
+            "binary": "010110",
+            "lines": [0, 1, 1, 0, 1, 0],
+            "description": {
+                "en": "The Well endures, never drying to dust, never overflowing. If the bucket breaks or the rope is too short there will be misfortune.",
+                "ru": "Колодец. Меняют города, но не меняют колодец. Ничего не утратишь, но ничего и не приобретешь. Уйдешь и придешь, но колодец останется колодцем. Если почти достанешь воду, но не хватит веревки или разобьешь бадью — несчастье."
+            }
+        },
+        {
+            "number": 49,
+            "names": {
+                "en": ["Skinning", "Revolution (Molting)"],
+                "ru": ["Смена", "Революция"]
+            },
+            "chineseName": "革",
+            "pinyinName": "gé",
+            "character": "䷰",
+            "topTrigram": 8,
+            "bottomTrigram": 7,
+            "binary": "011101",
+            "lines": [1, 0, 1, 1, 1, 0],
+            "description": {
+                "en": "The support you need will come only after the deed is done. Renewed forces. All differences vanish.",
+                "ru": "Смена. В собственный день будешь исполнен доверия. Изначальное свершение. Благоприятна стойкость. Раскаяние исчезнет."
+            }
+        },
+        {
+            "number": 50,
+            "names": {
+                "en": ["Holding", "The Caldron"],
+                "ru": ["Жертвенник"]
+            },
+            "chineseName": "鼎",
+            "pinyinName": "dǐng",
+            "character": "䷱",
+            "topTrigram": 7,
+            "bottomTrigram": 6,
+            "binary": "101110",
+            "lines": [0, 1, 1, 1, 0, 1],
+            "description": {
+                "en": "Fire rises from the Wood beneath the sacrificial caldron. Supreme accomplishment.",
+                "ru": "Жертвенник. Изначальное счастье. Свершение."
+            }
+        },
+        {
+            "number": 51,
+            "names": {
+                "en": ["Shake", "The Arousing (Shock, Thunder)"],
+                "ru": ["Молния", "Возбуждение"]
+            },
+            "chineseName": "震",
+            "pinyinName": "zhèn",
+            "character": "䷲",
+            "topTrigram": 3,
+            "bottomTrigram": 3,
+            "binary": "001001",
+            "lines": [1, 0, 0, 1, 0, 0],
+            "description": {
+                "en": "Thunder echoes upon Thunder. As the people nervously laugh at their own fright, the devout presents the sacrificial chalice.",
+                "ru": "Молния. Свершение. Когда придет молния — испугаешься, а потом будешь смеяться. Молния пугает на сто ли, но она не опрокинет и ложки вина."
+            }
+        },
+        {
+            "number": 52,
+            "names": {
+                "en": ["Bound", "Keeping Still, Mountain"],
+                "ru": ["Сосредоточенность"]
+            },
+            "chineseName": "艮",
+            "pinyinName": "gèn",
+            "character": "䷳",
+            "topTrigram": 5,
+            "bottomTrigram": 5,
+            "binary": "100100",
+            "lines": [0, 0, 1, 0, 0, 1],
+            "description": {
+                "en": "Stilling the sensations of the Ego, she roams her courtyard without moving a muscle. This is no mistake.",
+                "ru": "Сосредоточенность на своей спине. Не обретешь своего тела. Пройдешь по своему двору и не увидишь своих людей. Хулы не будет."
+            }
+        },
+        {
+            "number": 53,
+            "names": {
+                "en": ["Infiltrating", "Development (Gradual Progress)"],
+                "ru": ["Течение", "Постепенность"]
+            },
+            "chineseName": "漸",
+            "pinyinName": "jiàn",
+            "character": "䷴",
+            "topTrigram": 6,
+            "bottomTrigram": 5,
+            "binary": "110100",
+            "lines": [0, 0, 1, 0, 1, 1],
+            "description": {
+                "en": "Development. The maiden is given in marriage. Good fortune if you stay on course.",
+                "ru": "Течение. У женщины — счастье при выходе замуж. Благоприятна стойкость."
+            }
+        },
+        {
+            "number": 54,
+            "names": {
+                "en": ["Converting the Maiden", "The Marrying Maiden"],
+                "ru": ["Невеста", "Молодая сестра"]
+            },
+            "chineseName": "歸妹",
+            "pinyinName": "guī mèi",
+            "character": "䷵",
+            "topTrigram": 3,
+            "bottomTrigram": 8,
+            "binary": "001011",
+            "lines": [1, 1, 0, 1, 0, 0],
+            "description": {
+                "en": "Any action will prove unfortunate. Nothing furthers.",
+                "ru": "Невеста. В походе — несчастье. Ничего не благоприятствует."
+            }
+        },
+        {
+            "number": 55,
+            "names": {
+                "en": ["Abouding", "Abundance [Fullness]"],
+                "ru": ["Изобилие"]
+            },
+            "chineseName": "豐",
+            "pinyinName": "fēng",
+            "character": "䷶",
+            "topTrigram": 3,
+            "bottomTrigram": 7,
+            "binary": "001101",
+            "lines": [1, 0, 1, 1, 0, 0],
+            "description": {
+                "en": "Be like the noonday sun at its zenith. This is success.",
+                "ru": "Изобилие. Свершение. Царь приближается к нему. Не бойся! Солнце — в зените."
+            }
+        },
+        {
+            "number": 56,
+            "names": {
+                "en": ["Sojourning", "The Wanderer"],
+                "ru": ["Странствие"]
+            },
+            "chineseName": "旅",
+            "pinyinName": "lǚ",
+            "character": "䷷",
+            "topTrigram": 7,
+            "bottomTrigram": 5,
+            "binary": "101100",
+            "lines": [0, 0, 1, 1, 0, 1],
+            "description": {
+                "en": "Find satisfaction in small gains. To move constantly forward is good fortune to a Wanderer.",
+                "ru": "Странствие. Малому — свершение. Страннику стойкость — к счастью."
+            }
+        },
+        {
+            "number": 57,
+            "names": {
+                "en": ["Ground", "The Gentle (The Penetrating, Wind)"],
+                "ru": ["Проникновение", "Мягкость"]
+            },
+            "chineseName": "巽",
+            "pinyinName": "xùn",
+            "character": "䷸",
+            "topTrigram": 6,
+            "bottomTrigram": 6,
+            "binary": "110110",
+            "lines": [0, 1, 1, 0, 1, 1],
+            "description": {
+                "en": "Small, persistent, focused effort brings success. Seek advice from someone you respect.",
+                "ru": "Проникновение. Малому — свершение. Благоприятно иметь куда выступить. Благоприятно свидание с великим человеком."
+            }
+        },
+        {
+            "number": 58,
+            "names": {
+                "en": ["Open", "The Joyous, Lake"],
+                "ru": ["Радость"]
+            },
+            "chineseName": "兌",
+            "pinyinName": "duì",
+            "character": "䷹",
+            "topTrigram": 8,
+            "bottomTrigram": 8,
+            "binary": "011011",
+            "lines": [1, 1, 0, 1, 1, 0],
+            "description": {
+                "en": "The joyous Lake spans to the horizon. Success if you stay on course.",
+                "ru": "Радость. Свершение. Благоприятна стойкость."
+            }
+        },
+        {
+            "number": 59,
+            "names": {
+                "en": ["Dispersing", "Dispersion [Dissolution]"],
+                "ru": ["Раздробление"]
+            },
+            "chineseName": "涣",
+            "pinyinName": "huàn",
+            "character": "䷺",
+            "topTrigram": 6,
+            "bottomTrigram": 4,
+            "binary": "110010",
+            "lines": [0, 1, 0, 0, 1, 1],
+            "description": {
+                "en": "Wind carries the Mists aloft. Success if you stay on course. You may cross to the far shore.",
+                "ru": "Раздробление. Свершение. Царь приближается к обладателям храма. Благоприятен брод через великую реку. Благоприятна стойкость."
+            }
+        },
+        {
+            "number": 60,
+            "names": {
+                "en": ["Articulating", "Limitation"],
+                "ru": ["Ограничение"]
+            },
+            "chineseName": "節",
+            "pinyinName": "jié",
+            "character": "䷻",
+            "topTrigram": 4,
+            "bottomTrigram": 8,
+            "binary": "010011",
+            "lines": [1, 1, 0, 0, 1, 0],
+            "description": {
+                "en": "Self-discipline brings success; but restraints too binding bring self-defeat.",
+                "ru": "Ограничение. Свершение. Горькое ограничение не должно быть стойким."
+            }
+        },
+        {
+            "number": 61,
+            "names": {
+                "en": ["Center Returing", "Inner Truth"],
+                "ru": ["Внутренняя правда"]
+            },
+            "chineseName": "中孚",
+            "pinyinName": "zhōng fú",
+            "character": "䷼",
+            "topTrigram": 6,
+            "bottomTrigram": 8,
+            "binary": "110011",
+            "lines": [1, 1, 0, 0, 1, 1],
+            "description": {
+                "en": "Pigs and fishes. You may cross to the far shore. Great fortune if you stay on course.",
+                "ru": "Внутренняя правда. Свиньи и рыбы — к счастью. Благоприятен брод через великую реку. Благоприятна стойкость."
+            }
+        },
+        {
+            "number": 62,
+            "names": {
+                "en": ["Small Exceeding", "Preponderance of the Small"],
+                "ru": ["Переразвитие малого"]
+            },
+            "chineseName": "小過",
+            "pinyinName": "xiǎo guò",
+            "character": "䷽",
+            "topTrigram": 3,
+            "bottomTrigram": 5,
+            "binary": "001100",
+            "lines": [0, 0, 1, 1, 0, 0],
+            "description": {
+                "en": "Rather than push upward now, it is best to remain below. This will bring surprising good fortune.",
+                "ru": "Переразвитие малого. Свершение. Благоприятна стойкость. Можно делать малое, нельзя делать великое. Летящая птица оставляет голос. Не следует подниматься, следует опускаться. Великое счастье."
+            }
+        },
+        {
+            "number": 63,
+            "names": {
+                "en": ["Already Fording", "After Completion"],
+                "ru": ["Уже конец"]
+            },
+            "chineseName": "既濟",
+            "pinyinName": "jì jì",
+            "character": "䷾",
+            "topTrigram": 4,
+            "bottomTrigram": 7,
+            "binary": "010101",
+            "lines": [1, 0, 1, 0, 1, 0],
+            "description": {
+                "en": "Success in small matters. Early good fortune can end in disorder.",
+                "ru": "Уже конец. Свершение — малому. Благоприятна стойкость. В начале — счастье, в конце — беспорядок."
+            }
+        },
+        {
+            "number": 64,
+            "names": {
+                "en": ["Not Yet Fording", "Before Completion"],
+                "ru": ["Еще не конец"]
+            },
+            "chineseName": "未濟",
+            "pinyinName": "wèi jì",
+            "character": "䷿",
+            "topTrigram": 7,
+            "bottomTrigram": 4,
+            "binary": "101010",
+            "lines": [0, 1, 0, 1, 0, 1],
+            "description": {
+                "en": "Too anxious the young fox gets her tail wet. To attain success, be like the woman and not like the fox.",
+                "ru": "Еще не конец. Свершение. Молодой лис почти переправился, но вымочил хвост. Ничего не благоприятствует."
+            }
+        }
+    ],
+    "lines": [
+        {
+            "hexagram_id": 1,
+            "position": 1,
+            "meaning": {
+                "en": "Hidden dragon. Do not act.",
+                "ru": "В начале девятка. Скрытый дракон. Не действуй."
+            }
+        },
+        {
+            "hexagram_id": 1,
+            "position": 2,
+            "meaning": {
+                "en": "Dragon appearing in the field. It furthers one to see the great man.",
+                "ru": "Девятка вторая. Появившийся дракон находится на поле. Благоприятно свидание с великим человеком."
+            }
+        },
+        {
+            "hexagram_id": 1,
+            "position": 3,
+            "meaning": {
+                "en": "All day long the superior man is creatively active. At nightfall his mind is still beset with cares. Danger. No blame.",
+                "ru": "Девятка третья. Благородный человек до конца дня деятелен. Вечером он осмотрителен, точно в опасности. Хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 1,
+            "position": 4,
+            "meaning": {
+                "en": "Wavering flight over the depths. No blame.",
+                "ru": "Девятка четвертая. Точно прыжок в бездне. Хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 1,
+            "position": 5,
+            "meaning": {
+                "en": "Flying dragon in the heavens. It furthers one to see the great man.",
+                "ru": "Девятка пятая. Летящий дракон находится в небе. Благоприятно свидание с великим человеком."
+            }
+        },
+        {
+            "hexagram_id": 1,
+            "position": 6,
+            "meaning": {
+                "en": "Arrogant dragon will have cause to repent.",
+                "ru": "Наверху девятка. Гордый дракон. Будет раскаяние."
+            }
+        },
+        {
+            "hexagram_id": 2,
+            "position": 1,
+            "meaning": {
+                "en": "When there is hoarfrost underfoot, solid ice is not far off.",
+                "ru": "В начале шестерка. Иней под ногами — значит, близок и крепкий лед."
+            }
+        },
+        {
+            "hexagram_id": 2,
+            "position": 2,
+            "meaning": {
+                "en": "Straight, square, great. Without purpose, yet nothing remains unfurthered.",
+                "ru": "Шестерка вторая. Прямота, повсеместность, величие. И без упражнения не будет ничего, что не было бы благоприятным."
+            }
+        },
+        {
+            "hexagram_id": 2,
+            "position": 3,
+            "meaning": {
+                "en": "Hidden lines. One is able to remain persevering. If one should follow a king, success without fame.",
+                "ru": "Шестерка третья. Таи свою блестящую мощь, но будь готов к стойкости. Если пойдешь на службу к царю, то дела совершишь, но славы себе не ищи."
+            }
+        },
+        {
+            "hexagram_id": 2,
+            "position": 4,
+            "meaning": {
+                "en": "A tied-up sack. No blame, no praise.",
+                "ru": "Шестерка четвертая. Завязанный мешок. Хулы не будет, похвалы не будет."
+            }
+        },
+        {
+            "hexagram_id": 2,
+            "position": 5,
+            "meaning": {
+                "en": "A yellow lower garment brings supreme good fortune.",
+                "ru": "Шестерка пятая. Желтая юбка. Изначальное счастье."
+            }
+        },
+        {
+            "hexagram_id": 2,
+            "position": 6,
+            "meaning": {
+                "en": "Dragons fight in the meadow. Their blood is black and yellow.",
+                "ru": "Наверху шестерка. Драконы бьются на окраине. Их кровь синя и жёлта."
+            }
+        },
+        {
+            "hexagram_id": 3,
+            "position": 1,
+            "meaning": {
+                "en": "Hesitation and hindrance. It furthers one to remain persevering.",
+                "ru": "В начале девятка. Нерешительность. Благоприятно пребывать в стойкости. Благоприятно возведение вассалов."
+            }
+        },
+        {
+            "hexagram_id": 3,
+            "position": 2,
+            "meaning": {
+                "en": "Difficulties pile up. He is not a robber; he wants to woo when the time comes.",
+                "ru": "Шестерка вторая. Трудности — точно в нерешительности. Он не разбойник, он ищет брака. Через десять лет — обручится."
+            }
+        },
+        {
+            "hexagram_id": 3,
+            "position": 3,
+            "meaning": {
+                "en": "Whoever hunts deer without the forester only loses his way in the forest.",
+                "ru": "Шестерка третья. Преследуя оленя без лесничего, только зря углубишься в лес. В походе — сожаление."
+            }
+        },
+        {
+            "hexagram_id": 3,
+            "position": 4,
+            "meaning": {
+                "en": "Horse and wagon part. Strive for union. To go brings good fortune.",
+                "ru": "Шестерка четвертая. Кони — точно в движении вспять. Ищи брака. В походе — счастье. Ничего неблагоприятного."
+            }
+        },
+        {
+            "hexagram_id": 3,
+            "position": 5,
+            "meaning": {
+                "en": "Difficulties in blessing. A little perseverance brings good fortune. Great perseverance brings misfortune.",
+                "ru": "Девятка пятая. Затруднение в твоих милостях. В малом стойкость — к счастью, в великом стойкость — к несчастью."
+            }
+        },
+        {
+            "hexagram_id": 3,
+            "position": 6,
+            "meaning": {
+                "en": "Horse and wagon part. Bloody tears flow.",
+                "ru": "Наверху шестерка. Кони — точно в движении вспять. Кровавые слезы льются потоком."
+            }
+        },
+        {
+            "hexagram_id": 4,
+            "position": 1,
+            "meaning": {
+                "en": "To make folly develop, it furthers one to apply discipline.",
+                "ru": "В начале шестерка. Чтобы просветить неразвитого, благоприятно применение наказаний. Следует снять оковы."
+            }
+        },
+        {
+            "hexagram_id": 4,
+            "position": 2,
+            "meaning": {
+                "en": "To bear with fools in kindliness brings good fortune.",
+                "ru": "Девятка вторая. Оказывать снисхождение неразвитым — к счастью. Брать жену — к счастью."
+            }
+        },
+        {
+            "hexagram_id": 4,
+            "position": 3,
+            "meaning": {
+                "en": "Take not a maiden who, when she sees a man of bronze, loses possession of herself.",
+                "ru": "Шестерка третья. Не следует брать жену, которая увидит богатого человека и не удержит себя. Ничего благоприятного."
+            }
+        },
+        {
+            "hexagram_id": 4,
+            "position": 4,
+            "meaning": {
+                "en": "Entangled folly. Humiliation.",
+                "ru": "Шестерка четвертая. Стесненность в неразвитости. Сожаление."
+            }
+        },
+        {
+            "hexagram_id": 4,
+            "position": 5,
+            "meaning": {
+                "en": "Childlike folly brings good fortune.",
+                "ru": "Шестерка пятая. Кроткая неразвитость. Счастье."
+            }
+        },
+        {
+            "hexagram_id": 4,
+            "position": 6,
+            "meaning": {
+                "en": "In punishing folly it does not further one to commit excesses.",
+                "ru": "Наверху девятка. Нанося удар неразвитому, не будь жестоким. Благоприятно лишь отражение врага."
+            }
+        },
+        {
+            "hexagram_id": 5,
+            "position": 1,
+            "meaning": {
+                "en": "Waiting in the meadow. It furthers one to abide in what endures. No blame.",
+                "ru": "В начале девятка. Ожидание на окраине. Благоприятно пребывать в постоянстве. Хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 5,
+            "position": 2,
+            "meaning": {
+                "en": "Waiting in the sand. There is some gossip. The end brings good fortune.",
+                "ru": "Девятка вторая. Ожидание на песке. Предстоят небольшие разговоры. В конце концов — счастье."
+            }
+        },
+        {
+            "hexagram_id": 5,
+            "position": 3,
+            "meaning": {
+                "en": "Waiting in the mud brings about the arrival of the enemy.",
+                "ru": "Девятка третья. Ожидание в грязи. Грядет приход врага."
+            }
+        },
+        {
+            "hexagram_id": 5,
+            "position": 4,
+            "meaning": {
+                "en": "Waiting in blood. Get out of the pit.",
+                "ru": "Шестерка четвертая. Ожидание в крови. Выйди из пещеры."
+            }
+        },
+        {
+            "hexagram_id": 5,
+            "position": 5,
+            "meaning": {
+                "en": "Waiting at meat and drink. Perseverance brings good fortune.",
+                "ru": "Девятка пятая. Ожидание за вином и трапезой. Стойкость — к счастью."
+            }
+        },
+        {
+            "hexagram_id": 5,
+            "position": 6,
+            "meaning": {
+                "en": "One falls into the pit. Three uninvited guests arrive. Honor them, and the end brings good fortune.",
+                "ru": "Наверху шестерка. Войдешь в пещеру. Придут три незваных гостя. Отнесись к ним с почтением, и в конце концов будет счастье."
+            }
+        },
+        {
+            "hexagram_id": 6,
+            "position": 1,
+            "meaning": {
+                "en": "If one does not perpetuate the affair, there is a little gossip. In the end, good fortune comes.",
+                "ru": "В начале шестерка. Не вечно же дело тянуть. Будут небольшие речи, но в конце концов — счастье."
+            }
+        },
+        {
+            "hexagram_id": 6,
+            "position": 2,
+            "meaning": {
+                "en": "One cannot engage in conflict. One returns home, gives way. Three hundred households remain free of guilt.",
+                "ru": "Девятка вторая. Не по силам тяжба; возвращайся и беги. Люди твоего поселения в триста дворов избегут беды."
+            }
+        },
+        {
+            "hexagram_id": 6,
+            "position": 3,
+            "meaning": {
+                "en": "To nourish oneself on ancient virtue yields perseverance. Danger. In the end, good fortune.",
+                "ru": "Шестерка третья. Кормись от древней добродетели. Стойкость — в опасности. В конце концов — счастье."
+            }
+        },
+        {
+            "hexagram_id": 6,
+            "position": 4,
+            "meaning": {
+                "en": "One cannot engage in conflict. One turns back and submits to fate, changes one's attitude, and finds peace in perseverance.",
+                "ru": "Девятка четвертая. Не по силам тяжба; возвращайся и прими судьбу. Изменишь установку, пребудешь в стойкости — к счастью."
+            }
+        },
+        {
+            "hexagram_id": 6,
+            "position": 5,
+            "meaning": {
+                "en": "To litigate before him brings supreme good fortune.",
+                "ru": "Девятка пятая. Тяжба. Изначальное счастье."
+            }
+        },
+        {
+            "hexagram_id": 6,
+            "position": 6,
+            "meaning": {
+                "en": "Even if by chance a leather belt is bestowed on one, by the end of a morning it will have been snatched away three times.",
+                "ru": "Наверху девятка. Если и пожалуют тебе парадный пояс, то до конца утра его трижды отнимут."
+            }
+        },
+        {
+            "hexagram_id": 7,
+            "position": 1,
+            "meaning": {
+                "en": "An army must set out in proper order. If the order is not good, misfortune threatens.",
+                "ru": "В начале шестерка. Войско должно выступать согласно закону. Если будет иначе — несчастье."
+            }
+        },
+        {
+            "hexagram_id": 7,
+            "position": 2,
+            "meaning": {
+                "en": "In the midst of the army. Good fortune. No blame. The king bestows a triple decoration.",
+                "ru": "Девятка вторая. Находись в центре войска. Счастье. Хулы не будет. Царь трижды пожалует приказы."
+            }
+        },
+        {
+            "hexagram_id": 7,
+            "position": 3,
+            "meaning": {
+                "en": "The army carries corpses in the wagon. Misfortune.",
+                "ru": "Шестерка третья. Войско, может быть, повезет трупы. Несчастье."
+            }
+        },
+        {
+            "hexagram_id": 7,
+            "position": 4,
+            "meaning": {
+                "en": "The army retreats. No blame.",
+                "ru": "Шестерка четвертая. Войско отступает. Хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 7,
+            "position": 5,
+            "meaning": {
+                "en": "There is game in the field. It furthers one to catch it. No blame. Let the eldest lead the army. The younger transports corpses; then perseverance brings misfortune.",
+                "ru": "Шестерка пятая. На поле есть дичь. Благоприятно говорить о поимке. Хулы не будет. Старшему сыну — вести войско. Младшему сыну — везти трупы. Стойкость — к несчастью."
+            }
+        },
+        {
+            "hexagram_id": 7,
+            "position": 6,
+            "meaning": {
+                "en": "The great prince issues commands, founds states, vests families with fiefs. Inferior people should not be employed.",
+                "ru": "Наверху шестерка. Великий государь жалует приказы, основывает государства, жалует владения. Мелким людям — не следует пользоваться [этим]."
+            }
+        },
+        {
+            "hexagram_id": 8,
+            "position": 1,
+            "meaning": {
+                "en": "Hold to him in truth and loyalty; this is without blame. Truth, like a full bowl. In the end, good fortune comes from without.",
+                "ru": "В начале шестерка. Обладай правдой в приближении к нему. Хулы не будет. Обладай правдой, и она наполнит глиняный сосуд. В конце концов придет иное счастье."
+            }
+        },
+        {
+            "hexagram_id": 8,
+            "position": 2,
+            "meaning": {
+                "en": "Hold to him inwardly. Perseverance brings good fortune.",
+                "ru": "Шестерка вторая. Приближайся к нему изнутри. Стойкость — к счастью."
+            }
+        },
+        {
+            "hexagram_id": 8,
+            "position": 3,
+            "meaning": {
+                "en": "You hold to people who are not appropriate.",
+                "ru": "Шестерка третья. Приближайся к тем, кто не подходит тебе."
+            }
+        },
+        {
+            "hexagram_id": 8,
+            "position": 4,
+            "meaning": {
+                "en": "Hold to him outwardly. Perseverance brings good fortune.",
+                "ru": "Шестерка четвертая. Приближайся к нему вовне. Стойкость — к счастью."
+            }
+        },
+        {
+            "hexagram_id": 8,
+            "position": 5,
+            "meaning": {
+                "en": "Manifestation of holding together. In the hunt the king uses beaters on three sides only and foregoes game that runs off in front. The citizens need no warning. Good fortune.",
+                "ru": "Девятка пятая. Явленное приближение. Царь во время охоты велит загонщикам гнать дичь лишь с трех сторон, и упускает ту дичь, что убегает вперед. Горожанам не нужно предупреждение. Счастье."
+            }
+        },
+        {
+            "hexagram_id": 8,
+            "position": 6,
+            "meaning": {
+                "en": "He finds no head for holding together. Misfortune.",
+                "ru": "Наверху шестерка. Приближение к нему без главы. Несчастье."
+            }
+        },
+        {
+            "hexagram_id": 9,
+            "position": 1,
+            "meaning": {
+                "en": "Return to the way. How could there be blame? Good fortune.",
+                "ru": "В начале девятка. Возврат на свой путь. Какая в том хула? Счастье."
+            }
+        },
+        {
+            "hexagram_id": 9,
+            "position": 2,
+            "meaning": {
+                "en": "He allows himself to be led back. Good fortune.",
+                "ru": "Девятка вторая. Повлечешь за собой к возврату. Счастье."
+            }
+        },
+        {
+            "hexagram_id": 9,
+            "position": 3,
+            "meaning": {
+                "en": "The spokes of the wagon wheels burst. Husband and wife roll their eyes.",
+                "ru": "Девятка третья. У телеги выпали спицы. Муж и жена смотрят друг на друга в упор."
+            }
+        },
+        {
+            "hexagram_id": 9,
+            "position": 4,
+            "meaning": {
+                "en": "If you are sincere, blood departs and fear yields. No blame.",
+                "ru": "Шестерка четвертая. Обладай правдой. Кровь уйдет, страх выйдет. Хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 9,
+            "position": 5,
+            "meaning": {
+                "en": "If you are sincere and loyally attached, you are rich in your neighbor.",
+                "ru": "Девятка пятая. Обладай правдой и будь привержен. Будешь богат своими соседями."
+            }
+        },
+        {
+            "hexagram_id": 9,
+            "position": 6,
+            "meaning": {
+                "en": "The rain comes, there is rest. Virtue has accumulated. Perseverance brings danger. The moon is nearly full. Misfortune.",
+                "ru": "Наверху девятка. Дождь пошел, и наступила остановка. Почти полнолуние. Благородному человеку поход принесет несчастье."
+            }
+        },
+        {
+            "hexagram_id": 10,
+            "position": 1,
+            "meaning": {
+                "en": "Simple conduct. Progress without blame.",
+                "ru": "В начале девятка. Простое наступление. Иди вперед — хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 10,
+            "position": 2,
+            "meaning": {
+                "en": "Treading a smooth, level course. The perseverance of a dark man brings good fortune.",
+                "ru": "Девятка вторая. Наступление по ровному пути. Стойкость одинокого человека — к счастью."
+            }
+        },
+        {
+            "hexagram_id": 10,
+            "position": 3,
+            "meaning": {
+                "en": "A one-eyed man can see, a lame man can tread. He steps on the tail of the tiger. It bites him. Misfortune. A warrior acts for his great prince.",
+                "ru": "Шестерка третья. Одноглазый может видеть, хромой может наступать. Наступишь на хвост тигра — он укусит тебя. Несчастье. Воин действует для великого государя."
+            }
+        },
+        {
+            "hexagram_id": 10,
+            "position": 4,
+            "meaning": {
+                "en": "He steps on the tail of the tiger. Caution and circumspection lead finally to good fortune.",
+                "ru": "Девятка четвертая. Наступишь на хвост тигра. Будь осторожен — в конце концов счастье."
+            }
+        },
+        {
+            "hexagram_id": 10,
+            "position": 5,
+            "meaning": {
+                "en": "Resolute treading. Perseverance with awareness of danger.",
+                "ru": "Девятка пятая. Решительное наступление. Стойкость — в опасности."
+            }
+        },
+        {
+            "hexagram_id": 10,
+            "position": 6,
+            "meaning": {
+                "en": "Look at your conduct and weigh the favorable signs. When everything is fulfilled, supreme good fortune comes.",
+                "ru": "Наверху девятка. Всмотрись в наступление, исследуй его добрые признаки. При их повторении — изначальное счастье."
+            }
+        },
+        {
+            "hexagram_id": 11,
+            "position": 1,
+            "meaning": {
+                "en": "When grass is uprooted, what is attached to it comes too. To advance brings good fortune.",
+                "ru": "В начале девятка. Вырвешь тростник — за ним потянутся и другие того же рода. Поход — к счастью."
+            }
+        },
+        {
+            "hexagram_id": 11,
+            "position": 2,
+            "meaning": {
+                "en": "Bearing with the uncultured in gentleness. One reaches the middle path.",
+                "ru": "Девятка вторая. Оказывай снисхождение некультурным. Будь решителен при переправе через реку. Достигнешь середины пути."
+            }
+        },
+        {
+            "hexagram_id": 11,
+            "position": 3,
+            "meaning": {
+                "en": "No plain not followed by a slope. No going not followed by a return. No blame. Do not complain.",
+                "ru": "Девятка третья. Нет глади, за которой не было бы неровности. Нет ухода, за которым не было бы возврата. Будь стоек в трудностях — хулы не будет. Не горюй о своей правде — будет радость."
+            }
+        },
+        {
+            "hexagram_id": 11,
+            "position": 4,
+            "meaning": {
+                "en": "He flutters down, not boasting of his wealth, together with his neighbor, guileless and sincere.",
+                "ru": "Шестерка четвертая. Порхая, не кичись своим богатством. Вместе со своим соседом будь правдив."
+            }
+        },
+        {
+            "hexagram_id": 11,
+            "position": 5,
+            "meaning": {
+                "en": "The sovereign gives his daughter in marriage. This brings blessing and supreme good fortune.",
+                "ru": "Шестерка пятая. Государь Ди-и выдает замуж дочь. Будет благословение и изначальное счастье."
+            }
+        },
+        {
+            "hexagram_id": 11,
+            "position": 6,
+            "meaning": {
+                "en": "The wall falls back into the moat. Use no army now. Command only within your own circle.",
+                "ru": "Наверху шестерка. Стена рухнула обратно в ров. Не пользуйся войсками. В своем городе только провозглашай свою волю. Стойкость — к сожалению."
+            }
+        },
+        {
+            "hexagram_id": 12,
+            "position": 1,
+            "meaning": {
+                "en": "When grass is uprooted, what is attached to it comes too. Perseverance brings good fortune and success.",
+                "ru": "В начале шестерка. Вырвешь тростник — за ним потянутся и другие того же рода. Стойкость — к счастью. Свершение."
+            }
+        },
+        {
+            "hexagram_id": 12,
+            "position": 2,
+            "meaning": {
+                "en": "They bear and endure; this means good fortune for inferior people. For the great man, obstruction leads to success.",
+                "ru": "Шестерка вторая. Оказывай снисхождение и терпение — мелким людям счастье. Великому человеку — упадок и свершение."
+            }
+        },
+        {
+            "hexagram_id": 12,
+            "position": 3,
+            "meaning": {
+                "en": "They bear shame.",
+                "ru": "Шестерка третья. Таи в себе стыд."
+            }
+        },
+        {
+            "hexagram_id": 12,
+            "position": 4,
+            "meaning": {
+                "en": "He who acts at the command of the highest remains without blame. Those of like mind partake of the blessing.",
+                "ru": "Девятка четвертая. Будет воля — хулы не будет. Сверстники приобщатся к благословению."
+            }
+        },
+        {
+            "hexagram_id": 12,
+            "position": 5,
+            "meaning": {
+                "en": "Obstruction at an end. First it withers, then it grows. Tie it to a cluster of mulberry shoots.",
+                "ru": "Девятка пятая. Приостанови упадок. Великому человеку — счастье. Погибнет он, погибнет! Привяжи это к кусту тутового дерева."
+            }
+        },
+        {
+            "hexagram_id": 12,
+            "position": 6,
+            "meaning": {
+                "en": "The obstruction comes to an end. First obstruction, then good fortune.",
+                "ru": "Наверху девятка. Опрокинь упадок. Сначала упадок, а потом — счастье."
+            }
+        },
+        {
+            "hexagram_id": 13,
+            "position": 1,
+            "meaning": {
+                "en": "Fellowship with men at the gate. No blame.",
+                "ru": "В начале <девятка>. Единомышленники [собираются] у ворот. Хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 13,
+            "position": 2,
+            "meaning": {
+                "en": "Fellowship with men in the clan. Humiliation.",
+                "ru": "Шестерка вторая. Единомышленники [только] в роду. Сожаление."
+            }
+        },
+        {
+            "hexagram_id": 13,
+            "position": 3,
+            "meaning": {
+                "en": "He hides weapons in the thicket; he climbs the high hill in front of it. For three years he does not rise up.",
+                "ru": "Девятка третья. Спрячешь оружие в зарослях, взойдешь на высокий холм. Три года не поднимешься."
+            }
+        },
+        {
+            "hexagram_id": 13,
+            "position": 4,
+            "meaning": {
+                "en": "He climbs up on his wall; he cannot attack. Good fortune.",
+                "ru": "Девятка четвертая. Взойдешь на его стену, но не сможешь напасть. Счастье."
+            }
+        },
+        {
+            "hexagram_id": 13,
+            "position": 5,
+            "meaning": {
+                "en": "Men bound in fellowship first weep and lament, but then they laugh. After great victories they can meet.",
+                "ru": "Девятка пятая. Единомышленники сначала кричат и плачут, а потом смеются. Великое войско сумеет встретиться."
+            }
+        },
+        {
+            "hexagram_id": 13,
+            "position": 6,
+            "meaning": {
+                "en": "Fellowship with men in the meadow. No remorse.",
+                "ru": "Наверху девятка. Единомышленники [собираются] за городом. Раскаяния не будет."
+            }
+        },
+        {
+            "hexagram_id": 14,
+            "position": 1,
+            "meaning": {
+                "en": "No relationship with what is harmful; there is no blame in this. If one remains conscious of difficulty, one remains without blame.",
+                "ru": "В начале девятка. Нет общения с вредным. В этом нет хулы. Если будешь помнить о трудности, то хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 14,
+            "position": 2,
+            "meaning": {
+                "en": "A big wagon for loading. One may undertake something. No blame.",
+                "ru": "Девятка вторая. Большая колесница для поклажи. Есть куда выступить. Хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 14,
+            "position": 3,
+            "meaning": {
+                "en": "A prince offers it to the Son of Heaven. A petty man cannot do this.",
+                "ru": "Девятка третья. Князю должно приносить жертву Сыну Неба. Мелким людям — это не под силу."
+            }
+        },
+        {
+            "hexagram_id": 14,
+            "position": 4,
+            "meaning": {
+                "en": "He makes a difference between himself and his neighbor. No blame.",
+                "ru": "Девятка четвертая. Отвергни свою пышность. Хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 14,
+            "position": 5,
+            "meaning": {
+                "en": "He whose truth is accessible, yet dignified, has good fortune.",
+                "ru": "Шестерка пятая. Твоя правда да будет выражена во взаимности и достоинстве. Счастье."
+            }
+        },
+        {
+            "hexagram_id": 14,
+            "position": 6,
+            "meaning": {
+                "en": "He is blessed by heaven. Good fortune. Nothing that does not further.",
+                "ru": "Наверху девятка. Это — от Неба. Благословение. Счастье. Ничего неблагоприятного."
+            }
+        },
+        {
+            "hexagram_id": 15,
+            "position": 1,
+            "meaning": {
+                "en": "A superior man modest about his modesty may cross the great water. Good fortune.",
+                "ru": "В начале шестерка. Смиренный из смиреннейших благородный человек. Благоприятен брод через великую реку. Счастье."
+            }
+        },
+        {
+            "hexagram_id": 15,
+            "position": 2,
+            "meaning": {
+                "en": "Modesty that comes to expression. Perseverance brings good fortune.",
+                "ru": "Шестерка вторая. Выраженное смирение. Стойкость — к счастью."
+            }
+        },
+        {
+            "hexagram_id": 15,
+            "position": 3,
+            "meaning": {
+                "en": "A superior man of merit and modesty carries things to conclusion. Good fortune.",
+                "ru": "Девятка третья. Трудолюбивый и смиренный благородный человек доводит дело до конца. Счастье."
+            }
+        },
+        {
+            "hexagram_id": 15,
+            "position": 4,
+            "meaning": {
+                "en": "Nothing that would not further modesty in movement.",
+                "ru": "Шестерка четвертая. Ничего неблагоприятного. Проявляй смирение в движении."
+            }
+        },
+        {
+            "hexagram_id": 15,
+            "position": 5,
+            "meaning": {
+                "en": "No boasting of wealth before one's neighbor. It furthers one to attack with force. Nothing that would not further.",
+                "ru": "Шестерка пятая. Не кичись богатством перед своими соседями. Благоприятно в походе применить силу. Ничего неблагоприятного."
+            }
+        },
+        {
+            "hexagram_id": 15,
+            "position": 6,
+            "meaning": {
+                "en": "Modesty that comes to expression. It furthers one to set armies marching to chastise one's own city and country.",
+                "ru": "Наверху шестерка. Выраженное смирение. Благоприятно двинуть войска на свой город и на свою страну."
+            }
+        },
+        {
+            "hexagram_id": 16,
+            "position": 1,
+            "meaning": {
+                "en": "Enthusiasm that expresses itself brings misfortune.",
+                "ru": "В начале шестерка. Провозглашенная вольность. Несчастье."
+            }
+        },
+        {
+            "hexagram_id": 16,
+            "position": 2,
+            "meaning": {
+                "en": "Firm as a rock. Not a whole day. Perseverance brings good fortune.",
+                "ru": "Шестерка вторая. Крепче камня. Не пройдет и дня — стойкость к счастью."
+            }
+        },
+        {
+            "hexagram_id": 16,
+            "position": 3,
+            "meaning": {
+                "en": "Enthusiasm that looks upward creates remorse. Hesitation brings remorse.",
+                "ru": "Шестерка третья. Взирай [на вольность]. Будет раскаяние. Запоздаешь — будет раскаяние."
+            }
+        },
+        {
+            "hexagram_id": 16,
+            "position": 4,
+            "meaning": {
+                "en": "The source of enthusiasm. He achieves great things. Doubt not. You gather friends around you as a hairclasp gathers the hair.",
+                "ru": "Девятка четвертая. От нее — вольность. Великое обретение. Не сомневайся. Друзья соберутся вокруг тебя, как волосы в шпильке."
+            }
+        },
+        {
+            "hexagram_id": 16,
+            "position": 5,
+            "meaning": {
+                "en": "Persistently ill, and still does not die.",
+                "ru": "Шестерка пятая. Будешь стойким в болезни, но не умрешь."
+            }
+        },
+        {
+            "hexagram_id": 16,
+            "position": 6,
+            "meaning": {
+                "en": "Deluded enthusiasm. After completion a change comes; no blame.",
+                "ru": "Наверху шестерка. Потемнение вольности. В завершении — перемена. Хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 17,
+            "position": 1,
+            "meaning": {
+                "en": "The position changes. Perseverance brings good fortune. Going out of the gate in fellowship creates deeds.",
+                "ru": "В начале девятка. У чиновника произошла перемена. Стойкость — к счастью. Выйдешь из ворот для общения — будет успех."
+            }
+        },
+        {
+            "hexagram_id": 17,
+            "position": 2,
+            "meaning": {
+                "en": "If one clings to the little boy, one loses the strong man.",
+                "ru": "Шестерка вторая. Свяжешься с младенцем — потеряешь зрелого мужа."
+            }
+        },
+        {
+            "hexagram_id": 17,
+            "position": 3,
+            "meaning": {
+                "en": "If one clings to the strong man, one loses the little boy. Through following one finds what one seeks.",
+                "ru": "Шестерка третья. Свяжешься со зрелым мужем — потеряешь младенца. Последование принесет искомое."
+            }
+        },
+        {
+            "hexagram_id": 17,
+            "position": 4,
+            "meaning": {
+                "en": "Following creates success. Perseverance brings misfortune. To go one's way with sincerity brings clarity.",
+                "ru": "Девятка четвертая. Последование приносит улов. Стойкость — к несчастью. Иди своей дорогой с правдой — будет ясность."
+            }
+        },
+        {
+            "hexagram_id": 17,
+            "position": 5,
+            "meaning": {
+                "en": "Sincere in good. Good fortune.",
+                "ru": "Девятка пятая. Будь правдив в прекрасном. Счастье."
+            }
+        },
+        {
+            "hexagram_id": 17,
+            "position": 6,
+            "meaning": {
+                "en": "He meets with firm allegiance and is still further bound. The king introduces him to the Western Mountain.",
+                "ru": "Наверху шестерка. Обретешь привязанность. Царь совершит жертвоприношение у Западной горы."
+            }
+        },
+        {
+            "hexagram_id": 18,
+            "position": 1,
+            "meaning": {
+                "en": "Setting right what has been spoiled by the father. If there is a son, no blame rests upon the departed father. Danger. In the end, good fortune.",
+                "ru": "В начале шестерка. Исправление порчи, [нанесенной] отцом. Если есть сын, то покойному отцу не будет хулы. Опасность, но в конце концов — счастье."
+            }
+        },
+        {
+            "hexagram_id": 18,
+            "position": 2,
+            "meaning": {
+                "en": "Setting right what has been spoiled by the mother. One must not be too persevering.",
+                "ru": "Девятка вторая. Исправление порчи, [нанесенной] матерью. Нельзя быть [слишком] стойким."
+            }
+        },
+        {
+            "hexagram_id": 18,
+            "position": 3,
+            "meaning": {
+                "en": "Setting right what has been spoiled by the father. There will be a little remorse. No great blame.",
+                "ru": "Девятка третья. Исправление порчи, [нанесенной] отцом. Будет небольшое раскаяние. Великой хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 18,
+            "position": 4,
+            "meaning": {
+                "en": "Tolerating what has been spoiled by the father. In continuing one sees humiliation.",
+                "ru": "Шестерка четвертая. Попустительство порче, [нанесенной] отцом. Если будешь продолжать так — увидишь сожаление."
+            }
+        },
+        {
+            "hexagram_id": 18,
+            "position": 5,
+            "meaning": {
+                "en": "Setting right what has been spoiled by the father. One meets with praise.",
+                "ru": "Шестерка пятая. Исправление порчи, [нанесенной] отцом. Воспользуешься похвалой."
+            }
+        },
+        {
+            "hexagram_id": 18,
+            "position": 6,
+            "meaning": {
+                "en": "He does not serve kings and princes, sets himself higher goals.",
+                "ru": "Наверху девятка. Не служи царям и князьям, делай выше свои дела."
+            }
+        },
+        {
+            "hexagram_id": 19,
+            "position": 1,
+            "meaning": {
+                "en": "Joint approach. Perseverance brings good fortune.",
+                "ru": "В начале девятка. Совместное посещение. Стойкость — к счастью."
+            }
+        },
+        {
+            "hexagram_id": 19,
+            "position": 2,
+            "meaning": {
+                "en": "Joint approach. Good fortune. Everything furthers.",
+                "ru": "Девятка вторая. Совместное посещение. Счастье. Ничего неблагоприятного."
+            }
+        },
+        {
+            "hexagram_id": 19,
+            "position": 3,
+            "meaning": {
+                "en": "Comfortable approach. Nothing that would further. If one is sorrowful, one is without blame.",
+                "ru": "Шестерка третья. Сладкое посещение. Ничего неблагоприятного. Будешь горевать о нем — хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 19,
+            "position": 4,
+            "meaning": {
+                "en": "Complete approach. No blame.",
+                "ru": "Шестерка четвертая. Совершенное посещение. Хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 19,
+            "position": 5,
+            "meaning": {
+                "en": "Wise approach. This is befitting for a great prince. Good fortune.",
+                "ru": "Шестерка пятая. Посещение по знаниям. Подобает великому государю. Счастье."
+            }
+        },
+        {
+            "hexagram_id": 19,
+            "position": 6,
+            "meaning": {
+                "en": "Great-hearted approach. Good fortune. No blame.",
+                "ru": "Наверху шестерка. Великодушное посещение. Счастье. Хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 20,
+            "position": 1,
+            "meaning": {
+                "en": "Boylike contemplation. For an inferior man, no blame. For a superior man, humiliation.",
+                "ru": "В начале шестерка. Детское созерцание. Мелкому человеку — хулы не будет. Благородному человеку — сожаление."
+            }
+        },
+        {
+            "hexagram_id": 20,
+            "position": 2,
+            "meaning": {
+                "en": "Contemplation through the crack of the door. Furthers the perseverance of a woman.",
+                "ru": "Шестерка вторая. Созерцание сквозь щель. Благоприятна стойкость женщины."
+            }
+        },
+        {
+            "hexagram_id": 20,
+            "position": 3,
+            "meaning": {
+                "en": "Contemplation of my life decide the choice between progress and retreat.",
+                "ru": "Шестерка третья. Созерцание моей жизни. Продвижение и отступление."
+            }
+        },
+        {
+            "hexagram_id": 20,
+            "position": 4,
+            "meaning": {
+                "en": "Contemplation of the light of the kingdom. It furthers one to exert influence as the guest of a king.",
+                "ru": "Шестерка четвертая. Созерцание блеска государства. Благоприятно быть гостем у царя."
+            }
+        },
+        {
+            "hexagram_id": 20,
+            "position": 5,
+            "meaning": {
+                "en": "Contemplation of my life. The superior man is without blame.",
+                "ru": "Девятка пятая. Созерцание моей жизни. Благородный человек — хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 20,
+            "position": 6,
+            "meaning": {
+                "en": "Contemplation of his life. The superior man is without blame.",
+                "ru": "Наверху девятка. Созерцание их жизни. Благородный человек — хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 21,
+            "position": 1,
+            "meaning": {
+                "en": "Shoes fastened in the stocks, so that his feet disappear. No blame.",
+                "ru": "В начале девяка. Стопы забиты в колодки, так что исчезают пальцы. Хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 21,
+            "position": 2,
+            "meaning": {
+                "en": "Bites through tender meat, so that his nose disappears. No blame.",
+                "ru": "Шестерка вторая. Откусишь мягкое мясо, так что исчезнет нос. Хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 21,
+            "position": 3,
+            "meaning": {
+                "en": "Bites on old dried meat and strikes on something poisonous. Slight humiliation. No blame.",
+                "ru": "Шестерка третья. Откусишь старое вяленое мясо и наткнешься на яд. Небольшое сожаление. Хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 21,
+            "position": 4,
+            "meaning": {
+                "en": "Bites on dried gristly meat. Receives metal arrows. It furthers one to be mindful of difficulties and to be persevering. Good fortune.",
+                "ru": "Девятка четвертая. Грызешь сушеное мясо с костью. Получишь металлические стрелы. Благоприятна стойкость в трудностях. Счастье."
+            }
+        },
+        {
+            "hexagram_id": 21,
+            "position": 5,
+            "meaning": {
+                "en": "Bites on dried lean meat. Receives yellow gold. Persevering and aware of danger. No blame.",
+                "ru": "Шестерка пятая. Грызешь сушеное мясо. Получишь желтое золото. Стойкость — в опасности. Хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 21,
+            "position": 6,
+            "meaning": {
+                "en": "His neck is fastened in the wooden stock, so that his ears disappear. Misfortune.",
+                "ru": "Наверху девяка. Шея забита в колодку, так что исчезают уши. Несчастье."
+            }
+        },
+        {
+            "hexagram_id": 22,
+            "position": 1,
+            "meaning": {
+                "en": "He lends grace to his toes, leaves the carriage, and walks.",
+                "ru": "В начале девятка. Уберешь свои пальцы [на ногах], оставишь колесницу и пойдешь пешком."
+            }
+        },
+        {
+            "hexagram_id": 22,
+            "position": 2,
+            "meaning": {
+                "en": "Lends grace to the beard on his chin.",
+                "ru": "Шестерка вторая. Уберешь бороду на подбородке."
+            }
+        },
+        {
+            "hexagram_id": 22,
+            "position": 3,
+            "meaning": {
+                "en": "Graceful and moist. Constant perseverance brings good fortune.",
+                "ru": "Девятка третья. Убранство — точно ты во хмелю. Вечная стойкость — к счастью."
+            }
+        },
+        {
+            "hexagram_id": 22,
+            "position": 4,
+            "meaning": {
+                "en": "Grace or simplicity? A white horse comes as if on wings. He is not a robber, he will woo at the right time.",
+                "ru": "Шестерка четвертая. Убранство или белизна? Белый конь — точно на крыльях. Он не разбойник, он ищет брака."
+            }
+        },
+        {
+            "hexagram_id": 22,
+            "position": 5,
+            "meaning": {
+                "en": "Grace in hills and gardens. The roll of silk is meager and small. Humiliation, but in the end good fortune.",
+                "ru": "Шестерка пятая. Убранство на холмах и в садах. Тюк шелка — мал и жалок. Сожаление, но в конце концов — счастье."
+            }
+        },
+        {
+            "hexagram_id": 22,
+            "position": 6,
+            "meaning": {
+                "en": "Simple grace. No blame.",
+                "ru": "Наверху девятка. Белое убранство. Хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 23,
+            "position": 1,
+            "meaning": {
+                "en": "The leg of the bed is split. Those who are persevering are destroyed. Misfortune.",
+                "ru": "В начале шестерка. У кровати расщеплены ножки. Преданность — к несчастью."
+            }
+        },
+        {
+            "hexagram_id": 23,
+            "position": 2,
+            "meaning": {
+                "en": "The frame of the bed is split. Those who are persevering are destroyed. Misfortune.",
+                "ru": "Шестерка вторая. У кровати расщеплены планки. Преданность — к несчастью."
+            }
+        },
+        {
+            "hexagram_id": 23,
+            "position": 3,
+            "meaning": {
+                "en": "He discards them. No blame.",
+                "ru": "Шестерка третья. Разрушишь это. Хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 23,
+            "position": 4,
+            "meaning": {
+                "en": "The bed is split up to the skin. Misfortune.",
+                "ru": "Шестерка четвертая. У кровати расщеплена кожа [обивка]. Несчастье."
+            }
+        },
+        {
+            "hexagram_id": 23,
+            "position": 5,
+            "meaning": {
+                "en": "A shoal of fishes. Favor comes through the court ladies. Everything furthers.",
+                "ru": "Шестерка пятая. Рыбы нанизаны. Через дворцовых дам — милость. Ничего неблагоприятного."
+            }
+        },
+        {
+            "hexagram_id": 23,
+            "position": 6,
+            "meaning": {
+                "en": "There is a large fruit still uneaten. The superior man receives a carriage. The house of the inferior man is split asunder.",
+                "ru": "Наверху девятка. Большой плод не съеден. Благородный человек получит колесницу. У мелкого человека — разрушится дом."
+            }
+        },
+        {
+            "hexagram_id": 24,
+            "position": 1,
+            "meaning": {
+                "en": "Return from a short distance. No need for remorse. Great good fortune.",
+                "ru": "В начале девяка. Возврат не издалека. Не дойдет до раскаяния. Изначальное счастье."
+            }
+        },
+        {
+            "hexagram_id": 24,
+            "position": 2,
+            "meaning": {
+                "en": "Quiet return. Good fortune.",
+                "ru": "Шестерка вторая. Прекрасный возврат. Счастье."
+            }
+        },
+        {
+            "hexagram_id": 24,
+            "position": 3,
+            "meaning": {
+                "en": "Repeated return. Danger. No blame.",
+                "ru": "Шестерка третья. Томительный возврат. Опасность. Хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 24,
+            "position": 4,
+            "meaning": {
+                "en": "Walking in the midst of others, one returns alone.",
+                "ru": "Шестерка четвертая. Идя среди других, вернешься один."
+            }
+        },
+        {
+            "hexagram_id": 24,
+            "position": 5,
+            "meaning": {
+                "en": "Noblehearted return. No remorse.",
+                "ru": "Шестерка пятая. Полноценный возврат. Раскаяния не будет."
+            }
+        },
+        {
+            "hexagram_id": 24,
+            "position": 6,
+            "meaning": {
+                "en": "Missing the return. Misfortune. Calamity and error. If one sets armies marching, it will end in great defeat.",
+                "ru": "Наверху шестерка. Заблудший возврат. Несчастье. Будут стихийные бедствия и беды от людей. Если двинуть войска, будет великое поражение."
+            }
+        },
+        {
+            "hexagram_id": 25,
+            "position": 1,
+            "meaning": {
+                "en": "Innocent behavior brings good fortune.",
+                "ru": "В начале девятка. Беспорочное выступление. Счастье."
+            }
+        },
+        {
+            "hexagram_id": 25,
+            "position": 2,
+            "meaning": {
+                "en": "If one does not count on the harvest while plowing, nor on the use of the ground while clearing it, it furthers one to undertake something.",
+                "ru": "Шестерка вторая. Не предвосхищай жатвы при пахоте и использования поля — при расчистке его. Тогда благоприятно иметь куда выступить."
+            }
+        },
+        {
+            "hexagram_id": 25,
+            "position": 3,
+            "meaning": {
+                "en": "Undeserved misfortune. The cow that was tethered by someone is the wanderer's gain, the neighbor's loss.",
+                "ru": "Шестерка третья. Беспорочному — бедствие. Привязанный бык — находка прохожего, беда для горожанина."
+            }
+        },
+        {
+            "hexagram_id": 25,
+            "position": 4,
+            "meaning": {
+                "en": "He who can be persevering remains without blame.",
+                "ru": "Девятка четвертая. Можно быть стойким. Хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 25,
+            "position": 5,
+            "meaning": {
+                "en": "Use no medicine in an illness incurred through no fault of one's own. It will pass of itself.",
+                "ru": "Девятка пятая. Болезнь беспорочного — не принимай лекарств. Будет радость."
+            }
+        },
+        {
+            "hexagram_id": 25,
+            "position": 6,
+            "meaning": {
+                "en": "Innocent action brings misfortune. Nothing furthers.",
+                "ru": "Наверху девятка. Беспорочному при его движении — беда. Ничего неблагоприятного."
+            }
+        },
+        {
+            "hexagram_id": 26,
+            "position": 1,
+            "meaning": {
+                "en": "Danger is at hand. It furthers one to stop.",
+                "ru": "В начале девятка. Будет опасность. Благоприятно остановиться."
+            }
+        },
+        {
+            "hexagram_id": 26,
+            "position": 2,
+            "meaning": {
+                "en": "The axletrees are taken off the wagon.",
+                "ru": "Девятка вторая. У телеги сняты подвязки осей."
+            }
+        },
+        {
+            "hexagram_id": 26,
+            "position": 3,
+            "meaning": {
+                "en": "A good horse that follows others. Awareness of danger, with perseverance, furthers.",
+                "ru": "Девятка третья. Погоня на добром коне. Благоприятна стойкость в трудностях. Упражняйся в управлении колесницей и в защите. Благоприятно иметь куда выступить."
+            }
+        },
+        {
+            "hexagram_id": 26,
+            "position": 4,
+            "meaning": {
+                "en": "The headboard of a young bull. Great good fortune.",
+                "ru": "Шестерка четвертая. Дощечка на рогах молодого быка. Изначальное счастье."
+            }
+        },
+        {
+            "hexagram_id": 26,
+            "position": 5,
+            "meaning": {
+                "en": "The tusk of a gelded boar. Good fortune.",
+                "ru": "Шестерка пятая. Клыки кастрированного кабана. Счастье."
+            }
+        },
+        {
+            "hexagram_id": 26,
+            "position": 6,
+            "meaning": {
+                "en": "One attains the way of heaven. Success.",
+                "ru": "Наверху девятка. Обретешь небесный путь. Свершение."
+            }
+        },
+        {
+            "hexagram_id": 27,
+            "position": 1,
+            "meaning": {
+                "en": "You let your magic tortoise go, and look at me with drooping corners of the mouth. Misfortune.",
+                "ru": "В начале девятка. Выпустишь свою волшебную черепаху и, глядя на меня, опустишь углы рта. Несчастье."
+            }
+        },
+        {
+            "hexagram_id": 27,
+            "position": 2,
+            "meaning": {
+                "en": "Turning to the summit for nourishment, deviating from the path to seek nourishment from the hill. Continuing brings misfortune.",
+                "ru": "Шестерка вторая. Питание — навыворот. Уклонишься от основы, чтобы питаться на песчаном холме. Поход — к несчастью."
+            }
+        },
+        {
+            "hexagram_id": 27,
+            "position": 3,
+            "meaning": {
+                "en": "Turning away from nourishment. Perseverance brings misfortune. Do not act thus for ten years. Nothing furthers.",
+                "ru": "Шестерка третья. Отвержение питания. Стойкость — к несчастью. Десять лет не действуй. Ничего неблагоприятного."
+            }
+        },
+        {
+            "hexagram_id": 27,
+            "position": 4,
+            "meaning": {
+                "en": "Turning to the summit for nourishment brings good fortune. Spying about with sharp eyes like a tiger with insatiable craving. No blame.",
+                "ru": "Шестерка четвертая. Питание — навыворот. Счастье. Тигр смотрит, в упор выпучив глаза. Его желание — преследовать и преследовать. Хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 27,
+            "position": 5,
+            "meaning": {
+                "en": "Turning away from the path. To remain persevering brings good fortune. One should not cross the great water.",
+                "ru": "Шестерка пятая. Уклонение от основы. Пребывание в стойкости — к счастью. Нельзя переправляться через великую реку."
+            }
+        },
+        {
+            "hexagram_id": 27,
+            "position": 6,
+            "meaning": {
+                "en": "The source of nourishment. Awareness of danger brings good fortune. It furthers one to cross the great water.",
+                "ru": "Наверху девятка. Иди к питанию. Опасность — к счастью. Благоприятен брод через великую реку."
+            }
+        },
+        {
+            "hexagram_id": 28,
+            "position": 1,
+            "meaning": {
+                "en": "To spread white rushes underneath. No blame.",
+                "ru": "В начале шестерка. Постелешь подстилку из белого тростника. Хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 28,
+            "position": 2,
+            "meaning": {
+                "en": "A withered poplar puts forth a shoot. An older man takes a young wife. Everything furthers.",
+                "ru": "Девятка вторая. На засохшем тополе вырастают почки. Старый муж получает в жены молодую девушку. Ничего неблагоприятного."
+            }
+        },
+        {
+            "hexagram_id": 28,
+            "position": 3,
+            "meaning": {
+                "en": "The ridgepole sags to the breaking point. Misfortune.",
+                "ru": "Девятка третья. Стропило прогибается. Несчастье."
+            }
+        },
+        {
+            "hexagram_id": 28,
+            "position": 4,
+            "meaning": {
+                "en": "The ridgepole is braced. Good fortune. If there are ulterior motives, it is humiliating.",
+                "ru": "Девятка четвертая. Стропило поддерживается. Счастье. Если будет иное — сожаление."
+            }
+        },
+        {
+            "hexagram_id": 28,
+            "position": 5,
+            "meaning": {
+                "en": "A withered poplar puts forth flowers. An older woman takes a young husband. No blame. No praise.",
+                "ru": "Девятка пятая. На засохшем тополе вырастают цветы. Старая жена получает в мужья молодого человека. Хулы не будет, похвалы не будет."
+            }
+        },
+        {
+            "hexagram_id": 28,
+            "position": 6,
+            "meaning": {
+                "en": "One must go through the water. It goes over one's head. Misfortune. No blame.",
+                "ru": "Наверху шестерка. При переходе вброд — вода скроет макушку. Несчастье, но хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 29,
+            "position": 1,
+            "meaning": {
+                "en": "Double abyss. Entering a pit in the abyss. Misfortune.",
+                "ru": "В начале шестерка. Двойная бездна. Попадешь в пещеру в бездне. Несчастье."
+            }
+        },
+        {
+            "hexagram_id": 29,
+            "position": 2,
+            "meaning": {
+                "en": "The abyss has danger. One should strive to attain only small things.",
+                "ru": "Девятка вторая. В бездне есть опасность. Ищи лишь малого обретения."
+            }
+        },
+        {
+            "hexagram_id": 29,
+            "position": 3,
+            "meaning": {
+                "en": "Coming or going, the abyss is deep. Do not act.",
+                "ru": "Шестерка третья. И приходя, и уходя — бездна за бездной. В такой ситуации — остановка. Попадешь в пещеру в бездне. Не действуй."
+            }
+        },
+        {
+            "hexagram_id": 29,
+            "position": 4,
+            "meaning": {
+                "en": "A jug of wine, a bowl of rice. Plainness. No blame.",
+                "ru": "Шестерка четвертая. Кружка вина и чаша [еды] к ней. Глиняная посуда. Сквозь окно подавай это. В конце концов — хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 29,
+            "position": 5,
+            "meaning": {
+                "en": "The abyss is not filled to overflowing. It is filled only to the rim. No blame.",
+                "ru": "Девятка пятая. Бездна не переполняется. Она наполнится лишь до краев. Хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 29,
+            "position": 6,
+            "meaning": {
+                "en": "Bound with cords and ropes, shut in behind thorn-hedged prison walls. For three years one does not find the way. Misfortune.",
+                "ru": "Наверху шестерка. Связывание веревкой и канатом. Заключение в терновник. Три года не найдешь пути. Несчастье."
+            }
+        },
+        {
+            "hexagram_id": 30,
+            "position": 1,
+            "meaning": {
+                "en": "The footprints run crisscross. If one is serious, no blame.",
+                "ru": "В начале девятка. Путаница в шагах. Отнесись к ним серьезно — хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 30,
+            "position": 2,
+            "meaning": {
+                "en": "Yellow light. Supreme good fortune.",
+                "ru": "Шестерка вторая. Желтое сияние. Изначальное счастье."
+            }
+        },
+        {
+            "hexagram_id": 30,
+            "position": 3,
+            "meaning": {
+                "en": "In the light of the setting sun, men either beat the pot and sing or loudly bewail the approach of old age. Misfortune.",
+                "ru": "Девятка третья. Сияние заходящего солнца. Если не будешь бить в глиняный кувшин и петь песни, то будешь вздыхать, как в старости. Несчастье."
+            }
+        },
+        {
+            "hexagram_id": 30,
+            "position": 4,
+            "meaning": {
+                "en": "Its coming is sudden; it flames up, dies down, is thrown away.",
+                "ru": "Девятка четвертая. Внезапно его пришествие. Оно горит, оно замирает, оно отброшено."
+            }
+        },
+        {
+            "hexagram_id": 30,
+            "position": 5,
+            "meaning": {
+                "en": "Tears fall in torrents, moaning and sorrowing. Good fortune.",
+                "ru": "Шестерка пятая. Проливать слезы потоком. Горестные вздохи. Счастье."
+            }
+        },
+        {
+            "hexagram_id": 30,
+            "position": 6,
+            "meaning": {
+                "en": "The king uses him to march forth and chastise. Then it is best to kill the leaders and take captive only those who are not followers. No blame.",
+                "ru": "Наверху девятка. Царь выступает в поход. Будет радость — покарает главарей, но не возьмет в плен тех, кто не последовал за ними. Хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 31,
+            "position": 1,
+            "meaning": {
+                "en": "The influence shows itself in the big toe.",
+                "ru": "В начале шестерка. Взаимодействие в большом пальце на ноге."
+            }
+        },
+        {
+            "hexagram_id": 31,
+            "position": 2,
+            "meaning": {
+                "en": "The influence shows itself in the calves. Misfortune. Waiting brings good fortune.",
+                "ru": "Шестерка вторая. Взаимодействие в икрах. Несчастье. Пребывание [на месте] — к счастью."
+            }
+        },
+        {
+            "hexagram_id": 31,
+            "position": 3,
+            "meaning": {
+                "en": "The influence shows itself in the thighs. To go on brings humiliation.",
+                "ru": "Девятка третья. Взаимодействие в бедрах. Будешь следовать за тем, к кому примыкаешь. Выступление — к сожалению."
+            }
+        },
+        {
+            "hexagram_id": 31,
+            "position": 4,
+            "meaning": {
+                "en": "Perseverance brings good fortune. If a man is agitated, only the friends on whom he fixes his conscious thoughts will follow.",
+                "ru": "Девятка четвертая. Стойкость — к счастью. Раскаяние исчезнет. Если в смятении будешь то уходить, то приходить, лишь друзья последуют за твоими мыслями."
+            }
+        },
+        {
+            "hexagram_id": 31,
+            "position": 5,
+            "meaning": {
+                "en": "The influence shows itself in the back of the neck. No remorse.",
+                "ru": "Девятка пятая. Взаимодействие в мышцах спины. Раскаяния не будет."
+            }
+        },
+        {
+            "hexagram_id": 31,
+            "position": 6,
+            "meaning": {
+                "en": "The influence shows itself in the jaws, cheeks, and tongue.",
+                "ru": "Наверху шестерка. Взаимодействие в челюстях, щеках и языке."
+            }
+        },
+        {
+            "hexagram_id": 32,
+            "position": 1,
+            "meaning": {
+                "en": "Seeking duration too hastily brings misfortune. Nothing that would further.",
+                "ru": "В начале шестерка. Углубленное постоянство. Стойкость — к несчастью. Ничего неблагоприятного."
+            }
+        },
+        {
+            "hexagram_id": 32,
+            "position": 2,
+            "meaning": {
+                "en": "Remorse disappears.",
+                "ru": "Девятка вторая. Раскаяние исчезнет."
+            }
+        },
+        {
+            "hexagram_id": 32,
+            "position": 3,
+            "meaning": {
+                "en": "He who does not give duration to his character meets with disgrace. Persistent humiliation.",
+                "ru": "Девятка третья. Не сделаешь постоянной свою добродетель — попадешь в позорную ситуацию. Стойкость — к сожалению."
+            }
+        },
+        {
+            "hexagram_id": 32,
+            "position": 4,
+            "meaning": {
+                "en": "No game in the field.",
+                "ru": "Девятка четвертая. На поле нет дичи."
+            }
+        },
+        {
+            "hexagram_id": 32,
+            "position": 5,
+            "meaning": {
+                "en": "Giving duration to one's character through perseverance. This is good fortune for a woman, misfortune for a man.",
+                "ru": "Шестерка пятая. Делать постоянной свою добродетель — стойкость. Женщине — счастье, мужчине — несчастье."
+            }
+        },
+        {
+            "hexagram_id": 32,
+            "position": 6,
+            "meaning": {
+                "en": "Restlessness as a lasting condition brings misfortune.",
+                "ru": "Наверху шестерка. Возбужденное постоянство. Несчастье."
+            }
+        },
+        {
+            "hexagram_id": 33,
+            "position": 1,
+            "meaning": {
+                "en": "At the tail in retreat. This is dangerous. One must not undertake anything.",
+                "ru": "В начале шестерка. Бегство — в хвосте. Опасно. Не следует иметь куда выступить."
+            }
+        },
+        {
+            "hexagram_id": 33,
+            "position": 2,
+            "meaning": {
+                "en": "He holds him fast with yellow oxhide. No one can tear him loose.",
+                "ru": "Шестерка вторая. Свяжешь его кожей желтого быка. Никто не сможет ее разорвать."
+            }
+        },
+        {
+            "hexagram_id": 33,
+            "position": 3,
+            "meaning": {
+                "en": "A halted retreat is stressful and dangerous. To keep people as servants brings good fortune.",
+                "ru": "Девятка третья. Затрудненное бегство. Будет болезнь и опасность. Питать слуг и служанок — к счастью."
+            }
+        },
+        {
+            "hexagram_id": 33,
+            "position": 4,
+            "meaning": {
+                "en": "Voluntary retreat brings good fortune to the superior man and misfortune to the inferior man.",
+                "ru": "Девятка четвертая. Прекрасное бегство. Благородному человеку — счастье, мелкому человеку — несчастье."
+            }
+        },
+        {
+            "hexagram_id": 33,
+            "position": 5,
+            "meaning": {
+                "en": "Friendly retreat. Perseverance brings good fortune.",
+                "ru": "Девятка пятая. Своевременное бегство. Стойкость — к счастью."
+            }
+        },
+        {
+            "hexagram_id": 33,
+            "position": 6,
+            "meaning": {
+                "en": "Cheerful retreat. Everything furthers.",
+                "ru": "Наверху девятка. Роскошное бегство. Ничего неблагоприятного."
+            }
+        },
+        {
+            "hexagram_id": 34,
+            "position": 1,
+            "meaning": {
+                "en": "Power in the toes. Continuing brings misfortune. This is certainly true.",
+                "ru": "В начале девятка. Мощь в пальцах ног. Поход — к несчастью. Это — истинная правда."
+            }
+        },
+        {
+            "hexagram_id": 34,
+            "position": 2,
+            "meaning": {
+                "en": "Perseverance brings good fortune.",
+                "ru": "Девятка вторая. Стойкость — к счастью."
+            }
+        },
+        {
+            "hexagram_id": 34,
+            "position": 3,
+            "meaning": {
+                "en": "The inferior man works through power. The superior man does not act thus. To continue is dangerous. A goat butts against a hedge and gets its horns entangled.",
+                "ru": "Девятка третья. Мелкому человеку — мощь. Благородному человеку — гибель. Стойкость — в опасности. Козел бодает ограду и запутывает свои рога."
+            }
+        },
+        {
+            "hexagram_id": 34,
+            "position": 4,
+            "meaning": {
+                "en": "Perseverance brings good fortune. Remorse disappears. The hedge opens without entanglement. Power depends upon the axle of a big cart.",
+                "ru": "Девятка четвертая. Стойкость — к счастью. Раскаяние исчезнет. Ограда пробита, и в ней не запутаешься. Мощь — в спицах большой колесницы."
+            }
+        },
+        {
+            "hexagram_id": 34,
+            "position": 5,
+            "meaning": {
+                "en": "Loses the goat with ease. No remorse.",
+                "ru": "Шестерка пятая. Утратишь козла на легком месте. Раскаяния не будет."
+            }
+        },
+        {
+            "hexagram_id": 34,
+            "position": 6,
+            "meaning": {
+                "en": "A goat butts against a hedge. It cannot go backward, it cannot go forward. Nothing furthers. If one notes the difficulty, this brings good fortune.",
+                "ru": "Наверху шестерка. Козел бодает ограду. Не может отступить, не может продвинуться. Ничего неблагоприятного. Трудность — к счастью."
+            }
+        },
+        {
+            "hexagram_id": 35,
+            "position": 1,
+            "meaning": {
+                "en": "Progressing, but turned back. Perseverance brings good fortune. If one meets with no confidence, one should remain calm. No blame.",
+                "ru": "В начале шестерка. Идешь вперед и будешь отброшен. Стойкость — к счастью. Обладай правдой, будь спокоен — хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 35,
+            "position": 2,
+            "meaning": {
+                "en": "Progressing, but in sorrow. Perseverance brings good fortune. One receives great blessing from one's ancestress.",
+                "ru": "Шестерка вторая. Идешь вперед и будешь опечален. Стойкость — к счастью. Примешь это великое благословение от своей праматери."
+            }
+        },
+        {
+            "hexagram_id": 35,
+            "position": 3,
+            "meaning": {
+                "en": "All are in accord. Remorse disappears.",
+                "ru": "Шестерка третья. Все доверяют тебе. Раскаяние исчезнет."
+            }
+        },
+        {
+            "hexagram_id": 35,
+            "position": 4,
+            "meaning": {
+                "en": "Progressing like a marmot. Perseverance brings danger.",
+                "ru": "Девятка четвертая. Идешь вперед, как землеройка. Стойкость — в опасности."
+            }
+        },
+        {
+            "hexagram_id": 35,
+            "position": 5,
+            "meaning": {
+                "en": "Remorse disappears. Take not gain and loss to heart. Undertakings bring good fortune. Everything furthers.",
+                "ru": "Шестерка пятая. Раскаяние исчезнет. При потере и обретении не горюй. Выступление — к счастью. Ничего неблагоприятного."
+            }
+        },
+        {
+            "hexagram_id": 35,
+            "position": 6,
+            "meaning": {
+                "en": "Making use of one's horns to punish one's own city. To be aware of danger brings good fortune. No blame. Perseverance brings humiliation.",
+                "ru": "Наверху девятка. Иди вперед, выставив рога. Используй это только для того, чтобы покарать свой город. Опасность — к счастью. Хулы не будет. Стойкость — к сожалению."
+            }
+        },
+        {
+            "hexagram_id": 36,
+            "position": 1,
+            "meaning": {
+                "en": "Darkening of the light during flight. He lowers his wings. The superior man has nothing to eat for three days. But he has a place to go.",
+                "ru": "В начале девятка. Урон света в полете. Поникнут его крылья. Благородный человек три дня не ест. Выступление — государю будет о чем поговорить."
+            }
+        },
+        {
+            "hexagram_id": 36,
+            "position": 2,
+            "meaning": {
+                "en": "Darkening of the light injures him in the left thigh. He gives aid with the strength of a horse. Good fortune.",
+                "ru": "Шестерка вторая. Урон света. Ранен в левое бедро. На помощь нужна мощь коня. Счастье."
+            }
+        },
+        {
+            "hexagram_id": 36,
+            "position": 3,
+            "meaning": {
+                "en": "Darkening of the light during the hunt in the south. Their great leader is captured. One must not expect perseverance too soon.",
+                "ru": "Девятка третья. Урон света. Охота на юге. Будет схвачен великий вождь. Нельзя быть поспешным в стойкости."
+            }
+        },
+        {
+            "hexagram_id": 36,
+            "position": 4,
+            "meaning": {
+                "en": "He penetrates into the left side of the belly. One gets at the very heart of the darkening of the light.",
+                "ru": "Шестерка четвертая. Проникнешь в левую часть живота. Обретешь самое сердце урона света."
+            }
+        },
+        {
+            "hexagram_id": 36,
+            "position": 5,
+            "meaning": {
+                "en": "Darkening of the light like Prince Chi. Perseverance furthers.",
+                "ru": "Шестерка пятая. Урон света царевича Цзи. Благоприятна стойкость."
+            }
+        },
+        {
+            "hexagram_id": 36,
+            "position": 6,
+            "meaning": {
+                "en": "Not light, but darkness. First he climbed up to heaven, then he plunged into the depths of the earth.",
+                "ru": "Наверху шестерка. Не сияние, а мрак. Сначала поднимется до неба, а потом погрузится в землю."
+            }
+        },
+        {
+            "hexagram_id": 37,
+            "position": 1,
+            "meaning": {
+                "en": "Firm seclusion within the family. Remorse disappears.",
+                "ru": "В начале девяка. Замкнись в своей семье. Раскаяние исчезнет."
+            }
+        },
+        {
+            "hexagram_id": 37,
+            "position": 2,
+            "meaning": {
+                "en": "She should not follow her whims. She should attend within to the food. Perseverance brings good fortune.",
+                "ru": "Шестерка вторая. Не за чем гнаться. Будь внутри [дома] у еды. Стойкость — к счастью."
+            }
+        },
+        {
+            "hexagram_id": 37,
+            "position": 3,
+            "meaning": {
+                "en": "When tempers flare up in the family, too great severity brings remorse. If woman and child dally and laugh, it leads to humiliation.",
+                "ru": "Девятка третья. Семья ворчит — будет раскаяние от суровости. Женщины и дети шутят и смеются — в конце концов будет сожаление."
+            }
+        },
+        {
+            "hexagram_id": 37,
+            "position": 4,
+            "meaning": {
+                "en": "She is the enrichment of the family. Great good fortune.",
+                "ru": "Шестерка четвертая. Обогащение семьи. Изначальное счастье."
+            }
+        },
+        {
+            "hexagram_id": 37,
+            "position": 5,
+            "meaning": {
+                "en": "As a king he approaches his family. Fear not. Good fortune.",
+                "ru": "Девятка пятая. Царь приближается к своей семье. Не бойся. Счастье."
+            }
+        },
+        {
+            "hexagram_id": 37,
+            "position": 6,
+            "meaning": {
+                "en": "His work commands respect. In the end good fortune comes.",
+                "ru": "Наверху девяка. Обладай правдой и будь суров. В конце концов — счастье."
+            }
+        },
+        {
+            "hexagram_id": 38,
+            "position": 1,
+            "meaning": {
+                "en": "Remorse disappears. If you lose your horse, do not run after it; it will come back of its own accord. When you see evil people, guard yourself against blame.",
+                "ru": "В начале девяка. Раскаяние исчезнет. Потеряешь коня — не гонись за ним, сам вернется. Увидишь злых людей — хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 38,
+            "position": 2,
+            "meaning": {
+                "en": "One meets his lord in a narrow lane. No blame.",
+                "ru": "Девятка вторая. Встретишь господина в узком переулке. Хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 38,
+            "position": 3,
+            "meaning": {
+                "en": "One sees the wagon dragged back, the oxen halted, a man's hair and nose cut off. Not a good beginning, but a good end.",
+                "ru": "Шестерка третья. Видишь, что телегу тащат назад, а быков задерживают. У человека обрезаны волосы и нос. Нет начала, но есть конец."
+            }
+        },
+        {
+            "hexagram_id": 38,
+            "position": 4,
+            "meaning": {
+                "en": "Isolated through opposition, one meets a like-minded man with whom one can associate in good faith. No blame.",
+                "ru": "Девятка четвертая. Разлад и одиночество. Встретишь великого мужа. Обладай правдой в общении. Хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 38,
+            "position": 5,
+            "meaning": {
+                "en": "Remorse disappears. The companion bites his way through the wrappings. To go to him is no blame.",
+                "ru": "Шестерка пятая. Раскаяние исчезнет. Твой сообщник прокусит кожу. Если пойдешь — какая в том хула?"
+            }
+        },
+        {
+            "hexagram_id": 38,
+            "position": 6,
+            "meaning": {
+                "en": "Isolated through opposition, one sees one's companion as a pig covered with dirt, as a wagon full of devils. First one draws a bow against him, then one lays it aside. One meets with rain, then good fortune comes.",
+                "ru": "Наверху девяка. Разлад и одиночество. Видишь свинью в грязи, видишь целую телегу бесов. Сначала натянешь лук, а потом отложишь его. Будет дождь — будет счастье."
+            }
+        },
+        {
+            "hexagram_id": 39,
+            "position": 1,
+            "meaning": {
+                "en": "Going leads to obstructions, coming meets with praise.",
+                "ru": "В начале шестерка. Выступление — к препятствию, приход — к похвале."
+            }
+        },
+        {
+            "hexagram_id": 39,
+            "position": 2,
+            "meaning": {
+                "en": "The king's servant is beset by obstruction upon obstruction, but it is not through his own fault.",
+                "ru": "Шестерка вторая. Царскому слуге — препятствие за препятствием. Но это не из-за него самого."
+            }
+        },
+        {
+            "hexagram_id": 39,
+            "position": 3,
+            "meaning": {
+                "en": "Going leads to obstructions; hence he comes back.",
+                "ru": "Девятка третья. Выступление — к препятствию, приход — к возврату."
+            }
+        },
+        {
+            "hexagram_id": 39,
+            "position": 4,
+            "meaning": {
+                "en": "Going leads to obstructions, coming leads to union.",
+                "ru": "Шестерка четвертая. Выступление — к препятствию, приход — к связи."
+            }
+        },
+        {
+            "hexagram_id": 39,
+            "position": 5,
+            "meaning": {
+                "en": "In the midst of the greatest obstructions, friends come.",
+                "ru": "Девятка пятая. Среди великих препятствий придут друзья."
+            }
+        },
+        {
+            "hexagram_id": 39,
+            "position": 6,
+            "meaning": {
+                "en": "Going leads to obstructions, coming leads to great good fortune. It furthers one to see the great man.",
+                "ru": "Наверху шестерка. Выступление — к препятствию, приход — к величию. Счастье. Благоприятно свидание с великим человеком."
+            }
+        },
+        {
+            "hexagram_id": 40,
+            "position": 1,
+            "meaning": {
+                "en": "Without blame.",
+                "ru": "В начале шестерка. Хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 40,
+            "position": 2,
+            "meaning": {
+                "en": "One kills three foxes in the field and receives a yellow arrow. Perseverance brings good fortune.",
+                "ru": "Девятка вторая. На поле убьешь трех лисиц. Получишь желтую стрелу. Стойкость — к счастью."
+            }
+        },
+        {
+            "hexagram_id": 40,
+            "position": 3,
+            "meaning": {
+                "en": "If a man carries a burden on his back and nonetheless rides in a carriage, he thereby encourages robbers to draw near. Perseverance leads to humiliation.",
+                "ru": "Шестерка третья. Ношу нести, да еще на колеснице ехать — сам навлечешь приход разбойников. Стойкость — к сожалению."
+            }
+        },
+        {
+            "hexagram_id": 40,
+            "position": 4,
+            "meaning": {
+                "en": "Deliver yourself from your big toe. Then the companion comes, and him you can trust.",
+                "ru": "Девятка четвертая. Освободи пальцы на ногах. Тогда придет друг и ты обретешь в нем правду."
+            }
+        },
+        {
+            "hexagram_id": 40,
+            "position": 5,
+            "meaning": {
+                "en": "If only the superior man can deliver himself, it brings good fortune. Thus he proves to inferior men that he is in earnest.",
+                "ru": "Шестерка пятая. Только благородный человек может разрешить [это]. Счастье. У мелких людей будет доказательство [его искренности]."
+            }
+        },
+        {
+            "hexagram_id": 40,
+            "position": 6,
+            "meaning": {
+                "en": "The prince shoots at a hawk on a high wall. He kills it. Everything furthers.",
+                "ru": "Наверху девяка. Князь стреляет в сокола на высокой стене. Убьет его. Ничего неблагоприятного."
+            }
+        },
+        {
+            "hexagram_id": 41,
+            "position": 1,
+            "meaning": {
+                "en": "Going quickly when one's tasks are finished is without blame. But one must reflect on how much one may decrease others.",
+                "ru": "В начале девятка. Закончив свои дела, скорее иди — хулы не будет. Подумай о том, насколько можно уменьшить."
+            }
+        },
+        {
+            "hexagram_id": 41,
+            "position": 2,
+            "meaning": {
+                "en": "Perseverance furthers. To undertake something brings misfortune. Without decreasing oneself, one is able to increase others.",
+                "ru": "Девятка вторая. Благоприятна стойкость. Поход — к несчастью. Не уменьшая себя, увеличишь других."
+            }
+        },
+        {
+            "hexagram_id": 41,
+            "position": 3,
+            "meaning": {
+                "en": "When three people journey together, their number decreases by one. When one man journeys alone, he finds a companion.",
+                "ru": "Шестерка третья. Если идут трое, то они уменьшатся на одного человека. Если идет один человек, то он обретет себе друга."
+            }
+        },
+        {
+            "hexagram_id": 41,
+            "position": 4,
+            "meaning": {
+                "en": "If a man decreases his faults, it makes the other hasten to come and rejoice. No blame.",
+                "ru": "Шестерка четвертая. Уменьшишь свои недостатки — другой скорее придет и обрадуется. Хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 41,
+            "position": 5,
+            "meaning": {
+                "en": "Someone does indeed increase him. Ten pairs of tortoises cannot oppose it. Supreme good fortune.",
+                "ru": "Шестерка пятая. Кто-то увеличит его. Десять пар черепах не смогут этому противостоять. Изначальное счастье."
+            }
+        },
+        {
+            "hexagram_id": 41,
+            "position": 6,
+            "meaning": {
+                "en": "If one is increased without depriving others, there is no blame. Perseverance brings good fortune. One finds servants but no longer has a separate home.",
+                "ru": "Наверху девятка. Увеличишь его, не уменьшая других — хулы не будет. Стойкость — к счастью. Обретешь слуг, но не будет больше своего дома."
+            }
+        },
+        {
+            "hexagram_id": 42,
+            "position": 1,
+            "meaning": {
+                "en": "It furthers one to accomplish great deeds. Supreme good fortune. No blame.",
+                "ru": "В начале девятка. Благоприятно совершать великие дела. Изначальное счастье. Хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 42,
+            "position": 2,
+            "meaning": {
+                "en": "Someone does indeed increase him. Ten pairs of tortoises cannot oppose it. Constant perseverance brings good fortune. The king presents him before God. Good fortune.",
+                "ru": "Шестерка вторая. Кто-то увеличит его. Десять пар черепах не смогут этому противостоять. Вечная стойкость — к счастью. Царь приносит жертву Богу. Счастье."
+            }
+        },
+        {
+            "hexagram_id": 42,
+            "position": 3,
+            "meaning": {
+                "en": "One is enriched through unfortunate events. No blame, if you are sincere and walk in the middle, and report with a seal to the prince.",
+                "ru": "Шестерка третья. Увеличение через несчастье. Хулы не будет. Обладай правдой, иди по середине — будет милость князя."
+            }
+        },
+        {
+            "hexagram_id": 42,
+            "position": 4,
+            "meaning": {
+                "en": "If you walk in the middle and report to the prince, he will follow. It furthers one to be used in the removal of the capital.",
+                "ru": "Шестерка четвертая. Иди по середине, доложи князю — он последует за тобой. Благоприятно использовать это при переносе столицы."
+            }
+        },
+        {
+            "hexagram_id": 42,
+            "position": 5,
+            "meaning": {
+                "en": "If you have a sincere heart, do not ask. Supreme good fortune. Sincerity will be acknowledged as your virtue.",
+                "ru": "Девятка пятая. Обладай правдой, будь добр сердцем — и не спрашивай. Изначальное счастье. Правда — твоя добродетель."
+            }
+        },
+        {
+            "hexagram_id": 42,
+            "position": 6,
+            "meaning": {
+                "en": "He brings increase to no one. Indeed, someone even strikes him. He does not keep his heart at rest. Misfortune.",
+                "ru": "Наверху девятка. Никого не увеличишь. Кто-то даже нанесет удар. Не делай свое сердце постоянным. Несчастье."
+            }
+        },
+        {
+            "hexagram_id": 43,
+            "position": 1,
+            "meaning": {
+                "en": "Mighty in the advancing toes. When one goes and is not equal to the task, one makes a mistake.",
+                "ru": "В начале девятка. Мощь в пальцах ног. Пойдешь вперед, но не справишься — совершишь ошибку."
+            }
+        },
+        {
+            "hexagram_id": 43,
+            "position": 2,
+            "meaning": {
+                "en": "A cry of alarm. Arms at evening and at night. Fear nothing.",
+                "ru": "Девятка вторая. Тревожный крик. Вечером и ночью будет оружие. Не бойся."
+            }
+        },
+        {
+            "hexagram_id": 43,
+            "position": 3,
+            "meaning": {
+                "en": "To be powerful in the cheekbones brings misfortune. The superior man is firmly resolved. He walks alone and is caught in the rain. He is bespattered, and people murmur against him. No blame.",
+                "ru": "Девятка третья. Мощь в скулах. Несчастье. Благородный человек решителен. Пойдет один под дождем — промокнет и будет недовольство [других]. Но хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 43,
+            "position": 4,
+            "meaning": {
+                "en": "There is no skin on his thighs, and walking comes hard. If one were to let himself be led like a sheep, remorse would disappear. But if these words are heard, they will not be believed.",
+                "ru": "Девятка четвертая. На бедрах нет кожи. Идешь с трудом. Если поведешь за собой овцу — раскаяние исчезнет. Но этим словам не поверят."
+            }
+        },
+        {
+            "hexagram_id": 43,
+            "position": 5,
+            "meaning": {
+                "en": "In removing weeds, firm resolution is necessary. Walking in the middle remains free of blame.",
+                "ru": "Девятка пятая. Решительно вырывай сорняки. Иди по середине — хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 43,
+            "position": 6,
+            "meaning": {
+                "en": "No cry. In the end misfortune comes.",
+                "ru": "Наверху шестерка. Нет зова. В конце концов — несчастье."
+            }
+        },
+        {
+            "hexagram_id": 44,
+            "position": 1,
+            "meaning": {
+                "en": "It must be checked with a brake of bronze. Perseverance brings good fortune. If one lets it take its course, one experiences misfortune. Even a lean pig has it in him to rage around.",
+                "ru": "В начале шестерка. Привяжи это к металлическому тормозу. Стойкость — к счастью. Куда пойдешь — увидишь несчастье. Даже тощая свинья способна бесчинствовать."
+            }
+        },
+        {
+            "hexagram_id": 44,
+            "position": 2,
+            "meaning": {
+                "en": "There is a fish in the tank. No blame. Does not further guests.",
+                "ru": "Девятка вторая. В кувшине есть рыба. Хулы не будет. Неблагоприятно для гостей."
+            }
+        },
+        {
+            "hexagram_id": 44,
+            "position": 3,
+            "meaning": {
+                "en": "There is no skin on his thighs, and walking comes hard. If one is mindful of the danger, no great mistake is made.",
+                "ru": "Девятка третья. На бедрах нет кожи. Идешь с трудом. Если будешь помнить об опасности — великой ошибки не будет."
+            }
+        },
+        {
+            "hexagram_id": 44,
+            "position": 4,
+            "meaning": {
+                "en": "No fish in the tank. This leads to misfortune.",
+                "ru": "Девятка четвертая. В кувшине нет рыбы. Это приведет к несчастью."
+            }
+        },
+        {
+            "hexagram_id": 44,
+            "position": 5,
+            "meaning": {
+                "en": "A melon covered with willow leaves. Hidden lines. At that, it falls to one from heaven.",
+                "ru": "Девятка пятая. Дыня, покрытая ивовыми листьями. Таи в себе блеск. Будет дар от Неба."
+            }
+        },
+        {
+            "hexagram_id": 44,
+            "position": 6,
+            "meaning": {
+                "en": "He comes to meet with his horns. Humiliation. No blame.",
+                "ru": "Наверху девятка. Встреча рогами. Сожаление. Хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 45,
+            "position": 1,
+            "meaning": {
+                "en": "If you are sincere, but not to the end, there will sometimes be confusion. If you call out, then after one grasp of the hand you can laugh again. No blame.",
+                "ru": "В начале шестерка. Обладай правдой, но не до конца — будет путаница. Если закричишь, то после одного рукопожатия снова сможешь смеяться. Хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 45,
+            "position": 2,
+            "meaning": {
+                "en": "Letting oneself be led brings good fortune and remains blameless. If one is sincere, it furthers one even to offer a slight sacrifice.",
+                "ru": "Шестерка вторая. Позволь вести себя — к счастью. Хулы не будет. Обладай правдой — и малого жертвоприношения будет достаточно."
+            }
+        },
+        {
+            "hexagram_id": 45,
+            "position": 3,
+            "meaning": {
+                "en": "Gathering together amid sighs. Nothing that would further. No blame. Slight humiliation.",
+                "ru": "Шестерка третья. Воссоединение со вздохами. Ничего неблагоприятного. Хулы не будет. Небольшое сожаление."
+            }
+        },
+        {
+            "hexagram_id": 45,
+            "position": 4,
+            "meaning": {
+                "en": "Great good fortune. No blame.",
+                "ru": "Девятка четвертая. Изначальное счастье. Хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 45,
+            "position": 5,
+            "meaning": {
+                "en": "If in gathering together one has a high position, this brings no blame. If there are some who are not yet sincere, one must be consistently persevering. Then remorse disappears.",
+                "ru": "Девятка пятая. Обладай местом при воссоединении — хулы не будет. Но если не все искренни, то нужна великая и вечная стойкость. Раскаяние исчезнет."
+            }
+        },
+        {
+            "hexagram_id": 45,
+            "position": 6,
+            "meaning": {
+                "en": "Lamenting and sighing, shedding tears. No blame.",
+                "ru": "Наверху шестерка. Возгласы и вздохи, слезы до слез. Хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 46,
+            "position": 1,
+            "meaning": {
+                "en": "Advancing upward with confidence brings great good fortune.",
+                "ru": "В начале шестерка. С доверием — к подъему. Изначальное счастье."
+            }
+        },
+        {
+            "hexagram_id": 46,
+            "position": 2,
+            "meaning": {
+                "en": "If one is sincere, it furthers one even to offer a slight sacrifice. No blame.",
+                "ru": "Девятка вторая. Обладай правдой — и малого жертвоприношения будет достаточно. Хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 46,
+            "position": 3,
+            "meaning": {
+                "en": "One advances upward into an empty city.",
+                "ru": "Девятка третья. Поднимешься в пустой город."
+            }
+        },
+        {
+            "hexagram_id": 46,
+            "position": 4,
+            "meaning": {
+                "en": "The king offers a sacrifice on Mount Chi. Good fortune. No blame.",
+                "ru": "Шестерка четвертая. Царь приносит жертву у горы Ци. Счастье. Хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 46,
+            "position": 5,
+            "meaning": {
+                "en": "Perseverance brings good fortune. One steps upward.",
+                "ru": "Шестерка пятая. Стойкость — к счастью. Поднимайся по ступеням."
+            }
+        },
+        {
+            "hexagram_id": 46,
+            "position": 6,
+            "meaning": {
+                "en": "Advancing upward in the dark. It furthers one to be unremittingly persevering.",
+                "ru": "Наверху шестерка. Подъем в темноте. Благоприятна непрерывная стойкость."
+            }
+        },
+        {
+            "hexagram_id": 47,
+            "position": 1,
+            "meaning": {
+                "en": "One sits oppressed under a bare tree and strays into a gloomy valley. For three years one sees nothing.",
+                "ru": "В начале шестерка. В истощении будешь сидеть под голым деревом. Войдешь в мрачную долину. Три года ничего не увидишь."
+            }
+        },
+        {
+            "hexagram_id": 47,
+            "position": 2,
+            "meaning": {
+                "en": "One is oppressed while at meat and drink. The man with the scarlet knee bands is just coming. It furthers one to offer sacrifice. To set out brings misfortune. No blame.",
+                "ru": "Девятка вторая. Истощение при вине и трапезе. Но вот придет человек в красных наколенниках. Благоприятно принести жертву. Поход — к несчастью. Хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 47,
+            "position": 3,
+            "meaning": {
+                "en": "A man permits himself to be oppressed by stone, and leans on thorns and thistles. He enters his house and does not see his wife. Misfortune.",
+                "ru": "Шестерка третья. Истощение от камней. Опирайся на терновник. Войдешь в свой дом и не увидишь своей жены. Несчастье."
+            }
+        },
+        {
+            "hexagram_id": 47,
+            "position": 4,
+            "meaning": {
+                "en": "He comes very quietly, oppressed in a golden carriage. Humiliation, but the end is reached.",
+                "ru": "Девятка четвертая. Придешь медленно-медленно. Истощение в золотой колеснице. Будет сожаление, но доведешь дело до конца."
+            }
+        },
+        {
+            "hexagram_id": 47,
+            "position": 5,
+            "meaning": {
+                "en": "His nose and feet are cut off. Oppression at the hands of the man with the purple knee bands. Joy comes softly. It furthers one to make offerings and libations.",
+                "ru": "Девятка пятая. Отрежут нос, отрежут стопы. Истощение от человека в красных наколенниках. Но вот медленно придет радость. Благоприятно совершать жертвоприношения."
+            }
+        },
+        {
+            "hexagram_id": 47,
+            "position": 6,
+            "meaning": {
+                "en": "He is oppressed by creeping vines. He moves uncertainly and says, 'Movement brings remorse.' If one feels remorse over this and makes a start, good fortune comes.",
+                "ru": "Наверху шестерка. Истощение от ползучих растений. Будешь в нерешительности и скажешь: «Движение принесет раскаяние». Если раскаешься в этом — будет счастье."
+            }
+        },
+        {
+            "hexagram_id": 48,
+            "position": 1,
+            "meaning": {
+                "en": "One does not drink the mud of the well. No animals come to an old well. No blame.",
+                "ru": "В начале шестерка. Ил колодца — не пригоден для питья. К старому колодцу не приходят животные. Хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 48,
+            "position": 2,
+            "meaning": {
+                "en": "At the well hole one shoots fishes. The jug is broken and leaks.",
+                "ru": "Девятка вторая. В колодце бьют рыб. Бадья разбита и течет."
+            }
+        },
+        {
+            "hexagram_id": 48,
+            "position": 3,
+            "meaning": {
+                "en": "The well is cleaned, but no one drinks from it. This is my heart's sorrow, for one might draw from it. If the king were clear-minded, good fortune might be enjoyed in common.",
+                "ru": "Девятка третья. Колодец очищен, но из него не пьют. О, это — скорбь моего сердца! Ведь из него можно было бы черпать. Будь царь просвещенным — все обрели бы счастье."
+            }
+        },
+        {
+            "hexagram_id": 48,
+            "position": 4,
+            "meaning": {
+                "en": "The well is being lined. No blame.",
+                "ru": "Шестерка четвертая. Колодец облицовывают. Хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 48,
+            "position": 5,
+            "meaning": {
+                "en": "In the well there is a clear, cold spring from which one can drink.",
+                "ru": "Девятка пятая. Колодец чист, вода в нем — как холодный ключ. Пей!"
+            }
+        },
+        {
+            "hexagram_id": 48,
+            "position": 6,
+            "meaning": {
+                "en": "One draws from the well without hindrance. It is dependable. Supreme good fortune.",
+                "ru": "Наверху шестерка. Из колодца черпают. Не закрывай его. Обладай правдой. Изначальное счастье."
+            }
+        },
+        {
+            "hexagram_id": 49,
+            "position": 1,
+            "meaning": {
+                "en": "Wrapped in the hide of a yellow ox.",
+                "ru": "В начале девятка. Окутайся кожей желтого быка."
+            }
+        },
+        {
+            "hexagram_id": 49,
+            "position": 2,
+            "meaning": {
+                "en": "When one's day comes, one may create revolution. Starting brings good fortune. No blame.",
+                "ru": "Шестерка вторая. Когда настанет твой день — совершай смену. Поход — к счастью. Хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 49,
+            "position": 3,
+            "meaning": {
+                "en": "Starting brings misfortune. Perseverance brings danger. When talk of revolution has gone the rounds three times, one may believe in it.",
+                "ru": "Девятка третья. Поход — к несчастью. Стойкость — в опасности. Обсуди смену трижды — тогда и совершай ее."
+            }
+        },
+        {
+            "hexagram_id": 49,
+            "position": 4,
+            "meaning": {
+                "en": "Remorse disappears. Men believe him. Changing the form of government brings good fortune.",
+                "ru": "Девятка четвертая. Раскаяние исчезнет. Обладай правдой. Смена государственного строя — к счастью."
+            }
+        },
+        {
+            "hexagram_id": 49,
+            "position": 5,
+            "meaning": {
+                "en": "The great man changes like a tiger. Even before he questions the oracle, he is believed.",
+                "ru": "Девятка пятая. Великий человек меняется точно тигр. Будет доверие и без гадания."
+            }
+        },
+        {
+            "hexagram_id": 49,
+            "position": 6,
+            "meaning": {
+                "en": "The superior man changes like a leopard. The inferior man claws his face. Starting brings misfortune. To remain persevering brings good fortune.",
+                "ru": "Наверху шестерка. Благородный человек меняется точно леопард. У мелкого человека меняется только лицо. Поход — к несчастью. Пребывание в стойкости — к счастью."
+            }
+        },
+        {
+            "hexagram_id": 50,
+            "position": 1,
+            "meaning": {
+                "en": "A ting with legs upturned. Furthers removal of stagnating stuff. One takes a concubine for the sake of her son. No blame.",
+                "ru": "В начале шестерка. У жертвенника перевернуты ножки. Благоприятно изгнание застоя. Возьмешь наложницу ради ее сына. Хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 50,
+            "position": 2,
+            "meaning": {
+                "en": "There is food in the ting. My comrades are envious, but they cannot harm me. Good fortune.",
+                "ru": "Девятка вторая. В жертвеннике есть пища. У моих противников — беда, но они не смогут мне навредить. Счастье."
+            }
+        },
+        {
+            "hexagram_id": 50,
+            "position": 3,
+            "meaning": {
+                "en": "The handle of the ting is altered. One is impeded in his way of life. The fat of the pheasant is not eaten. Once rain falls, remorse is spent. Good fortune comes in the end.",
+                "ru": "Девятка третья. У жертвенника изменены ушки. В движении — препятствие. Жир фазана — не съеден. Но вот пойдет дождь — раскаяние исчезнет. В конце концов — счастье."
+            }
+        },
+        {
+            "hexagram_id": 50,
+            "position": 4,
+            "meaning": {
+                "en": "The legs of the ting are broken. The prince's meal is spilled and his person is soiled. Misfortune.",
+                "ru": "Девятка четвертая. У жертвенника подломлены ножки. Опрокинута пища князя. Его лицо — в грязи. Несчастье."
+            }
+        },
+        {
+            "hexagram_id": 50,
+            "position": 5,
+            "meaning": {
+                "en": "The ting has yellow handles, golden carrying rings. Perseverance furthers.",
+                "ru": "Шестерка пятая. У жертвенника желтые ушки и золотые дужки. Благоприятна стойкость."
+            }
+        },
+        {
+            "hexagram_id": 50,
+            "position": 6,
+            "meaning": {
+                "en": "The ting has rings of jade. Great good fortune. Nothing that would not further.",
+                "ru": "Наверху девятка. У жертвенника яшмовые дужки. Изначальное счастье. Ничего неблагоприятного."
+            }
+        },
+        {
+            "hexagram_id": 51,
+            "position": 1,
+            "meaning": {
+                "en": "Shock comes—oh, oh! Then follows laughing words—ha, ha! Good fortune.",
+                "ru": "В начале девятка. Молния ударит — и вскрикнешь от страха. А потом зазвучит веселый смех. Счастье."
+            }
+        },
+        {
+            "hexagram_id": 51,
+            "position": 2,
+            "meaning": {
+                "en": "Shock comes bringing danger. A hundred thousand times you lose your treasures and must climb the nine hills. Do not go after them; in seven days you will get them back.",
+                "ru": "Шестерка вторая. Молния ударит — это опасно. Потеряешь свои сокровища. Поднимайся на девять холмов. Не гонись за ними — через семь дней обретешь их."
+            }
+        },
+        {
+            "hexagram_id": 51,
+            "position": 3,
+            "meaning": {
+                "en": "Shock comes and makes one distraught. If shock spurs to action, one remains free of misfortune.",
+                "ru": "Шестерка третья. От молнии — оторопь. Будешь действовать под влиянием молнии — беды не будет."
+            }
+        },
+        {
+            "hexagram_id": 51,
+            "position": 4,
+            "meaning": {
+                "en": "Shock is mired.",
+                "ru": "Девятка четвертая. Молния завязла в иле."
+            }
+        },
+        {
+            "hexagram_id": 51,
+            "position": 5,
+            "meaning": {
+                "en": "Shock goes and comes. Danger. However, nothing at all is lost. Yet there are things to be done.",
+                "ru": "Шестерка пятая. Молния то уходит, то приходит. Опасно. Но ничего не будет утрачено."
+            }
+        },
+        {
+            "hexagram_id": 51,
+            "position": 6,
+            "meaning": {
+                "en": "Shock brings ruin and terrified gazing around. Going ahead brings misfortune. If it has not yet touched one's own body but has reached one's neighbor first, there is no blame. One's comrades have something to talk about.",
+                "ru": "Наверху шестерка. От молнии — гибель. Будешь в смятении оглядываться по сторонам. Поход — к несчастью. Если это не коснулось тебя, а коснулось соседа — хулы не будет. У твоих друзей — будет о чем поговорить."
+            }
+        },
+        {
+            "hexagram_id": 52,
+            "position": 1,
+            "meaning": {
+                "en": "Keeping his toes still. No blame. Continued perseverance furthers.",
+                "ru": "В начале шестерка. Сосредоточенность в пальцах ног. Хулы не будет. Благоприятна вечная стойкость."
+            }
+        },
+        {
+            "hexagram_id": 52,
+            "position": 2,
+            "meaning": {
+                "en": "Keeping his calves still. He cannot rescue him whom he follows. His heart is not glad.",
+                "ru": "Шестерка вторая. Сосредоточенность в икрах. Не сможешь спасти того, за кем следуешь. В сердце — нет радости."
+            }
+        },
+        {
+            "hexagram_id": 52,
+            "position": 3,
+            "meaning": {
+                "en": "Keeping his hips still. Making his sacrum stiff. Dangerous. The heart suffocates.",
+                "ru": "Девятка третья. Сосредоточенность в пояснице. Она сделает жестким крестец. Опасно. Сердце будет томиться."
+            }
+        },
+        {
+            "hexagram_id": 52,
+            "position": 4,
+            "meaning": {
+                "en": "Keeping his trunk still. No blame.",
+                "ru": "Шестерка четвертая. Сосредоточенность в туловище. Хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 52,
+            "position": 5,
+            "meaning": {
+                "en": "Keeping his jaws still. The words have order. Remorse disappears.",
+                "ru": "Шестерка пятая. Сосредоточенность в челюстях. Твои речи будут последовательны. Раскаяние исчезнет."
+            }
+        },
+        {
+            "hexagram_id": 52,
+            "position": 6,
+            "meaning": {
+                "en": "Noblehearted keeping still. Good fortune.",
+                "ru": "Наверху девятка. Великодушная сосредоточенность. Счастье."
+            }
+        },
+        {
+            "hexagram_id": 53,
+            "position": 1,
+            "meaning": {
+                "en": "The wild goose gradually draws near the shore. The young son is in danger. There is talk. No blame.",
+                "ru": "В начале шестерка. Дикий гусь приближается к берегу. Малому сыну — опасность. Будут разговоры. Хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 53,
+            "position": 2,
+            "meaning": {
+                "en": "The wild goose gradually draws near the cliff. Eating and drinking in peace and concord. Good fortune.",
+                "ru": "Шестерка вторая. Дикий гусь приближается к скале. В мире и согласии будешь пить и есть. Счастье."
+            }
+        },
+        {
+            "hexagram_id": 53,
+            "position": 3,
+            "meaning": {
+                "en": "The wild goose gradually draws near the plateau. The man goes forth and does not return. The woman carries a child but does not bring it forth. Misfortune. It furthers one to fight off robbers.",
+                "ru": "Девятка третья. Дикий гусь приближается к суше. Муж уйдет и не вернется. Жена зачнет, но не родит. Несчастье. Благоприятно защищаться от разбойников."
+            }
+        },
+        {
+            "hexagram_id": 53,
+            "position": 4,
+            "meaning": {
+                "en": "The wild goose gradually draws near the tree. Perhaps it will find a flat branch. No blame.",
+                "ru": "Шестерка четвертая. Дикий гусь приближается к дереву. Может быть, найдет плоский сук. Хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 53,
+            "position": 5,
+            "meaning": {
+                "en": "The wild goose gradually draws near the summit. The woman carries no child for three years. In the end nothing can hinder her. Good fortune.",
+                "ru": "Девятка пятая. Дикий гусь приближается к вершине. Жена три года не зачнет. В конце концов — ничто не сможет ей помешать. Счастье."
+            }
+        },
+        {
+            "hexagram_id": 53,
+            "position": 6,
+            "meaning": {
+                "en": "The wild goose gradually draws near the cloud heights. Its feathers can be used for the sacred dance. Good fortune.",
+                "ru": "Наверху девятка. Дикий гусь приближается к облачным высям. Его перья могут быть использованы для ритуального танца. Счастье."
+            }
+        },
+        {
+            "hexagram_id": 54,
+            "position": 1,
+            "meaning": {
+                "en": "The marrying maiden as a concubine. A lame man who is able to tread. Undertakings bring good fortune.",
+                "ru": "В начале девяка. Выдают невесту, а при ней — младшая сестра. Хромой может наступать. Выступление — к счастью."
+            }
+        },
+        {
+            "hexagram_id": 54,
+            "position": 2,
+            "meaning": {
+                "en": "A one-eyed man who is able to see. The perseverance of a solitary man furthers.",
+                "ru": "Девятка вторая. Кривой может видеть. Благоприятна стойкость затворника."
+            }
+        },
+        {
+            "hexagram_id": 54,
+            "position": 3,
+            "meaning": {
+                "en": "The marrying maiden as a slave. She marries as a concubine.",
+                "ru": "Шестерка третья. Невеста ждет, [пока ее позовут]. Будет наложницей."
+            }
+        },
+        {
+            "hexagram_id": 54,
+            "position": 4,
+            "meaning": {
+                "en": "The marrying maiden draws out the time. A late marriage comes in due course.",
+                "ru": "Девятка четвертая. Невеста затягивает срок. Поздний брак будет своевременным."
+            }
+        },
+        {
+            "hexagram_id": 54,
+            "position": 5,
+            "meaning": {
+                "en": "The sovereign I gave his daughter in marriage. The embroidered garments of the princess were not as gorgeous as those of the servingmaid. The moon that is nearly full brings good fortune.",
+                "ru": "Шестерка пятая. Государь И выдавал замуж дочь. Убранство невесты было не так пышно, как убранство ее служанки. Перед полнолунием — счастье."
+            }
+        },
+        {
+            "hexagram_id": 54,
+            "position": 6,
+            "meaning": {
+                "en": "The woman holds the basket, but there are no fruits in it. The man stabs the sheep, but no blood flows. Nothing that furthers.",
+                "ru": "Наверху шестерка. Женщина держит корзину, но в ней нет плодов. Мужчина закалывает овцу, но нет крови. Ничего неблагоприятного."
+            }
+        },
+        {
+            "hexagram_id": 55,
+            "position": 1,
+            "meaning": {
+                "en": "When a man meets his destined ruler, they can be together ten days, and it is not a mistake. Going brings recognition.",
+                "ru": "В начале девятка. Встретишь своего хозяина. Если пребудешь у него даже десять дней — хулы не будет. Пойдешь — будет признание."
+            }
+        },
+        {
+            "hexagram_id": 55,
+            "position": 2,
+            "meaning": {
+                "en": "The curtain is so thick that the polestars can be seen at noon. Going continues to bring doubt and hatred. If one rouses him through truth, good fortune comes.",
+                "ru": "Шестерка вторая. Завеса так густа, что среди дня видны Полярные звезды. Пойдешь — вызовешь сомнение и ненависть. Обладай правдой, чтобы пробудить доверие — счастье."
+            }
+        },
+        {
+            "hexagram_id": 55,
+            "position": 3,
+            "meaning": {
+                "en": "The underbrush is so thick that the small stars can be seen at noon. He breaks his right arm. No blame.",
+                "ru": "Девятка третья. Чаща так густа, что среди дня видны малые звезды. Сломаешь правую руку. Хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 55,
+            "position": 4,
+            "meaning": {
+                "en": "The curtain is so thick that the polestars can be seen at noon. He meets his destined ruler. Good fortune.",
+                "ru": "Девятка четвертая. Завеса так густа, что среди дня видны Полярные звезды. Встретишь своего хозяина. Счастье."
+            }
+        },
+        {
+            "hexagram_id": 55,
+            "position": 5,
+            "meaning": {
+                "en": "Lines are coming, blessing and fame draw near. Good fortune.",
+                "ru": "Шестерка пятая. Будет сияние. Подойдет благословение и слава. Счастье."
+            }
+        },
+        {
+            "hexagram_id": 55,
+            "position": 6,
+            "meaning": {
+                "en": "His house is in a state of abundance. He screens off his family. He peers through the gate and no longer perceives anyone. For three years he sees nothing. Misfortune.",
+                "ru": "Наверху шестерка. В доме — изобилие. Огородишь свою семью. Заглянешь в ворота — там нет никого. Три года ничего не увидишь. Несчастье."
+            }
+        },
+        {
+            "hexagram_id": 56,
+            "position": 1,
+            "meaning": {
+                "en": "If the wanderer busies himself with trivial things, he draws down misfortune upon himself.",
+                "ru": "В начале шестерка. Если странник будет заниматься мелочами — сам навлечет на себя несчастье."
+            }
+        },
+        {
+            "hexagram_id": 56,
+            "position": 2,
+            "meaning": {
+                "en": "The wanderer comes to an inn. He has his property with him. He wins the steadfastness of a young servant.",
+                "ru": "Шестерка вторая. Странник придет в гостиницу. У него при себе будет имущество. Он обретет преданность молодого слуги."
+            }
+        },
+        {
+            "hexagram_id": 56,
+            "position": 3,
+            "meaning": {
+                "en": "The wanderer's inn burns down. He loses the steadfastness of his young servant. Danger.",
+                "ru": "Девятка третья. У странника сгорит гостиница. Он потеряет преданность молодого слуги. Опасность."
+            }
+        },
+        {
+            "hexagram_id": 56,
+            "position": 4,
+            "meaning": {
+                "en": "The wanderer rests in a shelter. He obtains his property and an ax. My heart is not glad.",
+                "ru": "Девятка четвертая. Странник отдохнет под кровом. Обретет имущество и топор. В сердце — нет радости."
+            }
+        },
+        {
+            "hexagram_id": 56,
+            "position": 5,
+            "meaning": {
+                "en": "He shoots a pheasant. It drops with the first arrow. In the end this brings both fortune and office.",
+                "ru": "Шестерка пятая. Подстрелишь фазана. Он падет от первой стрелы. В конце концов — будет слава и назначение."
+            }
+        },
+        {
+            "hexagram_id": 56,
+            "position": 6,
+            "meaning": {
+                "en": "The bird's nest burns up. The wanderer first laughs, then must needs complain and weep. Through heedlessness he loses his cow. Misfortune.",
+                "ru": "Наверху девяка. У птицы сгорит гнездо. Странник сначала смеется, а потом будет жаловаться и плакать. Из-за беспечности потеряет быка. Несчастье."
+            }
+        },
+        {
+            "hexagram_id": 57,
+            "position": 1,
+            "meaning": {
+                "en": "Advancing and retreating. It furthers one to be steadfast like a warrior.",
+                "ru": "В начале шестерка. Продвижение и отступление. Благоприятна стойкость воина."
+            }
+        },
+        {
+            "hexagram_id": 57,
+            "position": 2,
+            "meaning": {
+                "en": "Penetration under the bed. Priests and magicians are used in great number. Good fortune. No blame.",
+                "ru": "Девятка вторая. Проникновение под кровать. Понадобится много жрецов и гадателей. Счастье. Хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 57,
+            "position": 3,
+            "meaning": {
+                "en": "Repeated penetration. Humiliation.",
+                "ru": "Девятка третья. Томительное проникновение. Сожаление."
+            }
+        },
+        {
+            "hexagram_id": 57,
+            "position": 4,
+            "meaning": {
+                "en": "Remorse disappears. During the hunt three kinds of game are caught.",
+                "ru": "Шестерка четвертая. Раскаяние исчезнет. На охоте добудешь дичь трех видов."
+            }
+        },
+        {
+            "hexagram_id": 57,
+            "position": 5,
+            "meaning": {
+                "en": "Perseverance brings good fortune. Remorse disappears. Nothing that does not further. No beginning, but an end. Before the change, three days. After the change, three days. Good fortune.",
+                "ru": "Девятка пятая. Стойкость — к счастью. Раскаяние исчезнет. Ничего неблагоприятного. Нет начала, но есть конец. До перемены — три дня, после перемены — три дня. Счастье."
+            }
+        },
+        {
+            "hexagram_id": 57,
+            "position": 6,
+            "meaning": {
+                "en": "Penetration under the bed. He loses his property and his ax. Perseverance brings misfortune.",
+                "ru": "Наверху девяка. Проникновение под кровать. Потеряешь свое достояние и свой топор. Стойкость — к несчастью."
+            }
+        },
+        {
+            "hexagram_id": 58,
+            "position": 1,
+            "meaning": {
+                "en": "Contented joyousness. Good fortune.",
+                "ru": "В начале девятка. Согласная радость. Счастье."
+            }
+        },
+        {
+            "hexagram_id": 58,
+            "position": 2,
+            "meaning": {
+                "en": "Sincere joyousness. Good fortune. Remorse disappears.",
+                "ru": "Девятка вторая. Искренняя радость. Счастье. Раскаяние исчезнет."
+            }
+        },
+        {
+            "hexagram_id": 58,
+            "position": 3,
+            "meaning": {
+                "en": "Coming joyousness. Misfortune.",
+                "ru": "Шестерка третья. Приходящая радость. Несчастье."
+            }
+        },
+        {
+            "hexagram_id": 58,
+            "position": 4,
+            "meaning": {
+                "en": "Joyousness that is weighed is not at peace. After ridding oneself of mistakes one has joy.",
+                "ru": "Девятка четвертая. Радость — по расчету. Нет покоя. Отбрось заблуждения — будет радость."
+            }
+        },
+        {
+            "hexagram_id": 58,
+            "position": 5,
+            "meaning": {
+                "en": "Sincerity toward disintegrating influences is dangerous.",
+                "ru": "Девятка пятая. Будь искренен в разорении — это опасно."
+            }
+        },
+        {
+            "hexagram_id": 58,
+            "position": 6,
+            "meaning": {
+                "en": "Seductive joyousness.",
+                "ru": "Наверху шестерка. Влекущая радость."
+            }
+        },
+        {
+            "hexagram_id": 59,
+            "position": 1,
+            "meaning": {
+                "en": "He brings help with the strength of a horse. Good fortune.",
+                "ru": "В начале шестерка. На помощь нужна мощь коня. Счастье."
+            }
+        },
+        {
+            "hexagram_id": 59,
+            "position": 2,
+            "meaning": {
+                "en": "At the dissolution he hurries to that which supports him. Remorse disappears.",
+                "ru": "Девятка вторая. При рассеивании спеши к своей опоре. Раскаяние исчезнет."
+            }
+        },
+        {
+            "hexagram_id": 59,
+            "position": 3,
+            "meaning": {
+                "en": "He dissolves his self. No remorse.",
+                "ru": "Шестерка третья. Рассеешь свою личность. Раскаяния не будет."
+            }
+        },
+        {
+            "hexagram_id": 59,
+            "position": 4,
+            "meaning": {
+                "en": "He dissolves his bond with his group. Supreme good fortune. Dispersion leads in turn to accumulation. This is something that ordinary men do not think of.",
+                "ru": "Шестерка четвертая. Рассеешь свою толпу. Изначальное счастье. При рассеивании — накопление. Это то, о чем не помыслит обычный человек."
+            }
+        },
+        {
+            "hexagram_id": 59,
+            "position": 5,
+            "meaning": {
+                "en": "His loud cries are as dissolving as sweat. Dissolution! A king abides without blame.",
+                "ru": "Девятка пятая. При рассеивании пот — точно твои великие возгласы. Рассеивание! Царь пребудет без хулы."
+            }
+        },
+        {
+            "hexagram_id": 59,
+            "position": 6,
+            "meaning": {
+                "en": "He dissolves his blood. Departing, keeping at a distance, going out, is without blame.",
+                "ru": "Наверху девяка. Рассеешь свою кровь. Уходи далеко, удаляйся — хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 60,
+            "position": 1,
+            "meaning": {
+                "en": "Not going out of the door and the courtyard is without blame.",
+                "ru": "В начале девятка. Не выйдешь из ворот и двора — хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 60,
+            "position": 2,
+            "meaning": {
+                "en": "Not going out of the gate and the courtyard brings misfortune.",
+                "ru": "Девятка вторая. Не выйдешь за ворота — к несчастью."
+            }
+        },
+        {
+            "hexagram_id": 60,
+            "position": 3,
+            "meaning": {
+                "en": "He who knows no limitation will have cause to lament. No blame.",
+                "ru": "Шестерка третья. Нет ограничений — будут вздохи. Но хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 60,
+            "position": 4,
+            "meaning": {
+                "en": "Contented limitation. Success.",
+                "ru": "Шестерка четвертая. Спокойное ограничение. Свершение."
+            }
+        },
+        {
+            "hexagram_id": 60,
+            "position": 5,
+            "meaning": {
+                "en": "Sweet limitation brings good fortune. Going brings esteem.",
+                "ru": "Девятка пятая. Сладкое ограничение. Счастье. Пойдешь — будет признание."
+            }
+        },
+        {
+            "hexagram_id": 60,
+            "position": 6,
+            "meaning": {
+                "en": "Galling limitation. Perseverance brings misfortune. Remorse disappears.",
+                "ru": "Наверху шестерка. Горькое ограничение. Стойкость — к несчастью. Раскаяние исчезнет."
+            }
+        },
+        {
+            "hexagram_id": 61,
+            "position": 1,
+            "meaning": {
+                "en": "Being prepared brings good fortune. If there are secret designs, it is disquieting.",
+                "ru": "В начале девятка. Сосредоточенность — к счастью. Если будет иное — не будет покоя."
+            }
+        },
+        {
+            "hexagram_id": 61,
+            "position": 2,
+            "meaning": {
+                "en": "A crane calling in the shade. Its young answers it. I have a good goblet. I will share it with you.",
+                "ru": "Девятка вторая. Взывающий журавль находится в тени. Его птенец вторит ему. У меня есть хороший кубок. Я разделю его с тобой."
+            }
+        },
+        {
+            "hexagram_id": 61,
+            "position": 3,
+            "meaning": {
+                "en": "He finds a comrade. Now he beats the drum, now he stops. Now he sobs, now he sings.",
+                "ru": "Шестерка третья. Обретешь противника. То будешь бить в барабан, то перестанешь. То будешь рыдать, то петь песни."
+            }
+        },
+        {
+            "hexagram_id": 61,
+            "position": 4,
+            "meaning": {
+                "en": "The moon nearly at the full. The team horse goes astray. No blame.",
+                "ru": "Шестерка четвертая. Перед полнолунием. Пара коней разлучится. Хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 61,
+            "position": 5,
+            "meaning": {
+                "en": "He possesses truth, which links together. No blame.",
+                "ru": "Девятка пятая. Обладай правдой, которая объединяет. Хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 61,
+            "position": 6,
+            "meaning": {
+                "en": "Cockcrow penetrating to heaven. Perseverance brings misfortune.",
+                "ru": "Наверху девятка. Крик петуха поднимается до неба. Стойкость — к несчастью."
+            }
+        },
+        {
+            "hexagram_id": 62,
+            "position": 1,
+            "meaning": {
+                "en": "The bird meets with misfortune through flying.",
+                "ru": "В начале шестерка. Птица из-за своего полета попадет в беду."
+            }
+        },
+        {
+            "hexagram_id": 62,
+            "position": 2,
+            "meaning": {
+                "en": "She passes by her ancestor and meets her ancestress. He does not reach his prince and meets the official. No blame.",
+                "ru": "Шестерка вторая. Пройдешь мимо деда и встретишь бабку. Не дойдешь до государя и встретишь слугу. Хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 62,
+            "position": 3,
+            "meaning": {
+                "en": "If one is not extremely careful, someone may come up from behind and strike him. Misfortune.",
+                "ru": "Девятка третья. Если не будешь чрезмерно осторожен — кто-нибудь подкрадется сзади и нанесет удар. Несчастье."
+            }
+        },
+        {
+            "hexagram_id": 62,
+            "position": 4,
+            "meaning": {
+                "en": "No blame. He meets him without passing by. Going brings danger. One must be on one's guard. Do not act. Be constantly persevering.",
+                "ru": "Девятка четвертая. Хулы не будет. Не проходи мимо — встретишь его. Поход — к опасности. Нужно быть начеку. Не действуй. Будь вечно стойким."
+            }
+        },
+        {
+            "hexagram_id": 62,
+            "position": 5,
+            "meaning": {
+                "en": "Dense clouds, no rain from our western territory. The prince shoots and hits him who is in the cave.",
+                "ru": "Шестерка пятая. Густые облака, но нет дождя из наших западных земель. Князь выстрелит и попадет в того, кто в пещере."
+            }
+        },
+        {
+            "hexagram_id": 62,
+            "position": 6,
+            "meaning": {
+                "en": "He passes him by, not meeting him. The flying bird leaves him. Misfortune. This means bad luck and injury.",
+                "ru": "Наверху шестерка. Пройдешь мимо и не встретишь его. Летящая птица покидает его. Несчастье. Это называется бедой и увечьем."
+            }
+        },
+        {
+            "hexagram_id": 63,
+            "position": 1,
+            "meaning": {
+                "en": "He halts his wheels. He gets his tail in the water. No blame.",
+                "ru": "В начале девятка. Затормози колеса. Намочишь свой хвост. Хулы не будет."
+            }
+        },
+        {
+            "hexagram_id": 63,
+            "position": 2,
+            "meaning": {
+                "en": "The woman loses the curtain of her carriage. Do not run after it; on the seventh day you will get it.",
+                "ru": "Шестерка вторая. Женщина потеряет завесу своего экипажа. Не гонись за ней — через семь дней обретешь ее."
+            }
+        },
+        {
+            "hexagram_id": 63,
+            "position": 3,
+            "meaning": {
+                "en": "The Illustrious Ancestor disciplines the Devil's Country. After three years he conquers it. Inferior people must not be employed.",
+                "ru": "Девятка третья. Высокий предок напал на страну бесов. Через три года он победил ее. Нельзя использовать мелких людей."
+            }
+        },
+        {
+            "hexagram_id": 63,
+            "position": 4,
+            "meaning": {
+                "en": "The finest clothes turn to rags. Be careful all day long.",
+                "ru": "Шестерка четвертая. В пышном наряде будут лохмотья. Весь день будь начеку."
+            }
+        },
+        {
+            "hexagram_id": 63,
+            "position": 5,
+            "meaning": {
+                "en": "The neighbor in the east who slaughters an ox does not attain as much real blessing as the neighbor in the west with his small offering.",
+                "ru": "Девятка пятая. Сосед на востоке закалывает вола — это не сравнится с малым жертвоприношением соседа на западе. Тот действительно обретет счастье."
+            }
+        },
+        {
+            "hexagram_id": 63,
+            "position": 6,
+            "meaning": {
+                "en": "He gets his head in the water. Danger.",
+                "ru": "Наверху шестерка. Намочишь свою голову. Опасно."
+            }
+        },
+        {
+            "hexagram_id": 64,
+            "position": 1,
+            "meaning": {
+                "en": "He gets his tail in the water. Humiliation.",
+                "ru": "В начале шестерка. Намочишь свой хвост. Сожаление."
+            }
+        },
+        {
+            "hexagram_id": 64,
+            "position": 2,
+            "meaning": {
+                "en": "He halts his wheels. Perseverance brings good fortune.",
+                "ru": "Девятка вторая. Затормози колеса. Стойкость — к счастью."
+            }
+        },
+        {
+            "hexagram_id": 64,
+            "position": 3,
+            "meaning": {
+                "en": "Before completion, attack brings misfortune. It furthers one to cross the great water.",
+                "ru": "Шестерка третья. Еще не конец! Поход — к несчастью. Благоприятна переправа через великую реку."
+            }
+        },
+        {
+            "hexagram_id": 64,
+            "position": 4,
+            "meaning": {
+                "en": "Perseverance brings good fortune. Remorse disappears. Shock, thus to discipline the Devil's Country. For three years, great realms are rewarded.",
+                "ru": "Девятка четвертая. Стойкость — к счастью. Раскаяние исчезнет. Потряси — и через три года будет победа над страной бесов. Будет награда в великом государстве."
+            }
+        },
+        {
+            "hexagram_id": 64,
+            "position": 5,
+            "meaning": {
+                "en": "Perseverance brings good fortune. No remorse. The light of the superior man is true. Good fortune.",
+                "ru": "Шестерка пятая. Стойкость — к счастью. Раскаяния не будет. Блеск благородного человека — в его правде. Счастье."
+            }
+        },
+        {
+            "hexagram_id": 64,
+            "position": 6,
+            "meaning": {
+                "en": "There is drinking of wine in genuine confidence. No blame. But if one wets his head, he loses it, in truth.",
+                "ru": "Наверху девяка. Обладай правдой при питье вина. Хулы не будет. Но если намочишь голову — утратишь правду."
+            }
+        }
+    ]
+}
