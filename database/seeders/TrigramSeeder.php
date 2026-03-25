@@ -20,7 +20,7 @@ class TrigramSeeder extends Seeder
         DB::table('trigrams')->truncate();
         Schema::enableForeignKeyConstraints();
 
-        $jsonContent = file_get_contents(database_path('data/i-ching_data.json'));
+        $jsonContent = file_get_contents(database_path('data/i-ching_data_multilang.json'));
 
         if (! is_string($jsonContent)) {
             throw new \RuntimeException('Failed to read JSON file');
@@ -31,16 +31,15 @@ class TrigramSeeder extends Seeder
         foreach ($data['trigrams'] as $trigramData) {
             Trigram::create([
                 'number' => $trigramData['number'],
-                'name' => $trigramData['names'][0], // Первое имя как основное
+                'names' => $trigramData['names'],
                 'chinese_name' => $trigramData['chineseName'],
                 'pinyin_name' => $trigramData['pinyinName'],
                 'character' => $trigramData['character'],
                 'attribute' => $trigramData['attribute'],
-                'image' => $trigramData['images'][0],
                 'images' => $trigramData['images'],
-                'chinese_image' => $trigramData['chineseImage'] ?? null,
-                'pinyin_image' => $trigramData['pinyinImage'] ?? null,
-                'family_relationship' => $trigramData['familyRelationship'] ?? null,
+                'chinese_image' => $trigramData['chineseImage'],
+                'pinyin_image' => $trigramData['pinyinImage'],
+                'family_relationship' => $trigramData['familyRelationship'],
                 'binary' => $trigramData['binary'],
                 'lines' => $trigramData['lines'],
             ]);

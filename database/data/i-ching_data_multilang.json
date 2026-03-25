@@ -223,7 +223,7 @@
             "bottomTrigram": 1,
             "binary": "111111",
             "lines": [1, 1, 1, 1, 1, 1],
-            "description": {
+            "judgment": {
                 "en": "Heaven above and Heaven below: Heaven in constant motion. With the strength of the dragon, the Superior Person steels herself for ceaseless activity. Productive activity. Potent Influence. Sublime success if you keep to your course.",
                 "ru": "Творчество. Изначальное свершение. Благоприятна стойкость."
             }
@@ -241,7 +241,7 @@
             "bottomTrigram": 2,
             "binary": "000000",
             "lines": [0, 0, 0, 0, 0, 0],
-            "description": {
+            "judgment": {
                 "en": "Earth above and Earth below: The Earth contains and sustains. Responsive devotion. Receptive influence. Sublime success if you keep to your course.",
                 "ru": "Исполнение. Изначальное свершение. Благоприятна стойкость кобылицы. Благородному человеку есть куда выступить. Если он двинется первым — заблудится, если пойдет следом — обретет хозяина."
             }
@@ -259,7 +259,7 @@
             "bottomTrigram": 3,
             "binary": "010001",
             "lines": [1, 0, 0, 0, 1, 0],
-            "description": {
+            "judgment": {
                 "en": "Thunder from the Deep: Supreme success if you keep to your course. Carefully consider the first move. Seek help.",
                 "ru": "Начальная трудность. Изначальное свершение; благоприятна стойкость. Не следует куда-либо выступать. Благоприятно возведение вассалов."
             }
@@ -277,7 +277,7 @@
             "bottomTrigram": 4,
             "binary": "100010",
             "lines": [0, 1, 0, 0, 0, 1],
-            "description": {
+            "judgment": {
                 "en": "A fresh Spring at the foot of the Mountain: The sage does not recruit students; the students seek her. Success if you are sincerely firm.",
                 "ru": "Недоразвитость. Свершение. Не я ищу юношей, а юноши ищут меня. При первом гадании — отвечу, при втором и третьем — это назойливость. Назойливость — не поучаю. Благоприятна стойкость."
             }
@@ -295,7 +295,7 @@
             "bottomTrigram": 1,
             "binary": "010111",
             "lines": [1, 1, 1, 0, 1, 0],
-            "description": {
+            "judgment": {
                 "en": "Deep Waters in the Heavens: Great success if you sincerely keep to your course. You may cross to the far shore.",
                 "ru": "Необходимость ждать. Обладателю правды — изначальное свершение, стойкость — к счастью. Благоприятен брод через великую реку."
             }
@@ -313,7 +313,7 @@
             "bottomTrigram": 4,
             "binary": "111010",
             "lines": [0, 1, 0, 1, 1, 1],
-            "description": {
+            "judgment": {
                 "en": "Even though she sincerely knows she is right, the Superior Person anticipates opposition. Seek advice.",
                 "ru": "Тяжба. Обладателю правды — препятствие. С трепетом — средина — к счастью, конец — к несчастью. Благоприятно свидание с великим человеком. Неблагоприятен брод через великую реку."
             }
@@ -331,7 +331,7 @@
             "bottomTrigram": 4,
             "binary": "000010",
             "lines": [0, 1, 0, 0, 0, 0],
-            "description": {
+            "judgment": {
                 "en": "Deep Water beneath the Earth's surface: Good fortune. No mistakes if you follow a course led by experience.",
                 "ru": "Войско. Стойкость. Зрелому человеку — счастье. Хулы не будет."
             }
@@ -349,7 +349,7 @@
             "bottomTrigram": 2,
             "binary": "010000",
             "lines": [0, 0, 0, 0, 1, 0],
-            "description": {
+            "judgment": {
                 "en": "Surface Waters flow together. Good fortune is possible. Cast the coins again to discover if you have the qualities needed to lead.",
                 "ru": "Приближение. Счастье. Расспроси еще раз об изначальной вечной стойкости. Хулы не будет. Неспокойные придут, а опоздавшему — несчастье."
             }
@@ -367,7 +367,7 @@
             "bottomTrigram": 1,
             "binary": "110111",
             "lines": [1, 1, 1, 0, 1, 1],
-            "description": {
+            "judgment": {
                 "en": "Winds of change high in the Heavens: Dense clouds blow in from the west, but still no rain. Small successes.",
                 "ru": "Воспитание малым. Свершение. С западной окраины — плотные облака, но дождя нет."
             }
@@ -385,7 +385,7 @@
             "bottomTrigram": 8,
             "binary": "111011",
             "lines": [1, 1, 0, 1, 1, 1],
-            "description": {
+            "judgment": {
                 "en": "You tread upon the tail of the tiger. Not perceiving you as a threat, the startled tiger does not bite. Success.",
                 "ru": "Наступление на хвост тигра. Он не кусает человека. Свершение."
             }
@@ -403,7 +403,7 @@
             "bottomTrigram": 1,
             "binary": "000111",
             "lines": [1, 1, 1, 0, 0, 0],
-            "description": {
+            "judgment": {
                 "en": "Heaven and Earth embrace, giving birth to Peace. The small depart; the great approach. Success. Good fortune.",
                 "ru": "Расцвет. Малое уходит, великое приходит. Счастье. Свершение."
             }
@@ -421,7 +421,7 @@
             "bottomTrigram": 2,
             "binary": "111000",
             "lines": [0, 0, 0, 1, 1, 1],
-            "description": {
+            "judgment": {
                 "en": "Heaven and Earth move away from each other. The great depart; the small approach. Difficult trials.",
                 "ru": "Упадок. Негодные люди не благоприятствуют стойкости благородного человека. Великое уходит, малое приходит."
             }
@@ -439,7 +439,7 @@
             "bottomTrigram": 7,
             "binary": "111101",
             "lines": [1, 0, 1, 1, 1, 1],
-            "description": {
+            "judgment": {
                 "en": "Fellowship with men in the open. Success. You may cross to the far shore.",
                 "ru": "Единомышленники в поле. Свершение. Благоприятен брод через великую реку. Благоприятна стойкость благородного человека."
             }
@@ -457,7 +457,7 @@
             "bottomTrigram": 1,
             "binary": "101111",
             "lines": [1, 1, 1, 1, 0, 1],
-            "description": {
+            "judgment": {
                 "en": "Fire in the Heavens: Great inner treasures. Supreme success.",
                 "ru": "Обладание великим. Изначальное свершение."
             }
@@ -475,7 +475,7 @@
             "bottomTrigram": 5,
             "binary": "000100",
             "lines": [0, 0, 1, 0, 0, 0],
-            "description": {
+            "judgment": {
                 "en": "Mountain beneath the Earth: Success if you carry things through.",
                 "ru": "Смирение. Свершение. Благородному человеку — довести дело до конца."
             }
@@ -493,7 +493,7 @@
             "bottomTrigram": 2,
             "binary": "001000",
             "lines": [0, 0, 0, 1, 0, 0],
-            "description": {
+            "judgment": {
                 "en": "Thunder comes resounding out of the Earth: Rally your forces, and move boldly forward.",
                 "ru": "Вольность. Благоприятно возведение вассалов и движение войск."
             }
@@ -511,7 +511,7 @@
             "bottomTrigram": 3,
             "binary": "011001",
             "lines": [1, 0, 0, 1, 1, 0],
-            "description": {
+            "judgment": {
                 "en": "Thunder beneath the Lake's surface. Supreme success. No mistakes if you keep to your course.",
                 "ru": "Последование. Изначальное свершение; благоприятна стойкость. Хулы не будет."
             }
@@ -529,7 +529,7 @@
             "bottomTrigram": 6,
             "binary": "100110",
             "lines": [0, 1, 1, 0, 0, 1],
-            "description": {
+            "judgment": {
                 "en": "Winds sweep through the Mountain valley. Supreme success. Before crossing to the far shore, consider the move for three days.",
                 "ru": "Исправление [порчи]. Изначальное свершение. Благоприятен брод через великую реку. Будь бдителен за три дня до начала и три дня после начала."
             }
@@ -547,7 +547,7 @@
             "bottomTrigram": 8,
             "binary": "000011",
             "lines": [1, 1, 0, 0, 0, 0],
-            "description": {
+            "judgment": {
                 "en": "Supreme success if you keep to your course. But be aware that your power will wane, as Summer changes to Fall.",
                 "ru": "Посещение. Изначальное свершение; благоприятна стойкость. Когда наступит восьмая луна — будет несчастье."
             }
@@ -565,7 +565,7 @@
             "bottomTrigram": 2,
             "binary": "110000",
             "lines": [0, 0, 0, 0, 1, 1],
-            "description": {
+            "judgment": {
                 "en": "You have cleansed yourself; now stand ready to make your humble, devout offering.",
                 "ru": "Созерцание. Омыв руки, но еще не принеся жертвы, владей правдой, будучи строгим и полным достоинства."
             }
@@ -583,7 +583,7 @@
             "bottomTrigram": 3,
             "binary": "101001",
             "lines": [1, 0, 0, 1, 0, 1],
-            "description": {
+            "judgment": {
                 "en": "Though unpleasant, it is best to let justice have its due.",
                 "ru": "Стиснутые зубы. Свершение. Благоприятно применение тюрем."
             }
@@ -601,7 +601,7 @@
             "bottomTrigram": 7,
             "binary": "100101",
             "lines": [1, 0, 1, 0, 0, 1],
-            "description": {
+            "judgment": {
                 "en": "Success in small matters. This is a good time to begin something.",
                 "ru": "Убранство. Свершение. Малому благоприятно иметь куда выступить."
             }
@@ -619,7 +619,7 @@
             "bottomTrigram": 2,
             "binary": "100000",
             "lines": [0, 0, 0, 0, 0, 1],
-            "description": {
+            "judgment": {
                 "en": "Any action would be ill-timed. Stand fast.",
                 "ru": "Разрушение. Неблагоприятно иметь куда выступить."
             }
@@ -637,7 +637,7 @@
             "bottomTrigram": 3,
             "binary": "000001",
             "lines": [1, 0, 0, 0, 0, 0],
-            "description": {
+            "judgment": {
                 "en": "The return of old familiars is welcome. You can be sure of this cycle as you are that seven days bring a new week.",
                 "ru": "Возврат. Свершение. Выход и вход — без вреда. Друзья придут — хулы не будет. Обратно вернешься на свой путь. Через семь дней — возврат. Благоприятно иметь куда выступить."
             }
@@ -655,7 +655,7 @@
             "bottomTrigram": 3,
             "binary": "111001",
             "lines": [1, 0, 0, 1, 1, 1],
-            "description": {
+            "judgment": {
                 "en": "Exceptional progress if you are mindful to keep out of the way of the natural Flow. It would be a fatal error to try to alter its course.",
                 "ru": "Беспорочность. Изначальное свершение; благоприятна стойкость. У того, кто не прав, будет беда. Неблагоприятно иметь куда выступить."
             }
@@ -673,7 +673,7 @@
             "bottomTrigram": 1,
             "binary": "100111",
             "lines": [1, 1, 1, 0, 0, 1],
-            "description": {
+            "judgment": {
                 "en": "Persevere. Drawing sustenance from these sources creates good fortune. Then you may cross to the far shore.",
                 "ru": "Воспитание великим. Благоприятна стойкость. Не кормись дома — счастье. Благоприятен брод через великую реку."
             }
@@ -694,7 +694,7 @@
             "bottomTrigram": 3,
             "binary": "100001",
             "lines": [1, 0, 0, 0, 0, 1],
-            "description": {
+            "judgment": {
                 "en": "Endure and good fortune will come. Nurture others in need. Take care what comes out of your mouth, as well as what goes in.",
                 "ru": "Питание. Стойкость — к счастью. Смотри на само питание и на то, как человек сам ищет себе пищу."
             }
@@ -712,7 +712,7 @@
             "bottomTrigram": 6,
             "binary": "011110",
             "lines": [0, 1, 1, 1, 1, 0],
-            "description": {
+            "judgment": {
                 "en": "The Flood rises above the tallest Tree. Any direction is better than where you now stand.",
                 "ru": "Переразвитие великого. Стропила прогибаются. Благоприятно иметь куда выступить. Свершение."
             }
@@ -730,7 +730,7 @@
             "bottomTrigram": 4,
             "binary": "010010",
             "lines": [0, 1, 0, 0, 1, 0],
-            "description": {
+            "judgment": {
                 "en": "Water follows Water. The Superior Person learns flexibility from mistakes. Success if you are sincere.",
                 "ru": "Повторная опасность. Обладателю правды — только в сердце свершение. Действия принесут награду."
             }
@@ -748,7 +748,7 @@
             "bottomTrigram": 7,
             "binary": "101101",
             "lines": [1, 0, 1, 1, 0, 1],
-            "description": {
+            "judgment": {
                 "en": "Fire sparks more Flames. Take care to be as peaceful as the cow in the meadow.",
                 "ru": "Сияние. Благоприятна стойкость. Свершение. Уход за коровой — к счастью."
             }
@@ -766,7 +766,7 @@
             "bottomTrigram": 5,
             "binary": "011100",
             "lines": [0, 0, 1, 1, 1, 0],
-            "description": {
+            "judgment": {
                 "en": "The joyous Lake is cradled by the tranquil Mountain. Supreme success. This course leads to marriage.",
                 "ru": "Взаимодействие. Свершение. Благоприятна стойкость. Взять жену — к счастью."
             }
@@ -784,7 +784,7 @@
             "bottomTrigram": 6,
             "binary": "001110",
             "lines": [0, 1, 1, 1, 0, 0],
-            "description": {
+            "judgment": {
                 "en": "Arousing Thunder and penetrating Wind. Such constancy deserves success.",
                 "ru": "Постоянство. Свершение. Хулы не будет. Благоприятна стойкость. Благоприятно иметь куда выступить."
             }
@@ -802,7 +802,7 @@
             "bottomTrigram": 5,
             "binary": "111100",
             "lines": [0, 0, 1, 1, 1, 1],
-            "description": {
+            "judgment": {
                 "en": "The Superior Person keeps shallow men at a distance, not in anger but with dignity. Such a retreat leads to Success.",
                 "ru": "Бегство. Свершение. Малому благоприятна стойкость."
             }
@@ -820,7 +820,7 @@
             "bottomTrigram": 1,
             "binary": "001111",
             "lines": [1, 1, 1, 1, 0, 0],
-            "description": {
+            "judgment": {
                 "en": "Because of her Great Power, the Superior Person takes pains not to overstep her position. Opportunity will arise.",
                 "ru": "Великая мощь. Благоприятна стойкость."
             }
@@ -838,7 +838,7 @@
             "bottomTrigram": 2,
             "binary": "101000",
             "lines": [0, 0, 0, 1, 0, 1],
-            "description": {
+            "judgment": {
                 "en": "The Sun shines down upon the Earth. Promotion. Granted audience three times in a single day.",
                 "ru": "Восход. Процветающему князю должно жаловать коней в большом количестве. В течение дня он трижды будет принят [царем]."
             }
@@ -856,7 +856,7 @@
             "bottomTrigram": 7,
             "binary": "000101",
             "lines": [1, 0, 1, 0, 0, 0],
-            "description": {
+            "judgment": {
                 "en": "Warmth and Light are swallowed by deep Darkness. Stay true to your course, despite obstacles.",
                 "ru": "Поражение света. Благоприятна в трудностях стойкость."
             }
@@ -874,7 +874,7 @@
             "bottomTrigram": 7,
             "binary": "110101",
             "lines": [1, 0, 1, 0, 1, 1],
-            "description": {
+            "judgment": {
                 "en": "The Superior Person weighs her words carefully. Be as faithful as a good wife.",
                 "ru": "Домашние. Благоприятна женщине стойкость."
             }
@@ -892,7 +892,7 @@
             "bottomTrigram": 8,
             "binary": "101011",
             "lines": [1, 1, 0, 1, 0, 1],
-            "description": {
+            "judgment": {
                 "en": "No matter how diverse the group, the Superior Person remains uniquely herself. Small accomplishments possible.",
                 "ru": "Разлад. В малых делах — счастье."
             }
@@ -910,7 +910,7 @@
             "bottomTrigram": 5,
             "binary": "010100",
             "lines": [0, 0, 1, 0, 1, 0],
-            "description": {
+            "judgment": {
                 "en": "When meeting an impasse, view the obstacle from a new perspective. Let a sage guide you.",
                 "ru": "Препятствие. Благоприятен юго-запад, неблагоприятен северо-восток. Благоприятно свидание с великим человеком. Стойкость — к счастью."
             }
@@ -928,7 +928,7 @@
             "bottomTrigram": 4,
             "binary": "001010",
             "lines": [0, 1, 0, 1, 0, 0],
-            "description": {
+            "judgment": {
                 "en": "A Thunderous Cloudburst shatters the oppressive humidity. Release in forgiveness.",
                 "ru": "Разрешение. Благоприятен юго-запад. Если некуда выступить, то, когда придешь обратно, будет счастье. Если есть куда выступить, то еще заранее будет счастье."
             }
@@ -946,7 +946,7 @@
             "bottomTrigram": 8,
             "binary": "100011",
             "lines": [1, 1, 0, 0, 0, 1],
-            "description": {
+            "judgment": {
                 "en": "The stoic Mountain drains its excess waters to the Lake below. To be frugal is to possess immeasurable wealth within.",
                 "ru": "Убыль. Обладателю правды — изначальное счастье. Хулы не будет. Стойкость возможна. Благоприятно иметь куда выступить. Что нужно для этого? Можно использовать и две чаши [для жертвоприношения]."
             }
@@ -964,7 +964,7 @@
             "bottomTrigram": 3,
             "binary": "110001",
             "lines": [1, 0, 0, 0, 1, 1],
-            "description": {
+            "judgment": {
                 "en": "When the Superior Person encounters saintly behavior, she adopts it. Progress in every endeavor. You may cross to the far shore.",
                 "ru": "Приумножение. Благоприятно иметь куда выступить. Благоприятен брод через великую реку."
             }
@@ -982,7 +982,7 @@
             "bottomTrigram": 1,
             "binary": "011111",
             "lines": [1, 1, 1, 1, 1, 0],
-            "description": {
+            "judgment": {
                 "en": "The issue must be raised before an impartial authority. Be sincere and earnest, despite the danger. Set a clear goal.",
                 "ru": "Выход. Огласишь в царском дворе. Правдиво взывай. Будет опасность. Возвещай от своего города. Неблагоприятно браться за оружие. Благоприятно иметь куда выступить."
             }
@@ -1000,7 +1000,7 @@
             "bottomTrigram": 6,
             "binary": "111110",
             "lines": [0, 1, 1, 1, 1, 1],
-            "description": {
+            "judgment": {
                 "en": "A Prince who shouts orders but will not walk among her people. A strong, addictive temptation.",
                 "ru": "Перемирие. Женщина сильна. Не следует брать [такую] женщину."
             }
@@ -1018,7 +1018,7 @@
             "bottomTrigram": 2,
             "binary": "011000",
             "lines": [0, 0, 0, 1, 1, 0],
-            "description": {
+            "judgment": {
                 "en": "The King approaches her temple. Success follows this course. Making an offering will seal your good fortune.",
                 "ru": "Воссоединение. Свершение. Царь приближается к обладателям храма. Благоприятно свидание с великим человеком. Свершение. Благоприятна стойкость. Великое жертвоприношение — к счастью. Благоприятно иметь куда выступить."
             }
@@ -1036,7 +1036,7 @@
             "bottomTrigram": 6,
             "binary": "000110",
             "lines": [0, 1, 1, 0, 0, 0],
-            "description": {
+            "judgment": {
                 "en": "Beneath the Soil, the Seedling pushes upward. Supreme success. Seek guidance from someone you respect.",
                 "ru": "Подъем. Изначальное свершение. Благоприятно свидание с великим человеком. Не бойся. Южное направление — к счастью."
             }
@@ -1054,7 +1054,7 @@
             "bottomTrigram": 4,
             "binary": "011010",
             "lines": [0, 1, 0, 1, 1, 0],
-            "description": {
+            "judgment": {
                 "en": "The Superior Person will stake her life on what she believes. Triumph belongs to those who endure. Action prevails where words fail.",
                 "ru": "Истощение. Свершение. Стойкость. Великому человеку — счастье. Хулы не будет. Если есть слова, то они не заслуживают веры."
             }
@@ -1072,7 +1072,7 @@
             "bottomTrigram": 6,
             "binary": "010110",
             "lines": [0, 1, 1, 0, 1, 0],
-            "description": {
+            "judgment": {
                 "en": "The Well endures, never drying to dust, never overflowing. If the bucket breaks or the rope is too short there will be misfortune.",
                 "ru": "Колодец. Меняют города, но не меняют колодец. Ничего не утратишь, но ничего и не приобретешь. Уйдешь и придешь, но колодец останется колодцем. Если почти достанешь воду, но не хватит веревки или разобьешь бадью — несчастье."
             }
@@ -1090,7 +1090,7 @@
             "bottomTrigram": 7,
             "binary": "011101",
             "lines": [1, 0, 1, 1, 1, 0],
-            "description": {
+            "judgment": {
                 "en": "The support you need will come only after the deed is done. Renewed forces. All differences vanish.",
                 "ru": "Смена. В собственный день будешь исполнен доверия. Изначальное свершение. Благоприятна стойкость. Раскаяние исчезнет."
             }
@@ -1108,7 +1108,7 @@
             "bottomTrigram": 6,
             "binary": "101110",
             "lines": [0, 1, 1, 1, 0, 1],
-            "description": {
+            "judgment": {
                 "en": "Fire rises from the Wood beneath the sacrificial caldron. Supreme accomplishment.",
                 "ru": "Жертвенник. Изначальное счастье. Свершение."
             }
@@ -1126,7 +1126,7 @@
             "bottomTrigram": 3,
             "binary": "001001",
             "lines": [1, 0, 0, 1, 0, 0],
-            "description": {
+            "judgment": {
                 "en": "Thunder echoes upon Thunder. As the people nervously laugh at their own fright, the devout presents the sacrificial chalice.",
                 "ru": "Молния. Свершение. Когда придет молния — испугаешься, а потом будешь смеяться. Молния пугает на сто ли, но она не опрокинет и ложки вина."
             }
@@ -1144,7 +1144,7 @@
             "bottomTrigram": 5,
             "binary": "100100",
             "lines": [0, 0, 1, 0, 0, 1],
-            "description": {
+            "judgment": {
                 "en": "Stilling the sensations of the Ego, she roams her courtyard without moving a muscle. This is no mistake.",
                 "ru": "Сосредоточенность на своей спине. Не обретешь своего тела. Пройдешь по своему двору и не увидишь своих людей. Хулы не будет."
             }
@@ -1162,7 +1162,7 @@
             "bottomTrigram": 5,
             "binary": "110100",
             "lines": [0, 0, 1, 0, 1, 1],
-            "description": {
+            "judgment": {
                 "en": "Development. The maiden is given in marriage. Good fortune if you stay on course.",
                 "ru": "Течение. У женщины — счастье при выходе замуж. Благоприятна стойкость."
             }
@@ -1180,7 +1180,7 @@
             "bottomTrigram": 8,
             "binary": "001011",
             "lines": [1, 1, 0, 1, 0, 0],
-            "description": {
+            "judgment": {
                 "en": "Any action will prove unfortunate. Nothing furthers.",
                 "ru": "Невеста. В походе — несчастье. Ничего не благоприятствует."
             }
@@ -1198,7 +1198,7 @@
             "bottomTrigram": 7,
             "binary": "001101",
             "lines": [1, 0, 1, 1, 0, 0],
-            "description": {
+            "judgment": {
                 "en": "Be like the noonday sun at its zenith. This is success.",
                 "ru": "Изобилие. Свершение. Царь приближается к нему. Не бойся! Солнце — в зените."
             }
@@ -1216,7 +1216,7 @@
             "bottomTrigram": 5,
             "binary": "101100",
             "lines": [0, 0, 1, 1, 0, 1],
-            "description": {
+            "judgment": {
                 "en": "Find satisfaction in small gains. To move constantly forward is good fortune to a Wanderer.",
                 "ru": "Странствие. Малому — свершение. Страннику стойкость — к счастью."
             }
@@ -1234,7 +1234,7 @@
             "bottomTrigram": 6,
             "binary": "110110",
             "lines": [0, 1, 1, 0, 1, 1],
-            "description": {
+            "judgment": {
                 "en": "Small, persistent, focused effort brings success. Seek advice from someone you respect.",
                 "ru": "Проникновение. Малому — свершение. Благоприятно иметь куда выступить. Благоприятно свидание с великим человеком."
             }
@@ -1252,7 +1252,7 @@
             "bottomTrigram": 8,
             "binary": "011011",
             "lines": [1, 1, 0, 1, 1, 0],
-            "description": {
+            "judgment": {
                 "en": "The joyous Lake spans to the horizon. Success if you stay on course.",
                 "ru": "Радость. Свершение. Благоприятна стойкость."
             }
@@ -1270,7 +1270,7 @@
             "bottomTrigram": 4,
             "binary": "110010",
             "lines": [0, 1, 0, 0, 1, 1],
-            "description": {
+            "judgment": {
                 "en": "Wind carries the Mists aloft. Success if you stay on course. You may cross to the far shore.",
                 "ru": "Раздробление. Свершение. Царь приближается к обладателям храма. Благоприятен брод через великую реку. Благоприятна стойкость."
             }
@@ -1288,7 +1288,7 @@
             "bottomTrigram": 8,
             "binary": "010011",
             "lines": [1, 1, 0, 0, 1, 0],
-            "description": {
+            "judgment": {
                 "en": "Self-discipline brings success; but restraints too binding bring self-defeat.",
                 "ru": "Ограничение. Свершение. Горькое ограничение не должно быть стойким."
             }
@@ -1306,7 +1306,7 @@
             "bottomTrigram": 8,
             "binary": "110011",
             "lines": [1, 1, 0, 0, 1, 1],
-            "description": {
+            "judgment": {
                 "en": "Pigs and fishes. You may cross to the far shore. Great fortune if you stay on course.",
                 "ru": "Внутренняя правда. Свиньи и рыбы — к счастью. Благоприятен брод через великую реку. Благоприятна стойкость."
             }
@@ -1324,7 +1324,7 @@
             "bottomTrigram": 5,
             "binary": "001100",
             "lines": [0, 0, 1, 1, 0, 0],
-            "description": {
+            "judgment": {
                 "en": "Rather than push upward now, it is best to remain below. This will bring surprising good fortune.",
                 "ru": "Переразвитие малого. Свершение. Благоприятна стойкость. Можно делать малое, нельзя делать великое. Летящая птица оставляет голос. Не следует подниматься, следует опускаться. Великое счастье."
             }
@@ -1342,7 +1342,7 @@
             "bottomTrigram": 7,
             "binary": "010101",
             "lines": [1, 0, 1, 0, 1, 0],
-            "description": {
+            "judgment": {
                 "en": "Success in small matters. Early good fortune can end in disorder.",
                 "ru": "Уже конец. Свершение — малому. Благоприятна стойкость. В начале — счастье, в конце — беспорядок."
             }
@@ -1360,7 +1360,7 @@
             "bottomTrigram": 4,
             "binary": "101010",
             "lines": [0, 1, 0, 1, 0, 1],
-            "description": {
+            "judgment": {
                 "en": "Too anxious the young fox gets her tail wet. To attain success, be like the woman and not like the fox.",
                 "ru": "Еще не конец. Свершение. Молодой лис почти переправился, но вымочил хвост. Ничего не благоприятствует."
             }

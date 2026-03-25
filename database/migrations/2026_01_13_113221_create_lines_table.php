@@ -15,9 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('hexagram_id')->constrained();
             $table->unsignedTinyInteger('position');
-            $table->text('meaning');
-
-            $table->text('changing_meaning')->nullable();
+            $table->json('meaning');
         });
     }
 

@@ -14,18 +14,17 @@ return new class extends Migration
         Schema::create('trigrams', function (Blueprint $table): void {
             $table->id();
             $table->integer('number')->unique(); // 1-8
-            $table->string('name'); // Основное английское имя
+            $table->json('names');
             $table->string('chinese_name');
             $table->string('pinyin_name');
-            $table->string('character')->nullable(); // Символ ☰
-            $table->string('attribute');
-            $table->string('image'); // Основной образ
-            $table->json('images')->nullable(); // Все образы
-            $table->string('chinese_image')->nullable();
-            $table->string('pinyin_image')->nullable();
-            $table->string('family_relationship')->nullable();
+            $table->string('character'); // Символ ☰
+            $table->json('attribute');
+            $table->json('images');
+            $table->string('chinese_image');
+            $table->string('pinyin_image');
+            $table->json('family_relationship');
             $table->string('binary', 3);
-            $table->json('lines')->nullable(); // [1,1,1]
+            $table->json('lines'); // [1,1,1]
         });
     }
 

@@ -9,9 +9,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
+use Spatie\Translatable\HasTranslations;
 
 class Hexagram extends Model
 {
+    use HasTranslations;
+
     /**
      * Indicates if the model should be timestamped.
      *
@@ -20,9 +23,12 @@ class Hexagram extends Model
     public $timestamps = false;
 
     protected $casts = [
-        'names' => 'array',
+        'names' => 'json',
         'lines' => 'array',
+        'judgment' => 'json',
     ];
+
+    public array $translatable = ['names', 'judgment'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<\App\Models\Trigram, $this>

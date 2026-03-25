@@ -14,21 +14,15 @@ return new class extends Migration
         Schema::create('hexagrams', function (Blueprint $table): void {
             $table->id();
             $table->integer('number')->unique(); // 1-64
-            $table->string('name'); // Основное английское имя
-            $table->json('names')->nullable(); // Все имена
+            $table->json('names');
             $table->string('chinese_name');
             $table->string('pinyin_name');
-            $table->string('character')->nullable(); // Символ Юникода
+            $table->string('character'); // Символ Юникода
             $table->foreignId('upper_trigram_id')->constrained('trigrams');
             $table->foreignId('lower_trigram_id')->constrained('trigrams');
-            $table->string('binary', 6)->unique()->index(); // Например, "111111"
-            $table->json('lines')->nullable(); // [1,1,1,1,1,1]
-            $table->text('judgment');
-
-            // Эти поля нужно будет заполнить позже из других источников
-            $table->text('description')->nullable();
-            $table->text('image')->nullable(); // ВОзможное второе толкование
-
+            $table->string('binary', 6)->unique()->index();
+            $table->json('lines'); // [1,1,1,1,1,1]
+            $table->json('judgment');
         });
     }
 

@@ -23,7 +23,7 @@ class HexagramSeeder extends Seeder
         DB::table('hexagrams')->truncate();
         Schema::enableForeignKeyConstraints();
 
-        $jsonContent = file_get_contents(database_path('data/i-ching_data.json'));
+        $jsonContent = file_get_contents(database_path('data/i-ching_data_multilang.json'));
 
         if (! is_string($jsonContent)) {
             throw new \RuntimeException('Failed to read JSON file');
@@ -42,7 +42,6 @@ class HexagramSeeder extends Seeder
         foreach ($data['hexagrams'] as $hexagramData) {
             $hexagram = Hexagram::create([
                 'number' => $hexagramData['number'],
-                'name' => $hexagramData['names'][0], // Основное имя
                 'names' => $hexagramData['names'],
                 'chinese_name' => $hexagramData['chineseName'],
                 'pinyin_name' => $hexagramData['pinyinName'],
@@ -51,9 +50,7 @@ class HexagramSeeder extends Seeder
                 'lower_trigram_id' => $hexagramData['bottomTrigram'],
                 'binary' => $hexagramData['binary'],
                 'lines' => $hexagramData['lines'],
-                'judgment' => $hexagramData['description'] ?? null,
-                'image' => null,
-                'description' => null,
+                'judgment' => $hexagramData['judgment'],
             ]);
 
             $hexagramCount++;
@@ -65,7 +62,6 @@ class HexagramSeeder extends Seeder
                     'hexagram_id' => $hexagram->id,
                     'position' => $lineItem['position'],
                     'meaning' => $lineItem['meaning'],
-                    'changing_meaning' => null,
                 ]);
                 $lineCount++;
             }

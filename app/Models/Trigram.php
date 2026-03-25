@@ -5,9 +5,12 @@ declare(strict_types=1);
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Translatable\HasTranslations;
 
 class Trigram extends Model
 {
+    use HasTranslations;
+
     /**
      * Indicates if the model should be timestamped.
      *
@@ -16,7 +19,12 @@ class Trigram extends Model
     public $timestamps = false;
 
     protected $casts = [
-        'images' => 'array',
+        'names' => 'json',
+        'attribute' => 'json',
+        'images' => 'json',
+        'family_relationship' => 'json',
         'lines' => 'array',
     ];
+
+    public array $translatable = ['names', 'attribute', 'images', 'family_relationship'];
 }
