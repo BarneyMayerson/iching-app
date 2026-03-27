@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Coin from '@/components/IChing/Coin.vue';
 import HexagramLine from '@/components/IChing/HexagramLine.vue'; // Твой обновленный компонент
+import { useTranslate } from '@/composables/useTranslate';
 import AppLayout from '@/layouts/AppLayout.vue';
 import { index, store } from '@/routes/cabinet/divinations';
 import { type BreadcrumbItem } from '@/types';
@@ -8,6 +9,7 @@ import { Head, useForm } from '@inertiajs/vue3';
 import { Coins, Loader2, Sparkles, Zap } from 'lucide-vue-next';
 import { ref } from 'vue';
 
+const { __ } = useTranslate();
 // Состояния режимов
 type Mode = 'classic' | 'quick';
 const mode = ref<Mode>('classic');
@@ -22,8 +24,8 @@ enum CastingPhase {
 }
 
 const breadcrumbs: BreadcrumbItem[] = [
-  { title: 'Divinations', href: index().url },
-  { title: 'New Casting', href: '#' },
+  { title: __('Divinations'), href: index().url },
+  { title: __('New Casting'), href: '#' },
 ];
 
 const castingPhase = ref<CastingPhase>(CastingPhase.Initial);
@@ -135,7 +137,7 @@ const resetCasting = () => {
 </script>
 
 <template>
-  <Head title="Consult the Oracle" />
+  <Head :title="__('Consult the Oracle')" />
 
   <AppLayout :breadcrumbs>
     <div
@@ -150,7 +152,7 @@ const resetCasting = () => {
               <h2
                 class="font-serif text-2xl font-bold text-slate-900 dark:text-slate-100"
               >
-                Your Inquiry
+                {{ __('Your Inquiry') }}
               </h2>
 
               <div
@@ -166,7 +168,7 @@ const resetCasting = () => {
                   "
                   class="flex items-center gap-2 rounded-md px-3 py-1.5 text-xs font-medium transition-all"
                 >
-                  <Sparkles class="size-3" /> Classic
+                  <Sparkles class="size-3" /> {{ __('Classic') }}
                 </button>
                 <button
                   @click="mode = 'quick'"
@@ -177,7 +179,7 @@ const resetCasting = () => {
                   "
                   class="flex items-center gap-2 rounded-md px-3 py-1.5 text-xs font-medium transition-all"
                 >
-                  <Zap class="size-3" /> Quick
+                  <Zap class="size-3" /> {{ __('Quick') }}
                 </button>
               </div>
             </div>
@@ -202,7 +204,7 @@ const resetCasting = () => {
               v-else
               v-model="form.question"
               :disabled="lineCount > 0 || isCasting"
-              placeholder="Enter your question to the Book of Changes..."
+              :placeholder="__('Enter your question to the Book of Changes...')"
               class="w-full resize-none rounded-2xl border border-slate-200 bg-slate-50/50 p-5 text-lg transition-all outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 dark:border-slate-800 dark:bg-slate-950/50 dark:text-slate-100"
               rows="3"
             ></textarea>
@@ -221,10 +223,14 @@ const resetCasting = () => {
 
               <div class="space-y-2 text-center">
                 <h3 class="font-serif text-2xl font-bold">
-                  The pattern is complete
+                  {{ __('The pattern is complete') }}
                 </h3>
                 <p class="text-slate-500">
-                  Would you like to record this divination in your history?
+                  {{
+                    __(
+                      'Would you like to record this divination in your history?',
+                    )
+                  }}
                 </p>
               </div>
 
@@ -237,7 +243,7 @@ const resetCasting = () => {
                   class="flex items-center justify-center gap-2 rounded-full bg-amber-600 px-10 py-4 text-lg font-bold text-white shadow-lg shadow-amber-900/20 transition-all hover:bg-amber-500 active:scale-95 disabled:opacity-50 dark:bg-amber-500 dark:hover:bg-amber-600"
                 >
                   <Loader2 v-if="form.processing" class="size-5 animate-spin" />
-                  Save & Interpret
+                  {{ __('Save & Interpret') }}
                 </button>
 
                 <button
@@ -245,7 +251,7 @@ const resetCasting = () => {
                   :disabled="form.processing"
                   class="rounded-full bg-slate-200 px-10 py-4 text-lg font-bold text-slate-700 transition-all hover:bg-slate-300 active:scale-95 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700"
                 >
-                  Start Over
+                  {{ __('Start Over') }}
                 </button>
               </div>
             </div>
@@ -262,7 +268,7 @@ const resetCasting = () => {
                   <p
                     class="animate-pulse font-serif text-xl text-amber-600 italic"
                   >
-                    The Oracle is synthesizing the patterns...
+                    {{ __('The Oracle is synthesizing the patterns...') }}
                   </p>
                 </div>
                 <div v-else class="space-y-4">
@@ -272,14 +278,14 @@ const resetCasting = () => {
                     <Coins class="size-10" />
                   </div>
                   <p class="font-serif text-slate-500 italic">
-                    All six lines will be cast simultaneously.
+                    {{ __('All six lines will be cast simultaneously.') }}
                   </p>
                   <button
                     @click="castQuick"
                     :disabled="form.question.length < 3"
                     class="rounded-full bg-amber-600 px-10 py-4 font-bold text-white shadow-lg shadow-amber-900/20 transition-all hover:bg-amber-500 active:scale-95 disabled:opacity-30 dark:bg-amber-500 dark:hover:bg-amber-600"
                   >
-                    Instant Casting
+                    {{ __('Instant Casting') }}
                   </button>
                 </div>
               </div>
@@ -292,8 +298,8 @@ const resetCasting = () => {
                   >
                     {{
                       castingPhase.includes('single')
-                        ? 'Phase I: Polarity'
-                        : 'Phase II: Maturity'
+                        ? __('Phase I: Polarity')
+                        : __('Phase II: Maturity')
                     }}
                   </p>
 
@@ -334,9 +340,9 @@ const resetCasting = () => {
                   >
                     {{
                       singleCoinResult === 3
-                        ? 'YANG'
+                        ? __('YANG')
                         : singleCoinResult === 2
-                          ? 'YIN'
+                          ? __('YIN')
                           : ''
                     }}
                   </div>
@@ -352,14 +358,24 @@ const resetCasting = () => {
                     <Coins class="size-8" />
                   </div>
                   <p class="text-slate-600 dark:text-slate-400">
-                    Line {{ lineCount + 1 }} of 6
+                    {{
+                      __('Line :current of 6').replace(
+                        ':current',
+                        (lineCount + 1).toString(),
+                      )
+                    }}
                   </p>
                   <button
                     @click="castPerLine"
                     :disabled="form.question.length < 3 || isCasting"
                     class="rounded-full bg-slate-900 px-10 py-4 font-bold text-white shadow-lg transition-all hover:bg-slate-800 active:scale-95 disabled:opacity-30 dark:bg-amber-500 dark:hover:bg-amber-600"
                   >
-                    Cast Line {{ lineCount + 1 }}
+                    {{
+                      __('Cast Line :number').replace(
+                        ':number',
+                        (lineCount + 1).toString(),
+                      )
+                    }}
                   </button>
                 </div>
               </div>
@@ -374,7 +390,7 @@ const resetCasting = () => {
         <h3
           class="mb-10 text-xs font-bold tracking-[0.2em] text-slate-400 uppercase"
         >
-          Emerging Hexagram
+          {{ __('Emerging Hexagram') }}
         </h3>
 
         <div class="flex w-full max-w-45 flex-col-reverse gap-4">
@@ -382,6 +398,7 @@ const resetCasting = () => {
             v-for="(val, idx) in hexagramCoinResults"
             :key="idx"
             :value="val"
+            :position="idx + 1"
             class="animate-in duration-700 fade-in slide-in-from-bottom-4"
           />
 
@@ -399,7 +416,7 @@ const resetCasting = () => {
           <p
             class="mt-2 text-[10px] font-bold tracking-widest text-slate-400 uppercase dark:text-slate-500"
           >
-            Lines Completed
+            {{ __('Lines Completed') }}
           </p>
         </div>
       </div>

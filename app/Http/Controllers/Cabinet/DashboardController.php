@@ -45,7 +45,7 @@ class DashboardController extends Controller
             ->selectRaw('COUNT(*) as count')
             ->groupBy('binary')
             ->orderByDesc('count')
-            ->with('hexagram:name,binary,number,character')
+            ->with('hexagram:names,binary,number,character')
             ->first();
 
         // 3. Энергетический баланс (Инь/Ян)
@@ -65,7 +65,7 @@ class DashboardController extends Controller
                 ],
                 'top_hexagram' => $topReading ? [
                     'count' => $topReading->count,
-                    'hexagram' => $topReading->hexagram,
+                    'hexagram' => $topReading->hexagram->toResource(),
                 ] : null,
                 'total_readings' => $user->readings()->count(),
             ],

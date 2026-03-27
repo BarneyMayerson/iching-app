@@ -90,7 +90,7 @@ const breadcrumbs = computed<BreadcrumbItem[]>(() => [
               </p>
               <h4 class="truncate font-serif text-lg leading-tight font-bold">
                 {{ stats.top_hexagram.hexagram.number }}.
-                {{ stats.top_hexagram.hexagram.name }}
+                {{ stats.top_hexagram.hexagram.names[0] }}
               </h4>
               <p class="text-xs text-slate-400">
                 {{
