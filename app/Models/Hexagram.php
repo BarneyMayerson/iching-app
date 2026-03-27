@@ -28,6 +28,7 @@ class Hexagram extends Model
         'judgment' => 'json',
     ];
 
+    /** @var list<string> */
     public array $translatable = ['names', 'judgment'];
 
     /**

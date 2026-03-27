@@ -38,7 +38,6 @@ class HexagramResource extends JsonResource
                 'pinyin' => $this->pinyin_name,
             ],
             'judgment' => $this->judgment,
-            'image' => $this->image,
             'lines' => LineResource::collection($this->whenLoaded('hexagramLines')),
             'top_trigram' => TrigramResource::make(self::$trigramsCache->get($this->upper_trigram_id)),
             'bottom_trigram' => TrigramResource::make(self::$trigramsCache->get($this->lower_trigram_id)),

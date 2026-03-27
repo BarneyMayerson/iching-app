@@ -26,7 +26,6 @@ it('returns correctly formatted data for a hexagram', function () {
         'names',
         'origins',
         'judgment',
-        'image',
         'lines',
         'top_trigram',
         'bottom_trigram',

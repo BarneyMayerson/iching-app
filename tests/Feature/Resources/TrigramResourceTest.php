@@ -14,7 +14,6 @@ it('returns correctly formatted data for a trigram', function () {
 
     expect($resource->toArray(request()))->toMatchArray([
         'number' => $trigram->number,
-        'name' => $trigram->name,
         'symbol' => $trigram->character,
         'binary' => $trigram->binary,
         'attribute' => $trigram->attribute,

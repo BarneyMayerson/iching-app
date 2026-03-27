@@ -21,7 +21,6 @@ class TrigramResource extends JsonResource
     {
         return [
             'number' => $this->number,
-            'name' => $this->name,
             'symbol' => $this->character,
             'binary' => $this->binary,
             'attribute' => $this->attribute,

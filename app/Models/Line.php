@@ -18,6 +18,7 @@ class Line extends Model
         'meaning' => 'json',
     ];
 
+    /** @var list<string> */
     public array $translatable = ['meaning'];
 
     /**

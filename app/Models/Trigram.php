@@ -26,5 +26,6 @@ class Trigram extends Model
         'lines' => 'array',
     ];
 
+    /** @var list<string> */
     public array $translatable = ['names', 'attribute', 'images', 'family_relationship'];
 }
