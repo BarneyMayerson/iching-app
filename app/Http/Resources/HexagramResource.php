@@ -4,13 +4,14 @@ declare(strict_types=1);
 
 namespace App\Http\Resources;
 
+use App\Models\Hexagram;
 use App\Models\Trigram;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Collection;
 
 /**
- * @mixin \App\Models\Hexagram
+ * @mixin Hexagram
  */
 class HexagramResource extends JsonResource
 {

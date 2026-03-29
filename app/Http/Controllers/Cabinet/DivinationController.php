@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\ReadingResource;
 use App\Models\Hexagram;
 use App\Models\Reading;
+use App\Models\User;
 use App\Services\IChingService;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
@@ -26,7 +27,7 @@ class DivinationController extends Controller
 
     public function index(Request $request): Response
     {
-        /** @var \App\Models\User $user */
+        /** @var User $user */
         $user = Auth::user();
 
         $readings = $user->readings()

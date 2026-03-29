@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Cabinet;
 
 use App\Http\Controllers\Controller;
+use App\Models\Hexagram;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
@@ -39,7 +40,7 @@ class DashboardController extends Controller
         ]);
 
         // 2. Самая частая гексаграмма
-        /** @var object{count: int, hexagram: \App\Models\Hexagram}|null $topReading */
+        /** @var object{count: int, hexagram: Hexagram}|null $topReading */
         $topReading = $user->readings()
             ->select('binary')
             ->selectRaw('COUNT(*) as count')

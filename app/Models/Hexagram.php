@@ -32,7 +32,7 @@ class Hexagram extends Model
     public array $translatable = ['names', 'judgment'];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<\App\Models\Trigram, $this>
+     * @return BelongsTo<Trigram, $this>
      */
     public function upperTrigram(): BelongsTo
     {
@@ -40,7 +40,7 @@ class Hexagram extends Model
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<\App\Models\Trigram, $this>
+     * @return BelongsTo<Trigram, $this>
      */
     public function lowerTrigram(): BelongsTo
     {
@@ -48,7 +48,7 @@ class Hexagram extends Model
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany<\App\Models\Line, $this>
+     * @return HasMany<Line, $this>
      */
     public function hexagramLines(): HasMany
     {

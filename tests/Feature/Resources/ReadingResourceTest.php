@@ -34,7 +34,7 @@ it('returns correctly formatted data for a hexagram', function () {
     /** @var list<int> $coinResults */
     $coinResults = $reading->coin_results;
 
-    expect($data['binary'])->toBe(app(IChingService::class)->coinResultsToBinary($coinResults));
+    expect($data['binary'])->toBe(resolve(IChingService::class)->coinResultsToBinary($coinResults));
 
     expect($data['hexagram'])->toBeInstanceOf(HexagramResource::class);
     expect($data['secondary_hexagram'])->toBeInstanceOf(HexagramResource::class);

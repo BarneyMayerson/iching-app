@@ -22,7 +22,7 @@ class Line extends Model
     public array $translatable = ['meaning'];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<\App\Models\Hexagram, $this>
+     * @return BelongsTo<Hexagram, $this>
      */
     public function hexagram(): BelongsTo
     {

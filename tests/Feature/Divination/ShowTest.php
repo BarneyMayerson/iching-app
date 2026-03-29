@@ -31,7 +31,6 @@ test('auth user can visit own divination show page', function () {
         'secondaryHexagram.lowerTrigram',
     );
 
-    // @phpstan-ignore-next-line
     actingAs($user)
         ->get(route('cabinet.divinations.show', $reading))
         ->assertOk()

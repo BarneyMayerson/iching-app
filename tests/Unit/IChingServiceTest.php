@@ -4,7 +4,7 @@ use App\Services\IChingService;
 
 describe('iChingService coin casting', function (): void {
     beforeEach(function () use (&$service): void {
-        $service = app(IChingService::class);
+        $service = resolve(IChingService::class);
     });
 
     it('produces correct binary representation from coin results', function () use (&$service) {

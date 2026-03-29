@@ -6,6 +6,7 @@ namespace App\Providers;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Http\Resources\Json\ResourceCollection;
+use Illuminate\Http\Response;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Testing\TestResponse;
 use Inertia\Testing\AssertableInertia;
@@ -53,7 +54,7 @@ class TestingServiceProvider extends ServiceProvider
         });
 
         TestResponse::macro('assertComponentIs', function (string $component, bool $shouldExit = true) {
-            /** @var TestResponse<\Illuminate\Http\Response> $this */
+            /** @var TestResponse<Response> $this */
             return $this->assertInertia(
                 fn (AssertableInertia $inertia) => $inertia->component(
                     $component,
@@ -63,14 +64,14 @@ class TestingServiceProvider extends ServiceProvider
         });
 
         TestResponse::macro('assertHasResource', function (string $key, JsonResource $resource) {
-            /** @var TestResponse<\Illuminate\Http\Response> $this */
+            /** @var TestResponse<Response> $this */
             return $this->assertInertia(
                 fn (AssertableInertia $inertia) => $inertia->hasResource($key, $resource) // @phpstan-ignore-line
             );
         });
 
         TestResponse::macro('assertHasPaginatedResource', function (string $key, ResourceCollection $resource) {
-            /** @var TestResponse<\Illuminate\Http\Response> $this */
+            /** @var TestResponse<Response> $this */
             return $this->assertInertia(fn (AssertableInertia $inertia) => $inertia->hasPaginatedResource($key, $resource)); // @phpstan-ignore-line
         });
     }

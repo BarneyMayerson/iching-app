@@ -27,7 +27,6 @@ test('user can see their divinations list', function () {
 
     $expectedResource = ReadingResource::collection($expectedData);
 
-    // @phpstan-ignore-next-line
     actingAs($user)
         ->get(route('cabinet.divinations.index'))
         ->assertOk()
@@ -44,7 +43,6 @@ test('user cannot see other users divinations list', function () {
 
     $expectedResource = ReadingResource::collection($user->readings()->latest()->paginate(12)->withQUeryString());
 
-    // @phpstan-ignore-next-line
     actingAs($user)
         ->get(route('cabinet.divinations.index'))
         ->assertOk()
