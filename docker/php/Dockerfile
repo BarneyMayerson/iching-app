@@ -12,6 +12,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libfreetype6-dev \
     libjpeg62-turbo-dev \
     libwebp-dev \
+    libicu-dev \
+    g++ \
     zip \
     unzip \
     git \
@@ -24,7 +26,8 @@ RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
 
 # Устанавливаем расширения PHP
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp \
-    && docker-php-ext-install pdo pdo_mysql mbstring exif pcntl bcmath gd zip
+    && docker-php-ext-configure intl \
+    && docker-php-ext-install pdo pdo_mysql mbstring exif pcntl bcmath gd zip intl
 
 # Composer
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
