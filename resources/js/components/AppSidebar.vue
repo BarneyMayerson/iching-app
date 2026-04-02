@@ -55,6 +55,7 @@ const footerNavItems = computed<NavItem[]>(() => {
     items.unshift({
       title: __('Administration Panel'),
       href: admDashboard({ query: {} }).url,
+      target: '_self',
       icon: LayoutDashboard,
     });
   }
