@@ -4,6 +4,7 @@ import Pagination from '@/components/Pagination.vue';
 import { useTranslate } from '@/composables/useTranslate';
 import AppLayout from '@/layouts/AppLayout.vue';
 import { create, index } from '@/routes/cabinet/divinations';
+import { BreadcrumbItem } from '@/types';
 import { PaginationMeta, Reading } from '@/types/iching';
 import { Head, Link, router } from '@inertiajs/vue3';
 import debounce from 'lodash/debounce';
@@ -50,12 +51,19 @@ watch([search, hexagram], () => {
 const clearSearch = () => {
   search.value = '';
 };
+
+const breadcrumbs = computed<BreadcrumbItem[]>(() => [
+  {
+    title: __('My Divinations'),
+    href: index().url,
+  },
+]);
 </script>
 
 <template>
   <Head :title="__('My Divinations')" />
 
-  <AppLayout>
+  <AppLayout :breadcrumbs="breadcrumbs">
     <div
       class="mx-auto mt-8 flex max-w-7xl flex-col gap-4 px-6 sm:flex-row sm:items-center lg:px-8"
     >

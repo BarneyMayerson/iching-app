@@ -6,36 +6,39 @@ import path from 'path';
 import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
-    server: {
-        host: '0.0.0.0',
+  server: {
+    host: '0.0.0.0',
+  },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './resources/js'),
     },
-    resolve: {
-        alias: {
-            '@': path.resolve(__dirname, './resources/js'),
+  },
+  plugins: [
+    laravel({
+      input: [
+        'resources/js/app.ts',
+        'resources/views/filament/hooks/langguage-switcher.blade.php',
+      ],
+      ssr: 'resources/js/ssr.ts',
+      refresh: true,
+    }),
+    tailwindcss(),
+    wayfinder({
+      formVariants: true,
+    }),
+    vue({
+      template: {
+        transformAssetUrls: {
+          base: null,
+          includeAbsolute: false,
         },
-    },
-    plugins: [
-        laravel({
-            input: ['resources/js/app.ts'],
-            ssr: 'resources/js/ssr.ts',
-            refresh: true,
-        }),
-        tailwindcss(),
-        wayfinder({
-            formVariants: true,
-        }),
-        vue({
-            template: {
-                transformAssetUrls: {
-                    base: null,
-                    includeAbsolute: false,
-                },
-            },
-        }),
-    ],
-    test: {
-        globals: true,
-        environment: 'jsdom',
-        include: ['tests/Javascript/**/*.{test,spec}.?(c|m)[jt]s?(x)'],
-    },
+      },
+    }),
+  ],
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    include: ['tests/Javascript/**/*.{test,spec}.?(c|m)[jt]s?(x)'],
+  },
 });

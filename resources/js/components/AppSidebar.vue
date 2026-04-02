@@ -15,17 +15,20 @@ import {
 import { useTranslate } from '@/composables/useTranslate';
 import { dashboard as cabinetDashboard } from '@/routes/cabinet';
 import { index as cabinetDivinationsIndex } from '@/routes/cabinet/divinations';
-import { type NavItem } from '@/types';
-import { Link } from '@inertiajs/vue3';
-import { LayoutGrid, Scroll, Sparkles } from 'lucide-vue-next';
+import { dashboard as admDashboard } from '@/routes/filament/adm/pages/index';
+import { AppPageProps, type NavItem } from '@/types';
+import { Link, usePage } from '@inertiajs/vue3';
+import { LayoutDashboard, LayoutGrid, Scroll, Sparkles } from 'lucide-vue-next';
 import { computed } from 'vue';
 import AppLogo from './AppLogo.vue';
 
 const { __, locale } = useTranslate();
 
+const page = usePage<AppPageProps>();
+
 const mainNavItems = computed<NavItem[]>(() => [
   {
-    title: __('Dashboard'),
+    title: __('Overview'),
     href: cabinetDashboard().url,
     icon: LayoutGrid,
   },
@@ -36,16 +39,28 @@ const mainNavItems = computed<NavItem[]>(() => [
   },
 ]);
 
-const footerNavItems = computed<NavItem[]>(() => [
-  {
-    title: __('Book of Changes'),
-    href:
-      locale.value === 'ru'
-        ? 'https://ru.wikipedia.org/wiki/Книга_Перемен'
-        : 'https://en.wikipedia.org/wiki/I_Ching',
-    icon: Scroll,
-  },
-]);
+const footerNavItems = computed<NavItem[]>(() => {
+  const items: NavItem[] = [
+    {
+      title: __('Book of Changes'),
+      href:
+        locale.value === 'ru'
+          ? 'https://ru.wikipedia.org/wiki/Книга_Перемен'
+          : 'https://en.wikipedia.org/wiki/I_Ching',
+      icon: Scroll,
+    },
+  ];
+
+  if (page.props.hasAdminAccess) {
+    items.unshift({
+      title: __('Administration Panel'),
+      href: admDashboard({ query: {} }).url,
+      icon: LayoutDashboard,
+    });
+  }
+
+  return items;
+});
 </script>
 
 <template>

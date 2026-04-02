@@ -37,14 +37,14 @@ const changeYear = (year: number) => {
 
 const breadcrumbs = computed<BreadcrumbItem[]>(() => [
   {
-    title: __('Dashboard'),
+    title: __('Overview'),
     href: cabinetDashboard().url,
   },
 ]);
 </script>
 
 <template>
-  <Head :title="__('Dashboard')" />
+  <Head :title="__('Overview')" />
 
   <AppLayout :breadcrumbs="breadcrumbs">
     <div class="flex flex-1 flex-col gap-6 p-6">

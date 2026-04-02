@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Providers\Filament;
 
+use App\Http\Middleware\HandleLocale;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -12,6 +13,7 @@ use Filament\Pages\Dashboard;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
+use Filament\View\PanelsRenderHook;
 use Filament\Widgets\AccountWidget;
 use Filament\Widgets\FilamentInfoWidget;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
@@ -30,7 +32,6 @@ class AdmPanelProvider extends PanelProvider
             ->default()
             ->id('adm')
             ->path('adm')
-            ->login()
             ->colors([
                 'primary' => Color::Amber,
             ])
@@ -54,6 +55,7 @@ class AdmPanelProvider extends PanelProvider
                 SubstituteBindings::class,
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
+                HandleLocale::class,
             ])
             ->authMiddleware([
                 Authenticate::class,
@@ -61,6 +63,10 @@ class AdmPanelProvider extends PanelProvider
             ->plugin(SpatieTranslatablePlugin::make()
                 ->defaultLocales(['en', 'ru'])
                 ->persist(),
+            )
+            ->RenderHook(
+                PanelsRenderHook::USER_MENU_PROFILE_AFTER,
+                fn () => view('filament.hooks.language-switcher'),
             );
     }
 }
