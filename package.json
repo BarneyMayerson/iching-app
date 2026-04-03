@@ -10,7 +10,7 @@
         "format:check": "prettier --check resources/",
         "lint": "eslint . --fix",
         "lint:check": "eslint . --quiet",
-        "test:js": "vitest"
+        "test:js": "vitest run"
     },
     "devDependencies": {
         "@eslint/js": "^9.19.0",
