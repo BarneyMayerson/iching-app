@@ -59,12 +59,15 @@ class HexagramForm
                             ->schema([
                                 TagsInput::make('names.en')
                                     ->label(__('Names in English'))
+                                    ->placeholder(__('Add a name and press enter'))
                                     ->required(),
                                 TagsInput::make('names.ru')
                                     ->label(__('Names in Russian'))
+                                    ->placeholder(__('Add a name and press enter'))
                                     ->required(),
                             ])
                             ->columns(2)
+                            ->icon(Heroicon::Hashtag)
                             ->collapsible(),
 
                         Section::make(__('Judgment'))
@@ -81,6 +84,7 @@ class HexagramForm
                                     ->required(),
                             ])
                             ->columns(2)
+                            ->icon(Heroicon::Scale)
                             ->collapsible(),
                     ])
                     ->columns(1)
