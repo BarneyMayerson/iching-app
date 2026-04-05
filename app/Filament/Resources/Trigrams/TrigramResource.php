@@ -11,6 +11,7 @@ use Filament\Actions\BulkActionGroup;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\TagsInput;
 use Filament\Forms\Components\TextInput;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Resources\Resource;
@@ -27,37 +28,107 @@ class TrigramResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
+    // public static function form(Schema $schema): Schema
+    // {
+    //     return $schema
+    //         ->components([
+    //             TextInput::make('number')
+    //                 ->required()
+    //                 ->numeric(),
+    //             TextInput::make('names')
+    //                 ->required(),
+    //             TextInput::make('chinese_name')
+    //                 ->required(),
+    //             TextInput::make('pinyin_name')
+    //                 ->required(),
+    //             TextInput::make('character')
+    //                 ->required(),
+    //             TextInput::make('attribute')
+    //                 ->required(),
+    //             TextInput::make('images')
+    //                 ->required(),
+    //             FileUpload::make('chinese_image')
+    //                 ->image()
+    //                 ->required(),
+    //             FileUpload::make('pinyin_image')
+    //                 ->image()
+    //                 ->required(),
+    //             TextInput::make('family_relationship')
+    //                 ->required(),
+    //             TextInput::make('binary')
+    //                 ->required(),
+    //             TextInput::make('lines')
+    //                 ->required(),
+    //         ]);
+    // }
+
     public static function form(Schema $schema): Schema
     {
         return $schema
+            ->columns(1)
             ->components([
-                TextInput::make('number')
-                    ->required()
-                    ->numeric(),
-                TextInput::make('names')
-                    ->required(),
-                TextInput::make('chinese_name')
-                    ->required(),
-                TextInput::make('pinyin_name')
-                    ->required(),
-                TextInput::make('character')
-                    ->required(),
-                TextInput::make('attribute')
-                    ->required(),
-                TextInput::make('images')
-                    ->required(),
-                FileUpload::make('chinese_image')
-                    ->image()
-                    ->required(),
-                FileUpload::make('pinyin_image')
-                    ->image()
-                    ->required(),
-                TextInput::make('family_relationship')
-                    ->required(),
-                TextInput::make('binary')
-                    ->required(),
-                TextInput::make('lines')
-                    ->required(),
+                Section::make(__('Static Information'))
+                    ->description(__('This information is static and cannot be changed. It is only displayed for reference.'))
+                    ->icon(Heroicon::LockClosed)
+                    ->columns(3)
+                    ->schema([
+                        TextInput::make('number')
+                            ->label('#')
+                            ->disabled(),
+                        TextInput::make('character')
+                            ->label(__('Character'))
+                            ->disabled(),
+                        TextInput::make('binary')
+                            ->label(__('Binary'))
+                            ->disabled(),
+                    ]),
+
+                Section::make(__('Translation & Interpretation'))
+                    ->description(__('Editable content for all locales.'))
+                    ->icon(Heroicon::PencilSquare)
+                    ->schema([
+                        Grid::make(2)
+                            ->schema([
+                                TagsInput::make('names.en')
+                                    ->label(__('Names in English'))
+                                    ->placeholder(__('Add a name and press enter'))
+                                    ->required(),
+                                TagsInput::make('names.ru')
+                                    ->label(__('Names in Russian'))
+                                    ->placeholder(__('Add a name and press enter'))
+                                    ->required(),
+                            ]),
+
+                        Grid::make(2)
+                            ->schema([
+                                TextInput::make('attribute.en')
+                                    ->label(__('Attribute (EN)'))
+                                    ->required(),
+                                TextInput::make('attribute.ru')
+                                    ->label(__('Attribute (RU)'))
+                                    ->required(),
+                            ]),
+
+                        Grid::make(2)
+                            ->schema([
+                                TextInput::make('images.en')
+                                    ->label(__('Symbolic Image (EN)'))
+                                    ->required(),
+                                TextInput::make('images.ru')
+                                    ->label(__('Symbolic Image (RU)'))
+                                    ->required(),
+                            ]),
+
+                        Grid::make(2)
+                            ->schema([
+                                TextInput::make('family_relationship.en')
+                                    ->label(__('Family Role (EN)'))
+                                    ->required(),
+                                TextInput::make('family_relationship.ru')
+                                    ->label(__('Family Role (RU)'))
+                                    ->required(),
+                            ]),
+                    ]),
             ]);
     }
 
@@ -182,7 +253,9 @@ class TrigramResource extends Resource
                 ViewAction::make()
                     // ->slideOver()
                     ->closeModalByClickingAway(false),
-                EditAction::make(),
+                EditAction::make()
+                    // ->slideOver()
+                    ->closeModalByClickingAway(false),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
