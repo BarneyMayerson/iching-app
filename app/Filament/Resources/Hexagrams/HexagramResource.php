@@ -8,6 +8,7 @@ use App\Filament\Resources\Hexagrams\Pages\CreateHexagram;
 use App\Filament\Resources\Hexagrams\Pages\EditHexagram;
 use App\Filament\Resources\Hexagrams\Pages\ListHexagrams;
 use App\Filament\Resources\Hexagrams\Pages\ViewHexagram;
+use App\Filament\Resources\Hexagrams\RelationManagers\HexagramLinesRelationManager;
 use App\Filament\Resources\Hexagrams\Schemas\HexagramForm;
 use App\Filament\Resources\Hexagrams\Schemas\HexagramInfolist;
 use App\Filament\Resources\Hexagrams\Tables\HexagramsTable;
@@ -25,7 +26,14 @@ class HexagramResource extends Resource
 
     protected static ?string $model = Hexagram::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::Sparkles;
+
+    protected static ?int $navigationSort = 1;
+
+    public static function getNavigationGroup(): ?string
+    {
+        return __('I-Ching');
+    }
 
     public static function form(Schema $schema): Schema
     {
@@ -45,7 +53,7 @@ class HexagramResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            HexagramLinesRelationManager::class,
         ];
     }
 

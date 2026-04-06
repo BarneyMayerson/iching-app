@@ -10,7 +10,6 @@ use BackedEnum;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
-use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TagsInput;
 use Filament\Forms\Components\TextInput;
 use Filament\Infolists\Components\TextEntry;
@@ -26,41 +25,14 @@ class TrigramResource extends Resource
 {
     protected static ?string $model = Trigram::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::Square3Stack3d;
 
-    // public static function form(Schema $schema): Schema
-    // {
-    //     return $schema
-    //         ->components([
-    //             TextInput::make('number')
-    //                 ->required()
-    //                 ->numeric(),
-    //             TextInput::make('names')
-    //                 ->required(),
-    //             TextInput::make('chinese_name')
-    //                 ->required(),
-    //             TextInput::make('pinyin_name')
-    //                 ->required(),
-    //             TextInput::make('character')
-    //                 ->required(),
-    //             TextInput::make('attribute')
-    //                 ->required(),
-    //             TextInput::make('images')
-    //                 ->required(),
-    //             FileUpload::make('chinese_image')
-    //                 ->image()
-    //                 ->required(),
-    //             FileUpload::make('pinyin_image')
-    //                 ->image()
-    //                 ->required(),
-    //             TextInput::make('family_relationship')
-    //                 ->required(),
-    //             TextInput::make('binary')
-    //                 ->required(),
-    //             TextInput::make('lines')
-    //                 ->required(),
-    //         ]);
-    // }
+    protected static ?int $navigationSort = 2;
+
+    public static function getNavigationGroup(): ?string
+    {
+        return __('I-Ching');
+    }
 
     public static function form(Schema $schema): Schema
     {
