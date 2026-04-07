@@ -269,7 +269,7 @@
     "Multi-Status": "Много статусов",
     "Multiple Choices": "Много вариантов",
     "My Divinations": "Мои гадания",
-    "Name": "Название",
+    "Name": "Имя или название",
     "Names": "Названия",
     "Names in English": "Названия на английском",
     "Names in Russian": "Названия на русском",
@@ -519,5 +519,16 @@
     "You are in a state of dynamic flow.": "Вы находитесь в состоянии динамического потока.",
     "You are receiving this email because we received a password reset request for your account.": "Вы получили это письмо, потому что мы получили запрос на сброс пароля для Вашей учётной записи.",
     "Your email address is unverified.": "Ваш адрес электронной почты не подтвержден.",
-    "Your Inquiry": "Ваш запрос"
+    "Your Inquiry": "Ваш запрос",
+
+    "Unverify Email": "Снять подтверждение Email",
+    "Verify Email": "Подтвердить Email",
+    "Verification Removed": "Подтверждение удалено",
+    "View User": "Просмотр пользователя",
+    "Edit User": "Редактировать пользователя",
+    "Verify Selected Emails": "Подтвердить адреса",
+    "Unverify Selected Emails": "Снять подтверждение",
+    "User Information": "Информация о пользователе",
+    "Change Password": "Смена пароля",
+    "Leave blank to keep the current password.": "Оставьте пустым, чтобы сохранить текущий пароль."
 }
