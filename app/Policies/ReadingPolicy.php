@@ -14,7 +14,7 @@ class ReadingPolicy
      */
     public function view(User $user, Reading $reading): bool
     {
-        return $reading->user->is($user);
+        return $reading->user->is($user) || $user->canAccessPanel(resolve('filament')->getPanel('adm'));
     }
 
     /**
