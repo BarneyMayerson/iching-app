@@ -16,62 +16,75 @@ class HexagramInfolist
     {
         return $schema
             ->components([
-                Section::make(__('General Information'))
-                    ->schema([
-                        TextEntry::make('number')
-                            ->label('#')
-                            ->inlineLabel(),
-
-                        TextEntry::make('character')
-                            ->label(__('Character'))
-                            ->extraAttributes([
-                                'style' => 'font-size: 3rem; line-height: 1; font-family: serif; padding-top: 0.5rem; padding-bottom: 0.5rem;',
-                            ])
-                            ->inlineLabel(),
-
-                        TextEntry::make('names')
-                            ->label(__('Name'))
-                            ->size(Size::Large->value)
-                            ->weight(FontWeight::Bold)
-                            ->inlineLabel(),
-
-                        TextEntry::make('binary')
-                            ->label(__('Binary'))
-                            ->fontFamily('mono')
-                            ->inlineLabel(),
-                    ])
-                    ->columnSpanFull(),
-
-                Section::make(__('Structure'))
-                    ->schema([
-                        TextEntry::make('upperTrigram.names')
-                            ->label(__('Upper Trigram'))
-                            ->inlineLabel(),
-
-                        TextEntry::make('lowerTrigram.names')
-                            ->label(__('Lower Trigram'))
-                            ->inlineLabel(),
-                    ])
-                    ->columns(2)
-                    ->columnSpanFull(),
-
-                Section::make(__('Interpretation'))
-                    ->schema([
-                        TextEntry::make('chinese_name')
-                            ->label(__('Chinese Name'))
-                            ->inlineLabel(),
-
-                        TextEntry::make('pinyin_name')
-                            ->label(__('Pinyin'))
-                            ->inlineLabel(),
-
-                        TextEntry::make('judgment')
-                            ->label(__('Judgment'))
-                            ->html()
-                            ->columnSpanFull(),
-                    ])
-                    ->columns(2)
-                    ->columnSpanFull(),
+                self::getGeneralInfoSection(),
+                self::getStructureSection(),
+                self::getInterpretationSection(),
             ]);
+    }
+
+    private static function getGeneralInfoSection(): Section
+    {
+        return Section::make(__('General Information'))
+            ->schema([
+                TextEntry::make('number')
+                    ->label('#')
+                    ->inlineLabel(),
+
+                TextEntry::make('character')
+                    ->label(__('Character'))
+                    ->extraAttributes([
+                        'style' => 'font-size: 3rem; line-height: 1; font-family: serif; padding-top: 0.5rem; padding-bottom: 0.5rem;',
+                    ])
+                    ->inlineLabel(),
+
+                TextEntry::make('names')
+                    ->label(__('Name'))
+                    ->size(Size::Large->value)
+                    ->weight(FontWeight::Bold)
+                    ->inlineLabel(),
+
+                TextEntry::make('binary')
+                    ->label(__('Binary'))
+                    ->fontFamily('mono')
+                    ->inlineLabel(),
+            ])
+            ->columnSpanFull();
+    }
+
+    private static function getStructureSection(): Section
+    {
+        return Section::make(__('Structure'))
+            ->schema([
+                TextEntry::make('upperTrigram.names')
+                    ->label(__('Upper Trigram'))
+                    ->inlineLabel(),
+
+                TextEntry::make('lowerTrigram.names')
+                    ->label(__('Lower Trigram'))
+                    ->inlineLabel(),
+            ])
+            ->columns(2)
+            ->columnSpanFull();
+    }
+
+    private static function getInterpretationSection(): Section
+    {
+        return Section::make(__('Interpretation'))
+            ->schema([
+                TextEntry::make('chinese_name')
+                    ->label(__('Chinese Name'))
+                    ->inlineLabel(),
+
+                TextEntry::make('pinyin_name')
+                    ->label(__('Pinyin'))
+                    ->inlineLabel(),
+
+                TextEntry::make('judgment')
+                    ->label(__('Judgment'))
+                    ->html()
+                    ->columnSpanFull(),
+            ])
+            ->columns(2)
+            ->columnSpanFull();
     }
 }

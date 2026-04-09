@@ -7,7 +7,6 @@ namespace App\Filament\Resources\Trigrams;
 use App\Filament\Resources\Trigrams\Pages\ManageTrigrams;
 use App\Models\Trigram;
 use BackedEnum;
-use Filament\Actions\BulkActionGroup;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
 use Filament\Forms\Components\TagsInput;
@@ -34,74 +33,26 @@ class TrigramResource extends Resource
         return __('I-Ching');
     }
 
-    public static function form(Schema $schema): Schema
+    public static function getNavigationLabel(): string
     {
-        return $schema
-            ->columns(1)
-            ->components([
-                Section::make(__('Static Information'))
-                    ->description(__('This information is static and cannot be changed. It is only displayed for reference.'))
-                    ->icon(Heroicon::LockClosed)
-                    ->columns(3)
-                    ->schema([
-                        TextInput::make('number')
-                            ->label('#')
-                            ->disabled(),
-                        TextInput::make('character')
-                            ->label(__('Character'))
-                            ->disabled(),
-                        TextInput::make('binary')
-                            ->label(__('Binary'))
-                            ->disabled(),
-                    ]),
+        return __('Trigrams');
+    }
 
-                Section::make(__('Translation & Interpretation'))
-                    ->description(__('Editable content for all locales.'))
-                    ->icon(Heroicon::PencilSquare)
-                    ->schema([
-                        Grid::make(2)
-                            ->schema([
-                                TagsInput::make('names.en')
-                                    ->label(__('Names in English'))
-                                    ->placeholder(__('Add a name and press enter'))
-                                    ->required(),
-                                TagsInput::make('names.ru')
-                                    ->label(__('Names in Russian'))
-                                    ->placeholder(__('Add a name and press enter'))
-                                    ->required(),
-                            ]),
+    public static function getModelLabel(): string
+    {
+        return __('Trigram');
+    }
 
-                        Grid::make(2)
-                            ->schema([
-                                TextInput::make('attribute.en')
-                                    ->label(__('Attribute (EN)'))
-                                    ->required(),
-                                TextInput::make('attribute.ru')
-                                    ->label(__('Attribute (RU)'))
-                                    ->required(),
-                            ]),
+    public static function getPluralModelLabel(): string
+    {
+        return __('Trigrams');
+    }
 
-                        Grid::make(2)
-                            ->schema([
-                                TextInput::make('images.en')
-                                    ->label(__('Symbolic Image (EN)'))
-                                    ->required(),
-                                TextInput::make('images.ru')
-                                    ->label(__('Symbolic Image (RU)'))
-                                    ->required(),
-                            ]),
-
-                        Grid::make(2)
-                            ->schema([
-                                TextInput::make('family_relationship.en')
-                                    ->label(__('Family Role (EN)'))
-                                    ->required(),
-                                TextInput::make('family_relationship.ru')
-                                    ->label(__('Family Role (RU)'))
-                                    ->required(),
-                            ]),
-                    ]),
-            ]);
+    public static function getPages(): array
+    {
+        return [
+            'index' => ManageTrigrams::route('/'),
+        ];
     }
 
     public static function infolist(Schema $schema): Schema
@@ -109,58 +60,18 @@ class TrigramResource extends Resource
         return $schema
             ->columns(1)
             ->components([
-                Section::make('Основная информация')
-                    ->icon(Heroicon::InformationCircle)
-                    ->schema([
-                        Grid::make(2)
-                            ->schema([
-                                TextEntry::make('number')
-                                    ->numeric()
-                                    ->label('#')
-                                    ->inlineLabel()
-                                    ->badge()
-                                    ->color('success'),
-                                TextEntry::make('character')
-                                    ->label(__('Character'))
-                                    ->inlineLabel(),
-                                TextEntry::make('binary')
-                                    ->label(__('Binary'))
-                                    ->inlineLabel(),
-                                TextEntry::make('lines')
-                                    ->label(__('Lines'))
-                                    ->inlineLabel(),
-                                TextEntry::make('chinese_name')
-                                    ->label(__('Chinese Name'))
-                                    ->inlineLabel(),
-                                TextEntry::make('pinyin_name')
-                                    ->label(__('Pinyin'))
-                                    ->inlineLabel(),
-                                TextEntry::make('chinese_image')
-                                    ->label(__('Chinese Image'))
-                                    ->inlineLabel(),
-                                TextEntry::make('pinyin_image')
-                                    ->label(__('Pinyin Image'))
-                                    ->inlineLabel(),
-                            ]),
-                    ])
-                    ->collapsible(),
+                self::getGeneralViewInfoSection(),
+                self::getContextSection(),
+            ]);
+    }
 
-                Section::make('Контекст')
-                    ->icon(Heroicon::Link)
-                    ->schema([
-                        Grid::make(2)
-                            ->schema([
-                                TextEntry::make('attribute')
-                                    ->label(__('Attribute')),
-                                TextEntry::make('family_relationship')
-                                    ->label(__('Family Relationship'))
-                                    ->formatStateUsing(fn ($state) => $state ?: '—'),
-                                TextEntry::make('images')
-                                    ->label(__('Image'))
-                                    ->listWithLineBreaks()
-                                    ->bulleted(),
-                            ]),
-                    ]),
+    public static function form(Schema $schema): Schema
+    {
+        return $schema
+            ->columns(1)
+            ->components([
+                self::getGeneralFormInfoSection(),
+                self::getTranslationSection(),
             ]);
     }
 
@@ -218,43 +129,139 @@ class TrigramResource extends Resource
                     ->toggledHiddenByDefault(),
 
             ])
-            ->filters([
-                //
-            ])
             ->recordActions([
                 ViewAction::make()
-                    // ->slideOver()
                     ->closeModalByClickingAway(false),
                 EditAction::make()
-                    // ->slideOver()
                     ->closeModalByClickingAway(false),
-            ])
-            ->toolbarActions([
-                BulkActionGroup::make([
-                    //
-                ]),
             ]);
     }
 
-    public static function getPages(): array
+    private static function getGeneralViewInfoSection(): Section
     {
-        return [
-            'index' => ManageTrigrams::route('/'),
-        ];
+        return Section::make(__('General Information'))
+            ->icon(Heroicon::InformationCircle)
+            ->schema([
+                Grid::make(2)
+                    ->schema([
+                        TextEntry::make('number')
+                            ->numeric()
+                            ->label('#')
+                            ->inlineLabel()
+                            ->badge()
+                            ->color('success'),
+                        TextEntry::make('character')
+                            ->label(__('Character'))
+                            ->inlineLabel(),
+                        TextEntry::make('binary')
+                            ->label(__('Binary'))
+                            ->inlineLabel(),
+                        TextEntry::make('lines')
+                            ->label(__('Lines'))
+                            ->inlineLabel(),
+                        TextEntry::make('chinese_name')
+                            ->label(__('Chinese Name'))
+                            ->inlineLabel(),
+                        TextEntry::make('pinyin_name')
+                            ->label(__('Pinyin'))
+                            ->inlineLabel(),
+                        TextEntry::make('chinese_image')
+                            ->label(__('Chinese Image'))
+                            ->inlineLabel(),
+                        TextEntry::make('pinyin_image')
+                            ->label(__('Pinyin Image'))
+                            ->inlineLabel(),
+                    ]),
+            ])
+            ->collapsible();
     }
 
-    public static function getNavigationLabel(): string
+    private static function getContextSection(): Section
     {
-        return __('Trigrams');
+        return Section::make(__('Context'))
+            ->icon(Heroicon::Link)
+            ->schema([
+                Grid::make(2)
+                    ->schema([
+                        TextEntry::make('attribute')
+                            ->label(__('Attribute')),
+                        TextEntry::make('family_relationship')
+                            ->label(__('Family Relationship'))
+                            ->formatStateUsing(fn ($state) => $state ?: '—'),
+                        TextEntry::make('images')
+                            ->label(__('Image'))
+                            ->listWithLineBreaks()
+                            ->bulleted(),
+                    ]),
+            ]);
     }
 
-    public static function getModelLabel(): string
+    private static function getGeneralFormInfoSection(): Section
     {
-        return __('Trigram');
+        return Section::make(__('Static Information'))
+            ->description(__('This information is static and cannot be changed. It is only displayed for reference.'))
+            ->icon(Heroicon::LockClosed)
+            ->columns(3)
+            ->schema([
+                TextInput::make('number')
+                    ->label('#')
+                    ->disabled(),
+                TextInput::make('character')
+                    ->label(__('Character'))
+                    ->disabled(),
+                TextInput::make('binary')
+                    ->label(__('Binary'))
+                    ->disabled(),
+            ]);
     }
 
-    public static function getPluralModelLabel(): string
+    private static function getTranslationSection(): Section
     {
-        return __('Trigrams');
+        return Section::make(__('Translation & Interpretation'))
+            ->description(__('Editable content for all locales.'))
+            ->icon(Heroicon::PencilSquare)
+            ->schema([
+                Grid::make(2)
+                    ->schema([
+                        TagsInput::make('names.en')
+                            ->label(__('Names in English'))
+                            ->placeholder(__('Add a name and press enter'))
+                            ->required(),
+                        TagsInput::make('names.ru')
+                            ->label(__('Names in Russian'))
+                            ->placeholder(__('Add a name and press enter'))
+                            ->required(),
+                    ]),
+
+                Grid::make(2)
+                    ->schema([
+                        TextInput::make('attribute.en')
+                            ->label(__('Attribute (EN)'))
+                            ->required(),
+                        TextInput::make('attribute.ru')
+                            ->label(__('Attribute (RU)'))
+                            ->required(),
+                    ]),
+
+                Grid::make(2)
+                    ->schema([
+                        TextInput::make('images.en')
+                            ->label(__('Symbolic Image (EN)'))
+                            ->required(),
+                        TextInput::make('images.ru')
+                            ->label(__('Symbolic Image (RU)'))
+                            ->required(),
+                    ]),
+
+                Grid::make(2)
+                    ->schema([
+                        TextInput::make('family_relationship.en')
+                            ->label(__('Family Role (EN)'))
+                            ->required(),
+                        TextInput::make('family_relationship.ru')
+                            ->label(__('Family Role (RU)'))
+                            ->required(),
+                    ]),
+            ]);
     }
 }

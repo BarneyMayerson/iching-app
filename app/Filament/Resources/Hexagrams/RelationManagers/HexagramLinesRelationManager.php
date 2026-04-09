@@ -23,38 +23,8 @@ class HexagramLinesRelationManager extends RelationManager
     {
         return $schema
             ->components([
-                Section::make()
-                    ->columns(2)
-                    ->columnSpanFull()
-                    ->schema([
-                        TextInput::make('position')
-                            ->label(__('Position'))
-                            ->disabled(),
-
-                        TextEntry::make('line_type')
-                            ->label(__('Type'))
-                            ->state(function (Line $record) {
-                                $binary = $record->hexagram->binary;
-                                $lineValue = $binary[6 - $record->position] ?? null;
-
-                                return self::getLineSymbol($lineValue);
-                            }),
-                    ]),
-
-                Section::make(__('Meanings'))
-                    ->description(__('Translation of the line\'s aphorism.'))
-                    ->columns(2)
-                    ->columnSpanFull()
-                    ->schema([
-                        Textarea::make('meaning.en')
-                            ->label(__('Meaning (EN)'))
-                            ->rows(4)
-                            ->required(),
-                        Textarea::make('meaning.ru')
-                            ->label(__('Meaning (RU)'))
-                            ->rows(4)
-                            ->required(),
-                    ]),
+                self::getInfoSection(),
+                self::getMeaningsSection(),
             ]);
     }
 
@@ -105,5 +75,44 @@ class HexagramLinesRelationManager extends RelationManager
     private static function getLineSymbol(?string $value): string
     {
         return $value === '1' ? '―' : '- -';
+    }
+
+    private static function getInfoSection(): Section
+    {
+        return Section::make()
+            ->columns(2)
+            ->columnSpanFull()
+            ->schema([
+                TextInput::make('position')
+                    ->label(__('Position'))
+                    ->disabled(),
+
+                TextEntry::make('line_type')
+                    ->label(__('Type'))
+                    ->state(function (Line $record) {
+                        $binary = $record->hexagram->binary;
+                        $lineValue = $binary[6 - $record->position] ?? null;
+
+                        return self::getLineSymbol($lineValue);
+                    }),
+            ]);
+    }
+
+    private static function getMeaningsSection(): Section
+    {
+        return Section::make(__('Meanings'))
+            ->description(__('Translation of the line\'s aphorism.'))
+            ->columns(2)
+            ->columnSpanFull()
+            ->schema([
+                Textarea::make('meaning.en')
+                    ->label(__('Meaning (EN)'))
+                    ->rows(4)
+                    ->required(),
+                Textarea::make('meaning.ru')
+                    ->label(__('Meaning (RU)'))
+                    ->rows(4)
+                    ->required(),
+            ]);
     }
 }

@@ -35,6 +35,21 @@ class HexagramResource extends Resource
         return __('I-Ching');
     }
 
+    public static function getNavigationLabel(): string
+    {
+        return __('Hexagrams');
+    }
+
+    public static function getModelLabel(): string
+    {
+        return __('Hexagram');
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return __('Hexagrams');
+    }
+
     public static function form(Schema $schema): Schema
     {
         return HexagramForm::configure($schema);
@@ -65,20 +80,5 @@ class HexagramResource extends Resource
             'view' => ViewHexagram::route('/{record}'),
             'edit' => EditHexagram::route('/{record}/edit'),
         ];
-    }
-
-    public static function getNavigationLabel(): string
-    {
-        return __('Hexagrams');
-    }
-
-    public static function getModelLabel(): string
-    {
-        return __('Hexagram');
-    }
-
-    public static function getPluralModelLabel(): string
-    {
-        return __('Hexagrams');
     }
 }

@@ -46,15 +46,9 @@ class HexagramsTable
                     ->alignCenter()
                     ->color('gray'),
             ])
-            ->filters([
-                //
-            ])
             ->recordActions([
                 ViewAction::make(),
                 EditAction::make(),
-            ])
-            ->toolbarActions([
-                //
             ]);
     }
 }

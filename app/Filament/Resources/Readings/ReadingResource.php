@@ -25,6 +25,28 @@ class ReadingResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::BookOpen;
 
+    public static function getNavigationLabel(): string
+    {
+        return __('Readings');
+    }
+
+    public static function getModelLabel(): string
+    {
+        return __('Reading');
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return __('Readings');
+    }
+
+    public static function getPages(): array
+    {
+        return [
+            'index' => ManageReadings::route('/'),
+        ];
+    }
+
     public static function infolist(Schema $schema): Schema
     {
         return $schema
@@ -134,27 +156,5 @@ class ReadingResource extends Resource
             ->recordActions([
                 ViewAction::make(),
             ]);
-    }
-
-    public static function getPages(): array
-    {
-        return [
-            'index' => ManageReadings::route('/'),
-        ];
-    }
-
-    public static function getNavigationLabel(): string
-    {
-        return __('Readings');
-    }
-
-    public static function getModelLabel(): string
-    {
-        return __('Reading');
-    }
-
-    public static function getPluralModelLabel(): string
-    {
-        return __('Readings');
     }
 }
