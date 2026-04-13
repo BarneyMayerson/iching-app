@@ -9,6 +9,7 @@ use App\Http\Resources\ReadingResource;
 use App\Models\Hexagram;
 use App\Models\Reading;
 use App\Models\User;
+use App\Services\GeminiAPIService;
 use App\Services\IChingService;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
@@ -23,7 +24,10 @@ class DivinationController extends Controller
 {
     use AuthorizesRequests;
 
-    public function __construct(protected readonly IChingService $ichingService) {}
+    public function __construct(
+        protected readonly IChingService $ichingService,
+        protected readonly GeminiAPIService $aiService,
+    ) {}
 
     public function index(Request $request): Response
     {
@@ -99,6 +103,22 @@ class DivinationController extends Controller
             'reading' => $reading->toResource(),
             'changing_lines' => $changingLines,
         ]);
+    }
+
+    public function interpret(Reading $reading): RedirectResponse
+    {
+        $this->authorize('update', $reading);
+
+        if ($reading->ai_interpretation) {
+            return back();
+        }
+        $interpretation = $this->aiService->getInterpretation($reading->load('hexagram.hexagramLines', 'secondaryHexagram'));
+
+        $reading->update([
+            'ai_interpretation' => $interpretation,
+        ]);
+
+        return back()->with('message', __('Interpretation generated successfully.'));
     }
 
     public function destroy(Reading $reading): RedirectResponse

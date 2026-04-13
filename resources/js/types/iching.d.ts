@@ -50,6 +50,7 @@ export interface Reading {
   secondary_hexagram?: Hexagram;
   relative_date: string;
   coin_results: number[];
+  ai_interpretation?: string;
 }
 
 interface PaginationLink {

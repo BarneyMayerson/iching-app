@@ -9,9 +9,10 @@ import {
   deleteMethod,
   exportMethod,
   index,
+  interpret,
 } from '@/routes/cabinet/divinations';
 import { Reading } from '@/types/iching';
-import { Head, Link, router } from '@inertiajs/vue3';
+import { Head, Link, router, useForm } from '@inertiajs/vue3';
 import {
   ArrowLeft,
   FileDown,
@@ -20,6 +21,8 @@ import {
   Sparkles,
   Trash2,
 } from 'lucide-vue-next';
+import markdownit from 'markdown-it';
+import { computed } from 'vue';
 
 const props = defineProps<{
   reading: Reading;
@@ -37,7 +40,7 @@ const handleDelete = () => {
   if (
     confirm(
       __(
-        'Вы уверены, что хотите удалить это гадание? Это действие необратимо.',
+        'Are you sure you want to delete this divination? This action cannot be undone!',
       ),
     )
   ) {
@@ -48,6 +51,24 @@ const handleDelete = () => {
 const downloadPdf = () => {
   window.location.href = exportMethod(props.reading.uuid).url;
 };
+
+const form = useForm();
+
+const generateAiInterpretation = () => {
+  form.post(interpret(props.reading).url, {
+    preserveScroll: true,
+  });
+};
+
+const md = markdownit({
+  html: false,
+  linkify: true,
+  typographer: true,
+});
+
+const renderedMarkdown = computed(() => {
+  return md.render(props.reading.ai_interpretation || '');
+});
 </script>
 
 <template>
@@ -187,6 +208,52 @@ const downloadPdf = () => {
             )
           }}
         </p>
+      </div>
+      <div
+        v-if="!reading.ai_interpretation"
+        class="mt-8 rounded-xl border border-indigo-100 bg-indigo-50 p-6"
+      >
+        <h3 class="mb-4 text-lg font-medium text-indigo-900">
+          {{ __('AI Analysis') }}
+        </h3>
+        <p class="mb-6 text-sm text-indigo-700">
+          {{
+            __(
+              'Get a deep analysis of your hexagrams based on your specific question.',
+            )
+          }}
+        </p>
+
+        <button
+          @click="generateAiInterpretation"
+          :disabled="form.processing"
+          class="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-xs font-semibold tracking-widest text-white uppercase transition duration-150 ease-in-out hover:bg-indigo-700 focus:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-none active:bg-indigo-900 disabled:opacity-50"
+        >
+          <span
+            v-if="form.processing"
+            class="mr-2 tracking-normal lowercase italic"
+          >
+            {{ __('Consulting the oracle...') }}
+          </span>
+          <span v-else>
+            {{ __('Generate AI Interpretation') }}
+          </span>
+        </button>
+      </div>
+
+      <div
+        v-else
+        class="mt-8 rounded-2xl border border-slate-200 bg-slate-50 p-6 dark:border-slate-800 dark:bg-slate-900/20"
+      >
+        <h3
+          class="border-b pb-2 text-xl font-bold text-slate-900 dark:text-slate-100"
+        >
+          {{ __('AI Interpretation') }}
+        </h3>
+        <div
+          class="prose max-w-none prose-slate dark:prose-invert"
+          v-html="renderedMarkdown"
+        ></div>
       </div>
     </div>
   </AppLayout>

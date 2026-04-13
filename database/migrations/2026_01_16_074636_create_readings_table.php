@@ -18,6 +18,7 @@ return new class extends Migration
             $table->json('coin_results');
             $table->string('binary', 6);
             $table->string('secondary_binary', 6)->nullable();
+            $table->text('ai_interpretation')->nullable();
             $table->timestamps();
         });
     }

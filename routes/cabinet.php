@@ -13,6 +13,7 @@ Route::middleware(['auth', 'verified'])->prefix('cabinet')->as('cabinet')->group
         Route::post('store', [DivinationController::class, 'store'])->name('.store');
         Route::get('{reading}/export', [DivinationController::class, 'export'])->name('.export');
         Route::get('{reading}', [DivinationController::class, 'show'])->name('.show');
+        Route::post('/{reading}/interpret', [DivinationController::class, 'interpret'])->name('.interpret');
         Route::delete('{reading}', [DivinationController::class, 'destroy'])->name('.delete');
     });
 });

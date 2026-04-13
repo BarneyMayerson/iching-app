@@ -107,7 +107,6 @@ const calculateLineValue = (
   firstStage: number,
   threeCoins: number[],
 ): number => {
-  console.log('Calculating line value with:', { firstStage, threeCoins });
   // Считаем количество решек (значение 2) во втором броске
   const tailsCount = threeCoins.filter((v: number) => v === 2).length;
 

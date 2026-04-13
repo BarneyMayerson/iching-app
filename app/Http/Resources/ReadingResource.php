@@ -31,6 +31,7 @@ class ReadingResource extends JsonResource
             'secondary_binary' => $this->secondary_binary,
             'secondary_hexagram' => $this->whenLoaded('secondaryHexagram', fn () => HexagramResource::make($this->secondaryHexagram)),
             'coin_results' => $this->coin_results,
+            'ai_interpretation' => $this->ai_interpretation,
         ];
     }
 }

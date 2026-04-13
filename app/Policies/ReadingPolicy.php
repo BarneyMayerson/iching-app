@@ -18,6 +18,14 @@ class ReadingPolicy
     }
 
     /**
+     * Determine whether the user can update the model.
+     */
+    public function update(User $user, Reading $reading): bool
+    {
+        return $reading->user->is($user) || $user->canAccessPanel(resolve('filament')->getPanel('adm'));
+    }
+
+    /**
      * Determine whether the user can export the model.
      */
     public function export(User $user, Reading $reading): bool
