@@ -63,7 +63,7 @@ const breadcrumbs = computed<BreadcrumbItem[]>(() => [
 <template>
   <Head :title="__('My Divinations')" />
 
-  <AppLayout :breadcrumbs="breadcrumbs">
+  <AppLayout :breadcrumbs>
     <div
       class="mx-auto mt-8 flex max-w-7xl flex-col gap-4 px-6 sm:flex-row sm:items-center lg:px-8"
     >
@@ -163,7 +163,7 @@ const breadcrumbs = computed<BreadcrumbItem[]>(() => [
           <ReadingCard
             v-for="reading in readings.data"
             :key="reading.uuid"
-            :reading="reading"
+            :reading
           />
         </div>
 

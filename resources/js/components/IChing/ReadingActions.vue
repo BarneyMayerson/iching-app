@@ -7,10 +7,19 @@ import {
 } from '@/routes/cabinet/divinations';
 import { Reading } from '@/types/iching';
 import { Link, router } from '@inertiajs/vue3';
-import { ArrowLeft, FileDown, Lock, Share2, Trash2 } from 'lucide-vue-next';
+import {
+  ArrowLeft,
+  FileDown,
+  Lock,
+  MessageSquareText,
+  Share2,
+  Sparkles,
+  Trash2,
+} from 'lucide-vue-next';
 
 const props = defineProps<{
   reading: Reading;
+  isProcessing: boolean;
 }>();
 
 const { __ } = useTranslate();
@@ -30,6 +39,8 @@ const handleDelete = () => {
     router.delete(deleteMethod(props.reading.uuid).url);
   }
 };
+
+const emit = defineEmits(['open-ai']);
 </script>
 
 <template>
@@ -47,12 +58,45 @@ const handleDelete = () => {
     </Link>
     <div class="flex items-center gap-2">
       <button
+        @click="emit('open-ai')"
+        :disabled="isProcessing"
+        class="group flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold transition-all active:scale-95 disabled:opacity-70"
+        :class="[
+          reading.ai_interpretation
+            ? 'bg-slate-100 text-slate-700 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-200'
+            : 'bg-indigo-600 text-white shadow-md shadow-indigo-200 hover:bg-indigo-700 dark:shadow-none',
+        ]"
+      >
+        <component
+          :is="
+            isProcessing
+              ? Sparkles
+              : reading.ai_interpretation
+                ? MessageSquareText
+                : Sparkles
+          "
+          :class="['size-4', isProcessing ? 'animate-spin' : '']"
+        />
+
+        <span>
+          {{
+            isProcessing
+              ? __('Consulting the Oracle...')
+              : reading.ai_interpretation
+                ? __('Oracle Interpretation')
+                : __('Reveal the Meaning')
+          }}
+        </span>
+      </button>
+
+      <button
         @click="downloadPdf"
         class="flex items-center gap-2 rounded-xl bg-slate-100 px-4 py-2 text-sm font-semibold text-slate-700 transition-all hover:bg-slate-200 active:scale-95 dark:bg-slate-800 dark:text-slate-200"
       >
         <FileDown class="size-4" />
         {{ __('Export PDF') }}
       </button>
+
       <div
         class="flex items-center rounded-xl bg-slate-50 p-1 dark:bg-slate-900"
       >

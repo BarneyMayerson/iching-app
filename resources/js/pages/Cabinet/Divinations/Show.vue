@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import AiInterpretationSection from '@/components/IChing/AiInterpretationSection.vue';
+import OracleInterpretationModal from '@/components/IChing/OracleInterpretationModal.vue';
 import PrimaryHexagramSection from '@/components/IChing/PrimaryHexagramSection.vue';
 import ReadingActions from '@/components/IChing/ReadingActions.vue';
 import ReadingHeader from '@/components/IChing/ReadingHeader.vue';
@@ -7,14 +7,28 @@ import SecondaryHexagramSection from '@/components/IChing/SecondaryHexagramSecti
 import StabilityMessageSection from '@/components/IChing/StabilityMessageSection.vue';
 import { useTranslate } from '@/composables/useTranslate';
 import AppLayout from '@/layouts/AppLayout.vue';
-import { index } from '@/routes/cabinet/divinations';
+import { index, interpret } from '@/routes/cabinet/divinations';
 import { Reading } from '@/types/iching';
-import { Head } from '@inertiajs/vue3';
+import { Head, useForm } from '@inertiajs/vue3';
+import { ref } from 'vue';
 
 const props = defineProps<{
   reading: Reading;
   changing_lines: number[];
 }>();
+
+const isModalOpen = ref(false);
+const form = useForm({});
+
+const handleAiClick = () => {
+  isModalOpen.value = true;
+
+  if (!props.reading.ai_interpretation) {
+    form.post(interpret(props.reading).url, {
+      preserveScroll: true,
+    });
+  }
+};
 
 const { __ } = useTranslate();
 
@@ -41,8 +55,12 @@ const breadcrumbs = [
   />
 
   <AppLayout :breadcrumbs>
-    <div class="mx-auto max-w-4xl flex-1 p-6 lg:p-12">
-      <ReadingActions :reading />
+    <div class="mx-auto max-w-5xl flex-1 p-6 lg:p-12">
+      <ReadingActions
+        :reading
+        :is-processing="form.processing"
+        @open-ai="handleAiClick"
+      />
 
       <ReadingHeader
         class="mb-16 text-center"
@@ -67,7 +85,12 @@ const breadcrumbs = [
         <StabilityMessageSection />
       </section>
 
-      <AiInterpretationSection :reading />
+      <OracleInterpretationModal
+        :show="isModalOpen"
+        :reading
+        :is-processing="form.processing"
+        @close="isModalOpen = false"
+      />
     </div>
   </AppLayout>
 </template>

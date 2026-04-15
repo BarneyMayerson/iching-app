@@ -1,15 +1,13 @@
 <script setup lang="ts">
-import { useTranslate } from '@/composables/useTranslate';
 import { show } from '@/routes/cabinet/divinations';
 import { Reading } from '@/types/iching';
 import { Link } from '@inertiajs/vue3';
+import { Sparkles } from 'lucide-vue-next';
 import { computed } from 'vue';
 
 const props = defineProps<{
   reading: Reading;
 }>();
-
-const { __ } = useTranslate();
 
 const hasTransformation = computed(() => {
   return props.reading.coin_results.some(
@@ -113,6 +111,14 @@ const isChanging = (value: number) => value === 6 || value === 9;
           class="mt-1 rounded-full bg-amber-50 px-2 py-0.5 text-[8px] font-bold text-amber-600 dark:bg-amber-900/20 dark:text-amber-400"
         >
           {{ __('Transformed') }}
+        </div>
+        <div
+          v-if="reading.ai_interpretation"
+          class="flex items-center gap-1 rounded-full bg-indigo-50 px-2 py-0.5 text-[8px] font-bold text-indigo-600 dark:bg-indigo-900/20 dark:text-indigo-400"
+          :title="__('Insight revealed')"
+        >
+          <Sparkles class="size-2" />
+          {{ __('Insight Revealed') }}
         </div>
       </div>
     </div>
