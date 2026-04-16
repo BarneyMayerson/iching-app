@@ -10,6 +10,7 @@ use Database\Factories\UserFactory;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Panel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -63,6 +64,14 @@ class User extends Authenticatable implements FilamentUser
     }
 
     /**
+     * @return BelongsTo<Plan, $this>
+     */
+    public function plan(): BelongsTo
+    {
+        return $this->belongsTo(Plan::class);
+    }
+
+    /**
      * @return HasMany<Reading, $this>
      */
     public function readings(): HasMany
@@ -70,13 +79,41 @@ class User extends Authenticatable implements FilamentUser
         return $this->hasMany(Reading::class);
     }
 
+    public function getDailyReadingsLimit(): int
+    {
+        return $this->plan?->daily_readings_limit ?? 1;
+    }
+
+    public function getDailyInterpretationsLimit(): int
+    {
+        return $this->plan?->daily_interpretations_limit ?? 1;
+    }
+
     public function canCreateReadingToday(): bool
     {
-        $todayCount = $this->readings()
+        return $this->canPerformToday(
+            'readings',
+            'created_at',
+            fn () => $this->getDailyReadingsLimit()
+        );
+    }
+
+    public function canInterpretReadingToday(): bool
+    {
+        return $this->canPerformToday(
+            'readings',
+            'ai_responded_at',
+            fn () => $this->getDailyInterpretationsLimit()
+        );
+    }
+
+    private function canPerformToday(string $relation, string $dateColumn, callable $getLimit): bool
+    {
+        $todayCount = $this->$relation()
             ->withTrashed()
-            ->whereDate('created_at', now())
+            ->whereDate($dateColumn, now())
             ->count();
 
-        return $todayCount < 4;
+        return $todayCount < $getLimit();
     }
 }
