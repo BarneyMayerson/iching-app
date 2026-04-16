@@ -9,18 +9,16 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Reading extends Model
 {
     /** @use HasFactory<UserFactory> */
-    use HasFactory;
-
-    use HasUuids;
-
-    protected $guarded = [];
+    use HasFactory, HasUuids, SoftDeletes;
 
     protected $casts = [
         'coin_results' => 'array',
+        'ai_responded_at' => 'datetime',
     ];
 
     /**

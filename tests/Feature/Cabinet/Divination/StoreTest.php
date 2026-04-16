@@ -96,3 +96,22 @@ it('fails validation if coin_results is not an array of 6 integers between 6 and
         ->assertSessionHasErrors('coin_results.0')
         ->assertSessionHasErrors('coin_results.1');
 });
+
+it('fails due to the dayly limit', function () {
+    /** @var User $user */
+    $user = User::factory()->create();
+
+    Reading::factory()->count(4)->for($user)->create();
+
+    $question = 'Should I start something new?';
+
+    $response = actingAs($user)
+        ->post(route('cabinet.divinations.store'), [
+            'question' => $question,
+            'coin_results' => [6, 7, 7, 9, 6, 7],
+        ]);
+
+    $response
+        ->assertRedirect(route('cabinet.divinations.index'))
+        ->assertSessionHas('error', __('Limit reached.'));
+});

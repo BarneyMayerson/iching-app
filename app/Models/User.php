@@ -69,4 +69,14 @@ class User extends Authenticatable implements FilamentUser
     {
         return $this->hasMany(Reading::class);
     }
+
+    public function canCreateReadingToday(): bool
+    {
+        $todayCount = $this->readings()
+            ->withTrashed()
+            ->whereDate('created_at', now())
+            ->count();
+
+        return $todayCount < 4;
+    }
 }

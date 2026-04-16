@@ -55,13 +55,27 @@ class DivinationController extends Controller
         ]);
     }
 
-    public function create(): Response
+    public function create(): Response|RedirectResponse
     {
+        /** @var User $user */
+        $user = Auth::user();
+
+        if ($user->cannot('create', Reading::class)) {
+            return to_route('cabinet.divinations.index')->with('error', __('Limit reached.'));
+        }
+
         return Inertia::render('Cabinet/Divinations/Create');
     }
 
     public function store(Request $request): RedirectResponse
     {
+        /** @var User $user */
+        $user = Auth::user();
+
+        if ($user->cannot('create', Reading::class)) {
+            return to_route('cabinet.divinations.index')->with('error', __('Limit reached.'));
+        }
+
         $validated = $request->validate([
             'question' => ['required', 'string', 'max:255', 'min:3'],
             'coin_results' => ['required', 'array', 'size:6'],
@@ -116,6 +130,7 @@ class DivinationController extends Controller
 
         $reading->update([
             'ai_interpretation' => $interpretation,
+            'ai_responded_at' => now(),
         ]);
 
         return back()->with('message', __('Interpretation generated successfully.'));

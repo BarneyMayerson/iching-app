@@ -5,7 +5,7 @@ use App\Models\User;
 
 use function Pest\Laravel\actingAs;
 use function Pest\Laravel\assertDatabaseHas;
-use function Pest\Laravel\assertDatabaseMissing;
+use function Pest\Laravel\assertSoftDeleted;
 use function Pest\Laravel\delete;
 
 it('requires authentication', function () {
@@ -23,7 +23,7 @@ it('allows a user to delete their own reading', function () {
         ->delete(route('cabinet.divinations.delete', $reading))
         ->assertRedirect(route('cabinet.divinations.index'));
 
-    assertDatabaseMissing('readings', ['id' => $reading->id]);
+    assertSoftDeleted('readings', ['id' => $reading->id]);
 });
 
 it('forbids a user from deleting someone else\'s reading', function () {

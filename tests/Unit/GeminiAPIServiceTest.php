@@ -35,9 +35,9 @@ describe('Gemini API Service', function () {
 
         /** @phpstan-ignore-next-line */
         Gemini::assertSent(resource: GenerativeModel::class, model: 'gemini-3-flash-preview',
-            callback: fn ($method, $params) => str_contains((string) $params[0], 'Линия 1') &&
-                str_contains((string) $params[0], 'Линия 6') &&
-                str_contains((string) $params[0], 'Основная гексаграмма')
+            callback: fn ($method, $params) => str_contains((string) $params[0], 'Линия 1')
+                && str_contains((string) $params[0], 'Линия 6')
+                && str_contains((string) $params[0], 'Основную гексаграмму')
         );
     });
 

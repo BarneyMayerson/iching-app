@@ -9,33 +9,26 @@ use App\Models\User;
 
 class ReadingPolicy
 {
-    /**
-     * Determine whether the user can view the model.
-     */
     public function view(User $user, Reading $reading): bool
     {
         return $reading->user->is($user) || $user->canAccessPanel(resolve('filament')->getPanel('adm'));
     }
 
-    /**
-     * Determine whether the user can update the model.
-     */
+    public function create(User $user): bool
+    {
+        return $user->canCreateReadingToday();
+    }
+
     public function update(User $user, Reading $reading): bool
     {
         return $reading->user->is($user) || $user->canAccessPanel(resolve('filament')->getPanel('adm'));
     }
 
-    /**
-     * Determine whether the user can export the model.
-     */
     public function export(User $user, Reading $reading): bool
     {
         return $reading->user->is($user);
     }
 
-    /**
-     * Determine whether the user can delete the model.
-     */
     public function delete(User $user, Reading $reading): bool
     {
         return $reading->user->is($user);

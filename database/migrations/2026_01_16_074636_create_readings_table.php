@@ -13,13 +13,16 @@ return new class extends Migration
     {
         Schema::create('readings', function (Blueprint $table): void {
             $table->id();
+            $table->uuid('uuid')->nullable()->unique();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('question');
             $table->json('coin_results');
             $table->string('binary', 6);
             $table->string('secondary_binary', 6)->nullable();
             $table->text('ai_interpretation')->nullable();
+            $table->timestamp('ai_responded_at')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
