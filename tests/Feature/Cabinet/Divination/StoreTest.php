@@ -101,7 +101,7 @@ it('fails due to the dayly limit', function () {
     /** @var User $user */
     $user = User::factory()->create();
 
-    Reading::factory()->count(4)->for($user)->create();
+    Reading::factory()->count(5)->for($user)->create();
 
     $question = 'Should I start something new?';
 

@@ -105,13 +105,10 @@ class PlanResource extends Resource
             ])
             ->recordActions([
                 ViewAction::make()
-                    ->iconButton()
                     ->closeModalByClickingAway(false),
                 EditAction::make()
-                    ->iconButton()
                     ->closeModalByClickingAway(false),
-                DeleteAction::make()
-                    ->iconButton(),
+                DeleteAction::make(),
             ]);
     }
 

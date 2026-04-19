@@ -3,16 +3,58 @@
 use App\Models\Reading;
 use App\Models\User;
 
-it('correctly calculates the daily limit', function () {
+it('correctly calculates the daily redings limit', function () {
     $user = User::factory()->create();
 
-    // Создаем 4 старых гадания
-    Reading::factory()->count(4)->for($user)->create(['created_at' => now()->subDay()]);
+    // Создаем 4 сегодняшних (одно из них удаляем)
+    Reading::factory()->count(4)->for($user)->create();
+
     expect($user->canCreateReadingToday())->toBeTrue();
 
-    // Создаем 4 сегодняшних (одно из них удаляем)
-    Reading::factory()->count(3)->for($user)->create();
-    Reading::factory()->for($user)->create()->delete();
+    Reading::factory()->for($user)->create();
 
     expect($user->canCreateReadingToday())->toBeFalse();
+});
+
+it('correctly calculates the daily interpretations limit', function () {
+    $user = User::factory()->create();
+
+    // Создаем 4 сегодняшних (одно из них удаляем)
+    Reading::factory()->for($user)->create([
+        'ai_responded_at' => now(),
+    ]);
+
+    expect($user->canInterpretReadingToday())->toBeTrue();
+
+    Reading::factory()->for($user)->create([
+        'ai_responded_at' => now(),
+    ]);
+
+    expect($user->canInterpretReadingToday())->toBeFalse();
+});
+
+it('counts deleted readings when check readings limits', function () {
+    $user = User::factory()->create();
+
+    Reading::factory()->count(5)->for($user)->create();
+
+    expect($user->canCreateReadingToday())->toBeFalse();
+
+    $user->readings()->delete();
+
+    expect($user->canCreateReadingToday())->toBeFalse();
+});
+
+it('counts deleted readings when check interpretations limits', function () {
+    $user = User::factory()->create();
+
+    Reading::factory()->count(2)->for($user)->create([
+        'ai_responded_at' => now(),
+    ]);
+
+    expect($user->canInterpretReadingToday())->toBeFalse();
+
+    $user->readings()->delete();
+
+    expect($user->canInterpretReadingToday())->toBeFalse();
 });

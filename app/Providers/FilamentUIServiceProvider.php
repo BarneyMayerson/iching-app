@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace App\Providers;
 
 use Filament\Actions\Action;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\EditAction;
+use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\Column;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
@@ -35,6 +38,18 @@ class FilamentUIServiceProvider extends ServiceProvider
             $column
                 ->sortable()
                 ->searchable();
+        });
+
+        ViewAction::configureUsing(function (ViewAction $action) {
+            $action->iconButton();
+        });
+
+        EditAction::configureUsing(function (EditAction $action) {
+            $action->iconButton();
+        });
+
+        DeleteAction::configureUsing(function (DeleteAction $action) {
+            $action->iconButton();
         });
     }
 }

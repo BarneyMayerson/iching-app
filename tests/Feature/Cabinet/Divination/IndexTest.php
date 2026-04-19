@@ -3,19 +3,15 @@
 use App\Http\Resources\ReadingResource;
 use App\Models\Reading;
 use App\Models\User;
-use Database\Seeders\HexagramSeeder;
 
 use function Pest\Laravel\actingAs;
 use function Pest\Laravel\get;
-use function Pest\Laravel\seed;
 
 test('guest cannon visit divinations index page', function () {
     get(route('cabinet.divinations.index'))->assertRedirect('/login');
 });
 
 test('user can see their divinations list', function () {
-    seed(HexagramSeeder::class);
-
     /** @var User $user */
     $user = User::factory()->create();
     Reading::factory()->count(2)->create(['user_id' => $user->id]);

@@ -121,11 +121,20 @@ class DivinationController extends Controller
 
     public function interpret(Reading $reading): RedirectResponse
     {
-        $this->authorize('update', $reading);
-
         if ($reading->ai_interpretation) {
-            return back();
+            return back()->with('error', __('Interpretation already generated.'));
         }
+
+        $user = Auth::user();
+
+        if ($user->cannot('update', $reading)) {
+            return to_route('cabinet.divinations.index')->with('error', __('You cannot update this reading.'));
+        }
+
+        if (Auth::user()->cannot('interpret', $reading)) {
+            return to_route('cabinet.divinations.index')->with('error', __('Limit reached.'));
+        }
+
         $interpretation = $this->aiService->getInterpretation($reading->load('hexagram.hexagramLines', 'secondaryHexagram'));
 
         $reading->update([

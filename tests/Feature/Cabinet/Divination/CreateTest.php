@@ -24,7 +24,7 @@ test('auth user cannot visit divination create page due to the daily limit', fun
     /** @var User $user */
     $user = User::factory()->create();
 
-    Reading::factory()->count(4)->for($user)->create();
+    Reading::factory()->count(5)->for($user)->create();
 
     actingAs($user)
         ->get(route('cabinet.divinations.create'))

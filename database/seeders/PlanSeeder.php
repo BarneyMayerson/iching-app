@@ -14,7 +14,22 @@ class PlanSeeder extends Seeder
      */
     public function run(): void
     {
-        Plan::factory()->create();
-        Plan::factory()->standard()->create();
+        Plan::create([
+            'name' => 'Free',
+            'slug' => 'free',
+            'daily_readings_limit' => 5,
+            'daily_interpretations_limit' => 2,
+            'price_cents' => 0,
+        ]);
+
+        Plan::create([
+            'name' => 'Standard',
+            'slug' => 'standard',
+            'daily_readings_limit' => 12,
+            'daily_interpretations_limit' => 8,
+            'price_cents' => 500,
+        ]);
+
+        $this->command->info('Plans have been loaded.');
     }
 }

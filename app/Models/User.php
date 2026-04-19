@@ -81,12 +81,12 @@ class User extends Authenticatable implements FilamentUser
 
     public function getDailyReadingsLimit(): int
     {
-        return $this->plan?->daily_readings_limit ?? 1;
+        return $this->plan->daily_readings_limit;
     }
 
     public function getDailyInterpretationsLimit(): int
     {
-        return $this->plan?->daily_interpretations_limit ?? 1;
+        return $this->plan->daily_interpretations_limit;
     }
 
     public function canCreateReadingToday(): bool

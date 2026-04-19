@@ -24,6 +24,11 @@ class ReadingPolicy
         return $reading->user->is($user) || $user->canAccessPanel(resolve('filament')->getPanel('adm'));
     }
 
+    public function interpret(User $user, Reading $reading): bool
+    {
+        return $reading->user->is($user) && $user->canInterpretReadingToday();
+    }
+
     public function export(User $user, Reading $reading): bool
     {
         return $reading->user->is($user);

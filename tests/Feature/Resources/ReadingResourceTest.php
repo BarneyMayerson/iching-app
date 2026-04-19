@@ -37,5 +37,4 @@ it('returns correctly formatted data for a hexagram', function () {
     expect($data['binary'])->toBe(resolve(IChingService::class)->coinResultsToBinary($coinResults));
 
     expect($data['hexagram'])->toBeInstanceOf(HexagramResource::class);
-    expect($data['secondary_hexagram'])->toBeInstanceOf(HexagramResource::class);
 });

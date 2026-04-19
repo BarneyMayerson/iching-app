@@ -29,6 +29,8 @@ class ReadingFactory extends Factory
 
         return [
             'user_id' => User::factory(),
+            'ai_responded_at' => null,
+            'ai_interpretation' => null,
             ...$readingData,
         ];
     }
