@@ -551,5 +551,20 @@
     "You are in a state of dynamic flow.": "Вы находитесь в состоянии динамического потока.",
     "You are receiving this email because we received a password reset request for your account.": "Вы получили это письмо, потому что мы получили запрос на сброс пароля для Вашей учётной записи.",
     "Your email address is unverified.": "Ваш адрес электронной почты не подтвержден.",
-    "Your Inquiry": "Ваш запрос"
+    "Your Inquiry": "Ваш запрос",
+
+    "Slug": "Слаг",
+    "Price (USD)": "Цена (USD)",
+    "Custom Price": "Пользовательская цена",
+    "Description": "Описание",
+    "Daily Readings": "Гаданий в день",
+    "Daily Interpretations": "Толкований в день",
+    "Main Settings": "Основные настройки",
+    "Limits": "Ограничения",
+    "Created At": "Создано",
+    "Updated At": "Обновлено",
+    "Price Cents": "Цена в центах",
+    "Site Settings": "Настройки сайта",
+    "Plans": "Тарифы",
+    "Plan": "Тариф"
 }
