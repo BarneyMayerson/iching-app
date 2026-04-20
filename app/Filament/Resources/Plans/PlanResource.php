@@ -131,13 +131,9 @@ class PlanResource extends Resource
                 TextEntry::make('slug')
                     ->label(__('Slug'))
                     ->inlineLabel(),
-                TextEntry::make('price_cents')
+                TextEntry::make('priceFormatted')
                     ->label(__('Price (USD)'))
-                    ->inlineLabel()
-                    ->numeric()
-                    ->prefix('$')
-                    ->dehydrateStateUsing(fn ($state) => (int) ($state * 100))
-                    ->formatStateUsing(fn ($state) => $state / 100),
+                    ->inlineLabel(),
                 Toggle::make('is_custom_price')
                     ->label(__('Custom Price'))
                     ->inlineLabel(),
