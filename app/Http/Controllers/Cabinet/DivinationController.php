@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Cabinet;
 
+use App\Enums\Reading\InterpretationStatus;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ReadingResource;
+use App\Jobs\InterpretReadingJob;
 use App\Models\Hexagram;
 use App\Models\Reading;
 use App\Models\User;
@@ -135,14 +137,20 @@ class DivinationController extends Controller
             return to_route('cabinet.divinations.index')->with('error', __('Limit reached.'));
         }
 
-        $interpretation = $this->aiService->getInterpretation($reading->load('hexagram.hexagramLines', 'secondaryHexagram'));
+        $reading->update(['interpretation_status' => InterpretationStatus::PENDING]);
 
-        $reading->update([
-            'ai_interpretation' => $interpretation,
-            'ai_responded_at' => now(),
-        ]);
+        dispatch(new InterpretReadingJob($reading));
 
         return back()->with('message', __('Interpretation generated successfully.'));
+    }
+
+    public function cancelInterpretation(Reading $reading): RedirectResponse
+    {
+        $this->authorize('cancelInterpretation', $reading);
+
+        $reading->update(['interpretation_status' => InterpretationStatus::CANCELLED]);
+
+        return back()->with('message', __('Interpretation cancelled successfully.'));
     }
 
     public function destroy(Reading $reading): RedirectResponse

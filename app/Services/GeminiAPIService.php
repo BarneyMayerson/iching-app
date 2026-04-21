@@ -62,7 +62,10 @@ class GeminiAPIService
     {
         $primary = $reading->hexagram;
 
-        $changingPositions = collect($reading->coin_results)
+        /** @var list<int> $coinResults */
+        $coinResults = $reading->coin_results;
+
+        $changingPositions = collect($coinResults)
             ->map(fn ($v, $i) => in_array($v, [6, 9]) ? $i + 1 : null)
             ->filter()
             ->values();

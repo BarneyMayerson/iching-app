@@ -6,6 +6,8 @@ parameters:
     # Level 10 is the highest level
     level: 7
 
+    treatPhpDocTypesAsCertain: false
+
     paths:
         - app/
         - routes/

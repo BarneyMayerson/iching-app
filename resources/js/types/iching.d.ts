@@ -51,6 +51,8 @@ export interface Reading {
   relative_date: string;
   coin_results: number[];
   ai_interpretation?: string;
+  ai_responded_at?: string;
+  interpretation_status: string;
 }
 
 interface PaginationLink {

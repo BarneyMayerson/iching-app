@@ -14,6 +14,7 @@ Route::middleware(['auth', 'verified'])->prefix('cabinet')->as('cabinet')->group
         Route::get('{reading}/export', [DivinationController::class, 'export'])->name('.export');
         Route::get('{reading}', [DivinationController::class, 'show'])->name('.show');
         Route::post('/{reading}/interpret', [DivinationController::class, 'interpret'])->name('.interpret');
+        Route::patch('/{reading}/cancel', [DivinationController::class, 'cancelInterpretation'])->name('.cancel-interpretation');
         Route::delete('{reading}', [DivinationController::class, 'destroy'])->name('.delete');
     });
 });

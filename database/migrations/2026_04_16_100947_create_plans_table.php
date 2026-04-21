@@ -24,7 +24,7 @@ return new class extends Migration
         });
 
         Schema::table('users', function (Blueprint $table) {
-            $table->foreignId('plan_id')->after('email')->nullable()->constrained('plans');
+            $table->foreignId('plan_id')->after('email')->default(1)->constrained('plans');
         });
     }
 

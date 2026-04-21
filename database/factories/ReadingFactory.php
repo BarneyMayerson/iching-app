@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Database\Factories;
 
+use App\Enums\Reading\InterpretationStatus;
 use App\Models\Reading;
 use App\Models\User;
 use App\Services\IChingService;
@@ -31,6 +32,7 @@ class ReadingFactory extends Factory
             'user_id' => User::factory(),
             'ai_responded_at' => null,
             'ai_interpretation' => null,
+            'interpretation_status' => InterpretationStatus::NOT_STARTED,
             ...$readingData,
         ];
     }

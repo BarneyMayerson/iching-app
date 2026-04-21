@@ -568,5 +568,16 @@
     "You are receiving this email because we received a password reset request for your account.": "Вы получили это письмо, потому что мы получили запрос на сброс пароля для Вашей учётной записи.",
     "You cannot update this reading.": "Вы не можете изменять этот гадание.",
     "Your email address is unverified.": "Ваш адрес электронной почты не подтвержден.",
-    "Your Inquiry": "Ваш запрос"
+    "Your Inquiry": "Ваш запрос",
+
+    "Interpretation Status": "Статус интерпретации",
+    "Not started": "Не начато",
+    "Pending": "В ожидании",
+    "Completed": "Завершено",
+    "Failed": "Не удалось",
+    "Cancelled": "Отменено",
+    "Cancel and try later": "Отменить и попробовать позже",
+    "The Oracle is taking longer than usual...": "Оракул требует больше времени для обработки запроса...",
+    "The Oracle is temporarily unavailable. Please try again later.": "Оракул временно недоступен. Пожалуйста, попробуйте позже.",
+    "Interpretation cancelled successfully.": "Толкование успешно отменено."
 }

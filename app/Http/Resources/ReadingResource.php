@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Resources;
 
 use App\Models\Reading;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -20,6 +21,9 @@ class ReadingResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
+        /** @var Carbon|null $aiRespondedAt */
+        $aiRespondedAt = $this->ai_responded_at;
+
         return [
             'uuid' => $this->uuid,
             'question' => $this->question,
@@ -32,6 +36,8 @@ class ReadingResource extends JsonResource
             'secondary_hexagram' => $this->whenLoaded('secondaryHexagram', fn () => HexagramResource::make($this->secondaryHexagram)),
             'coin_results' => $this->coin_results,
             'ai_interpretation' => $this->ai_interpretation,
+            'ai_responded_at' => $aiRespondedAt?->format('d.m.Y H:i'),
+            'interpretation_status' => $this->interpretation_status,
         ];
     }
 }

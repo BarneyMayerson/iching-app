@@ -75,6 +75,9 @@ class ReadingResource extends Resource
                 TextEntry::make('user.name')->label(__('User')),
                 TextEntry::make('created_at')->label(__('Date'))->dateTime(),
                 TextEntry::make('question')->label(__('Question')),
+                TextEntry::make('interpretation_status')
+                    ->label(__('Interpretation Status'))
+                    ->badge(),
             ]);
     }
 
@@ -140,6 +143,10 @@ class ReadingResource extends Resource
                 TextColumn::make('question')
                     ->label(__('Question'))
                     ->limit(50),
+                TextColumn::make('interpretation_status')
+                    ->label(__('Interpretation Status'))
+                    ->badge()
+                    ->searchable(false),
                 TextColumn::make('hexagram.name')
                     ->label(__('Hexagram'))
                     ->searchable(false)

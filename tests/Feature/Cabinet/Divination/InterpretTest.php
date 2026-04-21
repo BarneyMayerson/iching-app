@@ -1,8 +1,9 @@
 <?php
 
+use App\Jobs\InterpretReadingJob;
 use App\Models\Reading;
 use App\Models\User;
-use App\Services\GeminiAPIService;
+use Illuminate\Support\Facades\Queue;
 
 use function Pest\Laravel\actingAs;
 use function Pest\Laravel\post;
@@ -11,33 +12,19 @@ it('requires authentication', function () {
     post(route('cabinet.divinations.store'))->assertRedirect(route('login'));
 });
 
-it('can interpret user reading', function () {
+it('dispatches a job to interpret the reading', function () {
+    Queue::fake();
+
     /** @var Reading $reading */
     $reading = Reading::factory()->create();
 
-    $reading->load('hexagram.hexagramLines', 'secondaryHexagram');
-    $mockInterpretation = 'mock interpretation';
+    actingAs($reading->user)
+        ->post(route('cabinet.divinations.interpret', $reading))
+        ->assertRedirect();
 
-    $mockAiService = mock(GeminiAPIService::class);
-
-    $mockAiService->shouldReceive('getInterpretation')
-        ->once() // @phpstan-ignore-line
-        ->with(Mockery::on(
-            // Сравниваем ID моделей
-            fn ($argument) => $argument->id === $reading->id))
-        ->andReturn($mockInterpretation);
-
-    app()->instance(GeminiAPIService::class, $mockAiService);
-
-    $response = actingAs($reading->user)
-        ->post(route('cabinet.divinations.interpret', $reading));
-
-    $response->assertRedirect();
-    $response->assertSessionHas('message', __('Interpretation generated successfully.'));
-
-    $reading->refresh();
-    expect($reading->ai_interpretation)->toBe($mockInterpretation);
-    expect($reading->ai_responded_at)->not->toBeNull();
+    Queue::assertPushed(InterpretReadingJob::class,
+        fn ($job) => $job->reading->id === $reading->id
+    );
 });
 
 it('cannot intrepert the same reading twice', function () {

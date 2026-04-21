@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Enums\Reading\InterpretationStatus;
 use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -16,10 +17,14 @@ class Reading extends Model
     /** @use HasFactory<UserFactory> */
     use HasFactory, HasUuids, SoftDeletes;
 
-    protected $casts = [
-        'coin_results' => 'array',
-        'ai_responded_at' => 'datetime',
-    ];
+    protected function casts(): array
+    {
+        return [
+            'coin_results' => 'array',
+            'ai_responded_at' => 'datetime',
+            'interpretation_status' => InterpretationStatus::class,
+        ];
+    }
 
     /**
      * @return list<string>

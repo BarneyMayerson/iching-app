@@ -15,9 +15,10 @@ const props = defineProps<{
   show: boolean;
   reading: Reading;
   isProcessing: boolean;
+  showTimeoutWarning: boolean;
 }>();
 
-const emit = defineEmits(['close']);
+const emit = defineEmits(['close', 'cancel']);
 
 const md = new MarkdownIt({
   html: false,
@@ -61,10 +62,43 @@ const renderedMarkdown = computed(() =>
         </div>
 
         <div
-          v-else-if="reading.ai_interpretation"
-          class="prose max-w-none pb-4 prose-slate dark:prose-invert"
-          v-html="renderedMarkdown"
-        ></div>
+          v-if="showTimeoutWarning"
+          class="mt-6 animate-in text-center duration-300 fade-in zoom-in"
+        >
+          <p class="mb-4 text-xs text-red-400">
+            {{ __('The Oracle is taking longer than usual...') }}
+          </p>
+          <button
+            @click="$emit('cancel')"
+            class="text-sm font-medium text-primary hover:underline"
+          >
+            {{ __('Cancel and try later') }}
+          </button>
+        </div>
+
+        <div
+          v-if="reading.interpretation_status === 'Failed'"
+          class="p-4 text-red-500"
+        >
+          {{
+            __('The Oracle is temporarily unavailable. Please try again later.')
+          }}
+        </div>
+
+        <div v-else-if="reading.ai_interpretation">
+          <div
+            class="prose max-w-none pb-4 prose-slate dark:prose-invert"
+            v-html="renderedMarkdown"
+          ></div>
+          <div class="mt-6 text-center">
+            <button
+              @click="$emit('close')"
+              class="text-sm font-medium text-primary hover:underline"
+            >
+              {{ __('Close') }}
+            </button>
+          </div>
+        </div>
       </div>
     </DialogContent>
   </Dialog>
