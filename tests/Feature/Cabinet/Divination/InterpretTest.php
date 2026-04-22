@@ -68,7 +68,7 @@ it('check interpretations limit', function () {
     actingAs($user)
         ->post(route('cabinet.divinations.interpret', $reading))
         ->assertStatus(Response::HTTP_FOUND)
-        ->assertSessionHasErrors(['limit' => __('Limit reached.')]);
+        ->assertSessionHasErrors(['limit' => __('You have reached your daily limit for new interpretations.')]);
 
     // when user delete even all readings
     $user->readings()->delete();
@@ -77,7 +77,7 @@ it('check interpretations limit', function () {
     actingAs($user)
         ->post(route('cabinet.divinations.interpret', $reading))
         ->assertStatus(Response::HTTP_FOUND)
-        ->assertSessionHasErrors(['limit' => __('Limit reached.')]);
+        ->assertSessionHasErrors(['limit' => __('You have reached your daily limit for new interpretations.')]);
 });
 
 it('throttles interpretation requests', function () {

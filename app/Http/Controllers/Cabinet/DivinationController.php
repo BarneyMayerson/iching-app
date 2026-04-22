@@ -64,7 +64,8 @@ class DivinationController extends Controller
         $user = Auth::user();
 
         if ($user->cannot('create', Reading::class)) {
-            return to_route('cabinet.divinations.index')->with('error', __('Limit reached.'));
+            return to_route('cabinet.divinations.index')
+                ->with('error', __('You have reached your daily limit for new divinations.'));
         }
 
         return Inertia::render('Cabinet/Divinations/Create');
@@ -91,11 +92,11 @@ class DivinationController extends Controller
         );
 
         $reading = Reading::create([
-            'user_id' => Auth::id(),
+            'user_id' => $user->id,
             ...$readingData,
         ]);
 
-        return to_route('cabinet.divinations.show', $reading);
+        return to_route('cabinet.divinations.show', $reading)->with('success', __('Divination created successfully.'));
     }
 
     public function show(Reading $reading): Response
@@ -138,9 +139,8 @@ class DivinationController extends Controller
         }
 
         if ($user->cannot('interpret', $reading)) {
-            // throw new DomainException(__('Limit reached.'));
             throw ValidationException::withMessages([
-                'limit' => __('Limit reached.'),
+                'limit' => __('You have reached your daily limit for new interpretations.'),
             ]);
         }
 
@@ -157,7 +157,7 @@ class DivinationController extends Controller
 
         $reading->update(['interpretation_status' => InterpretationStatus::CANCELLED]);
 
-        return back()->with('message', __('Interpretation cancelled successfully.'));
+        return back()->with('info', __('Interpretation cancelled successfully.'));
     }
 
     public function destroy(Reading $reading): RedirectResponse
@@ -167,7 +167,7 @@ class DivinationController extends Controller
         $reading->delete();
 
         return to_route('cabinet.divinations.index')
-            ->with('message', 'Reading deleted successfully.');
+            ->with('success', __('Divination deleted successfully.'));
     }
 
     public function export(Reading $reading): HttpResponse
