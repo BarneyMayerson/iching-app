@@ -13,8 +13,10 @@ Route::middleware(['auth', 'verified'])->prefix('cabinet')->as('cabinet')->group
         Route::post('store', [DivinationController::class, 'store'])->name('.store');
         Route::get('{reading}/export', [DivinationController::class, 'export'])->name('.export');
         Route::get('{reading}', [DivinationController::class, 'show'])->name('.show');
-        Route::post('/{reading}/interpret', [DivinationController::class, 'interpret'])->name('.interpret');
-        Route::patch('/{reading}/cancel', [DivinationController::class, 'cancelInterpretation'])->name('.cancel-interpretation');
+        Route::post('/{reading}/interpret', [DivinationController::class, 'interpret'])
+            ->middleware('throttle:3,1')
+            ->name('.interpret');
+        Route::patch('/{reading}/cancel-interpretation', [DivinationController::class, 'cancelInterpretation'])->name('.cancel-interpretation');
         Route::delete('{reading}', [DivinationController::class, 'destroy'])->name('.delete');
     });
 });

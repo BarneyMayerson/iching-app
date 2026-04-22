@@ -70,9 +70,29 @@ const startPolling = () => {
   }, 3000);
 };
 
-const handleAiClick = () => {
-  isModalOpen.value = true;
+// const handleAiClick = () => {
+//   isModalOpen.value = true;
 
+//   const currentStatus = props.reading.interpretation_status;
+
+//   const canStart = ['Not started', 'Failed', 'Cancelled'].includes(
+//     currentStatus,
+//   );
+
+//   if (canStart && !props.reading.ai_interpretation) {
+//     form.post(interpret(props.reading).url, {
+//       preserveScroll: true,
+//       onSuccess: () => startPolling(),
+//       onError: (errors) => {
+//         console.error(errors);
+//       },
+//     });
+//   } else if (['Pending', 'Processing'].includes(currentStatus)) {
+//     startPolling();
+//   }
+// };
+
+const handleAiClick = () => {
   const currentStatus = props.reading.interpretation_status;
 
   const canStart = ['Not started', 'Failed', 'Cancelled'].includes(
@@ -82,10 +102,20 @@ const handleAiClick = () => {
   if (canStart && !props.reading.ai_interpretation) {
     form.post(interpret(props.reading).url, {
       preserveScroll: true,
-      onSuccess: () => startPolling(),
+      onSuccess: () => {
+        isModalOpen.value = true;
+        startPolling();
+      },
+      onError: () => {
+        isModalOpen.value = false;
+        console.info('Interpretation error');
+      },
     });
   } else if (['Pending', 'Processing'].includes(currentStatus)) {
+    isModalOpen.value = true;
     startPolling();
+  } else if (props.reading.ai_interpretation) {
+    isModalOpen.value = true;
   }
 };
 

@@ -19,6 +19,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response as HttpResponse;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -124,17 +125,23 @@ class DivinationController extends Controller
     public function interpret(Reading $reading): RedirectResponse
     {
         if ($reading->ai_interpretation) {
-            return back()->with('error', __('Interpretation already generated.'));
+            throw ValidationException::withMessages([
+                'reading' => __('Interpretation already generated.'),
+            ]);
         }
 
+        /** @var User $user */
         $user = Auth::user();
 
         if ($user->cannot('update', $reading)) {
-            return to_route('cabinet.divinations.index')->with('error', __('You cannot update this reading.'));
+            abort(HttpResponse::HTTP_FORBIDDEN, __('You cannot update this reading.'));
         }
 
-        if (Auth::user()->cannot('interpret', $reading)) {
-            return to_route('cabinet.divinations.index')->with('error', __('Limit reached.'));
+        if ($user->cannot('interpret', $reading)) {
+            // throw new DomainException(__('Limit reached.'));
+            throw ValidationException::withMessages([
+                'limit' => __('Limit reached.'),
+            ]);
         }
 
         $reading->update(['interpretation_status' => InterpretationStatus::PENDING]);
