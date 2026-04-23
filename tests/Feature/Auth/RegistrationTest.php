@@ -7,7 +7,7 @@ use function Pest\Laravel\get;
 use function Pest\Laravel\post;
 use function Pest\Laravel\seed;
 
-test('registration screen can be rendered', function (): void {
+test('registration screen can be rendered', function () {
     $response = get(route('register'));
 
     $response->assertStatus(200);

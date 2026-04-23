@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Notification;
 
 use function Pest\Laravel\actingAs;
 
-test('sends verification notification', function (): void {
+test('sends verification notification', function () {
     Notification::fake();
 
     $user = User::factory()->unverified()->create();
@@ -18,7 +18,7 @@ test('sends verification notification', function (): void {
     Notification::assertSentTo($user, VerifyEmail::class);
 });
 
-test('does not send verification notification if email is verified', function (): void {
+test('does not send verification notification if email is verified', function () {
     Notification::fake();
     /** @var User $user */
     $user = User::factory()->create();

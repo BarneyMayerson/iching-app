@@ -7,13 +7,13 @@ use Illuminate\Support\Facades\Notification;
 use function Pest\Laravel\get;
 use function Pest\Laravel\post;
 
-test('reset password link screen can be rendered', function (): void {
+test('reset password link screen can be rendered', function () {
     $response = get(route('password.request'));
 
     $response->assertOk();
 });
 
-test('reset password link can be requested', function (): void {
+test('reset password link can be requested', function () {
     Notification::fake();
 
     $user = User::factory()->create();
@@ -23,7 +23,7 @@ test('reset password link can be requested', function (): void {
     Notification::assertSentTo($user, ResetPassword::class);
 });
 
-test('reset password screen can be rendered', function (): void {
+test('reset password screen can be rendered', function () {
     Notification::fake();
 
     $user = User::factory()->create();
@@ -39,7 +39,7 @@ test('reset password screen can be rendered', function (): void {
     });
 });
 
-test('password can be reset with valid token', function (): void {
+test('password can be reset with valid token', function () {
     Notification::fake();
 
     $user = User::factory()->create();
@@ -62,7 +62,7 @@ test('password can be reset with valid token', function (): void {
     });
 });
 
-test('password cannot be reset with invalid token', function (): void {
+test('password cannot be reset with invalid token', function () {
     $user = User::factory()->create();
 
     $response = post(route('password.update'), [

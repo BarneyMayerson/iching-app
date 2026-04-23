@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\User;
+use Illuminate\Foundation\Testing\TestCase;
 use Illuminate\Support\Facades\RateLimiter;
 use Laravel\Fortify\Features;
 
@@ -10,13 +11,13 @@ use function Pest\Laravel\assertGuest;
 use function Pest\Laravel\get;
 use function Pest\Laravel\post;
 
-test('login screen can be rendered', function (): void {
+test('login screen can be rendered', function () {
     $response = get(route('login'));
 
     $response->assertOk();
 });
 
-test('users can authenticate using the login screen', function (): void {
+test('users can authenticate using the login screen', function () {
     $user = User::factory()->create();
 
     $response = post(route('login.store'), [
@@ -28,9 +29,10 @@ test('users can authenticate using the login screen', function (): void {
     $response->assertRedirect(route('cabinet.dashboard', absolute: false));
 });
 
-test('users with two factor enabled are redirected to two factor challenge', function (): void {
+test('users with two factor enabled are redirected to two factor challenge', function () {
+    /** @var TestCase $this */
     if (! Features::canManageTwoFactorAuthentication()) {
-        $this->markTestSkipped('Two-factor authentication is not enabled.');
+        $this->markTestSkipped('Two factor authentication is not enabled.');
     }
 
     Features::twoFactorAuthentication([
@@ -56,7 +58,7 @@ test('users with two factor enabled are redirected to two factor challenge', fun
     assertGuest();
 });
 
-test('users can not authenticate with invalid password', function (): void {
+test('users can not authenticate with invalid password', function () {
     $user = User::factory()->create();
 
     post(route('login.store'), [
@@ -67,7 +69,7 @@ test('users can not authenticate with invalid password', function (): void {
     assertGuest();
 });
 
-test('users can logout', function (): void {
+test('users can logout', function () {
     /** @var User $user */
     $user = User::factory()->create();
 
@@ -77,7 +79,7 @@ test('users can logout', function (): void {
     $response->assertRedirect(route('home'));
 });
 
-test('users are rate limited', function (): void {
+test('users are rate limited', function () {
     /** @var User $user */
     $user = User::factory()->create();
 

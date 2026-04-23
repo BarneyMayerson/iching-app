@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Hash;
 
 use function Pest\Laravel\actingAs;
 
-test('password update page is displayed', function (): void {
+test('password update page is displayed', function () {
     /** @var User $user */
     $user = User::factory()->create();
 
@@ -15,7 +15,7 @@ test('password update page is displayed', function (): void {
     $response->assertStatus(200);
 });
 
-test('password can be updated', function (): void {
+test('password can be updated', function () {
     /** @var User $user */
     $user = User::factory()->create();
 
