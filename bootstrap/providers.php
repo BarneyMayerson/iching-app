@@ -4,6 +4,7 @@ use App\Providers\AppServiceProvider;
 use App\Providers\Filament\AdmPanelProvider;
 use App\Providers\FilamentUIServiceProvider;
 use App\Providers\FortifyServiceProvider;
+use App\Providers\HorizonServiceProvider;
 use App\Providers\TestingServiceProvider;
 
 return [
@@ -11,5 +12,6 @@ return [
     FilamentUIServiceProvider::class,
     AdmPanelProvider::class,
     FortifyServiceProvider::class,
+    HorizonServiceProvider::class,
     TestingServiceProvider::class,
 ];

@@ -51,3 +51,23 @@ shell:
 
 logs:
     docker compose logs -f
+
+# Очереди и Horizon
+queue-restart:
+    docker compose exec app php artisan queue:restart
+
+queue-flush:
+    docker compose exec app php artisan queue:clear
+
+horizon:
+    docker compose exec app php artisan horizon
+
+horizon-pause:
+    docker compose exec app php artisan horizon:pause
+
+horizon-terminate:
+    docker compose exec app php artisan horizon:terminate
+
+# Просмотр статуса Redis
+redis-cli:
+    docker compose exec redis redis-cli ping
