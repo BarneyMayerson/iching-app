@@ -110,6 +110,23 @@ services:
             timeout: 3s
             retries: 5
 
+    scheduler:
+        build:
+            context: .
+            dockerfile: docker/php/Dockerfile
+        container_name: iching_scheduler
+        restart: unless-stopped
+        working_dir: /var/www/html
+        volumes:
+            - ./:/var/www/html
+        command: php artisan schedule:work
+        depends_on:
+            - app
+            - db
+            - redis
+        networks:
+            - iching_network
+
 networks:
     iching_network:
         driver: bridge

@@ -1,8 +1,15 @@
 <?php
 
-use Illuminate\Foundation\Inspiring;
-use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Schedule;
 
-Artisan::command('inspire', function (): void {
-    $this->comment(Inspiring::quote());
-})->purpose('Display an inspiring quote');
+// Делаем "снимок" состояния очередей каждые 5 минут для графиков в дашборде
+Schedule::command('horizon:snapshot')->everyFiveMinutes();
+
+// Очищаем старые данные о выполненных задачах
+Schedule::command('horizon:terminate')->daily();
+
+// Удаляем записи о проваленных задачах старше 7 дней
+Schedule::command('queue:prune-failed', ['--hours' => 168])->daily();
+
+// Удаляем старые пакеты задач
+Schedule::command('queue:prune-batches', ['--hours' => 48])->daily();
