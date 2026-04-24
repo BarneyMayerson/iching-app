@@ -19,7 +19,10 @@ class InterpretReadingJob implements ShouldQueue
     /**
      * Create a new job instance.
      */
-    public function __construct(public Reading $reading) {}
+    public function __construct(public Reading $reading)
+    {
+        $this->onQueue('interpretations');
+    }
 
     /**
      * Execute the job.
