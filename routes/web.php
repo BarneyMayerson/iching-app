@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\StaticPageController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -15,6 +16,8 @@ Route::post('/language', function (Request $request) {
 
     return back();
 })->name('language.update');
+
+Route::get('/p/{staticPage:slug}', [StaticPageController::class, 'show'])->name('static.page');
 
 require __DIR__.'/cabinet.php';
 require __DIR__.'/settings.php';
