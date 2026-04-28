@@ -3,8 +3,9 @@ import YinYangBalance from '@/components/UserDashboard/YinYangBalance.vue';
 import { useTranslate } from '@/composables/useTranslate';
 import AppLayout from '@/layouts/AppLayout.vue';
 import { dashboard as cabinetDashboard } from '@/routes/cabinet';
+import { index } from '@/routes/cabinet/divinations';
 import { type BreadcrumbItem } from '@/types';
-import { Head, router } from '@inertiajs/vue3';
+import { Head, Link, router } from '@inertiajs/vue3';
 import { Activity, BarChart3 } from 'lucide-vue-next';
 import { computed } from 'vue';
 
@@ -46,26 +47,28 @@ const breadcrumbs = computed<BreadcrumbItem[]>(() => [
 <template>
   <Head :title="__('Overview')" />
 
-  <AppLayout :breadcrumbs="breadcrumbs">
+  <AppLayout :breadcrumbs>
     <div class="flex flex-1 flex-col gap-6 p-6">
       <div class="grid gap-6 md:grid-cols-3">
-        <div
-          class="rounded-3xl border border-slate-100 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900/50"
-        >
-          <div class="flex items-center gap-4 p-6">
-            <div
-              class="flex size-12 items-center justify-center rounded-2xl bg-amber-50 text-amber-600 dark:bg-amber-900/20"
-            >
-              <Activity class="size-6" />
-            </div>
-            <div>
-              <p class="text-sm font-medium text-slate-500">
-                {{ __('Total Consultations') }}
-              </p>
-              <h4 class="text-3xl font-bold">{{ stats.total_readings }}</h4>
+        <Link :href="index().url">
+          <div
+            class="h-full rounded-3xl border border-slate-100 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900/50"
+          >
+            <div class="flex items-center gap-4 p-6">
+              <div
+                class="flex size-12 items-center justify-center rounded-2xl bg-amber-50 text-amber-600 dark:bg-amber-900/20"
+              >
+                <Activity class="size-6" />
+              </div>
+              <div>
+                <p class="text-sm font-medium text-slate-500">
+                  {{ __('Total Consultations') }}
+                </p>
+                <h4 class="text-3xl font-bold">{{ stats.total_readings }}</h4>
+              </div>
             </div>
           </div>
-        </div>
+        </Link>
 
         <div
           class="rounded-3xl border border-slate-100 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900/50"

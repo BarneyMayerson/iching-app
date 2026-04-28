@@ -32,7 +32,7 @@ class AdmPanelProvider extends PanelProvider
             ->default()
             ->id('adm')
             ->path('adm')
-            ->profile()
+            ->profile(isSimple: false)
             ->colors([
                 'primary' => Color::Amber,
             ])
