@@ -4,12 +4,8 @@ use App\Http\Controllers\StaticPageController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-use Laravel\Fortify\Features;
 
-Route::get('/', fn () => Inertia::render('Welcome', [
-    'canRegister' => Features::enabled(Features::registration()),
-    'canLogin' => Route::has('login'),
-]))->name('home');
+Route::get('/', fn () => Inertia::render('Welcome'))->name('home');
 
 Route::post('/language', function (Request $request) {
     $request->session()->put('locale', $request->language);
