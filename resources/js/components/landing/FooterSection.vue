@@ -22,6 +22,9 @@ import { Link } from '@inertiajs/vue3';
         <Link :href="page('guide').url" class="hover:text-amber-500">
           {{ __('Guide') }}
         </Link>
+        <Link :href="page('accuracy').url" class="hover:text-amber-500">
+          {{ __('Accuracy') }}
+        </Link>
       </div>
     </div>
   </footer>

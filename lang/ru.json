@@ -601,5 +601,7 @@
     "You have reached your daily limit for new interpretations.": "Вы достигли своего лимита новых интерпретаций в день.",
     "You've been invited to join :teamName": "Вас пригласили присоединиться к :teamName",
     "Your email address is unverified.": "Ваш адрес электронной почты не подтвержден.",
-    "Your Inquiry": "Ваш запрос"
+    "Your Inquiry": "Ваш запрос",
+
+    "Accuracy": "Точность"
 }

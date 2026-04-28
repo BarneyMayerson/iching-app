@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Head, Link } from '@inertiajs/vue3';
-import { ChevronLeft } from 'lucide-vue-next';
+import GuestLayout from '@/layouts/GuestLayout.vue';
+import { Head } from '@inertiajs/vue3';
 import MarkdownIt from 'markdown-it';
 import { computed } from 'vue';
 
@@ -25,16 +25,8 @@ const renderedContent = computed(() => {
 <template>
   <Head :title="page.title" />
 
-  <div class="min-h-screen bg-slate-50 py-12 dark:bg-slate-950">
+  <GuestLayout>
     <div class="mx-auto max-w-3xl px-6">
-      <Link
-        href="/"
-        class="mb-8 inline-flex items-center gap-2 text-sm font-medium text-slate-500 transition-colors hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"
-      >
-        <ChevronLeft class="size-4" />
-        {{ __('Back to home') }}
-      </Link>
-
       <article>
         <header class="mb-12">
           <h1
@@ -49,16 +41,15 @@ const renderedContent = computed(() => {
           class="prose max-w-none prose-slate prose-amber lg:prose-lg dark:prose-invert prose-headings:font-serif"
           v-html="renderedContent"
         ></div>
-      </article>
 
-      <footer
-        class="mt-16 border-t border-slate-200 pt-8 text-center dark:border-slate-800"
-      >
-        <p class="text-sm text-slate-500">
-          © 2026 I-Ching Cabinet. {{ __('Last updated') }}:
-          {{ new Date().toLocaleDateString() }}
-        </p>
-      </footer>
+        <div
+          class="my-12 flex items-center justify-center gap-4 text-slate-500 dark:text-slate-400"
+        >
+          <p class="text-sm">
+            {{ __('Last updated') }}: {{ new Date().toLocaleDateString() }}
+          </p>
+        </div>
+      </article>
     </div>
-  </div>
+  </GuestLayout>
 </template>
