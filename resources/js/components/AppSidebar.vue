@@ -15,10 +15,17 @@ import {
 import { useTranslate } from '@/composables/useTranslate';
 import { dashboard as cabinetDashboard } from '@/routes/cabinet';
 import { index as cabinetDivinationsIndex } from '@/routes/cabinet/divinations';
+import { instructions } from '@/routes/cabinet/donate';
 import { dashboard as admDashboard } from '@/routes/filament/adm/pages/index';
 import { AppPageProps, type NavItem } from '@/types';
 import { Link, usePage } from '@inertiajs/vue3';
-import { LayoutDashboard, LayoutGrid, Scroll, Sparkles } from 'lucide-vue-next';
+import {
+  Gift,
+  LayoutDashboard,
+  LayoutGrid,
+  Scroll,
+  Sparkles,
+} from 'lucide-vue-next';
 import { computed } from 'vue';
 import AppLogo from './AppLogo.vue';
 
@@ -41,6 +48,12 @@ const mainNavItems = computed<NavItem[]>(() => [
 
 const footerNavItems = computed<NavItem[]>(() => {
   const items: NavItem[] = [
+    {
+      title: __('Donate'),
+      href: instructions().url,
+      target: '_self',
+      icon: Gift,
+    },
     {
       title: __('Book of Changes'),
       href:
