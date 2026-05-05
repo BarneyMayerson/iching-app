@@ -103,7 +103,7 @@ class DivinationController extends Controller
     {
         $this->authorize('view', $reading);
 
-        $reading->load(
+        $reading->load([
             'hexagram',
             'hexagram.hexagramLines',
             'hexagram.upperTrigram',
@@ -111,7 +111,7 @@ class DivinationController extends Controller
             'secondaryHexagram',
             'secondaryHexagram.upperTrigram',
             'secondaryHexagram.lowerTrigram',
-        );
+        ]);
 
         /** @var list<int> $coinResults */
         $coinResults = $reading->coin_results;
@@ -174,7 +174,7 @@ class DivinationController extends Controller
     {
         $this->authorize('export', $reading);
 
-        $reading->load(
+        $reading->load([
             'hexagram',
             'hexagram.hexagramLines',
             'hexagram.upperTrigram',
@@ -182,7 +182,7 @@ class DivinationController extends Controller
             'secondaryHexagram',
             'secondaryHexagram.upperTrigram',
             'secondaryHexagram.lowerTrigram',
-        );
+        ]);
 
         /** @var list<int> $coinResults */
         $coinResults = $reading->coin_results;

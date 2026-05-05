@@ -63,7 +63,6 @@
     "Bandwidth Limit Exceeded": "Превышена нагрузка на канал связи",
     "Beautiful PDF Reports": "Эстетичные PDF-отчеты",
     "Become a Patron": "Стать Патроном",
-    "Begin Consultation": "Начать консультацию",
     "Below": "Снизу",
     "Below (Inner)": "Снизу (Внутренняя)",
     "Binary": "Двоичный",
@@ -608,5 +607,8 @@
     "You've been invited to join :teamName": "Вас пригласили присоединиться к :teamName",
     "Your email address is unverified.": "Ваш адрес электронной почты не подтвержден.",
     "Your Inquiry": "Ваш запрос",
-    "Your unique order ID": "Ваш уникальный ID заказа"
+    "Your unique order ID": "Ваш уникальный ID заказа",
+
+    "Join the Cabinet": "Присоединиться",
+    "Ask the Oracle": "Запросить Оракула"
 }

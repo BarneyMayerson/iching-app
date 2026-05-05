@@ -64,7 +64,7 @@ onUnmounted(() => observer?.disconnect());
     id="sacred"
     class="overflow-hidden bg-slate-950 py-24 text-white"
   >
-    <div class="mx-auto max-w-7xl px-6 lg:px-12">
+    <div class="mx-auto max-w-5xl px-6 lg:px-12">
       <div class="grid items-center gap-16 lg:grid-cols-2">
         <div class="max-w-xl">
           <span

@@ -7,7 +7,7 @@ import { BarChart2, BookOpen, FileText } from 'lucide-vue-next';
     id="features"
     class="bg-white px-6 py-24 transition-colors duration-500 lg:px-12 dark:bg-slate-900/30"
   >
-    <div class="mx-auto max-w-7xl">
+    <div class="mx-auto max-w-5xl">
       <div class="mb-16 text-center">
         <h2
           class="font-serif text-4xl font-bold text-slate-950 dark:text-white"

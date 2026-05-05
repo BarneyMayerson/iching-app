@@ -7,11 +7,10 @@ import { Head } from '@inertiajs/vue3';
 </script>
 
 <template>
-  <Head :title="__('I-Ching Cabinet — Your Digital Oracle')" />
+  <Head :title="__('I-Ching Cabinet Your Digital Oracle')" />
 
-  <GuestLayout
-    class="min-h-screen bg-slate-50 text-slate-900 selection:bg-amber-200 dark:bg-slate-950 dark:text-slate-100"
-  >
+  <GuestLayout>
+    <div class="my-24 flex items-center gap-6"></div>
     <HeroHeader />
     <FeatureSection />
     <SacredRitualSection />

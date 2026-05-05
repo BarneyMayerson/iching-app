@@ -1,19 +1,12 @@
 <?php
 
-use App\Http\Controllers\StaticPageController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\PublicController;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 
-Route::get('/', fn () => Inertia::render('Welcome'))->name('home');
-
-Route::post('/language', function (Request $request) {
-    $request->session()->put('locale', $request->language);
-
-    return back();
-})->name('language.update');
-
-Route::get('/p/{staticPage:slug}', [StaticPageController::class, 'show'])->name('static.page');
+Route::get('/', [PublicController::class, 'home'])->name('home');
+Route::post('/language', [PublicController::class, 'language'])->name('language.update');
+Route::get('/p/{staticPage:slug}', [PublicController::class, 'showStaticPage'])->name('static-page');
 
 require __DIR__.'/cabinet.php';
 require __DIR__.'/settings.php';
+require __DIR__.'/guest.php';

@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { page } from '@/routes/static';
+import { staticPage as page } from '@/routes';
 import { Link } from '@inertiajs/vue3';
 </script>
 
 <template>
   <footer class="border-t border-slate-900 bg-slate-950 py-12 text-center">
-    <div class="mx-auto max-w-7xl px-6 lg:px-12">
+    <div class="mx-auto max-w-6xl px-6 lg:px-12">
       <p class="text-sm text-slate-500">
         © 2026 I-Ching Cabinet.
         {{ __('Built with precision for the modern sage.') }}

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { register } from '@/routes';
+import { create } from '@/routes/divination';
 import { Link } from '@inertiajs/vue3';
 
 const scrollToSacredProcess = () => {
@@ -11,7 +12,7 @@ const scrollToSacredProcess = () => {
 </script>
 <template>
   <header class="relative px-6 pt-20 pb-32 text-center lg:px-12">
-    <div class="mx-auto max-w-4xl">
+    <div class="mx-auto max-w-5xl">
       <span
         class="mb-4 inline-block rounded-full bg-amber-100 px-4 py-1.5 text-xs font-black tracking-[0.2em] text-amber-700 uppercase"
       >
@@ -32,10 +33,16 @@ const scrollToSacredProcess = () => {
       </p>
       <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
         <Link
-          :href="register().url"
+          :href="create().url"
           class="w-full rounded-2xl bg-slate-900 px-8 py-4 text-lg font-bold text-white shadow-xl shadow-slate-200 transition-all hover:bg-slate-800 active:scale-95 sm:w-auto dark:bg-amber-600 dark:text-slate-950 dark:shadow-amber-900/20 dark:hover:bg-amber-500"
         >
-          {{ __('Begin Consultation') }}
+          {{ __('Ask the Oracle') }}
+        </Link>
+        <Link
+          :href="register().url"
+          class="w-full rounded-2xl border-2 border-slate-200 bg-transparent px-8 py-4 text-lg font-bold text-slate-900 transition-all hover:bg-slate-50 active:scale-95 sm:w-auto dark:border-slate-800 dark:text-slate-400 dark:hover:bg-slate-800/50"
+        >
+          {{ __('Join the Cabinet') }}
         </Link>
 
         <a
