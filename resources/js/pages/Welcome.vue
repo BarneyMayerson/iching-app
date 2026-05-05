@@ -10,7 +10,6 @@ import { Head } from '@inertiajs/vue3';
   <Head :title="__('I-Ching Cabinet Your Digital Oracle')" />
 
   <GuestLayout>
-    <div class="my-24 flex items-center gap-6"></div>
     <HeroHeader />
     <FeatureSection />
     <SacredRitualSection />

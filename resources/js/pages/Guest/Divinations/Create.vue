@@ -1,20 +1,10 @@
 <script setup lang="ts">
 import DivinationForm from '@/components/IChing/form/DivinationForm.vue';
 import HexagramPreview from '@/components/IChing/form/HexagramPreview.vue';
-import { useTranslate } from '@/composables/useTranslate';
 import GuestLayout from '@/layouts/GuestLayout.vue';
-import { index } from '@/routes/cabinet/divinations';
 import { store } from '@/routes/divination';
-import { type BreadcrumbItem } from '@/types';
 import { Head } from '@inertiajs/vue3';
 import { ref } from 'vue';
-
-const { __ } = useTranslate();
-
-const breadcrumbs: BreadcrumbItem[] = [
-  { title: __('Divinations'), href: index().url },
-  { title: __('New Casting'), href: '#' },
-];
 
 const hexagramCoinResults = ref<number[]>([]);
 const lineCount = ref(0);

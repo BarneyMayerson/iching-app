@@ -22,7 +22,7 @@ class CheckGuestDivinationLimit
         }
 
         if ($request->session()->get('has_performed_divination', false)) {
-            return to_route('home')->with('error', __('You can only perform one divination as a guest. Please register to continue.'));
+            return to_route('home')->with('warning', __('You can only perform one divination as a guest. Please register to continue.'));
         }
 
         return $next($request);

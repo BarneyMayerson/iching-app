@@ -26,11 +26,6 @@ class GuestDivinationController extends Controller
 
     public function store(Request $request): RedirectResponse
     {
-        if ($request->session()->get('has_performed_divination', false)) {
-            return to_route('home')
-                ->with('error', __('You have already performed your one guest divination. Please register to continue.'));
-        }
-
         $validated = $request->validate([
             'question' => ['required', 'string', 'max:255', 'min:3'],
             'coin_results' => ['required', 'array', 'size:6'],
@@ -52,7 +47,7 @@ class GuestDivinationController extends Controller
         $request->session()->put('has_performed_divination', true);
 
         return to_route('divination.show')
-            ->with('success', __('Your free divination is complete. Create an account to save and get access to more features.'));
+            ->with('info', __('Your divination is complete. Create an account to save and get access to more features.'));
     }
 
     public function show(Request $request): Response|RedirectResponse
@@ -64,7 +59,8 @@ class GuestDivinationController extends Controller
         }
 
         /** @var Reading $reading */
-        $reading = Reading::make($readingData);
+        // $reading = Reading::make($readingData);
+        $reading = new Reading($readingData);
 
         $reading->load([
             'hexagram',
