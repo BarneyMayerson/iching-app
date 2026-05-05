@@ -7,7 +7,7 @@ import GuestLayout from '@/layouts/GuestLayout.vue';
 import { Reading } from '@/types/iching';
 import { Head } from '@inertiajs/vue3';
 
-const props = defineProps<{
+defineProps<{
   reading: Reading;
   changing_lines: number[];
 }>();
