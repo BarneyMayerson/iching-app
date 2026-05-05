@@ -11,7 +11,7 @@ import { Link } from '@inertiajs/vue3';
         {{ __('Built with precision for the modern sage.') }}
       </p>
       <div
-        class="mt-6 flex justify-center gap-6 text-xs font-bold tracking-widest text-slate-400 uppercase"
+        class="mt-6 flex flex-col justify-center gap-6 text-xs font-bold tracking-widest text-slate-400 uppercase sm:flex-row"
       >
         <Link :href="page('privacy').url" class="hover:text-amber-500">
           {{ __('Privacy') }}
