@@ -1,18 +1,66 @@
 <script setup lang="ts">
+import ForgotPasswordForm from '@/components/auth/ForgotPasswordForm.vue';
+import LoginForm from '@/components/auth/LoginForm.vue';
+import RegisterForm from '@/components/auth/RegisterForm.vue';
 import LanguageSwitcher from '@/components/LanguageSwitcher.vue';
-import LoginModal from '@/pages/auth/LoginModal.vue';
-import LoginRekaUIModal from '@/pages/auth/LoginRekaUIModal.vue';
-import { login, register } from '@/routes';
+import { useTranslate } from '@/composables/useTranslate';
+import AuthModal from '@/pages/auth/AuthModal.vue';
 import { dashboard } from '@/routes/cabinet';
 import { Link } from '@inertiajs/vue3';
 import { useDark, useToggle } from '@vueuse/core';
 import { Moon, Sparkles, Sun } from 'lucide-vue-next';
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
+
+withDefaults(
+  defineProps<{
+    canResetPassword?: boolean;
+    canRegister?: boolean;
+  }>(),
+  {
+    canResetPassword: true,
+    canRegister: true,
+  },
+);
+
+const { __ } = useTranslate();
 
 const isDark = useDark();
 const toggleDark = useToggle(isDark);
 
-const isLoginOpen = ref(false);
+const isAuthOpen = ref(false);
+const authMode = ref<'login' | 'register' | 'forgot-password'>('login');
+
+const modalConfig = computed(() => {
+  const configs = {
+    login: {
+      title: __('Welcome Back'),
+      description: __('Continue your journey with the Oracle'),
+    },
+    register: {
+      title: __('Join the Circle'),
+      description: __('Create your Master account today'),
+    },
+    'forgot-password': {
+      title: __('Reset Password'),
+      description: __('Enter your email to receive a recovery link'),
+    },
+  };
+
+  return configs[authMode.value];
+});
+
+const openLogin = () => {
+  authMode.value = 'login';
+  isAuthOpen.value = true;
+};
+const openRegister = () => {
+  authMode.value = 'register';
+  isAuthOpen.value = true;
+};
+// const openForgotPassword = () => {
+//   authMode.value = 'forgot-password';
+//   isAuthOpen.value = true;
+// };
 </script>
 
 <template>
@@ -48,30 +96,70 @@ const isLoginOpen = ref(false);
       </Link>
 
       <template v-else>
-        <LoginRekaUIModal />
         <button
+          @click="openLogin"
           class="hidden rounded-full px-5 py-2 text-sm font-bold text-slate-700 transition-colors hover:bg-slate-100 sm:block dark:text-slate-300 dark:hover:bg-slate-800"
-          @click="isLoginOpen = true"
         >
           {{ __('Log in') }}
         </button>
 
-        <Link
-          :href="login().url"
-          class="hidden rounded-full px-5 py-2 text-sm font-bold text-slate-700 transition-colors hover:bg-slate-100 sm:block dark:text-slate-300 dark:hover:bg-slate-800"
-        >
-          {{ __('Log In') }}
-        </Link>
-
-        <Link
-          :href="register().url"
+        <button
+          @click="openRegister"
           class="hidden rounded-full bg-slate-900 px-6 py-2.5 text-sm font-bold text-white shadow-md transition-all hover:shadow-lg active:scale-95 sm:block dark:bg-amber-600 dark:text-slate-950 dark:hover:bg-amber-500"
         >
           {{ __('Get started for free') }}
-        </Link>
+        </button>
       </template>
     </div>
   </nav>
 
-  <LoginModal :show="isLoginOpen" @close="isLoginOpen = false" />
+  <AuthModal
+    v-model:open="isAuthOpen"
+    :title="modalConfig.title"
+    :description="modalConfig.description"
+  >
+    <template #content>
+      <LoginForm
+        v-if="authMode === 'login'"
+        @forgot-password="authMode = 'forgot-password'"
+      />
+      <RegisterForm v-if="authMode === 'register'" />
+      <ForgotPasswordForm v-if="authMode === 'forgot-password'" />
+    </template>
+
+    <template #footer>
+      <div class="mt-4">
+        <div v-if="authMode === 'login'" class="text-sm">
+          <div
+            class="flex items-center justify-center gap-6 text-center text-sm"
+          >
+            <button
+              v-if="canResetPassword"
+              @click="authMode = 'forgot-password'"
+              class="font-bold text-amber-600 hover:underline"
+            >
+              {{ __('Forgot password?') }}
+            </button>
+
+            <button
+              v-if="canRegister"
+              @click="authMode = 'register'"
+              class="font-bold text-amber-600 hover:underline"
+            >
+              {{ __('Sign up') }}
+            </button>
+          </div>
+        </div>
+
+        <div v-if="authMode !== 'login'" class="text-sm">
+          <button
+            @click="authMode = 'login'"
+            class="ml-1 font-bold text-amber-600 hover:underline"
+          >
+            {{ __('Log in') }}
+          </button>
+        </div>
+      </div>
+    </template>
+  </AuthModal>
 </template>
