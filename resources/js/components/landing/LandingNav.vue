@@ -117,6 +117,7 @@ const openRegister = () => {
     v-model:open="isAuthOpen"
     :title="modalConfig.title"
     :description="modalConfig.description"
+    :mode="authMode"
   >
     <template #content>
       <LoginForm

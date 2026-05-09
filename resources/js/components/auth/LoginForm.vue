@@ -38,7 +38,7 @@ import { Form } from '@inertiajs/vue3';
           type="password"
           name="password"
           required
-          autocomplete="current-password"
+          autocomplete="new-password"
           placeholder="Password"
         />
         <InputError :message="errors.password" />
