@@ -23,15 +23,13 @@ import { Form } from '@inertiajs/vue3';
       <InputError :message="errors.email" />
     </div>
 
-    <div class="my-6 flex items-center justify-start">
-      <Button
-        class="w-full"
-        :disabled="processing"
-        data-test="email-password-reset-link-button"
-      >
-        <Spinner v-if="processing" />
-        {{ __('Email password reset link') }}
-      </Button>
-    </div>
+    <Button
+      class="w-full"
+      :disabled="processing"
+      data-test="email-password-reset-link-button"
+    >
+      <Spinner v-if="processing" />
+      {{ __('Email password reset link') }}
+    </Button>
   </Form>
 </template>

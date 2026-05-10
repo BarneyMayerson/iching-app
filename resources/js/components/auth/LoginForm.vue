@@ -51,7 +51,7 @@ import { Form } from '@inertiajs/vue3';
         </Label>
       </div>
 
-      <Button type="submit" class="mt-4 w-full" :disabled="processing">
+      <Button type="submit" class="w-full" :disabled="processing">
         <Spinner v-if="processing" />
         {{ __('Log in') }}
       </Button>

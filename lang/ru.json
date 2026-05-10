@@ -161,7 +161,7 @@
     "Editable content for all locales.": "Редактируемый контент для всех локалей.",
     "Email": "Электронная почта",
     "Email address": "Электронная почта",
-    "Email password reset link": "Отправить ссылку для сброса",
+    "Email password reset link": "Отправить ссылку для восстановления",
     "Email verification": "Подтверждение почты",
     "Email Verified": "Email подтвержден",
     "Emerging Hexagram": "Проявление гексаграммы",
@@ -612,5 +612,10 @@
     "Your divination is complete. Create an account to save and get access to more features.": "Ваше гадание завершено. Создайте учетную запись, чтобы сохранить и получить доступ к дополнительным функциям.",
     "Your email address is unverified.": "Ваш адрес электронной почты не подтвержден.",
     "Your Inquiry": "Ваш запрос",
-    "Your unique order ID": "Ваш уникальный ID заказа"
+    "Your unique order ID": "Ваш уникальный ID заказа",
+
+    "Continue your journey with the Oracle": "Продолжите ваше путешествие с Оракулом",
+    "Create your Master account today": "Создайте свой мастер-аккаунт сегодня",
+    "Join the Circle": "Присоединитесь к кругу",
+    "Enter your email to receive a recovery link": "Введите ваш email, чтобы получить ссылку для восстановления"
 }

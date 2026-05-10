@@ -33,7 +33,7 @@ const authMode = ref<'login' | 'register' | 'forgot-password'>('login');
 const modalConfig = computed(() => {
   const configs = {
     login: {
-      title: __('Welcome Back'),
+      title: __('Welcome back'),
       description: __('Continue your journey with the Oracle'),
     },
     register: {
@@ -41,7 +41,7 @@ const modalConfig = computed(() => {
       description: __('Create your Master account today'),
     },
     'forgot-password': {
-      title: __('Reset Password'),
+      title: __('Reset password'),
       description: __('Enter your email to receive a recovery link'),
     },
   };
@@ -129,37 +129,36 @@ const openRegister = () => {
     </template>
 
     <template #footer>
-      <div class="mt-4">
-        <div v-if="authMode === 'login'" class="text-sm">
-          <div
-            class="flex items-center justify-center gap-6 text-center text-sm"
-          >
-            <button
-              v-if="canResetPassword"
-              @click="authMode = 'forgot-password'"
-              class="font-bold text-amber-600 hover:underline"
-            >
-              {{ __('Forgot password?') }}
-            </button>
-
-            <button
-              v-if="canRegister"
-              @click="authMode = 'register'"
-              class="font-bold text-amber-600 hover:underline"
-            >
-              {{ __('Sign up') }}
-            </button>
-          </div>
-        </div>
-
-        <div v-if="authMode !== 'login'" class="text-sm">
+      <div class="mt-4 text-sm">
+        <div
+          v-if="authMode === 'login'"
+          class="flex items-center justify-center gap-6 text-center text-sm"
+        >
           <button
-            @click="authMode = 'login'"
-            class="ml-1 font-bold text-amber-600 hover:underline"
+            v-if="canResetPassword"
+            @click="authMode = 'forgot-password'"
+            class="font-bold text-amber-600 hover:underline"
           >
-            {{ __('Log in') }}
+            {{ __('Forgot password?') }}
+          </button>
+
+          <button
+            v-if="canRegister"
+            @click="authMode = 'register'"
+            class="font-bold text-amber-600 hover:underline"
+          >
+            {{ __('Sign up') }}
           </button>
         </div>
+      </div>
+
+      <div v-if="authMode !== 'login'">
+        <button
+          @click="authMode = 'login'"
+          class="ml-1 font-bold text-amber-600 hover:underline"
+        >
+          {{ __('Log in') }}
+        </button>
       </div>
     </template>
   </AuthModal>

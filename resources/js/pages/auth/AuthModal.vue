@@ -26,7 +26,7 @@ const emit = defineEmits(['update:open']);
     >
       <Transition name="modal-content" mode="out-in" appear>
         <div :key="mode" class="w-full">
-          <DialogHeader class="flex flex-col items-center justify-center pt-4">
+          <DialogHeader class="flex flex-col items-center justify-center py-4">
             <LogoMotion class="mb-4 size-20" />
             <DialogTitle
               class="font-serif text-3xl font-bold text-slate-900 dark:text-white"
@@ -44,7 +44,7 @@ const emit = defineEmits(['update:open']);
           <slot name="content" />
 
           <div
-            class="flex flex-col items-center border-t border-slate-200 dark:border-slate-700"
+            class="mt-4 flex flex-col items-center border-t border-green-500"
           >
             <slot name="footer" />
           </div>
