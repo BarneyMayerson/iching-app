@@ -33,7 +33,7 @@ test('reset password screen can be rendered', function () {
     Notification::assertSentTo($user, ResetPassword::class, function ($notification) {
         $response = get(route('password.reset', $notification->token));
 
-        $response->assertStatus(200);
+        $response->assertStatus(302);
 
         return true;
     });
@@ -54,9 +54,11 @@ test('password can be reset with valid token', function () {
             'password_confirmation' => 'password',
         ]);
 
+        $expectedUrl = route('home', ['modal' => 'login']);
+
         $response
             ->assertSessionHasNoErrors()
-            ->assertRedirect(route('login'));
+            ->assertRedirect($expectedUrl);
 
         return true;
     });

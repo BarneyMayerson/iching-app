@@ -7,11 +7,15 @@ namespace App\Providers;
 use App\Actions\Fortify\CreateNewUser;
 use App\Actions\Fortify\ResetUserPassword;
 use Illuminate\Cache\RateLimiting\Limit;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 use Inertia\Inertia;
+use Inertia\Response;
+use Laravel\Fortify\Contracts\PasswordResetResponse;
+use Laravel\Fortify\Contracts\PasswordResetResponse as PasswordResetResponseContract;
 use Laravel\Fortify\Features;
 use Laravel\Fortify\Fortify;
 
@@ -33,6 +37,22 @@ class FortifyServiceProvider extends ServiceProvider
         $this->configureActions();
         $this->configureViews();
         $this->configureRateLimiting();
+
+        $this->app->singleton(fn (): PasswordResetResponse => new class implements PasswordResetResponseContract
+        {
+            public function toResponse($request)
+            {
+                /**
+                 * @param  Request  $request
+                 * @return Response
+                 */
+                return $request->wantsJson()
+                    ? new JsonResponse('', 204)
+                    : to_route('home', [
+                        'modal' => 'login',
+                    ])->with('info', __('Your password has been reset!'));
+            }
+        });
     }
 
     /**
@@ -55,9 +75,10 @@ class FortifyServiceProvider extends ServiceProvider
             'status' => $request->session()->get('status'),
         ]));
 
-        Fortify::resetPasswordView(fn (Request $request) => Inertia::render('auth/ResetPassword', [
-            'email' => $request->email,
+        Fortify::resetPasswordView(fn (Request $request) => to_route('home', [
+            'modal' => 'reset-password',
             'token' => $request->route('token'),
+            'email' => $request->email,
         ]));
 
         Fortify::requestPasswordResetLinkView(fn (Request $request) => Inertia::render('auth/ForgotPassword', [

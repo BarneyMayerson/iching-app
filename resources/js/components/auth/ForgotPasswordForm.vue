@@ -24,7 +24,7 @@ import { Form } from '@inertiajs/vue3';
     </div>
 
     <Button
-      class="w-full"
+      class="mt-6 w-full"
       :disabled="processing"
       data-test="email-password-reset-link-button"
     >

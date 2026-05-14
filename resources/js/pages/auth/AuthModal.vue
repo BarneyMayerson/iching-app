@@ -11,7 +11,12 @@ import {
 interface Props {
   open: boolean;
   title: string;
-  mode: 'login' | 'register' | 'forgot-password';
+  mode:
+    | 'login'
+    | 'register'
+    | 'forgot-password'
+    | 'reset-password'
+    | 'check-email';
   description?: string;
 }
 
@@ -44,7 +49,7 @@ const emit = defineEmits(['update:open']);
           <slot name="content" />
 
           <div
-            class="mt-4 flex flex-col items-center border-t border-green-500"
+            class="mt-4 flex flex-col items-center border-t border-slate-200 dark:border-slate-700"
           >
             <slot name="footer" />
           </div>

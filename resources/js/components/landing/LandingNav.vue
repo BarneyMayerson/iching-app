@@ -2,14 +2,15 @@
 import ForgotPasswordForm from '@/components/auth/ForgotPasswordForm.vue';
 import LoginForm from '@/components/auth/LoginForm.vue';
 import RegisterForm from '@/components/auth/RegisterForm.vue';
+import ResetPasswordForm from '@/components/auth/ResetPasswordForm.vue';
 import LanguageSwitcher from '@/components/LanguageSwitcher.vue';
 import { useTranslate } from '@/composables/useTranslate';
 import AuthModal from '@/pages/auth/AuthModal.vue';
 import { dashboard } from '@/routes/cabinet';
-import { Link } from '@inertiajs/vue3';
+import { Link, usePage } from '@inertiajs/vue3';
 import { useDark, useToggle } from '@vueuse/core';
 import { Moon, Sparkles, Sun } from 'lucide-vue-next';
-import { computed, ref } from 'vue';
+import { computed, ref, watch } from 'vue';
 
 withDefaults(
   defineProps<{
@@ -22,13 +23,17 @@ withDefaults(
   },
 );
 
+const page = usePage();
+
 const { __ } = useTranslate();
 
 const isDark = useDark();
 const toggleDark = useToggle(isDark);
 
 const isAuthOpen = ref(false);
-const authMode = ref<'login' | 'register' | 'forgot-password'>('login');
+const authMode = ref<
+  'login' | 'register' | 'forgot-password' | 'reset-password' | 'check-email'
+>('login');
 
 const modalConfig = computed(() => {
   const configs = {
@@ -44,6 +49,14 @@ const modalConfig = computed(() => {
       title: __('Reset password'),
       description: __('Enter your email to receive a recovery link'),
     },
+    'reset-password': {
+      title: __('New Password'),
+      description: __('Set a strong password for your account'),
+    },
+    'check-email': {
+      title: __('Check your inbox'),
+      description: __('We have emailed your password reset link!'),
+    },
   };
 
   return configs[authMode.value];
@@ -57,10 +70,62 @@ const openRegister = () => {
   authMode.value = 'register';
   isAuthOpen.value = true;
 };
-// const openForgotPassword = () => {
-//   authMode.value = 'forgot-password';
-//   isAuthOpen.value = true;
-// };
+
+const resetData = ref({
+  token: '',
+  email: '',
+});
+
+const clearAuthQueryParams = () => {
+  const url = new URL(window.location.href);
+
+  ['modal', 'token', 'email'].forEach((param) => {
+    url.searchParams.delete(param);
+  });
+
+  const query = url.searchParams.toString();
+
+  window.history.replaceState(
+    {},
+    '',
+    query ? `${url.pathname}?${query}` : url.pathname,
+  );
+};
+
+const checkUrlParams = () => {
+  const params = new URLSearchParams(window.location.search);
+
+  const modal = params.get('modal');
+
+  if (modal === 'reset-password' && params.get('token')) {
+    resetData.value = {
+      token: params.get('token') || '',
+      email: params.get('email') || '',
+    };
+
+    authMode.value = 'reset-password';
+    isAuthOpen.value = true;
+
+    return;
+  }
+
+  if (modal === 'login') {
+    authMode.value = 'login';
+    isAuthOpen.value = true;
+  }
+};
+
+watch(isAuthOpen, (isOpen, wasOpen) => {
+  if (wasOpen && !isOpen) {
+    clearAuthQueryParams();
+  }
+});
+
+watch(
+  () => page.url,
+  () => checkUrlParams(),
+  { immediate: true },
+);
 </script>
 
 <template>
@@ -125,14 +190,22 @@ const openRegister = () => {
         @forgot-password="authMode = 'forgot-password'"
       />
       <RegisterForm v-if="authMode === 'register'" />
-      <ForgotPasswordForm v-if="authMode === 'forgot-password'" />
+      <ForgotPasswordForm
+        v-if="authMode === 'forgot-password'"
+        @success="authMode = 'check-email'"
+      />
+      <ResetPasswordForm
+        v-if="authMode === 'reset-password'"
+        :token="resetData.token"
+        :email="resetData.email"
+      />
     </template>
 
     <template #footer>
       <div class="mt-4 text-sm">
         <div
           v-if="authMode === 'login'"
-          class="flex items-center justify-center gap-6 text-center text-sm"
+          class="flex items-center justify-center gap-6 text-center"
         >
           <button
             v-if="canResetPassword"
@@ -152,12 +225,21 @@ const openRegister = () => {
         </div>
       </div>
 
-      <div v-if="authMode !== 'login'">
+      <div v-if="authMode === 'register' || authMode === 'forgot-password'">
         <button
           @click="authMode = 'login'"
-          class="ml-1 font-bold text-amber-600 hover:underline"
+          class="font-bold text-amber-600 hover:underline"
         >
           {{ __('Log in') }}
+        </button>
+      </div>
+
+      <div v-if="authMode === 'check-email'">
+        <button
+          @click="isAuthOpen = false"
+          class="font-bold text-amber-600 hover:underline"
+        >
+          {{ __('Close') }}
         </button>
       </div>
     </template>
