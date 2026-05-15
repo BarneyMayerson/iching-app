@@ -28,6 +28,7 @@ export interface NavItem {
   target?: '_blank' | '_self' | '_parent' | '_top';
   icon?: LucideIcon;
   isActive?: boolean;
+  exact?: boolean;
 }
 
 export type AppPageProps<

@@ -38,6 +38,7 @@ const mainNavItems = computed<NavItem[]>(() => [
     title: __('Overview'),
     href: cabinetDashboard().url,
     icon: LayoutGrid,
+    exact: true,
   },
   {
     title: __('Divinations'),
@@ -45,6 +46,8 @@ const mainNavItems = computed<NavItem[]>(() => [
     icon: Sparkles,
   },
 ]);
+
+console.log(page.url.includes(cabinetDivinationsIndex().url));
 
 const footerNavItems = computed<NavItem[]>(() => {
   const items: NavItem[] = [
@@ -78,7 +81,7 @@ const footerNavItems = computed<NavItem[]>(() => {
 </script>
 
 <template>
-  <Sidebar collapsible="icon" variant="inset">
+  <Sidebar collapsible="icon" variant="sidebar">
     <SidebarHeader>
       <SidebarMenu>
         <SidebarMenuItem>
