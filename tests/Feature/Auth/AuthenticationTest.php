@@ -11,8 +11,8 @@ use function Pest\Laravel\assertGuest;
 use function Pest\Laravel\get;
 use function Pest\Laravel\post;
 
-test('login screen can be rendered', function () {
-    $response = get(route('login'));
+test('login dialog can be rendered', function () {
+    $response = get(route('home', ['modal' => 'login']));
 
     $response->assertOk();
 });

@@ -10,7 +10,7 @@ use function Pest\Laravel\seed;
 test('registration screen can be rendered', function () {
     $response = get(route('register'));
 
-    $response->assertStatus(200);
+    $response->assertStatus(302);
 });
 
 test('new users can register', function (): void {

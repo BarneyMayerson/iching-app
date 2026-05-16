@@ -4,12 +4,12 @@ import LoginForm from '@/components/auth/LoginForm.vue';
 import RegisterForm from '@/components/auth/RegisterForm.vue';
 import ResetPasswordForm from '@/components/auth/ResetPasswordForm.vue';
 import LanguageSwitcher from '@/components/LanguageSwitcher.vue';
+import ThemeSwitcher from '@/components/ThemeSwitcher.vue';
 import { useTranslate } from '@/composables/useTranslate';
 import AuthModal from '@/pages/auth/AuthModal.vue';
 import { dashboard } from '@/routes/cabinet';
 import { Link, usePage } from '@inertiajs/vue3';
-import { useDark, useToggle } from '@vueuse/core';
-import { Moon, Sparkles, Sun } from 'lucide-vue-next';
+import { Sparkles } from 'lucide-vue-next';
 import { computed, ref, watch } from 'vue';
 
 withDefaults(
@@ -26,9 +26,6 @@ withDefaults(
 const page = usePage();
 
 const { __ } = useTranslate();
-
-const isDark = useDark();
-const toggleDark = useToggle(isDark);
 
 const isAuthOpen = ref(false);
 const authMode = ref<
@@ -145,13 +142,7 @@ watch(
 
     <div class="flex items-center gap-2 sm:gap-4">
       <LanguageSwitcher :currentLocale="$page.props.locale" />
-      <button
-        @click="toggleDark()"
-        class="rounded-full p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800"
-      >
-        <Sun v-if="isDark" class="size-5" />
-        <Moon v-else class="size-5" />
-      </button>
+      <ThemeSwitcher />
       <Link
         v-if="$page.props.auth.user"
         :href="dashboard().url"

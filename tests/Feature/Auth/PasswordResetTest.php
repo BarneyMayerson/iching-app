@@ -10,7 +10,7 @@ use function Pest\Laravel\post;
 test('reset password link screen can be rendered', function () {
     $response = get(route('password.request'));
 
-    $response->assertOk();
+    $response->assertStatus(302);
 });
 
 test('reset password link can be requested', function () {
