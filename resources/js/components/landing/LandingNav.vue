@@ -8,7 +8,7 @@ import ThemeSwitcher from '@/components/ThemeSwitcher.vue';
 import { useTranslate } from '@/composables/useTranslate';
 import AuthModal from '@/pages/auth/AuthModal.vue';
 import { dashboard } from '@/routes/cabinet';
-import { Link, usePage } from '@inertiajs/vue3';
+import { Link, router, usePage } from '@inertiajs/vue3';
 import { Sparkles } from 'lucide-vue-next';
 import { computed, ref, watch } from 'vue';
 
@@ -63,8 +63,14 @@ const openLogin = () => {
   authMode.value = 'login';
   isAuthOpen.value = true;
 };
+
 const openRegister = () => {
   authMode.value = 'register';
+  isAuthOpen.value = true;
+};
+
+const openForgotPassword = () => {
+  authMode.value = 'forgot-password';
   isAuthOpen.value = true;
 };
 
@@ -94,6 +100,14 @@ const checkUrlParams = () => {
 
   const modal = params.get('modal');
 
+  if (!modal) return;
+
+  if (page.props.auth?.user) {
+    router.visit(dashboard().url);
+
+    return;
+  }
+
   if (modal === 'reset-password' && params.get('token')) {
     resetData.value = {
       token: params.get('token') || '',
@@ -102,13 +116,12 @@ const checkUrlParams = () => {
 
     authMode.value = 'reset-password';
     isAuthOpen.value = true;
-
-    return;
-  }
-
-  if (modal === 'login') {
-    authMode.value = 'login';
-    isAuthOpen.value = true;
+  } else if (modal === 'login') {
+    openLogin();
+  } else if (modal === 'register') {
+    openRegister();
+  } else if (modal === 'forgot-password') {
+    openForgotPassword();
   }
 };
 
