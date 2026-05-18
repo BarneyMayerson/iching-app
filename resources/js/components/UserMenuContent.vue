@@ -5,25 +5,41 @@ import {
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
 } from '@/components/ui/dropdown-menu';
 import { useTranslate } from '@/composables/useTranslate';
 import { logout } from '@/routes';
+import { update as languageUpdate } from '@/routes/language';
 import { edit } from '@/routes/profile';
 import type { User } from '@/types';
 import { Link, router } from '@inertiajs/vue3';
-import { LogOut, Settings } from 'lucide-vue-next';
+import { Check, Globe, LogOut, Settings } from 'lucide-vue-next';
 
 interface Props {
   user: User;
 }
 
-const { __ } = useTranslate();
+defineProps<Props>();
+
+const { locale } = useTranslate();
 
 const handleLogout = () => {
   router.flushAll();
 };
 
-defineProps<Props>();
+const changeLanguage = (lang: string) => {
+  if (lang === locale.value) return;
+
+  router.post(
+    languageUpdate().url,
+    { language: lang },
+    {
+      preserveScroll: true,
+    },
+  );
+};
 </script>
 
 <template>
@@ -40,6 +56,38 @@ defineProps<Props>();
         {{ __('Settings') }}
       </Link>
     </DropdownMenuItem>
+
+    <DropdownMenuSub>
+      <DropdownMenuSubTrigger class="cursor-pointer">
+        <Globe class="mr-4 h-4 w-4" />
+        <span>{{ __('Language') }}</span>
+        <span
+          class="ml-auto rounded bg-slate-100 px-1.5 py-0.5 text-xs font-semibold text-muted-foreground uppercase dark:bg-slate-800"
+        >
+          {{ locale }}
+        </span>
+      </DropdownMenuSubTrigger>
+
+      <DropdownMenuPortal>
+        <DropdownMenuSubContent class="min-w-40">
+          <DropdownMenuItem
+            @click="changeLanguage('ru')"
+            class="flex cursor-pointer items-center justify-between"
+          >
+            <span>Русский</span>
+            <Check v-if="locale === 'ru'" class="h-4 w-4 text-emerald-600" />
+          </DropdownMenuItem>
+
+          <DropdownMenuItem
+            @click="changeLanguage('en')"
+            class="flex cursor-pointer items-center justify-between"
+          >
+            <span>English</span>
+            <Check v-if="locale === 'en'" class="h-4 w-4 text-emerald-600" />
+          </DropdownMenuItem>
+        </DropdownMenuSubContent>
+      </DropdownMenuPortal>
+    </DropdownMenuSub>
   </DropdownMenuGroup>
   <DropdownMenuSeparator />
   <DropdownMenuItem :as-child="true">

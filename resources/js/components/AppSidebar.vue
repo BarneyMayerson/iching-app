@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import LanguageSwitcher from '@/components/LanguageSwitcher.vue';
 import NavFooter from '@/components/NavFooter.vue';
 import NavMain from '@/components/NavMain.vue';
 import NavUser from '@/components/NavUser.vue';
@@ -99,9 +98,6 @@ const footerNavItems = computed<NavItem[]>(() => {
     </SidebarContent>
 
     <SidebarFooter>
-      <div class="px-2 py-2 group-data-[collapsible=icon]:hidden">
-        <LanguageSwitcher :current-locale="locale" />
-      </div>
       <NavFooter :items="footerNavItems" />
       <NavUser />
     </SidebarFooter>
